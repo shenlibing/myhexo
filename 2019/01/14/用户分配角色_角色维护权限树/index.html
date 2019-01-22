@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/myhexo/',
+    scheme: 'Muse',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1、用户分配角色 效果图：   实现思路： 1）先静态实现页面 2）从数据库查询用户未分配角色和已分配角色，前端初始化该列表 3）添加、移除用户拥有的角色 前端： 1)左移、右移：append和appendTo的使用 12$(&amp;quot;.unroles :selected&amp;quot;).appendTo(&amp;quot;.roles_select&amp;quot;) 2）遍历选中的角色 123456//遍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用户分配角色_角色维护权限树">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/01/14/用户分配角色_角色维护权限树/index.html">
+<meta property="og:site_name" content="小兵兵">
+<meta property="og:description" content="1、用户分配角色 效果图：   实现思路： 1）先静态实现页面 2）从数据库查询用户未分配角色和已分配角色，前端初始化该列表 3）添加、移除用户拥有的角色 前端： 1)左移、右移：append和appendTo的使用 12$(&amp;quot;.unroles :selected&amp;quot;).appendTo(&amp;quot;.roles_select&amp;quot;) 2）遍历选中的角色 123456//遍">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/ra0b05w.png">
+<meta property="og:image" content="https://i.imgur.com/L33T2Cu.png">
+<meta property="og:image" content="https://i.imgur.com/U4cB5aj.png">
+<meta property="og:image" content="https://i.imgur.com/Yd4wo1a.png">
+<meta property="og:image" content="https://i.imgur.com/mAxFNQa.png">
+<meta property="og:image" content="https://i.imgur.com/EHO2nFc.png">
+<meta property="og:updated_time" content="2019-01-22T07:56:18.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用户分配角色_角色维护权限树">
+<meta name="twitter:description" content="1、用户分配角色 效果图：   实现思路： 1）先静态实现页面 2）从数据库查询用户未分配角色和已分配角色，前端初始化该列表 3）添加、移除用户拥有的角色 前端： 1)左移、右移：append和appendTo的使用 12$(&amp;quot;.unroles :selected&amp;quot;).appendTo(&amp;quot;.roles_select&amp;quot;) 2）遍历选中的角色 123456//遍">
+<meta name="twitter:image" content="https://i.imgur.com/ra0b05w.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/01/14/用户分配角色_角色维护权限树/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>用户分配角色_角色维护权限树 | 小兵兵</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/myhexo/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵兵</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/14/用户分配角色_角色维护权限树/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myhexo/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用户分配角色_角色维护权限树
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-14 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-14T12:58:55+08:00">2019-01-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-22 15:56:18" itemprop="dateModified" datetime="2019-01-22T15:56:18+08:00">2019-01-22</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1、用户分配角色</p>
+<p>效果图：</p>
+<p><img src="https://i.imgur.com/ra0b05w.png" alt=""></p>
+<p><img src="https://i.imgur.com/L33T2Cu.png" alt=""></p>
+<p>实现思路：</p>
+<p>1）先静态实现页面</p>
+<p>2）从数据库查询用户未分配角色和已分配角色，前端初始化该列表</p>
+<p>3）添加、移除用户拥有的角色</p>
+<p>前端：</p>
+<p>1)左移、右移：append和appendTo的使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$(&quot;.unroles :selected&quot;).appendTo(&quot;.roles_select&quot;)</span><br></pre></td></tr></table></figure>
+<p>2）遍历选中的角色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//遍历选中的元素,拼接用户角色id</span><br><span class="line">$(&apos;.unroles :selected&apos;).each(function() &#123;</span><br><span class="line">	log(this)</span><br><span class="line">	rids += $(this).val() + &apos;,&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>3)ajax发送异步请求（参数拼接：用户id,角色rids）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">uid = &apos;$&#123;param.uid&#125;&apos;</span><br><span class="line">url = &apos;$&#123;ctp&#125;/permission/user/assignrole?opt=remove&amp;uid=&apos;</span><br><span class="line">		+ uid + &apos;&amp;rids=&apos; + rids + &apos;&apos;</span><br><span class="line"></span><br><span class="line">//发送请求移除</span><br><span class="line">$.get(url, fnf)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div class=&quot;panel panel-default&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;panel-body&quot;&gt;</span><br><span class="line">			&lt;form role=&quot;form&quot; class=&quot;form-inline&quot;&gt;</span><br><span class="line">				&lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">					&lt;label for=&quot;exampleInputPassword1&quot;&gt;未分配角色列表&lt;/label&gt;&lt;br&gt; &lt;select</span><br><span class="line">						class=&quot;form-control unroles&quot; multiple size=&quot;10&quot;</span><br><span class="line">						style=&quot;width: 100px; overflow-y: auto;&quot;&gt;</span><br><span class="line">						&lt;c:forEach items=&quot;$&#123;list_user_unrole&#125;&quot; var=&quot;user_unrole&quot;&gt;</span><br><span class="line">							&lt;option value=&quot;$&#123;user_unrole.id&#125;&quot;&gt;$&#123;user_unrole.name&#125;&lt;/option&gt;</span><br><span class="line">						&lt;/c:forEach&gt;</span><br><span class="line">					&lt;/select&gt;</span><br><span class="line">				&lt;/div&gt;</span><br><span class="line">				&lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">					&lt;ul&gt;</span><br><span class="line">						&lt;li class=&quot;btn btn-default glyphicon glyphicon-chevron-right&quot;&gt;&lt;/li&gt;</span><br><span class="line">						&lt;br&gt;</span><br><span class="line">						&lt;li class=&quot;btn btn-default glyphicon glyphicon-chevron-left&quot;</span><br><span class="line">							style=&quot;margin-top: 20px;&quot;&gt;&lt;/li&gt;</span><br><span class="line">					&lt;/ul&gt;</span><br><span class="line">				&lt;/div&gt;</span><br><span class="line">				&lt;div class=&quot;form-group&quot; style=&quot;margin-left: 40px;&quot;&gt;</span><br><span class="line">					&lt;label for=&quot;exampleInputPassword1&quot;&gt;已分配角色列表&lt;/label&gt;&lt;br&gt; &lt;select</span><br><span class="line">						class=&quot;form-control roles_select&quot; multiple size=&quot;10&quot;</span><br><span class="line">						style=&quot;width: 100px; overflow-y: auto;&quot;&gt;</span><br><span class="line">						&lt;c:forEach items=&quot;$&#123;list_user_role&#125;&quot; var=&quot;user_role&quot;&gt;</span><br><span class="line">							&lt;option value=&quot;$&#123;user_role.id&#125;&quot;&gt;$&#123;user_role.name&#125;&lt;/option&gt;</span><br><span class="line">						&lt;/c:forEach&gt;</span><br><span class="line">					&lt;/select&gt;</span><br><span class="line">				&lt;/div&gt;</span><br><span class="line">			&lt;/form&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	$(function() &#123;</span><br><span class="line">		$(&quot;.list-group-item&quot;).click(function() &#123;</span><br><span class="line">			if ($(this).find(&quot;ul&quot;)) &#123;</span><br><span class="line">				$(this).toggleClass(&quot;tree-closed&quot;);</span><br><span class="line">				if ($(this).hasClass(&quot;tree-closed&quot;)) &#123;</span><br><span class="line">					$(&quot;ul&quot;, this).hide(&quot;fast&quot;);</span><br><span class="line">				&#125; else &#123;</span><br><span class="line">					$(&quot;ul&quot;, this).show(&quot;fast&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">	//页面加载完成执行</span><br><span class="line">	$(function() &#123;</span><br><span class="line">		addUserRoleEvent()</span><br><span class="line">		removeUserRoleEvent()</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	//用户添加角色事件</span><br><span class="line">	var addUserRoleEvent = function() &#123;</span><br><span class="line">		$(&apos;.glyphicon-chevron-right&apos;).click(</span><br><span class="line">				function() &#123;</span><br><span class="line">					log(&apos;向右移动=============&gt;&apos;)</span><br><span class="line">					var uid = &apos;&apos;</span><br><span class="line">					var rids = &apos;&apos;</span><br><span class="line">					//遍历选中的元素,拼接用户角色id</span><br><span class="line">					$(&apos;.unroles :selected&apos;).each(function() &#123;</span><br><span class="line">						log(this)</span><br><span class="line">						rids += $(this).val() + &apos;,&apos;</span><br><span class="line">					&#125;)</span><br><span class="line">					rids = rids.substring(0, rids.length - 1)</span><br><span class="line">					log(&apos;用户角色ids==========&gt;&apos;, rids)</span><br><span class="line"></span><br><span class="line">					uid = &apos;$&#123;param.uid&#125;&apos;</span><br><span class="line">					url = &apos;$&#123;ctp&#125;/permission/user/assignrole?opt=add&amp;uid=&apos;</span><br><span class="line">							+ uid + &apos;&amp;rids=&apos; + rids + &apos;&apos;</span><br><span class="line"></span><br><span class="line">					//选中的得进行处理添加到用户角色表中</span><br><span class="line">					//发送请求给当前用户添加这几个角色，必须带上权限id的拼串和userid</span><br><span class="line">					$.get(url, fns)</span><br><span class="line"></span><br><span class="line">				&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//用户删除角色事件</span><br><span class="line">	var removeUserRoleEvent = function() &#123;</span><br><span class="line">		$(&apos;.glyphicon-chevron-left&apos;)</span><br><span class="line">				.click(</span><br><span class="line">						function() &#123;</span><br><span class="line">							log(&apos;向左移动=============&gt;&apos;)</span><br><span class="line">							var rids = &apos;&apos;</span><br><span class="line">							$(&apos;.roles_select :selected&apos;).each(function() &#123;</span><br><span class="line">								rids += $(this).val() + &apos;,&apos;</span><br><span class="line">							&#125;)</span><br><span class="line">							rids = rids.substring(0, rids.length - 1)</span><br><span class="line">							log(&apos;用户角色ids==========&gt;&apos;, rids)</span><br><span class="line"></span><br><span class="line">							uid = &apos;$&#123;param.uid&#125;&apos;</span><br><span class="line">							url = &apos;$&#123;ctp&#125;/permission/user/assignrole?opt=remove&amp;uid=&apos;</span><br><span class="line">									+ uid + &apos;&amp;rids=&apos; + rids + &apos;&apos;</span><br><span class="line"></span><br><span class="line">							//发送请求移除</span><br><span class="line">							$.get(url, fnf)</span><br><span class="line">						&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//异步请求成功的回调函数</span><br><span class="line">	var fns = function(data) &#123;</span><br><span class="line">		log(&apos;异步请求成功的回调函数===============&gt;&apos;)</span><br><span class="line">		log(&apos;data===========&gt;&apos;, data)</span><br><span class="line">		//$(&apos;.roles_select&apos;).append($(&apos;.unroles :selected&apos;))</span><br><span class="line">		$(&quot;.unroles :selected&quot;).appendTo(&quot;.roles_select&quot;)</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	//异步请求失败的回调函数</span><br><span class="line">	var fnf = function(data) &#123;</span><br><span class="line">		log(&apos;异步请求失败的回调函数===============&gt;&apos;)</span><br><span class="line">		log(&apos;data===========&gt;&apos;, data)</span><br><span class="line">		$(&apos;.roles_select :selected&apos;).appendTo(&apos;.unroles&apos;)</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>控制层:</p>
+<p>1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">// 添加移除用户角色</span><br><span class="line">  @RequestMapping(&quot;/assignrole&quot;)</span><br><span class="line">  @ResponseBody</span><br><span class="line">  public String userRole(@RequestParam(&quot;uid&quot;) Integer uid, @RequestParam(&quot;rids&quot;) String rids,</span><br><span class="line">          @RequestParam(&quot;opt&quot;) String opt) &#123;</span><br><span class="line">      System.out.println(&quot;添加移除用户角色==================&gt;&quot;);</span><br><span class="line">      System.out.println(&quot;用户id-----角色ids------类型：添加、移除&quot;);</span><br><span class="line">      System.out.println(uid);</span><br><span class="line">      System.out.println(rids);</span><br><span class="line">      System.out.println(opt);</span><br><span class="line"></span><br><span class="line">      if (&quot;add&quot;.equals(opt)) &#123;</span><br><span class="line">          // 为某个用户添加角色</span><br><span class="line">          int i = userRoleService.add(uid, rids);</span><br><span class="line"></span><br><span class="line">      &#125; else if (&quot;remove&quot;.equals(opt)) &#123;</span><br><span class="line">          // 为某个用户删除角色</span><br><span class="line">          int i = userRoleService.remove(uid, rids);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      return &quot;success&quot;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @RequestMapping(&quot;/toAssignRolePage&quot;)</span><br><span class="line">  public String toAssignRolePage(@RequestParam(value = &quot;uid&quot;) Integer uid, Model model) &#123;</span><br><span class="line">      System.out.println(&quot;UserController.toAssignRolePage去分配角色页面=============&gt;&quot;);</span><br><span class="line">      // 1、查出所有角色</span><br><span class="line">      List&lt;TRole&gt; list_role = roleService.getAllRole();</span><br><span class="line">      System.out.println(&quot;所有角色===========&gt;&quot;);</span><br><span class="line">      System.out.println(list_role);</span><br><span class="line">      // 2、查出当前用户拥有的角色</span><br><span class="line">      List&lt;TRole&gt; list_user_role = roleService.getUserRole(uid);</span><br><span class="line">      System.out.println(&quot;当前用户的角色==========&gt;&quot;);</span><br><span class="line">      System.out.println(list_user_role);</span><br><span class="line">      HashMap&lt;Integer, TRole&gt; map_user_role = new HashMap&lt;&gt;();</span><br><span class="line">      for (TRole tRole : list_user_role) &#123;</span><br><span class="line">          map_user_role.put(tRole.getId(), tRole);</span><br><span class="line">      &#125;</span><br><span class="line">      // 3、用户未分配的角色</span><br><span class="line">      ArrayList&lt;TRole&gt; list_user_unrole = new ArrayList&lt;&gt;();</span><br><span class="line">      for (TRole tRole : list_role) &#123;</span><br><span class="line">          if (!map_user_role.containsKey(tRole.getId())) &#123;</span><br><span class="line">              list_user_unrole.add(tRole);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(&quot;用户未分配的角色=============&gt;&quot;);</span><br><span class="line">      System.out.println(list_user_unrole);</span><br><span class="line">      model.addAttribute(&quot;list_user_role&quot;, list_user_role);</span><br><span class="line">      model.addAttribute(&quot;list_user_unrole&quot;, list_user_unrole);</span><br><span class="line">      // model.addAttribute(&quot;uid&quot;, uid);</span><br><span class="line">      return &quot;manager/permission/assignRole&quot;;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>sql:</p>
+<p>1)用户表、用户_角色表、角色表3个表多表查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;resultMap id=&quot;BaseResultMap&quot;</span><br><span class="line">	type=&quot;com.atguigu.scw.manager.bean.TRole&quot;&gt;</span><br><span class="line">	&lt;id column=&quot;id&quot; jdbcType=&quot;INTEGER&quot; property=&quot;id&quot; /&gt;</span><br><span class="line">	&lt;result column=&quot;name&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;name&quot; /&gt;</span><br><span class="line">&lt;/resultMap&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- List&lt;TRole&gt; getUserRole(Integer uid); --&gt;</span><br><span class="line">&lt;select id=&quot;getUserRole&quot; resultMap=&quot;BaseResultMap&quot;&gt;</span><br><span class="line">	SELECT</span><br><span class="line">	a.*</span><br><span class="line">	FROM</span><br><span class="line">	t_role a</span><br><span class="line">	LEFT JOIN t_user_role b</span><br><span class="line">	ON a.`id` = b.`roleid`</span><br><span class="line">	LEFT JOIN t_user c</span><br><span class="line">	ON b.`userid` = c.`id`</span><br><span class="line">	WHERE c.`id` = #&#123;uid&#125; </span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>2、角色维护权限树</p>
+<p>效果图：</p>
+<p><img src="https://i.imgur.com/U4cB5aj.png" alt=""></p>
+<p><img src="https://i.imgur.com/Yd4wo1a.png" alt=""></p>
+<p>实现思路：</p>
+<p>1）zTree展示权限树，初始化含有复选框的权限树，异步请求控制层（参数：角色rid）查询出角色拥有的权限</p>
+<p>2）点击分配权限携带角色rid和权限permission_ids到控制层，先删除角色所拥有的权限，再更加permission_ids更新角色拥有的权限，同步到前端</p>
+<p>3）bootstrap模态框–分配权限按钮绑定参数</p>
+<p><img src="https://i.imgur.com/mAxFNQa.png" alt=""></p>
+<p><img src="https://i.imgur.com/EHO2nFc.png" alt=""></p>
+<p>前端：</p>
+<p>1）zTree权限树复选框初始化的时候刚开始使用2次异步请求（一次请求所有权限，一次请求角色拥有的权限），展示数据有点混乱，后来改为一次异步请求同时查询出（所有权限、角色拥有的权限）。</p>
+<p>2）bootstrap自定义图标显示不出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- Modal模态框 --&gt;</span><br><span class="line">&lt;div class=&quot;modal fade&quot; id=&quot;permissModel&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;</span><br><span class="line">	aria-labelledby=&quot;myModalLabel&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;modal-content&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;modal-header&quot;&gt;</span><br><span class="line">				&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot;</span><br><span class="line">					aria-label=&quot;Close&quot;&gt;</span><br><span class="line">					&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;</span><br><span class="line">				&lt;/button&gt;</span><br><span class="line">				&lt;h4 class=&quot;modal-title&quot; id=&quot;myModalLabel&quot;&gt;Modal title&lt;/h4&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;modal-body&quot;&gt;</span><br><span class="line">				&lt;!--展示权限树  --&gt;</span><br><span class="line">				&lt;ul id=&quot;permissionTree&quot; class=&quot;ztree&quot;&gt;&lt;/ul&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;modal-footer&quot;&gt;</span><br><span class="line">				&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;关闭&lt;/button&gt;</span><br><span class="line">				&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; id=&apos;addPermissionBtn&apos;&gt;分配权限&lt;/button&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	$(function() &#123;</span><br><span class="line">		$(&quot;.list-group-item&quot;).click(function() &#123;</span><br><span class="line">			if ($(this).find(&quot;ul&quot;)) &#123;</span><br><span class="line">				$(this).toggleClass(&quot;tree-closed&quot;);</span><br><span class="line">				if ($(this).hasClass(&quot;tree-closed&quot;)) &#123;</span><br><span class="line">					$(&quot;ul&quot;, this).hide(&quot;fast&quot;);</span><br><span class="line">				&#125; else &#123;</span><br><span class="line">					$(&quot;ul&quot;, this).show(&quot;fast&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">	/* $(&quot;tbody .btn-success&quot;).click(function() &#123;</span><br><span class="line">		window.location.href = &quot;assignPermission.html&quot;;</span><br><span class="line">	&#125;); */</span><br><span class="line"></span><br><span class="line">	var zTree</span><br><span class="line"></span><br><span class="line">	//设置ajax同步</span><br><span class="line">	//$.ajaxSettings.async = false</span><br><span class="line">	var assignPermissionEvent = function() &#123;</span><br><span class="line">		$(&quot;.assignPermissionModelBtn&quot;).click(function() &#123;</span><br><span class="line">			log(&apos;assignPermissionEvent==============&gt;&apos;)</span><br><span class="line">			//获取当前角色id</span><br><span class="line">			log(&apos;当前角色id==========&gt;&apos;, $(this).attr(&apos;rid&apos;))</span><br><span class="line">			var rid = $(this).attr(&apos;rid&apos;)</span><br><span class="line">			loadModalAndTree(rid)</span><br><span class="line"></span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var loadModalAndTree = function(rid) &#123;</span><br><span class="line">		//模态框设置</span><br><span class="line">		var options = &#123;</span><br><span class="line">			backdrop : &apos;static&apos;,</span><br><span class="line">			show : true</span><br><span class="line">		&#125;</span><br><span class="line">		//手动打开模态框</span><br><span class="line">		$(&apos;#permissModel&apos;).modal(options)</span><br><span class="line"></span><br><span class="line">		//从数据库查出的所有权限节点数据</span><br><span class="line">		//发送ajax请求获取到所有权限的json数据</span><br><span class="line">		var url = &apos;$&#123;ctp&#125;/permission/role/json/&apos; + rid</span><br><span class="line">		$.getJSON(url, fns)</span><br><span class="line"></span><br><span class="line">		//将角色id保存到模态框的哪个属性中；</span><br><span class="line">		//打开模态框将角色id传递给model里面的权限分配按钮</span><br><span class="line">		log(&apos;角色id===========&gt;&apos;, rid)</span><br><span class="line">		$(&apos;#addPermissionBtn&apos;).attr(&quot;rid&quot;, rid)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//成功回调函数，刷新权限树</span><br><span class="line">	var fns = function(data) &#123;</span><br><span class="line">		log(&apos;成功返回数据&apos;, data)</span><br><span class="line">		log(&apos;event==========&gt;&apos;, event)</span><br><span class="line"></span><br><span class="line">		var ids = []</span><br><span class="line">		$.each(data.listCurrentPermission, function() &#123;</span><br><span class="line">			ids.push(this.id)</span><br><span class="line">		&#125;)</span><br><span class="line">		log(&apos;ids===========&gt;&apos;, ids)</span><br><span class="line">		//遍历每一条权限</span><br><span class="line">		$.each(data.listPermission, function() &#123;</span><br><span class="line">			//给每一个节点修改或者添加一些属性</span><br><span class="line">			if (this.pid == 0) &#123;</span><br><span class="line">				this.open = true</span><br><span class="line">			&#125;</span><br><span class="line">			if (ids.includes(this.id)) &#123;</span><br><span class="line">				this.checked = true</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">		var setting = &#123;</span><br><span class="line">			data : &#123;</span><br><span class="line">				simpleData : &#123;</span><br><span class="line">					enable : true,</span><br><span class="line">					idKey : &quot;id&quot;,</span><br><span class="line">					pIdKey : &quot;pid&quot;,</span><br><span class="line">				&#125;,</span><br><span class="line">				key : &#123;</span><br><span class="line">					url : &quot;haha&quot;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;,</span><br><span class="line">			/* view : &#123;</span><br><span class="line">				addDiyDom : showIcon</span><br><span class="line">			&#125;, */</span><br><span class="line">			check : &#123;</span><br><span class="line">				enable : true</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		zTree = $.fn.zTree.init($(&quot;#permissionTree&quot;), setting,</span><br><span class="line">				data.listPermission)</span><br><span class="line">		log(&apos;zTree赋值完成==========&gt;&apos;, zTree)</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//用于在节点上固定显示用户自定义控件</span><br><span class="line">	//?图标无法正常显示可能是字体样式没有引入进来</span><br><span class="line">	var showIcon = function(treeId, treeNode) &#123;</span><br><span class="line">		log(&apos;自定义显示图标==============&gt;&apos;)</span><br><span class="line">		log(&apos;treeId===============&gt;&apos;, treeId)</span><br><span class="line">		log(&apos;treeNode===============&gt;&apos;, treeNode)</span><br><span class="line">		//#permissionTree_10_ico</span><br><span class="line">		$(&quot;#&quot; + treeNode.tId + &quot;_ico&quot;).removeClass()</span><br><span class="line">				.addClass(treeNode.icon)</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//默认勾选当前角色的权限</span><br><span class="line">	var checkcurPermisson = function(rid) &#123;</span><br><span class="line">		var url = &apos;$&#123;ctp&#125;/permission/role/curPermission/&apos; + rid</span><br><span class="line">		$.getJSON(url, fns2)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//获取当前角色权限成功回调函数</span><br><span class="line">	var fns2 = function(data) &#123;</span><br><span class="line">		log(&apos;fns2===============&gt;&apos;)</span><br><span class="line">		log(&apos;fns2_data================&apos;, data)</span><br><span class="line"></span><br><span class="line">		//遍历当前角色拥有的权限</span><br><span class="line">		$.each(data, function() &#123;</span><br><span class="line">			//$(this).attr(&apos;id&apos;)</span><br><span class="line">			var node = zTree.getNodesByParam(&apos;id&apos;, this.id, null)</span><br><span class="line">			log(&apos;使用zTree===========&gt;&apos;, zTree)</span><br><span class="line">			log(&apos;当前角色拥有的权限=============&gt;&apos;, node)</span><br><span class="line">			zTree.checkNode(node, true, false)</span><br><span class="line">			log(&apos;是否选中=========&gt;&apos;, node.checked)</span><br><span class="line">			node.nocheck = true //表示显示checkbox</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//更新权限树</span><br><span class="line">	var updateTree = function() &#123;</span><br><span class="line">		log(&apos;更新权限树===========&gt;&apos;)</span><br><span class="line">		var rid = $(&apos;#addPermissionBtn&apos;).attr(&quot;rid&quot;)</span><br><span class="line">		log(&apos;角色rid==========&gt;&apos;, rid)</span><br><span class="line">		var permission_ids = &apos;&apos;</span><br><span class="line">		//1、获取当前我们已经选中的权限</span><br><span class="line">		var nodes = zTree.getCheckedNodes(true)</span><br><span class="line">		log(&apos;nodes=============&gt;&apos;, nodes)</span><br><span class="line">		$.each(nodes, function() &#123;</span><br><span class="line">			permission_ids += this.id + &apos;,&apos;</span><br><span class="line">		&#125;)</span><br><span class="line">		var url = &apos;$&#123;ctp&#125;/permission/role/update?rid=&apos; + rid</span><br><span class="line">				+ &apos;&amp;permission_ids=&apos; + permission_ids</span><br><span class="line">		$.get(url, updateTreeFn)</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	//更新权限树回调函数</span><br><span class="line">	var updateTreeFn = function(data) &#123;</span><br><span class="line">		alert(data)</span><br><span class="line">		log(&quot;权限分配成功===========&gt;&quot;);</span><br><span class="line">		$(&apos;#permissModel&apos;).modal(&quot;hide&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var addPermissionBtnEvent = function() &#123;</span><br><span class="line">		$(&apos;#addPermissionBtn&apos;).click(function() &#123;</span><br><span class="line">			log(&apos;点击分配权限按钮=============&gt;&apos;)</span><br><span class="line">			updateTree()</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var __main = function() &#123;</span><br><span class="line">		assignPermissionEvent()</span><br><span class="line">		addPermissionBtnEvent()</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	$(function() &#123;</span><br><span class="line">		__main()</span><br><span class="line">	&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>控制层：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//分配权限</span><br><span class="line">@RequestMapping(&quot;/update&quot;)</span><br><span class="line">   @ResponseBody</span><br><span class="line">   public String updateRolePermission(@RequestParam(&quot;rid&quot;) Integer rid,</span><br><span class="line">           @RequestParam(&quot;permission_ids&quot;) String permission_ids) &#123;</span><br><span class="line">       System.out.println(&quot;更新权限==========&gt;&quot;);</span><br><span class="line">       System.out.println(rid);</span><br><span class="line">       System.out.println(permission_ids);</span><br><span class="line">       // 先删除该角色所有权限，在为该用户分配权限</span><br><span class="line">       boolean flag = rolePermissionService.updatePermission(rid, permission_ids);</span><br><span class="line"></span><br><span class="line">       return flag ? &quot;success&quot; : &quot;fail&quot;;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   @RequestMapping(&quot;/curPermission/&#123;id&#125;&quot;)</span><br><span class="line">   @ResponseBody</span><br><span class="line">   public List&lt;TPermission&gt; getCurrentPermission(@PathVariable(&quot;id&quot;) Integer rid) &#123;</span><br><span class="line">       System.out.println(&quot;当前角色拥有的权限==============&gt;&quot;);</span><br><span class="line">       List&lt;TPermission&gt; listPermission = permissionService.getPermissionsById(rid);</span><br><span class="line">       System.out.println(listPermission);</span><br><span class="line">       return listPermission;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">//查出角色拥有的权限、所有权限</span><br><span class="line">   @RequestMapping(&quot;/json/&#123;id&#125;&quot;)</span><br><span class="line">   @ResponseBody</span><br><span class="line">   public HashMap&lt;String, List&lt;TPermission&gt;&gt; getAllPermission(@PathVariable(&quot;id&quot;) Integer rid) &#123;</span><br><span class="line"></span><br><span class="line">       List&lt;TPermission&gt; listPermission = permissionService.getPermissions();</span><br><span class="line">       List&lt;TPermission&gt; listCurrentPermission = permissionService.getPermissionsById(rid);</span><br><span class="line">       HashMap&lt;String, List&lt;TPermission&gt;&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">       map.put(&quot;listPermission&quot;, listPermission);</span><br><span class="line">       map.put(&quot;listCurrentPermission&quot;, listCurrentPermission);</span><br><span class="line">       return map;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>业务层：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 更新权限树</span><br><span class="line">   @Override</span><br><span class="line">   public boolean updatePermission(Integer rid, String permission_ids) &#123;</span><br><span class="line">       // 删除角色权限</span><br><span class="line">       TRolePermissionExample tRolePermissionExample = new TRolePermissionExample();</span><br><span class="line">       Criteria criteria = tRolePermissionExample.createCriteria();</span><br><span class="line">       criteria.andRoleidEqualTo(rid);</span><br><span class="line">       int count = mapper.deleteByExample(tRolePermissionExample);</span><br><span class="line"></span><br><span class="line">       // 更新权限</span><br><span class="line">       if (permission_ids.contains(&quot;,&quot;)) &#123;</span><br><span class="line">           String[] split = permission_ids.split(&quot;,&quot;);</span><br><span class="line">           for (String permission_id : split) &#123;</span><br><span class="line">               int i = Integer.parseInt(permission_id);</span><br><span class="line">               TRolePermission rolePermission = new TRolePermission();</span><br><span class="line">               // 设置权限id</span><br><span class="line">               rolePermission.setPermissionid(i);</span><br><span class="line">               // 设置角色id</span><br><span class="line">               rolePermission.setRoleid(rid);</span><br><span class="line">               // 保存角色权限关系</span><br><span class="line">               mapper.insertSelective(rolePermission);</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">       &#125; else &#123;</span><br><span class="line">           int i = Integer.parseInt(permission_ids);</span><br><span class="line">           TRolePermission rolePermission = new TRolePermission();</span><br><span class="line">           // 设置权限id</span><br><span class="line">           rolePermission.setPermissionid(i);</span><br><span class="line">           // 设置角色id</span><br><span class="line">           rolePermission.setRoleid(rid);</span><br><span class="line">           // 保存角色权限关系</span><br><span class="line">           mapper.insertSelective(rolePermission);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">       return true;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> // 为角色分配权限，查询所有权限</span><br><span class="line">   @Override</span><br><span class="line">   public List&lt;TPermission&gt; getPermissions() &#123;</span><br><span class="line"></span><br><span class="line">       List&lt;TPermission&gt; list_permission = mapper.selectByExample(null);</span><br><span class="line">       return list_permission;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   @Override</span><br><span class="line">   public List&lt;TPermission&gt; getPermissionsById(Integer rid) &#123;</span><br><span class="line">       List&lt;TPermission&gt; list_permission = mapper.getRolePermission(rid);</span><br><span class="line">       return list_permission;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" rel="next" title="网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件">
+                <i class="fa fa-chevron-left"></i> 网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/myhexo/2019/01/15/优化点击事件绑定/" rel="prev" title="优化点击事件绑定">
+                优化点击事件绑定 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">shenlibing</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/myhexo/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenlibing</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/myhexo/js/src/schemes/muse.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

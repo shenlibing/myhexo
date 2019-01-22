@@ -96,20 +96,30 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="小兵兵">
-<meta property="og:url" content="https://shenlibing.github.io/myhexo/page/2/index.html">
+  <meta name="description" content="1、js面向对象 1)传统的面向对象 1234567891011121314151617181920212223242526272829303132&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;    &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;    &amp;lt;script&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js面向对象_箭头函数this_数组常用方法">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/01/04/js面向对象_箭头函数this_数组常用方法/index.html">
 <meta property="og:site_name" content="小兵兵">
+<meta property="og:description" content="1、js面向对象 1)传统的面向对象 1234567891011121314151617181920212223242526272829303132&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;    &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;    &amp;lt;script&amp;g">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/qtX6dUP.png">
+<meta property="og:image" content="https://i.imgur.com/k2XFX4S.png">
+<meta property="og:image" content="https://i.imgur.com/kJzVa09.png">
+<meta property="og:image" content="https://i.imgur.com/ko7C3rr.png">
+<meta property="og:image" content="https://i.imgur.com/VQgqT0r.png">
+<meta property="og:updated_time" content="2019-01-22T07:55:08.578Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小兵兵">
+<meta name="twitter:title" content="js面向对象_箭头函数this_数组常用方法">
+<meta name="twitter:description" content="1、js面向对象 1)传统的面向对象 1234567891011121314151617181920212223242526272829303132&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;    &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;    &amp;lt;script&amp;g">
+<meta name="twitter:image" content="https://i.imgur.com/qtX6dUP.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://shenlibing.github.io/myhexo/page/2/">
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/01/04/js面向对象_箭头函数this_数组常用方法/">
 
 
 
@@ -119,7 +129,7 @@
   };
 </script>
 
-  <title>小兵兵</title>
+  <title>js面向对象_箭头函数this_数组常用方法 | 小兵兵</title>
   
 
 
@@ -167,8 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -268,9 +277,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -302,10 +311,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/myhexo/2019/01/04/js面向对象_箭头函数this_数组常用方法/" class="post-title-link" itemprop="url">js面向对象_箭头函数this_数组常用方法</a>
+          <h1 class="post-title" itemprop="name headline">js面向对象_箭头函数this_数组常用方法
+
               
             
           </h1>
@@ -381,9 +388,7 @@
       
 
       
-        
-          
-            <p>1、js面向对象</p>
+        <p>1、js面向对象</p>
 <p>1)传统的面向对象</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.name=name;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.age=age;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    Person.prototype.showName=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">'我叫'</span>+<span class="keyword">this</span>.name);</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="javascript">    Person.prototype.showAge=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      alert(<span class="string">'我'</span>+<span class="keyword">this</span>.age+<span class="string">'岁'</span>);</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> p=<span class="keyword">new</span> Person(<span class="string">'blue'</span>, <span class="number">18</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    p.showName();</span></span><br><span class="line"><span class="undefined">    p.showAge();</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>继承</p>
@@ -443,8 +448,6 @@
 <p>输出</p>
 <p><img src="https://i.imgur.com/VQgqT0r.png" alt=""></p>
 
-          
-        
       
     </div>
 
@@ -467,186 +470,32 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/03/js开发者经常忽略的基础知识点/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="shenlibing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myhexo/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兵兵">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/myhexo/2019/01/03/js开发者经常忽略的基础知识点/" class="post-title-link" itemprop="url">js开发者经常忽略的基础知识点</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/myhexo/2019/01/03/js开发者经常忽略的基础知识点/" rel="next" title="js开发者经常忽略的基础知识点">
+                <i class="fa fa-chevron-left"></i> js开发者经常忽略的基础知识点
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
+              <a href="/myhexo/2019/01/05/maven配置/" rel="prev" title="maven配置">
+                maven配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-03 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-03T12:58:55+08:00">2019-01-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-22 15:55:00" itemprop="dateModified" datetime="2019-01-22T15:55:00+08:00">2019-01-22</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>1、字符串匹配</p>
-<p>匹配所有</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Mistake</span></span><br><span class="line"><span class="comment">// 踩到坑了</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"David is an Arsenal fan, which means David is great"</span>;</span><br><span class="line">str.replace(<span class="string">"David"</span>, <span class="string">"Darren"</span>); </span><br><span class="line"><span class="comment">// "Darren is an Arsenal fan, which means David is great"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Desired</span></span><br><span class="line"><span class="comment">// 符合预期</span></span><br><span class="line">str.replace(<span class="regexp">/David/g</span>, <span class="string">"Darren"</span>); </span><br><span class="line"><span class="comment">// "Darren is an Arsenal fan, which means Darren is great"</span></span><br></pre></td></tr></table></figure>
-<p>忽略大小写</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">str.replace(<span class="regexp">/david/gi</span>, <span class="string">"Darren"</span>); </span><br><span class="line"><span class="comment">// "Darren will always be an Arsenal fan, which means Darren will always be great"</span></span><br></pre></td></tr></table></figure>
-<p>2、将“类数组”元素（比如 arguments 参数列表、节点列表和属性列表）转换成真正的数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> nodesArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">"div"</span>));</span><br><span class="line"><span class="comment">// "true" array of DIVs</span></span><br><span class="line"><span class="comment">// 得到一个由 div 元素组成的“真正的”数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> argsArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line"><span class="comment">// changes arguments to "true" array</span></span><br><span class="line"><span class="comment">// 把 arguments 转换成一个“真正的”数组</span></span><br></pre></td></tr></table></figure>
-<p>克隆数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> clone = myArray.slice(<span class="number">0</span>); </span><br><span class="line"><span class="comment">// naive clone</span></span><br><span class="line"><span class="comment">// 浅克隆</span></span><br></pre></td></tr></table></figure>
-<p>3、数组的sort方法</p>
-<p>简单排序</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">2</span>].sort();</span><br><span class="line"><span class="comment">// Returns: [1, 2, 3, 9]</span></span><br><span class="line"><span class="comment">// 返回 [1, 2, 3, 9]</span></span><br></pre></td></tr></table></figure>
-<p>复杂排序</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">[</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"Robin Van PurseStrings"</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"Theo Walcott"</span>, <span class="attr">age</span>: <span class="number">24</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"Bacary Sagna"</span>, <span class="attr">age</span>: <span class="number">28</span>  &#125;</span><br><span class="line">].sort(<span class="function"><span class="keyword">function</span>(<span class="params">obj1, obj2</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Ascending: first age less than the previous</span></span><br><span class="line">    <span class="comment">// 实现增序排列：前者的 age 小于后者</span></span><br><span class="line">    <span class="keyword">return</span> obj1.age - obj2.age;</span><br><span class="line">&#125;);</span><br><span class="line">    <span class="comment">// Returns:  </span></span><br><span class="line">    <span class="comment">// [</span></span><br><span class="line">    <span class="comment">//    &#123; name: "Theo Walcott", age: 24 &#125;,</span></span><br><span class="line">    <span class="comment">//    &#123; name: "Bacary Sagna", age: 28  &#125;,</span></span><br><span class="line">    <span class="comment">//    &#123; name: "Robin Van PurseStrings", age: 30 &#125;</span></span><br><span class="line">    <span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
-<p>4、push合并数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> mergeTo = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">var</span> mergeFrom = [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(mergeTo, mergeFrom);</span><br><span class="line"></span><br><span class="line">mergeTo; <span class="comment">// is: [4, 5, 6, 7, 8, 9]</span></span><br></pre></td></tr></table></figure>
-<p>5、join拼接字符串</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = [</span><br><span class="line">    <span class="string">'&lt;div&gt;'</span>,</span><br><span class="line">    <span class="string">'&lt;button id="lucky-draw"&gt;Lucky Draw&lt;/button&gt;'</span>,</span><br><span class="line">    <span class="string">'&lt;/div&gt;'</span></span><br><span class="line">].join(<span class="string">''</span>)</span><br><span class="line">log(str)</span><br></pre></td></tr></table></figure>
-<p>参考</p>
-<p><a href="https://github.com/cssmagic/blog/issues/21" target="_blank" rel="noopener">https://github.com/cssmagic/blog/issues/21</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -656,618 +505,15 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/02/JavaScript Inheritance and the Prototype Chain/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="shenlibing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myhexo/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兵兵">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/myhexo/2019/01/02/JavaScript Inheritance and the Prototype Chain/" class="post-title-link" itemprop="url">JavaScript Inheritance and the Prototype Chain</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-02 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-02T12:58:55+08:00">2019-01-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-22 15:54:47" itemprop="dateModified" datetime="2019-01-22T15:54:47+08:00">2019-01-22</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考：</p>
-<p><a href="https://tylermcginnis.com/javascript-inheritance-and-the-prototype-chain/" target="_blank" rel="noopener">https://tylermcginnis.com/javascript-inheritance-and-the-prototype-chain/</a></p>
-<p>##JavaScript Inheritance and the Prototype Chain</p>
-<p><strong>Post</strong></p>
-<p>This post is designed to be read after you read JavaScript Private and Public Class Fields.</p>
-<p>Previously we learned how to create an <strong>Animal</strong> class both in <strong>ES5</strong> as well as in <strong>ES6</strong>. We also learned how to share methods across those classes using JavaScript’s prototype. To review, here’s the code we saw in an earlier post.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Animal (name, energy) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.energy = energy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.eat = function (amount) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">  this.energy += amount</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.sleep = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">  this.energy += length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.play = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">  this.energy -= length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const leo = new Animal(&apos;Leo&apos;, 7)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line">  constructor(name, energy) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.energy = energy</span><br><span class="line">  &#125;</span><br><span class="line">  eat(amount) &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">    this.energy += amount</span><br><span class="line">  &#125;</span><br><span class="line">  sleep() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">    this.energy += length</span><br><span class="line">  &#125;</span><br><span class="line">  play() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">    this.energy -= length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const leo = new Animal(&apos;Leo&apos;, 7)</span><br></pre></td></tr></table></figure>
-<p>Now let’s say we wanted to start making individual classes for specific animals. For example, what if we wanted to start making a bunch of dog instances. What properties and methods will these dogs have? Well, similar to our <strong>Animal</strong> class, we could give each dog a <strong>name</strong>, an <strong>energy</strong> level, and the ability to <strong>eat</strong>, <strong>sleep</strong>, and <strong>play</strong>. Unique to our Dog class, we could also give them a <strong>breed</strong> property as well as the ability to <strong>bark</strong>. In ES5, our <strong>Dog</strong> class could look something like this</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Dog (name, energy, breed) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.energy = energy</span><br><span class="line">  this.breed = breed</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.eat = function (amount) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">  this.energy += amount</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.sleep = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">  this.energy += length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.play = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">  this.energy -= length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.bark = function () &#123;</span><br><span class="line">  console.log(&apos;Woof-Woof!&apos;)</span><br><span class="line">  this.energy -= .1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)</span><br></pre></td></tr></table></figure>
-<p>Alright, well… we just recreated the <strong>Animal</strong> class and added a few new properties to it. If we wanted to create another animal, say a <strong>Cat</strong>, at this point we’d again have to create a <strong>Cat</strong> class, duplicate all the common logic located in the <strong>Animal</strong> class to it, then add on <strong>Cat</strong> specific properties just like we did with the <strong>Dog</strong> class. In fact, we’d have to do this for each different type of animal we created.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Dog (name, energy, breed) &#123;&#125;</span><br><span class="line"></span><br><span class="line">function Cat (name, energy, declawed) &#123;&#125;</span><br><span class="line"></span><br><span class="line">function Giraffe (name, energy, height) &#123;&#125;</span><br><span class="line"></span><br><span class="line">function Monkey (name, energy, domesticated) &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>This work, but it seems wasteful. The <strong>Animal</strong> class is the perfect base class. What that means is that it has all the properties that each one of our animals has in common. Whether we’re creating a dog, cat, giraffe, or monkey, all of them will have a <strong>name</strong>, <strong>energy</strong> level, and the ability to <strong>eat</strong>, <strong>sleep</strong>, and <strong>play</strong>. With that said, is there a way we can utilize the <strong>Animal</strong> class whenever we create the individual classes for each different animal? Let’s try it out. I’ll paste the <strong>Animal</strong> class again below for easy reference.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Animal (name, energy) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.energy = energy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.eat = function (amount) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">  this.energy += amount</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.sleep = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">  this.energy += length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.play = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">  this.energy -= length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Dog (name, energy, breed) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>What are some things we know about the <strong>Dog</strong> constructor function above?</p>
-<p>First, we know it takes 3 arguments, <strong>name</strong>, <strong>energy</strong>, and <strong>breed</strong>.</p>
-<p>Second, we know it’s going to be called with the <strong>new</strong> keyword so we’ll have a <strong>this</strong> object.</p>
-<p>And third, we know we need to utilize the <strong>Animal</strong> function so that any instance of dog will have a <strong>name</strong>, <strong>energy</strong> level, and be able to <strong>eat</strong>, <strong>sleep</strong>, and <strong>play</strong>.</p>
-<p>It’s the third one that’s the tricky one. The way you “utilize” a function is by calling it. So we know that inside of <strong>Dog</strong>, we want to call <strong>Animal</strong>. What we need to figure out though is how we can invoke <strong>Animal</strong> in the context of <strong>Dog</strong>. What that means it that we want to call <strong>Animal</strong> with the <strong>this</strong> keyword from Dog. If we do that correctly, then <strong>this</strong> inside of the <strong>Dog</strong> function will have all the properties of <strong>Animal</strong> (name, energy). If you remember from a previous section, every function in JavaScript has a <strong>.call</strong> method on it.</p>
-<blockquote>
-<p>.call() is a method on every function that allows you to invoke the function specifying in what context the function will be invoked.</p>
-</blockquote>
-<p>This sounds like exactly what we need. We want to invoke <strong>Animal</strong> in the context of <strong>Dog</strong>.</p>
-<pre><code>   function Dog (name, energy, breed) {
-  Animal.call(this, name, energy)
-
-  this.breed = breed
-}
-
-const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)
-
-charlie.name // Charlie
-charlie.energy // 10
-charlie.breed // Goldendoodle
-</code></pre><p>Solid, we’re half-way there. You’ll notice in the code above that because of this line <strong>Animal.call(this, name, energy)</strong>, every instance of <strong>Dog</strong> will now have a <strong>name</strong> and <strong>energy</strong> property. Again, the reason for that is because it’s as if we ran the <strong>Animal</strong> function with the <strong>this</strong> keyword generated from <strong>Dog</strong>. Then after we added a <strong>name</strong> and <strong>energy</strong> property to <strong>this</strong>, we also added a <strong>breed</strong> property just as we normally would.</p>
-<p>Remember the goal here is to have each instance of <strong>Dog</strong> have not only all the properties of <strong>Animal</strong>, but also all the methods as well. If you run the code above, you’ll notice that if you try to run <strong>charlie.eat(10)</strong> you’ll get an error. Currently every instance of <strong>Dog</strong> will have the properties of <strong>Animal</strong> (<strong>name</strong> and <strong>energy</strong>), but we haven’t done anything to make sure that they also have the methods (<strong>play, eat, sleep)</strong>.</p>
-<p>Let’s think about how we can solve this. We know that all the <strong>Animal</strong>’s methods are located on <strong>Animal.prototype</strong>. What that means is we somehow want to make sure that all instances of <strong>Dog</strong> will have access to the methods on <strong>Animal.prototype</strong>. What if we used our good friend <strong>Object.create</strong> here? If you’ll remember, <strong>Object.create</strong> allows you to create an object which will delegate to another object on failed lookups. So in our case, the object we want to create is going to be <strong>Dog</strong>’s prototype and the object we want to delegate to on failed lookups is <strong>Animal.prototype</strong>.</p>
-<pre><code>function Dog (name, energy, breed) {
-  Animal.call(this, name, energy)
-
-  this.breed = breed
-}
-
-Dog.prototype = Object.create(Animal.prototype)
-</code></pre><p>Now, whenever there’s a failed lookup on an instance of <strong>Dog</strong>, JavaScript will delegate that lookup to <strong>Animal.prototype</strong>. If this is still a little fuzzy, re-read A Beginner’s Guide to JavaScript’s Prototype where we talk all about <strong>Object.create</strong> and JavaScript’s prototype.</p>
-<p>Let’s look at the full code together then we’ll walk through what happens.</p>
-<pre><code>function Animal (name, energy) {
-  this.name = name
-  this.energy = energy
-}
-
-Animal.prototype.eat = function (amount) {
-  console.log(`${this.name} is eating.`)
-  this.energy += amount
-}
-
-Animal.prototype.sleep = function (length) {
-  console.log(`${this.name} is sleeping.`)
-  this.energy += length
-}
-
-Animal.prototype.play = function (length) {
-  console.log(`${this.name} is playing.`)
-  this.energy -= length
-}
-
-function Dog (name, energy, breed) {
-  Animal.call(this, name, energy)
-
-  this.breed = breed
-}
-
-Dog.prototype = Object.create(Animal.prototype)
-</code></pre><p>Now we’ve created our base class (<strong>Animal</strong>) as well as our subclass (<strong>Dog</strong>), let’s see what it looks like under the hood when we create an instance of <strong>Dog</strong>.</p>
-<pre><code>const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)
-
-charlie.name // Charlie
-charlie.energy // 10
-charlie.breed // Goldendoodle
-</code></pre><p>Nothing fancy so far, but let’s look at what happens when we invoke a method located on <strong>Animal</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   charlie.eat(10)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">1) JavaScript checks if charlie has an eat property - it doesn&apos;t.</span><br><span class="line">2) JavaScript then checks if Dog.prototype has an eat property</span><br><span class="line">    - it doesn&apos;t.</span><br><span class="line">3) JavaScript then checks if Animal.prototype has an eat property</span><br><span class="line">    - it does so it calls it.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<p>The reason <strong>Dog.prototype</strong> gets checked is because when we created a new instance of <strong>Dog</strong>, we used the <strong>new</strong> keyword. Under the hood, the <strong>this</strong> object that was created for us delegates to <strong>Dog.prototype</strong> (seen in comments below).</p>
-<pre><code>function Dog (name, energy, breed) {
-  // this = Object.create(Dog.prototype)
-  Animal.call(this, name, energy)
-
-  this.breed = breed
-  // return this
-}
-</code></pre><p>The reason <strong>Animal.prototype</strong> gets checked is because we overwrote <strong>Dog.prototype</strong> to delegate to <strong>Animal.prototype</strong> on failed lookups with this line</p>
-<pre><code>Dog.prototype = Object.create(Animal.prototype)
-</code></pre><p>Now one thing we haven’t talked about is what if <strong>Dog</strong> has its own methods? Well, that’s a simple solution. Just like with <strong>Animal</strong>, if we want to share a method across all instances of that class, we add it to the function’s prototype.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">function Dog (name, energy, breed) &#123;</span><br><span class="line">  Animal.call(this, name, energy)</span><br><span class="line"></span><br><span class="line">  this.breed = breed</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype = Object.create(Animal.prototype)</span><br><span class="line"></span><br><span class="line">Dog.prototype.bark = function () &#123;</span><br><span class="line">  console.log(&apos;Woof Woof!&apos;)</span><br><span class="line">  this.energy -= .1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>very nice. There’s just one small addition we need to make. If you remember back to the Beginner’s Guide to JavaScript’s Prototype post, we were able to get access to the instances’ constructor function by using <strong>instance.constructor</strong>.</p>
-<pre><code>function Animal (name, energy) {
-  this.name = name
-  this.energy = energy
-}
-
-const leo = new Animal(&apos;Leo&apos;, 7)
-console.log(leo.constructor) // Logs the constructor function
-</code></pre><p>As explained in the previous post, “the reason this works is because any instances of <strong>Animal</strong> are going to delegate to <strong>Animal.prototype</strong> on failed lookups. So when you try to access <strong>leo.prototype</strong>, <strong>leo</strong> doesn’t have a <strong>prototype</strong> property so it will delegate that lookup to <strong>Animal.prototype</strong> which indeed does have a <strong>constructor</strong> property.”</p>
-<p>The reason I bring this up is because in our implementation, we overwrote <strong>Dog.prototype</strong> with an object that delegates to <strong>Animal.prototype</strong>.</p>
-<pre><code>function Dog (name, energy, breed) {
-  Animal.call(this, name, energy)
-
-  this.breed = breed
-}
-
-Dog.prototype = Object.create(Animal.prototype)
-
-Dog.prototype.bark = function () {
-  console.log(&apos;Woof Woof!&apos;)
-  this.energy -= .1
-}
-</code></pre><p>What that means is that now, any instances of <strong>Dog</strong> which log <strong>instance.constructor</strong> are going to get the <strong>Animal</strong> constructor rather than the <strong>Dog</strong> constructor. You can see for yourself by running this code -</p>
-<pre><code>function Animal (name, energy) {
-  this.name = name
-  this.energy = energy
-}
-
-Animal.prototype.eat = function (amount) {
-  console.log(`${this.name} is eating.`)
-  this.energy += amount
-}
-
-Animal.prototype.sleep = function (length) {
-  console.log(`${this.name} is sleeping.`)
-  this.energy += length
-}
-
-Animal.prototype.play = function (length) {
-  console.log(`${this.name} is playing.`)
-  this.energy -= length
-}
-
-function Dog (name, energy, breed) {
-  Animal.call(this, name, energy)
-
-  this.breed = breed
-}
-
-Dog.prototype = Object.create(Animal.prototype)
-
-Dog.prototype.bark = function () {
-  console.log(&apos;Woof Woof!&apos;)
-  this.energy -= .1
-}
-
-const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)
-console.log(charlie.constructor)
-</code></pre><p>Notice it gives you the <strong>Animal</strong> constructor even though <strong>charlie</strong> is a direct instance of <strong>Dog</strong>. Again, we can walk through what’s happening here just like we did above.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)</span><br><span class="line">console.log(charlie.constructor)</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">1) JavaScript checks if charlie has a constructor property - it doesn&apos;t.</span><br><span class="line">2) JavaScript then checks if Dog.prototype has a constructor property</span><br><span class="line">    - it doesn&apos;t because it was deleted when we overwrote Dog.prototype.</span><br><span class="line">3) JavaScript then checks if Animal.prototype has a constructor property</span><br><span class="line">    - it does so it logs that.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<p>How can we fix this? Well, it’s pretty simple. We can just add the correct <strong>constructor</strong> property to <strong>Dog.prototype</strong> once we overwrite it.</p>
-<pre><code>function Dog (name, energy, breed) {
-  Animal.call(this, name, energy)
-
-  this.breed = breed
-}
-
-Dog.prototype = Object.create(Animal.prototype)
-
-Dog.prototype.bark = function () {
-  console.log(&apos;Woof Woof!&apos;)
-  this.energy -= .1
-}
-
-Dog.prototype.constructor = Dog
-</code></pre><p>At this point if we wanted to make another subclass, say <strong>Cat</strong>, we’d follow the same pattern.</p>
-<pre><code>function Cat (name, energy, declawed) {
-  Animal.call(this, name, energy)
-
-  this.declawed = declawed
-}
-
-Cat.prototype = Object.create(Animal.prototype)
-Cat.prototype.constructor = Cat
-
-Cat.prototype.meow = function () {
-  console.log(&apos;Meow!&apos;)
-  this.energy -= .1
-}
-</code></pre><p>This concept of having a base class with subclasses that delegate to it is called inheritance and it’s a staple of Object Oriented Programming (OOP). If you’re coming from a different programming language, odds are you’re already familiar with OOP and inheritance. Before ES6 classes, in JavaScript, inheritance was quite the task as you can see above. You need to understand now only when to use inheritance, but also a nice mix of <strong>.call</strong>, <strong>Object.create</strong>, <strong>this</strong>, and <strong>FN.prototype</strong> - all pretty advanced JS topics. Let’s see how we’d accomplish the same thing using ES6 classes though.</p>
-<p>First, let’s review what it looks like to go from an ES5 “class” to an ES6 class using our <strong>Animal</strong> class.</p>
-<pre><code>function Animal (name, energy) {
-  this.name = name
-  this.energy = energy
-}
-
-Animal.prototype.eat = function (amount) {
-  console.log(`${this.name} is eating.`)
-  this.energy += amount
-}
-
-Animal.prototype.sleep = function (length) {
-  console.log(`${this.name} is sleeping.`)
-  this.energy += length
-}
-
-Animal.prototype.play = function (length) {
-  console.log(`${this.name} is playing.`)
-  this.energy -= length
-}
-
-const leo = new Animal(&apos;Leo&apos;, 7)
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line">  constructor(name, energy) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.energy = energy</span><br><span class="line">  &#125;</span><br><span class="line">  eat(amount) &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">    this.energy += amount</span><br><span class="line">  &#125;</span><br><span class="line">  sleep() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">    this.energy += length</span><br><span class="line">  &#125;</span><br><span class="line">  play() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">    this.energy -= length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const leo = new Animal(&apos;Leo&apos;, 7)</span><br></pre></td></tr></table></figure>
-<p>Now that we’ve refactored our <strong>Animal</strong> constructor function into an ES6 class, the next thing we need to do is figure out how to refactor our base class (<strong>Dog</strong>). The good news is it’s much more intuitive. For reference, in ES5, here’s what we had.</p>
-<pre><code>function Dog (name, energy, breed) {
-  Animal.call(this, name, energy)
-
-  this.breed = breed
-}
-
-Dog.prototype = Object.create(Animal.prototype)
-
-Dog.prototype.bark = function () {
-  console.log(&apos;Woof Woof!&apos;)
-  this.energy -= .1
-}
-
-Dog.prototype.constructor = Dog
-</code></pre><p>Before we get into inheritance, let’s refactor <strong>Dog</strong> to use an ES6 class as we learned in a previous post.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Dog &#123;</span><br><span class="line">  constructor(name, energy, breed) &#123;</span><br><span class="line">    this.breed = breed</span><br><span class="line">  &#125;</span><br><span class="line">  bark() &#123;</span><br><span class="line">    console.log(&apos;Woof Woof!&apos;)</span><br><span class="line">    this.energy -= .1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Looks great. Now, let’s figure out how to make sure that <strong>Dog</strong> inherits from <strong>Animal</strong>. The first step we need to make is a pretty straight forward one. With ES6 classes, you can <strong>extend</strong> a base class with this syntax</p>
-<pre><code>class Subclass extends Baseclass {}
-</code></pre><p>Translated into our example, that would make our <strong>Dog</strong> class look like this</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line">  constructor(name, energy) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.energy = energy</span><br><span class="line">  &#125;</span><br><span class="line">  eat(amount) &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">    this.energy += amount</span><br><span class="line">  &#125;</span><br><span class="line">  sleep() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">    this.energy += length</span><br><span class="line">  &#125;</span><br><span class="line">  play() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">    this.energy -= length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">  constructor(name, energy, breed) &#123;</span><br><span class="line">    this.breed = breed</span><br><span class="line">  &#125;</span><br><span class="line">  bark() &#123;</span><br><span class="line">    console.log(&apos;Woof Woof!&apos;)</span><br><span class="line">    this.energy -= .1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>In ES5 in order to make sure that every instance of <strong>Dog</strong> had a <strong>name</strong> and an <strong>energy</strong> property, we used <strong>.call</strong> in order to invoke the <strong>Animal</strong> constructor function in the context of the <strong>Dog</strong> instance. Luckily for us, in ES6 it’s much more straight forward. Whenever you are extending a baseclass and you need to invoke that baseclass’ constructor function, you invoke <strong>super</strong> passing it any arguments it needs. So in our example, our <strong>Dog</strong> constructor gets refactored to look like this</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line">  constructor(name, energy) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.energy = energy</span><br><span class="line">  &#125;</span><br><span class="line">  eat(amount) &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">    this.energy += amount</span><br><span class="line">  &#125;</span><br><span class="line">  sleep() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">    this.energy += length</span><br><span class="line">  &#125;</span><br><span class="line">  play() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">    this.energy -= length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">  constructor(name, energy, breed) &#123;</span><br><span class="line">    super(name, energy) // calls Animal&apos;s constructor</span><br><span class="line"></span><br><span class="line">    this.breed = breed</span><br><span class="line">  &#125;</span><br><span class="line">  bark() &#123;</span><br><span class="line">    console.log(&apos;Woof Woof!&apos;)</span><br><span class="line">    this.energy -= .1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>And that’s it. No using <strong>.call</strong>, no using <strong>Object.create</strong>, no worrying about resetting <strong>constructor</strong> on the prototype - just <strong>extends</strong> the baseclass and make sure to call <strong>super</strong>.</p>
-<p>What’s interesting about JavaScript is the same patterns you’ve learned these last few posts are directly caked into the language itself. Previously you learned that the reason all instances of Array have access to the array methods like <strong>pop</strong>, <strong>slice</strong>, <strong>filter</strong>, etc are because all of those methods live on <strong>Array.prototype</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">console.log(Array.prototype)</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">  concat: ƒn concat()</span><br><span class="line">  constructor: ƒn Array()</span><br><span class="line">  copyWithin: ƒn copyWithin()</span><br><span class="line">  entries: ƒn entries()</span><br><span class="line">  every: ƒn every()</span><br><span class="line">  fill: ƒn fill()</span><br><span class="line">  filter: ƒn filter()</span><br><span class="line">  find: ƒn find()</span><br><span class="line">  findIndex: ƒn findIndex()</span><br><span class="line">  forEach: ƒn forEach()</span><br><span class="line">  includes: ƒn includes()</span><br><span class="line">  indexOf: ƒn indexOf()</span><br><span class="line">  join: ƒn join()</span><br><span class="line">  keys: ƒn keys()</span><br><span class="line">  lastIndexOf: ƒn lastIndexOf()</span><br><span class="line">  length: 0n</span><br><span class="line">  map: ƒn map()</span><br><span class="line">  pop: ƒn pop()</span><br><span class="line">  push: ƒn push()</span><br><span class="line">  reduce: ƒn reduce()</span><br><span class="line">  reduceRight: ƒn reduceRight()</span><br><span class="line">  reverse: ƒn reverse()</span><br><span class="line">  shift: ƒn shift()</span><br><span class="line">  slice: ƒn slice()</span><br><span class="line">  some: ƒn some()</span><br><span class="line">  sort: ƒn sort()</span><br><span class="line">  splice: ƒn splice()</span><br><span class="line">  toLocaleString: ƒn toLocaleString()</span><br><span class="line">  toString: ƒn toString()</span><br><span class="line">  unshift: ƒn unshift()</span><br><span class="line">  values: ƒn values()</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<p>You also learned that the reason all instances of <strong>Object</strong> have access to methods like <strong>hasOwnProperty</strong> and <strong>toString</strong> is because those methods live on <strong>Object.prototype</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">console.log(Object.prototype)</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">  constructor: ƒn Object()</span><br><span class="line">  hasOwnProperty: ƒn hasOwnProperty()</span><br><span class="line">  isPrototypeOf: ƒn isPrototypeOf()</span><br><span class="line">  propertyIsEnumerable: ƒn propertyIsEnumerable()</span><br><span class="line">  toLocaleString: ƒn toLocaleString()</span><br><span class="line">  toString: ƒn toString()</span><br><span class="line">  valueOf: ƒn valueOf()</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<p>Here’s a challenge for you. With the list of Array methods and Object methods above, why does this code below work?</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const friends = [&apos;Mikenzi&apos;, &apos;Jake&apos;, &apos;Ean&apos;]</span><br><span class="line"></span><br><span class="line">friends.hasOwnProperty(&apos;push&apos;) // false</span><br></pre></td></tr></table></figure>
-<p>If you look at <strong>Array.prototype</strong>, there isn’t a <strong>hasOwnProperty</strong> method. Well if there isn’t a <strong>hasOwnProperty</strong> method located on <strong>Array.prototype</strong>, how does the <strong>friends</strong> array in the example above have access to <strong>hasOwnProperty</strong>? The reason for that is because the <strong>Array</strong> class extends the <strong>Object</strong> class. So in our example above, when JavaScript sees that <strong>friends</strong> doesn’t have a <strong>hasOwnProperty</strong> property, it checks if <strong>Array.prototype</strong> does. When <strong>Array.prototype</strong> doesn’t, it checks if <strong>Object.prototype</strong> does, then it invokes it. It’s the same process we’ve seen throughout this blog post.</p>
-<p>JavaScript has two types - Primitive types and Reference types.</p>
-<p>Primitive types are <strong>boolean</strong>, <strong>number</strong>, <strong>string</strong>, <strong>null</strong>, and <strong>undefined</strong> and are immutable. Everything else is a reference type and they all extend <strong>Object.prototype</strong>. That’s why you can add properties to functions and arrays and that’s why both functions and arrays have access to the methods located on <strong>Object.prototype</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function speak()&#123;&#125;</span><br><span class="line">speak.woahFunctionsAreLikeObjects = true</span><br><span class="line">console.log(speak.woahFunctionsAreLikeObjects) // true</span><br><span class="line"></span><br><span class="line">const friends = [&apos;Mikenzi&apos;, &apos;Jake&apos;, &apos;Ean&apos;]</span><br><span class="line">friends.woahArraysAreLikeObjectsToo = true</span><br><span class="line">console.log(friends.woahArraysAreLikeObjectsToo) // true</span><br></pre></td></tr></table></figure>
-<p>–未完待续</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/01/babel入门/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="shenlibing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myhexo/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兵兵">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/myhexo/2019/01/01/babel入门/" class="post-title-link" itemprop="url">babel入门</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-01 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-01T12:58:55+08:00">2019-01-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-22 13:21:04" itemprop="dateModified" datetime="2019-01-22T13:21:04+08:00">2019-01-22</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1、babel</p>
-<blockquote>
-<p>Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.</p>
-</blockquote>
-<p>参考</p>
-<p><a href="https://babeljs.io/setup#installation" target="_blank" rel="noopener">https://babeljs.io/setup#installation</a></p>
-<p>1)生成package.json文件(描述项目所需要的各种模块，以及项目的配置信息—比如名称、版本、许可证等元数据)</p>
-<p>npm init</p>
-<pre><code>D:\mytest\babel&gt;npm  init
-</code></pre><p>2)安装项目依赖</p>
-<p>install Babel CLI locally </p>
-<pre><code>D:\mytest\babel&gt;npm install --save-dev @babel/core @babel/cli
-</code></pre><p>3）添加编译运行脚本命令</p>
-<pre><code>&quot;scripts&quot;: {
-&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
-&quot;build&quot;: &quot;babel src -d src_build&quot;
-  },
-</code></pre><p>结果</p>
-<p><img src="https://i.imgur.com/IRIhf5S.png" alt=""></p>
-<p>4）运行脚本命令</p>
-<pre><code>D:\mytest\babel&gt;npm run build
-</code></pre><p>此时并没有成功的将es6的语法转成es5</p>
-<p><img src="https://i.imgur.com/fio2XsV.png" alt=""></p>
-<p>5）添加.babelrc文件</p>
-<p>Great! You’ve configured Babel but you haven’t made it actually do anything. Create a .babelrc config in your project root and enable some plugins.</p>
-<p>To start, you can use the env preset, which enables transforms for ES2015+</p>
-<pre><code>D:\mytest\babel&gt;npm install @babel/preset-env --save-dev
-</code></pre><p>结果</p>
-<p><img src="https://i.imgur.com/S1zb6x4.png" alt=""></p>
-<p><img src="https://i.imgur.com/t0f2DeM.png" alt=""></p>
-<p>6）重新运行脚本命令</p>
-<pre><code>D:\mytest\babel&gt;npm run build
-</code></pre><p><img src="https://i.imgur.com/BKUMyyi.png" alt=""></p>
-<p>7)使用编译后的js</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
-
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-  &lt;script type=&quot;text/javascript&quot; src=&apos;../src_build/1.js&apos;&gt;
-  &lt;/script&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;
-</code></pre><p>babel官网参考手册</p>
-<p><a href="https://babeljs.io/docs/en/usage" target="_blank" rel="noopener">https://babeljs.io/docs/en/usage</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/myhexo/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/myhexo/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1460,6 +706,10 @@ Dog.prototype.constructor = Dog
 
 
   
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
@@ -1470,6 +720,8 @@ Dog.prototype.constructor = Dog
 
   
 
+
+  
 
 
   
