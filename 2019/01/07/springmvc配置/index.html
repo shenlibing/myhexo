@@ -97,6 +97,7 @@
 
 
   <meta name="description" content="1、springmvc路径跳转配置 目录结构  控制层  123456789101112131415161718192021&amp;lt;!-- 使用注解开发，不用配置controller，需要配置一个组件扫描器 --&amp;gt;&amp;lt;context:component-scan base-package=&quot;com.*&quot; /&amp;gt;&amp;lt;!-- 视图解析器 --&amp;gt;&amp;lt;bean	class=&quot;o">
+<meta name="keywords" content="springmvc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springmvc配置">
 <meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/01/07/springmvc配置/index.html">
@@ -105,7 +106,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/aFawmCF.png">
 <meta property="og:image" content="https://i.imgur.com/aOtL3xC.png">
-<meta property="og:updated_time" content="2019-01-22T07:55:32.648Z">
+<meta property="og:updated_time" content="2019-01-22T09:13:35.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springmvc配置">
 <meta name="twitter:description" content="1、springmvc路径跳转配置 目录结构  控制层  123456789101112131415161718192021&amp;lt;!-- 使用注解开发，不用配置controller，需要配置一个组件扫描器 --&amp;gt;&amp;lt;context:component-scan base-package=&quot;com.*&quot; /&amp;gt;&amp;lt;!-- 视图解析器 --&amp;gt;&amp;lt;bean	class=&quot;o">
@@ -351,11 +352,29 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-01-22 15:55:32" itemprop="dateModified" datetime="2019-01-22T15:55:32+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:13:35" itemprop="dateModified" datetime="2019-01-22T17:13:35+08:00">2019-01-22</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -392,7 +411,7 @@
 <p><img src="https://i.imgur.com/aOtL3xC.png" alt=""></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 使用注解开发，不用配置controller，需要配置一个组件扫描器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.*"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 视图解析器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">	<span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 配置从项目根目录到指定目录一端路径 ,建议指定浅一点的目录 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/jsp/"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 文件的后缀名 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--将index2.jsp放在/WEB-INF/jsp/目录下，请求index2时不经过controller处理;</span></span><br><span class="line"><span class="comment">配置了mvc:view-controller后需要配置mvc:annotation-driven,不然走controller的请求会失效 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:view-controller</span> <span class="attr">path</span>=<span class="string">"/index2"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">view-name</span>=<span class="string">"index2"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span><span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--处理静态资源  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <p>index.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=ISO-8859-1"</span></span><br><span class="line">	pageEncoding=<span class="string">"ISO-8859-1"</span>%&gt;</span><br><span class="line">&lt;%@ taglib uri=<span class="string">"http://java.sun.com/jstl/core_rt"</span> prefix=<span class="string">"c"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"ISO-8859-1"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;%</span><br><span class="line"></span><br><span class="line">	request.setAttribute(<span class="string">"path"</span>, request.getContextPath());</span><br><span class="line">%&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//走controller跳转</span></span><br><span class="line">	&lt;a href="hello"&gt;go controller&lt;/a&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//不走controller跳转，在springmvc配置文件中配置了mvc-view;index2.jsp页面需放在/WEB-INF/jsp/目录下</span></span><br><span class="line">	&lt;a href="index2"&gt;not go controller&lt;/a&gt;</span><br><span class="line">	&lt;br/&gt;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//加载静态资源</span></span><br><span class="line">	&lt;a href="$&#123;path&#125;/static/index3.jsp"&gt;load static resource index3.jsp&lt;/a&gt;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//加载静态资源，需在springmvc配置文件中配置mvc:default-servlet-handler</span></span><br><span class="line">	&lt;script type=<span class="string">"text/javascript"</span></span><br><span class="line">		src="$&#123;path&#125;/ui/jquery/jquery-1.8.3.min.js"&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">	&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">		$(function() &#123;</span><br><span class="line">			console.log(<span class="string">"$&#123;path&#125;"</span>)</span><br><span class="line">		&#125;)</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=ISO-8859-1"</span></span><br><span class="line">	pageEncoding=<span class="string">"ISO-8859-1"</span>%&gt;</span><br><span class="line">&lt;%@ taglib uri=<span class="string">"http://java.sun.com/jstl/core_rt"</span> prefix=<span class="string">"c"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"ISO-8859-1"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;%</span><br><span class="line"></span><br><span class="line">	request.setAttribute(<span class="string">"path"</span>, request.getContextPath());</span><br><span class="line">%&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//走controller跳转</span></span><br><span class="line">	&lt;a href="hello"&gt;go controller&lt;/a&gt;</span><br><span class="line">	&lt;br&gt;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//不走controller跳转，在springmvc配置文件中配置了mvc-view;index2.jsp页面需放在/WEB-INF/jsp/目录下</span></span><br><span class="line">	&lt;a href="index2"&gt;not go controller&lt;/a&gt;</span><br><span class="line">	&lt;br/&gt;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//加载静态资源</span></span><br><span class="line">	&lt;a href="$&#123;path&#125;/static/index3.jsp"&gt;load static resource index3.jsp&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//加载静态资源，需在springmvc配置文件中配置mvc:default-servlet-handler</span></span><br><span class="line">	&lt;script type=<span class="string">"text/javascript"</span></span><br><span class="line">		src="$&#123;path&#125;/ui/jquery/jquery-1.8.3.min.js"&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">	&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">		$(function() &#123;</span><br><span class="line">			console.log(<span class="string">"$&#123;path&#125;"</span>)</span><br><span class="line">		&#125;)</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>2、springmvc获取请求参数，封装数据到请求域</p>
 <p>前台</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">'testParam'</span> <span class="attr">method</span>=<span class="string">'get'</span>&gt;</span></span><br><span class="line">	用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">name</span>=<span class="string">'username'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -400,7 +419,7 @@
 <p>处理方式一：<br>方法参数为Map或者ModelMap类型，数据封装到Map或者Modelmap类型中，其实就是将数据放入到请求域当中</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testParam"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testParam</span><span class="params">(ModelMap modelMap,HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">	String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">	System.out.println(<span class="string">"接收前台发送过来的请求参数=========&gt;用户名："</span>+username);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//modelmap会将数据放到请求域当中</span></span><br><span class="line">	modelMap.put(<span class="string">"address"</span>, <span class="string">"haikou"</span>);</span><br><span class="line">	<span class="comment">//返回视图</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">"hello"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>处理方式二：<br>用ModelAndView作为返回值，可以将数据放到请求域中且指定返回的视图</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testParam"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">testParam</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">	String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">	System.out.println(<span class="string">"接收前台发送过来的请求参数=========&gt;用户名："</span>+username);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//参数为返回的视图</span></span><br><span class="line">	ModelAndView hello =<span class="keyword">new</span> ModelAndView(<span class="string">"hello"</span>);</span><br><span class="line">	hello.addObject(<span class="string">"address"</span>, <span class="string">"haikou"</span>);</span><br><span class="line">	<span class="keyword">return</span> hello;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testParam"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">testParam</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">	String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">	System.out.println(<span class="string">"接收前台发送过来的请求参数=========&gt;用户名："</span>+username);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//参数为返回的视图</span></span><br><span class="line">	ModelAndView hello =<span class="keyword">new</span> ModelAndView(<span class="string">"hello"</span>);</span><br><span class="line">	hello.addObject(<span class="string">"address"</span>, <span class="string">"haikou"</span>);</span><br><span class="line">	<span class="keyword">return</span> hello;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>前台获取</p>
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- 获取后台封装在请求域中的数据 --&gt;</span><br><span class="line">地址：$&#123;requestScope.address&#125;&lt;br/&gt;</span><br><span class="line">&lt;%=request.getAttribute(<span class="string">"address"</span>)%&gt;</span><br></pre></td></tr></table></figure>
 <p>3、springmvc处理文件上传</p>
@@ -415,6 +434,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>控制层</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//需要加@ResponseBody注解</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/testJson"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Map <span class="title">testFileUpload</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Map&lt;String, Object&gt; map=<span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">	map.put(<span class="string">"username"</span>, <span class="string">"沈利兵"</span>);</span><br><span class="line">	map.put(<span class="string">"sex"</span>, <span class="string">"男"</span>);</span><br><span class="line">	<span class="keyword">return</span> map;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -434,6 +454,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/myhexo/tags/springmvc/" rel="tag"># springmvc</a>
+          
+        </div>
       
 
       
@@ -524,7 +550,57 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/myhexo/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/myhexo/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -632,6 +708,12 @@
 
 
 
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 

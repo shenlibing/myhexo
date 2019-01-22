@@ -97,6 +97,7 @@
 
 
   <meta name="description" content="1、用户分配角色 效果图：   实现思路： 1）先静态实现页面 2）从数据库查询用户未分配角色和已分配角色，前端初始化该列表 3）添加、移除用户拥有的角色 前端： 1)左移、右移：append和appendTo的使用 12$(&amp;quot;.unroles :selected&amp;quot;).appendTo(&amp;quot;.roles_select&amp;quot;) 2）遍历选中的角色 123456//遍">
+<meta name="keywords" content="emoss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用户分配角色_角色维护权限树">
 <meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/01/14/用户分配角色_角色维护权限树/index.html">
@@ -109,7 +110,7 @@
 <meta property="og:image" content="https://i.imgur.com/Yd4wo1a.png">
 <meta property="og:image" content="https://i.imgur.com/mAxFNQa.png">
 <meta property="og:image" content="https://i.imgur.com/EHO2nFc.png">
-<meta property="og:updated_time" content="2019-01-22T07:56:18.961Z">
+<meta property="og:updated_time" content="2019-01-22T09:14:45.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用户分配角色_角色维护权限树">
 <meta name="twitter:description" content="1、用户分配角色 效果图：   实现思路： 1）先静态实现页面 2）从数据库查询用户未分配角色和已分配角色，前端初始化该列表 3）添加、移除用户拥有的角色 前端： 1)左移、右移：append和appendTo的使用 12$(&amp;quot;.unroles :selected&amp;quot;).appendTo(&amp;quot;.roles_select&amp;quot;) 2）遍历选中的角色 123456//遍">
@@ -355,11 +356,29 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-01-22 15:56:18" itemprop="dateModified" datetime="2019-01-22T15:56:18+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:14:45" itemprop="dateModified" datetime="2019-01-22T17:14:45+08:00">2019-01-22</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -410,7 +429,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">// 添加移除用户角色</span><br><span class="line">  @RequestMapping(&quot;/assignrole&quot;)</span><br><span class="line">  @ResponseBody</span><br><span class="line">  public String userRole(@RequestParam(&quot;uid&quot;) Integer uid, @RequestParam(&quot;rids&quot;) String rids,</span><br><span class="line">          @RequestParam(&quot;opt&quot;) String opt) &#123;</span><br><span class="line">      System.out.println(&quot;添加移除用户角色==================&gt;&quot;);</span><br><span class="line">      System.out.println(&quot;用户id-----角色ids------类型：添加、移除&quot;);</span><br><span class="line">      System.out.println(uid);</span><br><span class="line">      System.out.println(rids);</span><br><span class="line">      System.out.println(opt);</span><br><span class="line"></span><br><span class="line">      if (&quot;add&quot;.equals(opt)) &#123;</span><br><span class="line">          // 为某个用户添加角色</span><br><span class="line">          int i = userRoleService.add(uid, rids);</span><br><span class="line"></span><br><span class="line">      &#125; else if (&quot;remove&quot;.equals(opt)) &#123;</span><br><span class="line">          // 为某个用户删除角色</span><br><span class="line">          int i = userRoleService.remove(uid, rids);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      return &quot;success&quot;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @RequestMapping(&quot;/toAssignRolePage&quot;)</span><br><span class="line">  public String toAssignRolePage(@RequestParam(value = &quot;uid&quot;) Integer uid, Model model) &#123;</span><br><span class="line">      System.out.println(&quot;UserController.toAssignRolePage去分配角色页面=============&gt;&quot;);</span><br><span class="line">      // 1、查出所有角色</span><br><span class="line">      List&lt;TRole&gt; list_role = roleService.getAllRole();</span><br><span class="line">      System.out.println(&quot;所有角色===========&gt;&quot;);</span><br><span class="line">      System.out.println(list_role);</span><br><span class="line">      // 2、查出当前用户拥有的角色</span><br><span class="line">      List&lt;TRole&gt; list_user_role = roleService.getUserRole(uid);</span><br><span class="line">      System.out.println(&quot;当前用户的角色==========&gt;&quot;);</span><br><span class="line">      System.out.println(list_user_role);</span><br><span class="line">      HashMap&lt;Integer, TRole&gt; map_user_role = new HashMap&lt;&gt;();</span><br><span class="line">      for (TRole tRole : list_user_role) &#123;</span><br><span class="line">          map_user_role.put(tRole.getId(), tRole);</span><br><span class="line">      &#125;</span><br><span class="line">      // 3、用户未分配的角色</span><br><span class="line">      ArrayList&lt;TRole&gt; list_user_unrole = new ArrayList&lt;&gt;();</span><br><span class="line">      for (TRole tRole : list_role) &#123;</span><br><span class="line">          if (!map_user_role.containsKey(tRole.getId())) &#123;</span><br><span class="line">              list_user_unrole.add(tRole);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(&quot;用户未分配的角色=============&gt;&quot;);</span><br><span class="line">      System.out.println(list_user_unrole);</span><br><span class="line">      model.addAttribute(&quot;list_user_role&quot;, list_user_role);</span><br><span class="line">      model.addAttribute(&quot;list_user_unrole&quot;, list_user_unrole);</span><br><span class="line">      // model.addAttribute(&quot;uid&quot;, uid);</span><br><span class="line">      return &quot;manager/permission/assignRole&quot;;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>sql:</p>
 <p>1)用户表、用户_角色表、角色表3个表多表查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;resultMap id=&quot;BaseResultMap&quot;</span><br><span class="line">	type=&quot;com.atguigu.scw.manager.bean.TRole&quot;&gt;</span><br><span class="line">	&lt;id column=&quot;id&quot; jdbcType=&quot;INTEGER&quot; property=&quot;id&quot; /&gt;</span><br><span class="line">	&lt;result column=&quot;name&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;name&quot; /&gt;</span><br><span class="line">&lt;/resultMap&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- List&lt;TRole&gt; getUserRole(Integer uid); --&gt;</span><br><span class="line">&lt;select id=&quot;getUserRole&quot; resultMap=&quot;BaseResultMap&quot;&gt;</span><br><span class="line">	SELECT</span><br><span class="line">	a.*</span><br><span class="line">	FROM</span><br><span class="line">	t_role a</span><br><span class="line">	LEFT JOIN t_user_role b</span><br><span class="line">	ON a.`id` = b.`roleid`</span><br><span class="line">	LEFT JOIN t_user c</span><br><span class="line">	ON b.`userid` = c.`id`</span><br><span class="line">	WHERE c.`id` = #&#123;uid&#125; </span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;resultMap id=&quot;BaseResultMap&quot;</span><br><span class="line">	type=&quot;com.atguigu.scw.manager.bean.TRole&quot;&gt;</span><br><span class="line">	&lt;id column=&quot;id&quot; jdbcType=&quot;INTEGER&quot; property=&quot;id&quot; /&gt;</span><br><span class="line">	&lt;result column=&quot;name&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;name&quot; /&gt;</span><br><span class="line">&lt;/resultMap&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- List&lt;TRole&gt; getUserRole(Integer uid); --&gt;</span><br><span class="line">&lt;select id=&quot;getUserRole&quot; resultMap=&quot;BaseResultMap&quot;&gt;</span><br><span class="line">	SELECT</span><br><span class="line">	a.*</span><br><span class="line">	FROM</span><br><span class="line">	t_role a</span><br><span class="line">	LEFT JOIN t_user_role b</span><br><span class="line">	ON a.`id` = b.`roleid`</span><br><span class="line">	LEFT JOIN t_user c</span><br><span class="line">	ON b.`userid` = c.`id`</span><br><span class="line">	WHERE c.`id` = #&#123;uid&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
 <p>2、角色维护权限树</p>
 <p>效果图：</p>
 <p><img src="https://i.imgur.com/U4cB5aj.png" alt=""></p>
@@ -449,6 +468,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/myhexo/tags/emoss/" rel="tag"># emoss</a>
+          
+        </div>
       
 
       
@@ -539,7 +564,57 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/myhexo/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/myhexo/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -647,6 +722,12 @@
 
 
 
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 

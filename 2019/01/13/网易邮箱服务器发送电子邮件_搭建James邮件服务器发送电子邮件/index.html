@@ -97,6 +97,7 @@
 
 
   <meta name="description" content="1、网易邮箱发送电子邮件 为了安全，网易邮箱开启pop3授权码验证，该授权码可以让客户端进行登录   qq开启授权码 https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;amp;&amp;amp;no=1001256&amp;amp;&amp;amp;id=28 实现：JavaMailAPI使用比较麻烦，这里采用的是Apache Commons Email 导入依赖 12">
+<meta name="keywords" content="email">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件">
 <meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/index.html">
@@ -112,7 +113,7 @@
 <meta property="og:image" content="https://i.imgur.com/4wuAqzA.png">
 <meta property="og:image" content="https://i.imgur.com/f8p6D2w.png">
 <meta property="og:image" content="https://i.imgur.com/9J6L4rf.png">
-<meta property="og:updated_time" content="2019-01-22T07:56:11.581Z">
+<meta property="og:updated_time" content="2019-01-22T09:14:51.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件">
 <meta name="twitter:description" content="1、网易邮箱发送电子邮件 为了安全，网易邮箱开启pop3授权码验证，该授权码可以让客户端进行登录   qq开启授权码 https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;amp;&amp;amp;no=1001256&amp;amp;&amp;amp;id=28 实现：JavaMailAPI使用比较麻烦，这里采用的是Apache Commons Email 导入依赖 12">
@@ -358,11 +359,29 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-01-22 15:56:11" itemprop="dateModified" datetime="2019-01-22T15:56:11+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:14:51" itemprop="dateModified" datetime="2019-01-22T17:14:51+08:00">2019-01-22</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -431,7 +450,7 @@
 <p>配置Foxmail客户端连接James邮件服务器</p>
 <p><img src="https://i.imgur.com/f8p6D2w.png" alt=""><br><img src="https://i.imgur.com/9J6L4rf.png" alt=""></p>
 <p>测试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">    * 测试james发送邮件</span><br><span class="line">    * @Description (TODO这里用一句话描述这个方法的作用)</span><br><span class="line">    * @throws Exception</span><br><span class="line">    */</span><br><span class="line">   @Test</span><br><span class="line">   public void test02() throws Exception&#123;</span><br><span class="line">       SimpleEmail email = new SimpleEmail();</span><br><span class="line">       //设置主机名，远程服务器的主机名</span><br><span class="line">       email.setHostName(&quot;127.0.0.1&quot;);</span><br><span class="line">       //自定义的ip，一定要手动设置好端口号</span><br><span class="line">       email.setSmtpPort(25);</span><br><span class="line">       //设置登陆远程服务器的密码</span><br><span class="line">       email.setAuthentication(&quot;test@atguigu.com&quot;, &quot;000000&quot;);</span><br><span class="line">       </span><br><span class="line">       //编写一个邮件</span><br><span class="line">       //设置发送给谁</span><br><span class="line">       email.addTo(&quot;17512080612@163.com&quot;);</span><br><span class="line">       //设置这个邮件来源于哪里</span><br><span class="line">       email.setFrom(&quot;admin@atguigu.com&quot;);</span><br><span class="line">       //设置邮件主题</span><br><span class="line">       email.setSubject(&quot;哈哈，给你测试 &quot;);</span><br><span class="line">       //设置邮件内容</span><br><span class="line">       email.setMsg(&quot;我能给您发邮件&lt;a href=&apos;http://www.atguigu.com&apos;&gt;尚硅谷&lt;/a&gt;&quot;);</span><br><span class="line">       //邮件发送</span><br><span class="line">       email.send();</span><br><span class="line">       </span><br><span class="line">       </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">    * 测试james发送邮件</span><br><span class="line">    * @Description (TODO这里用一句话描述这个方法的作用)</span><br><span class="line">    * @throws Exception</span><br><span class="line">    */</span><br><span class="line">   @Test</span><br><span class="line">   public void test02() throws Exception&#123;</span><br><span class="line">       SimpleEmail email = new SimpleEmail();</span><br><span class="line">       //设置主机名，远程服务器的主机名</span><br><span class="line">       email.setHostName(&quot;127.0.0.1&quot;);</span><br><span class="line">       //自定义的ip，一定要手动设置好端口号</span><br><span class="line">       email.setSmtpPort(25);</span><br><span class="line">       //设置登陆远程服务器的密码</span><br><span class="line">       email.setAuthentication(&quot;test@atguigu.com&quot;, &quot;000000&quot;);</span><br><span class="line"></span><br><span class="line">       //编写一个邮件</span><br><span class="line">       //设置发送给谁</span><br><span class="line">       email.addTo(&quot;17512080612@163.com&quot;);</span><br><span class="line">       //设置这个邮件来源于哪里</span><br><span class="line">       email.setFrom(&quot;admin@atguigu.com&quot;);</span><br><span class="line">       //设置邮件主题</span><br><span class="line">       email.setSubject(&quot;哈哈，给你测试 &quot;);</span><br><span class="line">       //设置邮件内容</span><br><span class="line">       email.setMsg(&quot;我能给您发邮件&lt;a href=&apos;http://www.atguigu.com&apos;&gt;尚硅谷&lt;/a&gt;&quot;);</span><br><span class="line">       //邮件发送</span><br><span class="line">       email.send();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -452,6 +471,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/myhexo/tags/email/" rel="tag"># email</a>
+          
+        </div>
       
 
       
@@ -542,7 +567,57 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/myhexo/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/myhexo/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -650,6 +725,12 @@
 
 
 
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
