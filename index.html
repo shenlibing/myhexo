@@ -9,13 +9,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="小兵兵">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/index.html">
 <meta property="og:site_name" content="小兵兵">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小兵兵">
   
-    <link rel="alternate" href="/atom.xml" title="小兵兵" type="application/atom+xml">
+    <link rel="alternate" href="/myhexo/atom.xml" title="小兵兵" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -23,7 +23,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/myhexo/css/style.css">
 </head>
 </html>
 <body>
@@ -34,7 +34,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">小兵兵</a>
+        <a href="/myhexo/" id="logo">小兵兵</a>
       </h1>
       
     </div>
@@ -42,19 +42,19 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/myhexo/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/myhexo/archives">Archives</a>
         
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/myhexo/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenlibing.github.io/myhexo"></form>
       </div>
     </div>
   </div>
@@ -62,9 +62,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-帆软报表部署配置_emoss5用户分配角色、角色分配权限" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-优化点击事件绑定" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/" class="article-date">
+    <a href="/myhexo/2019/01/22/优化点击事件绑定/" class="article-date">
   <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
 </a>
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/">帆软报表部署配置_emoss5用户分配角色、角色分配权限</a>
+      <a class="article-title" href="/myhexo/2019/01/22/优化点击事件绑定/">优化点击事件绑定</a>
     </h1>
   
 
@@ -84,48 +84,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、帆软报表部署</p>
-<p>客户端工具sftp下载链接</p>
-<p><a href="https://www.netsarang.com/download/down_form.html?code=623" target="_blank" rel="noopener">https://www.netsarang.com/download/down_form.html?code=623</a></p>
-<p>使用sftp</p>
-<p><a href="https://www.netsarang.com/download/down_xfp6.html?token=dEFiMWxoUEhuNU1hQlMrRG9qU20yZ0Bnc1hKVGJhaHpkY3hBUUNMNFBoaXVn" target="_blank" rel="noopener">https://www.netsarang.com/download/down_xfp6.html?token=dEFiMWxoUEhuNU1hQlMrRG9qU20yZ0Bnc1hKVGJhaHpkY3hBUUNMNFBoaXVn</a></p>
-<p>1）用客户端工具sftp登录到135.125.60.122机子</p>
-<p>文件–新建</p>
-<p><img src="https://i.imgur.com/2BmJwbi.png" alt=""></p>
-<p><img src="https://i.imgur.com/v4wyabN.png" alt=""></p>
-<p>报表存放路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/opt/FineBI/webapps/WebReport/WEB-INF/reportlets</span><br></pre></td></tr></table></figure>
-<p>2）菜单配置</p>
-<p>基础应用–权限模型–菜单管理</p>
-<p><img src="https://i.imgur.com/wIRwxey.png" alt=""></p>
-<p>建立菜单层级关系</p>
-<p>在资源评价菜单下-建立杜邦报表分析文件夹–建立2018杜邦报表3层目录结构</p>
-<p>在2018杜邦报表(1)下配置报表位置引用–填写<strong>菜单编码(表名)、排序号、菜单名称(表名中文描述)、菜单URL</strong></p>
-<p><img src="https://i.imgur.com/OpkMozW.png" alt=""></p>
-<p>菜单URL的配置</p>
-<p><img src="https://i.imgur.com/sWq1soL.png" alt=""></p>
-<p><img src="https://i.imgur.com/dFluLNT.png" alt=""></p>
-<p>2、建员工、建用户、为用户分配角色、为角色分配权限</p>
-<p>1）建员工–基础应用–权限模型–员工管理</p>
-<p><img src="https://i.imgur.com/3Dy5jZ7.png" alt=""></p>
-<p>2）建用户–基础应用–权限模型–用户管理–新增</p>
-<p><img src="https://i.imgur.com/P72nX6J.png" alt=""></p>
-<p><img src="https://i.imgur.com/m5MJU1X.png" alt=""></p>
-<p><strong>新建用户之前必须先建员工、角色、部门，在建用户的时候可以为该用户分配角色和菜单权限</strong></p>
-<p><img src="https://i.imgur.com/foNIVta.png" alt=""></p>
-<p>3）为用户分配角色–基础应用–权限模型–角色用户设置</p>
-<p><img src="https://i.imgur.com/aXEslSF.png" alt=""></p>
-<p>先选中角色，然后为该角色添加用户</p>
-<p><img src="https://i.imgur.com/OTsxbsS.png" alt=""></p>
-<p>4）为角色分配权限–基础应用–权限模型–角色管理</p>
-<p><img src="https://i.imgur.com/DzlEsPW.png" alt=""></p>
-<p>先选中角色，然后为该角色勾选拥有的菜单权限</p>
-<p><img src="https://i.imgur.com/ssEptko.png" alt=""></p>
+        <p>1、优化点击事件绑定</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.3.1/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id1"</span>&gt;</span>新增按钮1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id2"</span>&gt;</span>删除按钮2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id3"</span>&gt;</span>按钮3<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id4"</span>&gt;</span>按钮4<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, <span class="built_in">arguments</span>)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> actionList = &#123;</span></span><br><span class="line"><span class="javascript">        <span class="string">'id1'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id1=============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id2'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id2===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id3'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id3===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id4'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id4===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> $body = $(<span class="string">'body'</span>)</span></span><br><span class="line"><span class="javascript">    $body.on(<span class="string">'click'</span>, <span class="string">'[data-action]'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//jQuery获取html标签自定义属性值或data值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> action_name = $(<span class="keyword">this</span>).data(<span class="string">'action'</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> action = actionList[action_name]</span></span><br><span class="line"><span class="javascript">        <span class="comment">// log(action)</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// log($.isFunction(action))</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> ($.isFunction(action)) &#123;</span></span><br><span class="line"><span class="undefined">            action()</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//页面需要新增一个按钮，做扩展</span></span></span><br><span class="line"><span class="xml">    $body.append('<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id5"</span>&gt;</span>按钮5<span class="tag">&lt;/<span class="name">button</span>&gt;</span>')</span></span><br><span class="line"><span class="javascript">    $.extend(actionList, &#123;</span></span><br><span class="line"><span class="javascript">        <span class="string">'id5'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id5============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>参考</p>
+<p><a href="https://github.com/cssmagic/blog/issues/48" target="_blank" rel="noopener">https://github.com/cssmagic/blog/issues/48</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/" data-id="cjr7d2a4a0007zouehyh4vezx" class="article-share-link">Share</a>
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/优化点击事件绑定/" data-id="cjr7dlcyz0007v0ue6tz4wl19" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +104,7 @@
   
     <article id="post-网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" class="article-date">
+    <a href="/myhexo/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" class="article-date">
   <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
 </a>
     
@@ -149,7 +116,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件</a>
+      <a class="article-title" href="/myhexo/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件</a>
     </h1>
   
 
@@ -201,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" data-id="cjr7d2a4z000ezoue83qwi4gk" class="article-share-link">Share</a>
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" data-id="cjr7dlczt000ev0ue8bu8z7mz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,9 +178,9 @@
 
 
   
-    <article id="post-用户分配角色_角色维护权限树" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-maven配置" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/22/用户分配角色_角色维护权限树/" class="article-date">
+    <a href="/myhexo/2019/01/22/maven配置/" class="article-date">
   <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
 </a>
     
@@ -225,7 +192,66 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/用户分配角色_角色维护权限树/">用户分配角色_角色维护权限树</a>
+      <a class="article-title" href="/myhexo/2019/01/22/maven配置/">maven配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、下载：</p>
+<p><a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">https://maven.apache.org/download.cgi</a></p>
+<p><img src="https://i.imgur.com/S3Dxltk.png" alt=""></p>
+<p>2、配置path环境变量</p>
+<p><img src="https://i.imgur.com/rIATqaf.png" alt=""></p>
+<p>3、验证安装是否成功</p>
+<p><img src="https://i.imgur.com/4ejsorP.png" alt=""></p>
+<p>4、配置本地仓库、阿里镜像、jdk编译版本</p>
+<p>配置本地仓库位置</p>
+<p><img src="https://i.imgur.com/52z9nU5.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;localRepository&gt;C:\greensoft\apache-maven-3.5.2\repository&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
+<p>配置jar包下载阿里远程镜像</p>
+<p><img src="https://i.imgur.com/JIiS5Ss.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;mirror&gt;      </span><br><span class="line">  &lt;id&gt;aliyun-maven&lt;/id&gt;    </span><br><span class="line">  &lt;name&gt;aliyun-maven&lt;/name&gt;  </span><br><span class="line">  &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;    </span><br><span class="line">  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;      </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+<p>配置jdk编译版本</p>
+<p><img src="https://i.imgur.com/jOArlWO.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">		</span><br><span class="line">&lt;profile&gt;</span><br><span class="line">	&lt;id&gt;jdk-1.7&lt;/id&gt;</span><br><span class="line">	&lt;activation&gt;</span><br><span class="line">		&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;</span><br><span class="line">		&lt;jdk&gt;1.7&lt;/jdk&gt;</span><br><span class="line">	&lt;/activation&gt;</span><br><span class="line">	&lt;properties&gt;</span><br><span class="line">		&lt;maven.compiler.source&gt;1.7&lt;/maven.compiler.source&gt;</span><br><span class="line">		&lt;maven.compiler.target&gt;1.7&lt;/maven.compiler.target&gt;</span><br><span class="line">		&lt;maven.compiler.compilerVersion&gt;1.7&lt;/maven.compiler.compilerVersion&gt;</span><br><span class="line">	&lt;/properties&gt;</span><br><span class="line">&lt;/profile&gt;</span><br></pre></td></tr></table></figure>
+<p>5、eclipse整合maven</p>
+<p>使用自己的maven安装包</p>
+<p><img src="https://i.imgur.com/Uf2A5ql.png" alt=""></p>
+<p><img src="https://i.imgur.com/DelPSwV.png" alt=""></p>
+<p>6、IDEA整合maven</p>
+<p><img src="https://i.imgur.com/G2sHbyp.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/maven配置/" data-id="cjr7dlcys0002v0ues76cg0vj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-用户分配角色_角色维护权限树" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/myhexo/2019/01/22/用户分配角色_角色维护权限树/" class="article-date">
+  <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/myhexo/2019/01/22/用户分配角色_角色维护权限树/">用户分配角色_角色维护权限树</a>
     </h1>
   
 
@@ -277,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/用户分配角色_角色维护权限树/" data-id="cjr7d2a4y000dzoue7bgyg5dd" class="article-share-link">Share</a>
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/用户分配角色_角色维护权限树/" data-id="cjr7dlczs000dv0uee1b81x4d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -287,9 +313,9 @@
 
 
   
-    <article id="post-maven配置" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-my_en" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/22/maven配置/" class="article-date">
+    <a href="/myhexo/2019/01/22/my_en/" class="article-date">
   <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
 </a>
     
@@ -301,7 +327,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/maven配置/">maven配置</a>
+      <a class="article-title" href="/myhexo/2019/01/22/my_en/">my_en</a>
     </h1>
   
 
@@ -309,34 +335,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、下载：</p>
-<p><a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">https://maven.apache.org/download.cgi</a></p>
-<p><img src="https://i.imgur.com/S3Dxltk.png" alt=""></p>
-<p>2、配置path环境变量</p>
-<p><img src="https://i.imgur.com/rIATqaf.png" alt=""></p>
-<p>3、验证安装是否成功</p>
-<p><img src="https://i.imgur.com/4ejsorP.png" alt=""></p>
-<p>4、配置本地仓库、阿里镜像、jdk编译版本</p>
-<p>配置本地仓库位置</p>
-<p><img src="https://i.imgur.com/52z9nU5.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;localRepository&gt;C:\greensoft\apache-maven-3.5.2\repository&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
-<p>配置jar包下载阿里远程镜像</p>
-<p><img src="https://i.imgur.com/JIiS5Ss.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;mirror&gt;      </span><br><span class="line">  &lt;id&gt;aliyun-maven&lt;/id&gt;    </span><br><span class="line">  &lt;name&gt;aliyun-maven&lt;/name&gt;  </span><br><span class="line">  &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;    </span><br><span class="line">  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;      </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
-<p>配置jdk编译版本</p>
-<p><img src="https://i.imgur.com/jOArlWO.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">		</span><br><span class="line">&lt;profile&gt;</span><br><span class="line">	&lt;id&gt;jdk-1.7&lt;/id&gt;</span><br><span class="line">	&lt;activation&gt;</span><br><span class="line">		&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;</span><br><span class="line">		&lt;jdk&gt;1.7&lt;/jdk&gt;</span><br><span class="line">	&lt;/activation&gt;</span><br><span class="line">	&lt;properties&gt;</span><br><span class="line">		&lt;maven.compiler.source&gt;1.7&lt;/maven.compiler.source&gt;</span><br><span class="line">		&lt;maven.compiler.target&gt;1.7&lt;/maven.compiler.target&gt;</span><br><span class="line">		&lt;maven.compiler.compilerVersion&gt;1.7&lt;/maven.compiler.compilerVersion&gt;</span><br><span class="line">	&lt;/properties&gt;</span><br><span class="line">&lt;/profile&gt;</span><br></pre></td></tr></table></figure>
-<p>5、eclipse整合maven</p>
-<p>使用自己的maven安装包</p>
-<p><img src="https://i.imgur.com/Uf2A5ql.png" alt=""></p>
-<p><img src="https://i.imgur.com/DelPSwV.png" alt=""></p>
-<p>6、IDEA整合maven</p>
-<p><img src="https://i.imgur.com/G2sHbyp.png" alt=""></p>
-
+        <p>###2018/12/14</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">eviction --赶出</span><br><span class="line">thorough --彻底</span><br><span class="line">fixed --固定</span><br><span class="line">notifications --通知</span><br><span class="line">traverse graphs --遍历图</span><br><span class="line">covers --覆盖</span><br><span class="line">block --阻塞</span><br><span class="line">Redis Releases --Redis 发布</span><br><span class="line">Benchmarks --基准</span><br><span class="line">Latency monitoring --延迟监控</span><br><span class="line">tune --调整</span><br><span class="line">High Availability --高可用性</span><br><span class="line">Signals Handling --信号处理</span><br><span class="line">Administration --管理</span><br><span class="line">troubleshoot --解决</span><br><span class="line">Troubleshooting --故障排除</span><br><span class="line">command line interface --命令行界面</span><br><span class="line">durability --持久力</span><br><span class="line">Credits --积分</span><br><span class="line">Sponsors --赞助商</span><br><span class="line">Trademark  --商标</span><br><span class="line">Lexicographical order --字典顺序</span><br><span class="line">populated --填充</span><br><span class="line">reply --答复、回复</span><br><span class="line">indicating  --指示、说明</span><br><span class="line">penultimate --倒数第二</span><br><span class="line">treat --对待、视其为</span><br><span class="line">abstractions --抽象</span><br><span class="line">separately --单独、分别地</span><br><span class="line">retrieve --检索、取出</span><br><span class="line">bitmaps --位图</span><br><span class="line">probabilistic --概率</span><br><span class="line">estimate --估计</span><br><span class="line">cardinality --基数</span><br><span class="line">scared --害怕</span><br><span class="line">trivial --不重要的、微不足道的</span><br><span class="line">crash course --速成班</span><br><span class="line">specification --规范</span><br><span class="line">Prerequisites --先决条件</span><br><span class="line">clause --条款、子句</span><br><span class="line">omit  --忽略</span><br><span class="line">semantics --语义</span><br></pre></td></tr></table></figure>
+<p>###20181215</p>
+<p>参考<br><a href="https://tylermcginnis.com/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/" target="_blank" rel="noopener">https://tylermcginnis.com/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">opinion --观点</span><br><span class="line">properly  --正确地</span><br><span class="line">strategy  --策略</span><br><span class="line">interpret --解释</span><br><span class="line">authoring --创作</span><br><span class="line">form --形式</span><br><span class="line">consist of --包括</span><br><span class="line">responsibilities --责任</span><br><span class="line">spot  --点、发现</span><br><span class="line">key --关键</span><br><span class="line">phases --阶段</span><br><span class="line">deserve --值得</span><br><span class="line">cement  --巩固</span><br><span class="line">Hoisting --提升</span><br><span class="line">exactly identical --完全相同</span><br><span class="line">fairly comfortable  --相当熟悉</span><br><span class="line">adapt --调整、适应</span><br><span class="line">Set up memory space  --设置内存空间</span><br><span class="line">Execution Stack --执行堆栈</span><br><span class="line">Call Stack --调用堆栈</span><br><span class="line">intuition --直觉</span><br><span class="line">scenario  --脚本</span><br><span class="line">misunderstood  --误解</span><br><span class="line">Implicit Binding --隐式绑定</span><br><span class="line">Explicit Binding --显示绑定</span><br><span class="line">Lexical Binding --词法绑定</span><br></pre></td></tr></table></figure>
+<p>###20181217</p>
+<p>参考</p>
+<p><a href="https://dev.to/siwalik/async-programming-basics-every-js-developer-should-know-in-2018-a9c" target="_blank" rel="noopener">https://dev.to/siwalik/async-programming-basics-every-js-developer-should-know-in-2018-a9c</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hence --于是</span><br><span class="line">imensely --非常</span><br></pre></td></tr></table></figure>
+<p>###20190117</p>
+<p>参考：</p>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#comparisons" target="_blank" rel="noopener">https://docs.python.org/3/library/stdtypes.html#comparisons</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Comparisons  --比较</span><br><span class="line">Comparisons can be chained arbitrarily  --比较可以任意连接</span><br><span class="line">negated --否定</span><br><span class="line">notion --概念、主张</span><br><span class="line">raise --养、引发</span><br></pre></td></tr></table></figure>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range" target="_blank" rel="noopener">https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ascending  --升序</span><br><span class="line">restrictions --限制</span><br><span class="line">imposed --加强</span><br><span class="line">lexicographically --字典顺序</span><br><span class="line">multidimensional list --多维列表</span><br><span class="line">Immutable Sequence Types --不可变序列类型</span><br><span class="line">slice --切片</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/maven配置/" data-id="cjr7d2a440003zoueun5jmzf9" class="article-share-link">Share</a>
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/my_en/" data-id="cjr7dlcyw0004v0ue48w2vipt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +365,7 @@
   
     <article id="post-springmvc配置" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/22/springmvc配置/" class="article-date">
+    <a href="/myhexo/2019/01/22/springmvc配置/" class="article-date">
   <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
 </a>
     
@@ -360,7 +377,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/springmvc配置/">springmvc配置</a>
+      <a class="article-title" href="/myhexo/2019/01/22/springmvc配置/">springmvc配置</a>
     </h1>
   
 
@@ -401,57 +418,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/springmvc配置/" data-id="cjr7d2a450004zoue7gxpno59" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-my_en" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/22/my_en/" class="article-date">
-  <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/my_en/">my_en</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###2018/12/14</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">eviction --赶出</span><br><span class="line">thorough --彻底</span><br><span class="line">fixed --固定</span><br><span class="line">notifications --通知</span><br><span class="line">traverse graphs --遍历图</span><br><span class="line">covers --覆盖</span><br><span class="line">block --阻塞</span><br><span class="line">Redis Releases --Redis 发布</span><br><span class="line">Benchmarks --基准</span><br><span class="line">Latency monitoring --延迟监控</span><br><span class="line">tune --调整</span><br><span class="line">High Availability --高可用性</span><br><span class="line">Signals Handling --信号处理</span><br><span class="line">Administration --管理</span><br><span class="line">troubleshoot --解决</span><br><span class="line">Troubleshooting --故障排除</span><br><span class="line">command line interface --命令行界面</span><br><span class="line">durability --持久力</span><br><span class="line">Credits --积分</span><br><span class="line">Sponsors --赞助商</span><br><span class="line">Trademark  --商标</span><br><span class="line">Lexicographical order --字典顺序</span><br><span class="line">populated --填充</span><br><span class="line">reply --答复、回复</span><br><span class="line">indicating  --指示、说明</span><br><span class="line">penultimate --倒数第二</span><br><span class="line">treat --对待、视其为</span><br><span class="line">abstractions --抽象</span><br><span class="line">separately --单独、分别地</span><br><span class="line">retrieve --检索、取出</span><br><span class="line">bitmaps --位图</span><br><span class="line">probabilistic --概率</span><br><span class="line">estimate --估计</span><br><span class="line">cardinality --基数</span><br><span class="line">scared --害怕</span><br><span class="line">trivial --不重要的、微不足道的</span><br><span class="line">crash course --速成班</span><br><span class="line">specification --规范</span><br><span class="line">Prerequisites --先决条件</span><br><span class="line">clause --条款、子句</span><br><span class="line">omit  --忽略</span><br><span class="line">semantics --语义</span><br></pre></td></tr></table></figure>
-<p>###20181215</p>
-<p>参考<br><a href="https://tylermcginnis.com/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/" target="_blank" rel="noopener">https://tylermcginnis.com/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">opinion --观点</span><br><span class="line">properly  --正确地</span><br><span class="line">strategy  --策略</span><br><span class="line">interpret --解释</span><br><span class="line">authoring --创作</span><br><span class="line">form --形式</span><br><span class="line">consist of --包括</span><br><span class="line">responsibilities --责任</span><br><span class="line">spot  --点、发现</span><br><span class="line">key --关键</span><br><span class="line">phases --阶段</span><br><span class="line">deserve --值得</span><br><span class="line">cement  --巩固</span><br><span class="line">Hoisting --提升</span><br><span class="line">exactly identical --完全相同</span><br><span class="line">fairly comfortable  --相当熟悉</span><br><span class="line">adapt --调整、适应</span><br><span class="line">Set up memory space  --设置内存空间</span><br><span class="line">Execution Stack --执行堆栈</span><br><span class="line">Call Stack --调用堆栈</span><br><span class="line">intuition --直觉</span><br><span class="line">scenario  --脚本</span><br><span class="line">misunderstood  --误解</span><br><span class="line">Implicit Binding --隐式绑定</span><br><span class="line">Explicit Binding --显示绑定</span><br><span class="line">Lexical Binding --词法绑定</span><br></pre></td></tr></table></figure>
-<p>###20181217</p>
-<p>参考</p>
-<p><a href="https://dev.to/siwalik/async-programming-basics-every-js-developer-should-know-in-2018-a9c" target="_blank" rel="noopener">https://dev.to/siwalik/async-programming-basics-every-js-developer-should-know-in-2018-a9c</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hence --于是</span><br><span class="line">imensely --非常</span><br></pre></td></tr></table></figure>
-<p>###20190117</p>
-<p>参考：</p>
-<p><a href="https://docs.python.org/3/library/stdtypes.html#comparisons" target="_blank" rel="noopener">https://docs.python.org/3/library/stdtypes.html#comparisons</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Comparisons  --比较</span><br><span class="line">Comparisons can be chained arbitrarily  --比较可以任意连接</span><br><span class="line">negated --否定</span><br><span class="line">notion --概念、主张</span><br><span class="line">raise --养、引发</span><br></pre></td></tr></table></figure>
-<p><a href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range" target="_blank" rel="noopener">https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ascending  --升序</span><br><span class="line">restrictions --限制</span><br><span class="line">imposed --加强</span><br><span class="line">lexicographically --字典顺序</span><br><span class="line">multidimensional list --多维列表</span><br><span class="line">Immutable Sequence Types --不可变序列类型</span><br><span class="line">slice --切片</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/my_en/" data-id="cjr7d2a470005zouex045ws4j" class="article-share-link">Share</a>
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/springmvc配置/" data-id="cjr7dlcyx0005v0uebo2y7l5z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -463,7 +430,7 @@
   
     <article id="post-svn版本控制" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/22/svn版本控制/" class="article-date">
+    <a href="/myhexo/2019/01/22/svn版本控制/" class="article-date">
   <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
 </a>
     
@@ -475,7 +442,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/svn版本控制/">svn版本控制</a>
+      <a class="article-title" href="/myhexo/2019/01/22/svn版本控制/">svn版本控制</a>
     </h1>
   
 
@@ -533,7 +500,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/svn版本控制/" data-id="cjr7d2a490006zoueicak8ez1" class="article-share-link">Share</a>
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/svn版本控制/" data-id="cjr7dlcyy0006v0ueo3dj84jc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -545,7 +512,7 @@
   
     <article id="post-JavaScript Inheritance and the Prototype Chain" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/22/JavaScript Inheritance and the Prototype Chain/" class="article-date">
+    <a href="/myhexo/2019/01/22/JavaScript Inheritance and the Prototype Chain/" class="article-date">
   <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
 </a>
     
@@ -557,7 +524,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/JavaScript Inheritance and the Prototype Chain/">JavaScript Inheritance and the Prototype Chain</a>
+      <a class="article-title" href="/myhexo/2019/01/22/JavaScript Inheritance and the Prototype Chain/">JavaScript Inheritance and the Prototype Chain</a>
     </h1>
   
 
@@ -810,7 +777,7 @@ Dog.prototype.constructor = Dog
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/JavaScript Inheritance and the Prototype Chain/" data-id="cjr7d2a4x000czoueynt2y550" class="article-share-link">Share</a>
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/JavaScript Inheritance and the Prototype Chain/" data-id="cjr7dlczq000cv0ue3mwb0ksp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -820,9 +787,9 @@ Dog.prototype.constructor = Dog
 
 
   
-    <article id="post-优化点击事件绑定" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-帆软报表部署配置_emoss5用户分配角色、角色分配权限" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/22/优化点击事件绑定/" class="article-date">
+    <a href="/myhexo/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/" class="article-date">
   <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
 </a>
     
@@ -834,7 +801,7 @@ Dog.prototype.constructor = Dog
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/优化点击事件绑定/">优化点击事件绑定</a>
+      <a class="article-title" href="/myhexo/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/">帆软报表部署配置_emoss5用户分配角色、角色分配权限</a>
     </h1>
   
 
@@ -842,15 +809,48 @@ Dog.prototype.constructor = Dog
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、优化点击事件绑定</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.3.1/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id1"</span>&gt;</span>新增按钮1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id2"</span>&gt;</span>删除按钮2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id3"</span>&gt;</span>按钮3<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id4"</span>&gt;</span>按钮4<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, <span class="built_in">arguments</span>)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> actionList = &#123;</span></span><br><span class="line"><span class="javascript">        <span class="string">'id1'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id1=============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id2'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id2===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id3'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id3===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id4'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id4===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> $body = $(<span class="string">'body'</span>)</span></span><br><span class="line"><span class="javascript">    $body.on(<span class="string">'click'</span>, <span class="string">'[data-action]'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//jQuery获取html标签自定义属性值或data值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> action_name = $(<span class="keyword">this</span>).data(<span class="string">'action'</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> action = actionList[action_name]</span></span><br><span class="line"><span class="javascript">        <span class="comment">// log(action)</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// log($.isFunction(action))</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> ($.isFunction(action)) &#123;</span></span><br><span class="line"><span class="undefined">            action()</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//页面需要新增一个按钮，做扩展</span></span></span><br><span class="line"><span class="xml">    $body.append('<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id5"</span>&gt;</span>按钮5<span class="tag">&lt;/<span class="name">button</span>&gt;</span>')</span></span><br><span class="line"><span class="javascript">    $.extend(actionList, &#123;</span></span><br><span class="line"><span class="javascript">        <span class="string">'id5'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id5============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>参考</p>
-<p><a href="https://github.com/cssmagic/blog/issues/48" target="_blank" rel="noopener">https://github.com/cssmagic/blog/issues/48</a></p>
+        <p>1、帆软报表部署</p>
+<p>客户端工具sftp下载链接</p>
+<p><a href="https://www.netsarang.com/download/down_form.html?code=623" target="_blank" rel="noopener">https://www.netsarang.com/download/down_form.html?code=623</a></p>
+<p>使用sftp</p>
+<p><a href="https://www.netsarang.com/download/down_xfp6.html?token=dEFiMWxoUEhuNU1hQlMrRG9qU20yZ0Bnc1hKVGJhaHpkY3hBUUNMNFBoaXVn" target="_blank" rel="noopener">https://www.netsarang.com/download/down_xfp6.html?token=dEFiMWxoUEhuNU1hQlMrRG9qU20yZ0Bnc1hKVGJhaHpkY3hBUUNMNFBoaXVn</a></p>
+<p>1）用客户端工具sftp登录到135.125.60.122机子</p>
+<p>文件–新建</p>
+<p><img src="https://i.imgur.com/2BmJwbi.png" alt=""></p>
+<p><img src="https://i.imgur.com/v4wyabN.png" alt=""></p>
+<p>报表存放路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/opt/FineBI/webapps/WebReport/WEB-INF/reportlets</span><br></pre></td></tr></table></figure>
+<p>2）菜单配置</p>
+<p>基础应用–权限模型–菜单管理</p>
+<p><img src="https://i.imgur.com/wIRwxey.png" alt=""></p>
+<p>建立菜单层级关系</p>
+<p>在资源评价菜单下-建立杜邦报表分析文件夹–建立2018杜邦报表3层目录结构</p>
+<p>在2018杜邦报表(1)下配置报表位置引用–填写<strong>菜单编码(表名)、排序号、菜单名称(表名中文描述)、菜单URL</strong></p>
+<p><img src="https://i.imgur.com/OpkMozW.png" alt=""></p>
+<p>菜单URL的配置</p>
+<p><img src="https://i.imgur.com/sWq1soL.png" alt=""></p>
+<p><img src="https://i.imgur.com/dFluLNT.png" alt=""></p>
+<p>2、建员工、建用户、为用户分配角色、为角色分配权限</p>
+<p>1）建员工–基础应用–权限模型–员工管理</p>
+<p><img src="https://i.imgur.com/3Dy5jZ7.png" alt=""></p>
+<p>2）建用户–基础应用–权限模型–用户管理–新增</p>
+<p><img src="https://i.imgur.com/P72nX6J.png" alt=""></p>
+<p><img src="https://i.imgur.com/m5MJU1X.png" alt=""></p>
+<p><strong>新建用户之前必须先建员工、角色、部门，在建用户的时候可以为该用户分配角色和菜单权限</strong></p>
+<p><img src="https://i.imgur.com/foNIVta.png" alt=""></p>
+<p>3）为用户分配角色–基础应用–权限模型–角色用户设置</p>
+<p><img src="https://i.imgur.com/aXEslSF.png" alt=""></p>
+<p>先选中角色，然后为该角色添加用户</p>
+<p><img src="https://i.imgur.com/OTsxbsS.png" alt=""></p>
+<p>4）为角色分配权限–基础应用–权限模型–角色管理</p>
+<p><img src="https://i.imgur.com/DzlEsPW.png" alt=""></p>
+<p>先选中角色，然后为该角色勾选拥有的菜单权限</p>
+<p><img src="https://i.imgur.com/ssEptko.png" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/优化点击事件绑定/" data-id="cjr7d2a4b0008zouemwk0t77i" class="article-share-link">Share</a>
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/" data-id="cjr7dlcz10008v0ue5y0mszse" class="article-share-link">Share</a>
       
       
     </footer>
@@ -862,7 +862,7 @@ Dog.prototype.constructor = Dog
   
     <article id="post-js面向对象_箭头函数this_数组常用方法" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/22/js面向对象_箭头函数this_数组常用方法/" class="article-date">
+    <a href="/myhexo/2019/01/22/js面向对象_箭头函数this_数组常用方法/" class="article-date">
   <time datetime="2019-01-22T04:58:55.000Z" itemprop="datePublished">2019-01-22</time>
 </a>
     
@@ -874,7 +874,7 @@ Dog.prototype.constructor = Dog
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/22/js面向对象_箭头函数this_数组常用方法/">js面向对象_箭头函数this_数组常用方法</a>
+      <a class="article-title" href="/myhexo/2019/01/22/js面向对象_箭头函数this_数组常用方法/">js面向对象_箭头函数this_数组常用方法</a>
     </h1>
   
 
@@ -945,7 +945,7 @@ Dog.prototype.constructor = Dog
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/22/js面向对象_箭头函数this_数组常用方法/" data-id="cjr7d2a4g0009zouem7o6hj19" class="article-share-link">Share</a>
+      <a data-url="https://shenlibing.github.io/myhexo/2019/01/22/js面向对象_箭头函数this_数组常用方法/" data-id="cjr7dlcz70009v0uep22lfnor" class="article-share-link">Share</a>
       
       
     </footer>
@@ -959,7 +959,7 @@ Dog.prototype.constructor = Dog
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/myhexo/page/2/">2</a><a class="extend next" rel="next" href="/myhexo/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -978,7 +978,7 @@ Dog.prototype.constructor = Dog
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/myhexo/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/myhexo/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -991,23 +991,23 @@ Dog.prototype.constructor = Dog
       <ul>
         
           <li>
-            <a href="/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/">帆软报表部署配置_emoss5用户分配角色、角色分配权限</a>
+            <a href="/myhexo/2019/01/22/优化点击事件绑定/">优化点击事件绑定</a>
           </li>
         
           <li>
-            <a href="/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件</a>
+            <a href="/myhexo/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件</a>
           </li>
         
           <li>
-            <a href="/2019/01/22/用户分配角色_角色维护权限树/">用户分配角色_角色维护权限树</a>
+            <a href="/myhexo/2019/01/22/maven配置/">maven配置</a>
           </li>
         
           <li>
-            <a href="/2019/01/22/maven配置/">maven配置</a>
+            <a href="/myhexo/2019/01/22/用户分配角色_角色维护权限树/">用户分配角色_角色维护权限树</a>
           </li>
         
           <li>
-            <a href="/2019/01/22/springmvc配置/">springmvc配置</a>
+            <a href="/myhexo/2019/01/22/my_en/">my_en</a>
           </li>
         
       </ul>
@@ -1030,9 +1030,9 @@ Dog.prototype.constructor = Dog
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/myhexo/" class="mobile-nav-link">Home</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/myhexo/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -1040,11 +1040,11 @@ Dog.prototype.constructor = Dog
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/myhexo/fancybox/jquery.fancybox.css">
+  <script src="/myhexo/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/myhexo/js/script.js"></script>
 
 
 
