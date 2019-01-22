@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://i.imgur.com/Uf2A5ql.png">
 <meta property="og:image" content="https://i.imgur.com/DelPSwV.png">
 <meta property="og:image" content="https://i.imgur.com/G2sHbyp.png">
-<meta property="og:updated_time" content="2019-01-22T09:13:10.605Z">
+<meta property="og:updated_time" content="2019-01-22T09:37:20.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven配置">
 <meta name="twitter:description" content="1、下载： https://maven.apache.org/download.cgi  2、配置path环境变量  3、验证安装是否成功  4、配置本地仓库、阿里镜像、jdk编译版本 配置本地仓库位置  12&amp;lt;localRepository&amp;gt;C:\greensoft\apache-maven-3.5.2\repository&amp;lt;/localRepository&amp;gt; 配置jar">
@@ -391,7 +391,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-01-22 17:13:10" itemprop="dateModified" datetime="2019-01-22T17:13:10+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:37:20" itemprop="dateModified" datetime="2019-01-22T17:37:20+08:00">2019-01-22</time>
               
             
           </span>
@@ -456,10 +456,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;localRepository&gt;C:\greensoft\apache-maven-3.5.2\repository&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
 <p>配置jar包下载阿里远程镜像</p>
 <p><img src="https://i.imgur.com/JIiS5Ss.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;mirror&gt;      </span><br><span class="line">  &lt;id&gt;aliyun-maven&lt;/id&gt;    </span><br><span class="line">  &lt;name&gt;aliyun-maven&lt;/name&gt;  </span><br><span class="line">  &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;    </span><br><span class="line">  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;      </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span>      </span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyun-maven<span class="tag">&lt;/<span class="name">id</span>&gt;</span>    </span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun-maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span>    </span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>      </span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>配置jdk编译版本</p>
 <p><img src="https://i.imgur.com/jOArlWO.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;profile&gt;</span><br><span class="line">	&lt;id&gt;jdk-1.7&lt;/id&gt;</span><br><span class="line">	&lt;activation&gt;</span><br><span class="line">		&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;</span><br><span class="line">		&lt;jdk&gt;1.7&lt;/jdk&gt;</span><br><span class="line">	&lt;/activation&gt;</span><br><span class="line">	&lt;properties&gt;</span><br><span class="line">		&lt;maven.compiler.source&gt;1.7&lt;/maven.compiler.source&gt;</span><br><span class="line">		&lt;maven.compiler.target&gt;1.7&lt;/maven.compiler.target&gt;</span><br><span class="line">		&lt;maven.compiler.compilerVersion&gt;1.7&lt;/maven.compiler.compilerVersion&gt;</span><br><span class="line">	&lt;/properties&gt;</span><br><span class="line">&lt;/profile&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">id</span>&gt;</span>jdk-1.7<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">maven.compiler.compilerVersion</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.compilerVersion</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>5、eclipse整合maven</p>
 <p>使用自己的maven安装包</p>
 <p><img src="https://i.imgur.com/Uf2A5ql.png" alt=""></p>
@@ -740,12 +740,6 @@
 
 
 
-
-  
-    
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
