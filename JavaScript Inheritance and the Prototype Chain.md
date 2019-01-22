@@ -1,7 +1,9 @@
 ---
 title: JavaScript Inheritance and the Prototype Chain
 date: 2019-01-02 12:58:55
+categories: 日常记录
 tags:
+	-	js
 ---
 参考：
 
@@ -22,22 +24,22 @@ Previously we learned how to create an **Animal** class both in **ES5** as well 
 	  this.name = name
 	  this.energy = energy
 	}
-	
+
 	Animal.prototype.eat = function (amount) {
 	  console.log(`${this.name} is eating.`)
 	  this.energy += amount
 	}
-	
+
 	Animal.prototype.sleep = function (length) {
 	  console.log(`${this.name} is sleeping.`)
 	  this.energy += length
 	}
-	
+
 	Animal.prototype.play = function (length) {
 	  console.log(`${this.name} is playing.`)
 	  this.energy -= length
 	}
-	
+
 	const leo = new Animal('Leo', 7)
 ```
 
@@ -61,7 +63,7 @@ Previously we learned how to create an **Animal** class both in **ES5** as well 
 	    this.energy -= length
 	  }
 	}
-	
+
 	const leo = new Animal('Leo', 7)
 
 ```
@@ -76,27 +78,27 @@ Now let’s say we wanted to start making individual classes for specific animal
 	  this.energy = energy
 	  this.breed = breed
 	}
-	
+
 	Dog.prototype.eat = function (amount) {
 	  console.log(`${this.name} is eating.`)
 	  this.energy += amount
 	}
-	
+
 	Dog.prototype.sleep = function (length) {
 	  console.log(`${this.name} is sleeping.`)
 	  this.energy += length
 	}
-	
+
 	Dog.prototype.play = function (length) {
 	  console.log(`${this.name} is playing.`)
 	  this.energy -= length
 	}
-	
+
 	Dog.prototype.bark = function () {
 	  console.log('Woof-Woof!')
 	  this.energy -= .1
 	}
-	
+
 	const charlie = new Dog('Charlie', 10, 'Goldendoodle')
 
 ```
@@ -106,11 +108,11 @@ Alright, well… we just recreated the **Animal** class and added a few new prop
 ```
 
 	function Dog (name, energy, breed) {}
-	
+
 	function Cat (name, energy, declawed) {}
-	
+
 	function Giraffe (name, energy, height) {}
-	
+
 	function Monkey (name, energy, domesticated) {}
 ```
 
@@ -123,24 +125,24 @@ This work, but it seems wasteful. The **Animal** class is the perfect base class
 	  this.name = name
 	  this.energy = energy
 	}
-	
+
 	Animal.prototype.eat = function (amount) {
 	  console.log(`${this.name} is eating.`)
 	  this.energy += amount
 	}
-	
+
 	Animal.prototype.sleep = function (length) {
 	  console.log(`${this.name} is sleeping.`)
 	  this.energy += length
 	}
-	
+
 	Animal.prototype.play = function (length) {
 	  console.log(`${this.name} is playing.`)
 	  this.energy -= length
 	}
-	
+
 	function Dog (name, energy, breed) {
-	
+
 	}
 
 ```
@@ -162,12 +164,12 @@ This sounds like exactly what we need. We want to invoke **Animal** in the conte
 
   	 function Dog (name, energy, breed) {
       Animal.call(this, name, energy)
-    
+
       this.breed = breed
     }
-    
+
     const charlie = new Dog('Charlie', 10, 'Goldendoodle')
-    
+
     charlie.name // Charlie
     charlie.energy // 10
     charlie.breed // Goldendoodle
@@ -180,13 +182,13 @@ Let’s think about how we can solve this. We know that all the **Animal**’s m
 
 
 
-    
+
     function Dog (name, energy, breed) {
       Animal.call(this, name, energy)
-    
+
       this.breed = breed
     }
-    
+
     Dog.prototype = Object.create(Animal.prototype)
 
 Now, whenever there’s a failed lookup on an instance of **Dog**, JavaScript will delegate that lookup to **Animal.prototype**. If this is still a little fuzzy, re-read A Beginner’s Guide to JavaScript’s Prototype where we talk all about **Object.create** and JavaScript’s prototype.
@@ -197,28 +199,28 @@ Let’s look at the full code together then we’ll walk through what happens.
       this.name = name
       this.energy = energy
     }
-    
+
     Animal.prototype.eat = function (amount) {
       console.log(`${this.name} is eating.`)
       this.energy += amount
     }
-    
+
     Animal.prototype.sleep = function (length) {
       console.log(`${this.name} is sleeping.`)
       this.energy += length
     }
-    
+
     Animal.prototype.play = function (length) {
       console.log(`${this.name} is playing.`)
       this.energy -= length
     }
-    
+
     function Dog (name, energy, breed) {
       Animal.call(this, name, energy)
-    
+
       this.breed = breed
     }
-    
+
     Dog.prototype = Object.create(Animal.prototype)
 
 
@@ -226,7 +228,7 @@ Now we’ve created our base class (**Animal**) as well as our subclass (**Dog**
 
 
     const charlie = new Dog('Charlie', 10, 'Goldendoodle')
-    
+
     charlie.name // Charlie
     charlie.energy // 10
     charlie.breed // Goldendoodle
@@ -237,7 +239,7 @@ Nothing fancy so far, but let’s look at what happens when we invoke a method l
 
     charlie.eat(10)
 
-	
+
 	/*
 	1) JavaScript checks if charlie has an eat property - it doesn't.
 	2) JavaScript then checks if Dog.prototype has an eat property
@@ -253,7 +255,7 @@ The reason **Dog.prototype** gets checked is because when we created a new insta
     function Dog (name, energy, breed) {
       // this = Object.create(Dog.prototype)
       Animal.call(this, name, energy)
-    
+
       this.breed = breed
       // return this
     }
@@ -268,15 +270,15 @@ Now one thing we haven’t talked about is what if **Dog** has its own methods? 
 ```
 
 	...
-	
+
 	function Dog (name, energy, breed) {
 	  Animal.call(this, name, energy)
-	
+
 	  this.breed = breed
 	}
-	
+
 	Dog.prototype = Object.create(Animal.prototype)
-	
+
 	Dog.prototype.bark = function () {
 	  console.log('Woof Woof!')
 	  this.energy -= .1
@@ -289,7 +291,7 @@ very nice. There’s just one small addition we need to make. If you remember ba
       this.name = name
       this.energy = energy
     }
-    
+
     const leo = new Animal('Leo', 7)
     console.log(leo.constructor) // Logs the constructor function
 
@@ -299,15 +301,15 @@ As explained in the previous post, “the reason this works is because any insta
 
 The reason I bring this up is because in our implementation, we overwrote **Dog.prototype** with an object that delegates to **Animal.prototype**.
 
-    
+
     function Dog (name, energy, breed) {
       Animal.call(this, name, energy)
-    
+
       this.breed = breed
     }
-    
+
     Dog.prototype = Object.create(Animal.prototype)
-    
+
     Dog.prototype.bark = function () {
       console.log('Woof Woof!')
       this.energy -= .1
@@ -320,35 +322,35 @@ What that means is that now, any instances of **Dog** which log **instance.const
       this.name = name
       this.energy = energy
     }
-    
+
     Animal.prototype.eat = function (amount) {
       console.log(`${this.name} is eating.`)
       this.energy += amount
     }
-    
+
     Animal.prototype.sleep = function (length) {
       console.log(`${this.name} is sleeping.`)
       this.energy += length
     }
-    
+
     Animal.prototype.play = function (length) {
       console.log(`${this.name} is playing.`)
       this.energy -= length
     }
-    
+
     function Dog (name, energy, breed) {
       Animal.call(this, name, energy)
-    
+
       this.breed = breed
     }
-    
+
     Dog.prototype = Object.create(Animal.prototype)
-    
+
     Dog.prototype.bark = function () {
       console.log('Woof Woof!')
       this.energy -= .1
     }
-    
+
     const charlie = new Dog('Charlie', 10, 'Goldendoodle')
     console.log(charlie.constructor)
 
@@ -358,7 +360,7 @@ Notice it gives you the **Animal** constructor even though **charlie** is a dire
 
 	const charlie = new Dog('Charlie', 10, 'Goldendoodle')
 	console.log(charlie.constructor)
-	
+
 	/*
 	1) JavaScript checks if charlie has a constructor property - it doesn't.
 	2) JavaScript then checks if Dog.prototype has a constructor property
@@ -372,30 +374,30 @@ How can we fix this? Well, it’s pretty simple. We can just add the correct **c
 
     function Dog (name, energy, breed) {
       Animal.call(this, name, energy)
-    
+
       this.breed = breed
     }
-    
+
     Dog.prototype = Object.create(Animal.prototype)
-    
+
     Dog.prototype.bark = function () {
       console.log('Woof Woof!')
       this.energy -= .1
     }
-    
+
     Dog.prototype.constructor = Dog
 
 At this point if we wanted to make another subclass, say **Cat**, we’d follow the same pattern.
-    
+
     function Cat (name, energy, declawed) {
       Animal.call(this, name, energy)
-    
+
       this.declawed = declawed
     }
-    
+
     Cat.prototype = Object.create(Animal.prototype)
     Cat.prototype.constructor = Cat
-    
+
     Cat.prototype.meow = function () {
       console.log('Meow!')
       this.energy -= .1
@@ -409,22 +411,22 @@ First, let’s review what it looks like to go from an ES5 “class” to an ES6
       this.name = name
       this.energy = energy
     }
-    
+
     Animal.prototype.eat = function (amount) {
       console.log(`${this.name} is eating.`)
       this.energy += amount
     }
-    
+
     Animal.prototype.sleep = function (length) {
       console.log(`${this.name} is sleeping.`)
       this.energy += length
     }
-    
+
     Animal.prototype.play = function (length) {
       console.log(`${this.name} is playing.`)
       this.energy -= length
     }
-    
+
     const leo = new Animal('Leo', 7)
 
 
@@ -448,7 +450,7 @@ First, let’s review what it looks like to go from an ES5 “class” to an ES6
 	    this.energy -= length
 	  }
 	}
-	
+
 	const leo = new Animal('Leo', 7)
 
 ```
@@ -457,17 +459,17 @@ Now that we’ve refactored our **Animal** constructor function into an ES6 clas
 
     function Dog (name, energy, breed) {
       Animal.call(this, name, energy)
-    
+
       this.breed = breed
     }
-    
+
     Dog.prototype = Object.create(Animal.prototype)
-    
+
     Dog.prototype.bark = function () {
       console.log('Woof Woof!')
       this.energy -= .1
     }
-    
+
     Dog.prototype.constructor = Dog
 
 Before we get into inheritance, let’s refactor **Dog** to use an ES6 class as we learned in a previous post.
@@ -514,7 +516,7 @@ Translated into our example, that would make our **Dog** class look like this
 	    this.energy -= length
 	  }
 	}
-	
+
 	class Dog extends Animal {
 	  constructor(name, energy, breed) {
 	    this.breed = breed
@@ -550,11 +552,11 @@ In ES5 in order to make sure that every instance of **Dog** had a **name** and a
 	    this.energy -= length
 	  }
 	}
-	
+
 	class Dog extends Animal {
 	  constructor(name, energy, breed) {
 	    super(name, energy) // calls Animal's constructor
-	
+
 	    this.breed = breed
 	  }
 	  bark() {
@@ -573,7 +575,7 @@ What’s interesting about JavaScript is the same patterns you’ve learned thes
 ```
 
 	console.log(Array.prototype)
-	
+
 	/*
 	  concat: ƒn concat()
 	  constructor: ƒn Array()
@@ -615,7 +617,7 @@ You also learned that the reason all instances of **Object** have access to meth
 ```
 
 	console.log(Object.prototype)
-	
+
 	/*
 	  constructor: ƒn Object()
 	  hasOwnProperty: ƒn hasOwnProperty()
@@ -633,7 +635,7 @@ Here’s a challenge for you. With the list of Array methods and Object methods 
 ```
 
 	const friends = ['Mikenzi', 'Jake', 'Ean']
-	
+
 	friends.hasOwnProperty('push') // false
 
 ```
@@ -645,11 +647,11 @@ JavaScript has two types - Primitive types and Reference types.
 Primitive types are **boolean**, **number**, **string**, **null**, and **undefined** and are immutable. Everything else is a reference type and they all extend **Object.prototype**. That’s why you can add properties to functions and arrays and that’s why both functions and arrays have access to the methods located on **Object.prototype**.
 
 ```
-	
+
 	function speak(){}
 	speak.woahFunctionsAreLikeObjects = true
 	console.log(speak.woahFunctionsAreLikeObjects) // true
-	
+
 	const friends = ['Mikenzi', 'Jake', 'Ean']
 	friends.woahArraysAreLikeObjectsToo = true
 	console.log(friends.woahArraysAreLikeObjectsToo) // true

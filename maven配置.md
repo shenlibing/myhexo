@@ -2,7 +2,9 @@
 ---
 title: maven配置
 date: 2019-01-05 12:58:55
+categories: 日常记录
 tags:
+	-	maven
 ---
 
 1、下载：
@@ -36,7 +38,7 @@ https://maven.apache.org/download.cgi
 
 ![](https://i.imgur.com/JIiS5Ss.png)
 
-```
+```xml
 
 	<mirror>      
 	  <id>aliyun-maven</id>    
@@ -53,8 +55,8 @@ https://maven.apache.org/download.cgi
 
 ![](https://i.imgur.com/jOArlWO.png)
 
-```
-			
+```xml
+
 	<profile>
 		<id>jdk-1.7</id>
 		<activation>

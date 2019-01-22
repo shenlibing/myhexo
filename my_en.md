@@ -2,7 +2,9 @@
 ---
 title: my_en
 date: 2019-01-06 12:58:55
+categories: 日常记录
 tags:
+	-	english
 ---
 
 ###2018/12/14

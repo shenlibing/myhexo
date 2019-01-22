@@ -2,7 +2,10 @@
 ---
 title: babel入门
 date: 2019-01-01 12:58:55
+categories: 日常记录
 tags:
+  - babel
+  - npm
 ---
 
 1、babel
@@ -29,7 +32,7 @@ npm init
 
 2)安装项目依赖
 
-install Babel CLI locally 
+install Babel CLI locally
 
 
     D:\mytest\babel>npm install --save-dev @babel/core @babel/cli
@@ -85,18 +88,18 @@ To start, you can use the env preset, which enables transforms for ES2015+
 
     <!DOCTYPE html>
     <html lang="en" dir="ltr">
-    
+
     <head>
       <meta charset="utf-8">
       <title></title>
     </head>
-    
+
     <body>
-    
+
       <script type="text/javascript" src='../src_build/1.js'>
       </script>
     </body>
-    
+
     </html>
 
 
@@ -104,11 +107,3 @@ To start, you can use the env preset, which enables transforms for ES2015+
 babel官网参考手册
 
 [https://babeljs.io/docs/en/usage](https://babeljs.io/docs/en/usage)
-
-
-
-
-
-
-
-    

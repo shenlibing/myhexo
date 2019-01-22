@@ -2,7 +2,9 @@
 ---
 title: ztree树形结构菜单_mybatis分页查询
 date: 2019-01-10 12:58:55
+categories: 日常记录
 tags:
+  - ztree
 ---
 
 1、二级树形菜单
@@ -30,7 +32,7 @@ tags:
 
 业务层：
 
-```java {.line-numbers}
+```java
 
 public List<TPermission> getAllMenus() {
 
@@ -125,7 +127,7 @@ public String toMainPage(HttpSession session) {
 计算后台传过来的list集合的长度：${fn:length(p_menu.childs)}
 
 
-```jsp
+```html
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -187,7 +189,7 @@ public String toMainPage(HttpSession session) {
 @Override
 public List<TUser> getAllUsersByCondition(String str) {
     System.out.println("UserServiceImpl.getAllUsersByCondition 带条件查询员工============>");
-    
+
     // 查询条件拼接
     // 第一次创建的条件，默认使用and连接的
     TUserExample tUserExample = new TUserExample();
@@ -277,7 +279,7 @@ function checkall_reverse(check_all_btn, check_btn) {
 
 
 ```html
-	
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -460,7 +462,7 @@ table tbody td:nth-child(even) {
 			window.location.href = "edit.html";
 		});
 
-		
+
 		//当前页面所在的哪个超链接是color:red
 		//他的父list-group-item.  tree-closed是没有的
 		//找到当前页面的a连接

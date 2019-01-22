@@ -2,7 +2,9 @@
 ---
 title: js面向对象_箭头函数this_数组常用方法
 date: 2019-01-04 12:58:55
+categories: 日常记录
 tags:
+  - es6
 ---
 
 1、js面向对象
@@ -70,7 +72,7 @@ tags:
 
     //------------------------------------------------
     function Worker(name, age, job){
-	  //通过call调用父类构造函数	
+	  //通过call调用父类构造函数
       Person.call(this, name, age);
       this.job=job;
     }
@@ -264,7 +266,7 @@ bind——给函数定死一个this
   <title></title>
   <script>
     let arr = [1, 2, 3];
-	
+
 	//箭头函数所处的环境是window
     arr.a = () => {
       console.log(this);
@@ -279,7 +281,7 @@ bind——给函数定死一个this
 </body>
 
 </html>
-	
+
 
 ```
 
@@ -299,8 +301,8 @@ bind——给函数定死一个this
     <script>
     document.onclick=function (){
       let arr=[1,2,3];
-	  
-	  //箭头函数所处的环境是document	
+
+	  //箭头函数所处的环境是document
       arr.a=()=>{
         console.log(this);
       };
@@ -335,7 +337,7 @@ bind——给函数定死一个this
     <title></title>
     <script>
     document.onclick=function (){
-	
+
       let a=()=>{
         console.log(this);
       };
@@ -540,7 +542,7 @@ map参数：回调函数使用箭头函数书写方式
 
   </body>
 </html>
-	
+
 
 ```
 
@@ -632,12 +634,12 @@ index：元素索引
     </style>
     <script>
     window.onload=function (){
-	  
-	  //DOM对象	
+
+	  //DOM对象
       let aDiv=document.getElementsByTagName('div');
       console.log(aDiv);
-	
-	  //数组	
+
+	  //数组
       let aDiv2=Array.from(aDiv);
       console.log(aDiv2);
 

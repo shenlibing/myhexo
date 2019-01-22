@@ -2,7 +2,9 @@
 ---
 title: springmvc配置
 date: 2019-01-07 12:58:55
+categories: 日常记录
 tags:
+	-	springmvc
 ---
 
 1、springmvc路径跳转配置
@@ -42,7 +44,7 @@ tags:
 
 index.jsp
 
-```jsp
+```html
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -58,18 +60,18 @@ index.jsp
 %>
 </head>
 <body>
-	
+
 	//走controller跳转
 	<a href="hello">go controller</a>
 	<br>
-	
+
 	//不走controller跳转，在springmvc配置文件中配置了mvc-view;index2.jsp页面需放在/WEB-INF/jsp/目录下
 	<a href="index2">not go controller</a>
 	<br/>
 
 	//加载静态资源
 	<a href="${path}/static/index3.jsp">load static resource index3.jsp</a>
-	
+
 	//加载静态资源，需在springmvc配置文件中配置mvc:default-servlet-handler
 	<script type="text/javascript"
 		src="${path}/ui/jquery/jquery-1.8.3.min.js"></script>
@@ -129,7 +131,7 @@ public String testParam(ModelMap modelMap,HttpServletRequest request) {
 public ModelAndView testParam(HttpServletRequest request) {
 	String username = request.getParameter("username");
 	System.out.println("接收前台发送过来的请求参数=========>用户名："+username);
-	
+
 	//参数为返回的视图
 	ModelAndView hello =new ModelAndView("hello");
 	hello.addObject("address", "haikou");
@@ -140,7 +142,7 @@ public ModelAndView testParam(HttpServletRequest request) {
 
 前台获取
 
-```jsp
+```
 
 <!-- 获取后台封装在请求域中的数据 -->
 地址：${requestScope.address}<br/>

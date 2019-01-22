@@ -2,7 +2,10 @@
 ---
 title: 帆软报表部署配置_emoss5用户分配角色、角色分配权限
 date: 2019-01-12 12:58:55
+categories: 日常记录
 tags:
+	-	emoss
+	- finereport
 ---
 
 1、帆软报表部署

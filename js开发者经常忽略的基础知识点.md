@@ -1,7 +1,10 @@
 ---
 title: js开发者经常忽略的基础知识点
 date: 2019-01-03 12:58:55
+categories: 日常记录
 tags:
+  - js
+
 ---
 
 1、字符串匹配
@@ -13,12 +16,12 @@ tags:
 // Mistake
 // 踩到坑了
 var str = "David is an Arsenal fan, which means David is great";
-str.replace("David", "Darren"); 
+str.replace("David", "Darren");
 // "Darren is an Arsenal fan, which means David is great"
 
 // Desired
 // 符合预期
-str.replace(/David/g, "Darren"); 
+str.replace(/David/g, "Darren");
 // "Darren is an Arsenal fan, which means Darren is great"
 
 ```
@@ -27,7 +30,7 @@ str.replace(/David/g, "Darren");
 
 ```js
 
-str.replace(/david/gi, "Darren"); 
+str.replace(/david/gi, "Darren");
 // "Darren will always be an Arsenal fan, which means Darren will always be great"
 
 
@@ -51,7 +54,7 @@ var argsArr = Array.prototype.slice.call(arguments);
 
 ```js
 
-var clone = myArray.slice(0); 
+var clone = myArray.slice(0);
 // naive clone
 // 浅克隆
 
@@ -72,7 +75,7 @@ var clone = myArray.slice(0);
 复杂排序
 
 ```js
-	
+
 [
     { name: "Robin Van PurseStrings", age: 30 },
     { name: "Theo Walcott", age: 24 },

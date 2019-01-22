@@ -2,7 +2,9 @@
 ---
 title: 网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件
 date: 2019-01-13 12:58:55
+categories: 日常记录
 tags:
+	-	email
 ---
 
 1、网易邮箱发送电子邮件
@@ -25,7 +27,7 @@ JavaMailAPI使用比较麻烦，这里采用的是Apache Commons Email
 
 导入依赖
 
-```
+```xml
 
 	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
 	<dependency>
@@ -117,7 +119,7 @@ D:\devsoft\apache-james-3.0-beta4
 	        this problem is related to the following location:
 	                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs
 	                at org.apache.camel.model.ResequenceDefinition
-	
+
 	 - with linked exception:
 	[com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions
 	类的两个属性具有相同名称 "outputs"
@@ -163,7 +165,7 @@ D:\devsoft\apache-james-3.0-beta4
 	        this problem is related to the following location:
 	                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs
 	                at org.apache.camel.model.ResequenceDefinition
-	
+
 	 - with linked exception:
 	[com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions
 	类的两个属性具有相同名称 "outputs"
@@ -190,7 +192,7 @@ D:\devsoft\apache-james-3.0-beta4
 	        this problem is related to the following location:
 	                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs
 	                at org.apache.camel.model.ResequenceDefinition
-	
+
 	        at com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException$Builder.check(IllegalAnnotationsException.java:91)
 	        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.getTypeInfoSet(JAXBContextImpl.java:445)
 	        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.<init>(JAXBContextImpl.java:277)
@@ -205,7 +207,7 @@ D:\devsoft\apache-james-3.0-beta4
 	        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:171)
 	        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:131)
 	        ... 32 more
-	
+
 	D:\devsoft\apache-james-3.0-beta4\bin>
 
 
@@ -266,8 +268,8 @@ D:\devsoft\apache-james-3.0-beta4\lib：存放James默认jar
 
 	D:\devsoft\apache-james-3.0-beta4\bin> james-cli.bat -h localhost -p 9999 adddomain atguigu.com
 	adddomain command executed sucessfully in 106 ms.
-	
-	
+
+
 	D:\devsoft\apache-james-3.0-beta4\bin> james-cli.bat -h localhost -p 9999 adduser test@atguigu.com test
 	adduser command executed sucessfully in 94 ms.
 
@@ -281,8 +283,8 @@ D:\devsoft\apache-james-3.0-beta4\lib：存放James默认jar
 
 测试：
 
-```
-	
+```java
+
 	/**
      * 测试james发送邮件
      * @Description (TODO这里用一句话描述这个方法的作用)
@@ -297,7 +299,7 @@ D:\devsoft\apache-james-3.0-beta4\lib：存放James默认jar
         email.setSmtpPort(25);
         //设置登陆远程服务器的密码
         email.setAuthentication("test@atguigu.com", "000000");
-        
+
         //编写一个邮件
         //设置发送给谁
         email.addTo("17512080612@163.com");
@@ -309,13 +311,8 @@ D:\devsoft\apache-james-3.0-beta4\lib：存放James默认jar
         email.setMsg("我能给您发邮件<a href='http://www.atguigu.com'>尚硅谷</a>");
         //邮件发送
         email.send();
-        
-        
+
+
     }
 
 ```
-
-
-
-
-

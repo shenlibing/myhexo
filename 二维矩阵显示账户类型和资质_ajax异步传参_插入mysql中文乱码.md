@@ -2,7 +2,9 @@
 ---
 title: 二维矩阵显示账户类型和资质_ajax异步传参_插入mysql中文乱码
 date: 2019-01-11 12:58:55
+categories: 日常记录
 tags:
+	-	ajax
 ---
 
 1、二维矩阵显示账号类型和资质
@@ -41,7 +43,7 @@ tags:
 
 ![](https://i.imgur.com/5r8EtpQ.png)
 
-```
+```html
 
 	<body>
 	<%
@@ -173,56 +175,56 @@ tags:
 
 ![](https://i.imgur.com/7Pcl0Tu.png)
 
-```
+```java
 
 	package com.atguigu.scw.manager.controller.manager;
-	
+
 	import java.util.Arrays;
 	import java.util.List;
-	
+
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.stereotype.Controller;
 	import org.springframework.ui.Model;
 	import org.springframework.web.bind.annotation.RequestMapping;
 	import org.springframework.web.bind.annotation.RequestParam;
 	import org.springframework.web.bind.annotation.ResponseBody;
-	
+
 	import com.atguigu.scw.manager.bean.TAccountTypeCert;
 	import com.atguigu.scw.manager.bean.TCert;
 	import com.atguigu.scw.manager.service.CertService;
 	import com.atguigu.scw.manager.service.CertTypeService;
 	import com.fasterxml.jackson.databind.ObjectMapper;
-	
+
 	@Controller
 	@RequestMapping("/servicectrl/type")
 	public class TypeController {
-	
+
 	    @Autowired
 	    CertService certService;
-	
+
 	    @Autowired
 	    CertTypeService cTypeService;
-	
+
 	    private static ObjectMapper MAPPER = new ObjectMapper();
-	
+
 	    @RequestMapping("/ctrl")
 	    public String list(Model model) throws Exception {
 	        System.out.println("分类管理界面============>");
-	
+
 	        // 1、先去数据库查出表格横向的显示数据
 	        List<String> types = Arrays.asList("商业公司", "个体工商户", "个人经营", "政府及非营利组织");
-	
+
 	        // 2、在查出纵向要显示的标题
 	        List<TCert> certs = certService.getAllCert();
 	        System.out.println("资质===========>");
 	        System.out.println(certs);
-	
+
 	        // 3、查询经营类型与资质关系中间表
 	        // List<TAccountTypeCert> cTypeService.getAllCertType();
 	        List<TAccountTypeCert> list_type_cert = cTypeService.getAllCertType();
 	        System.out.println("经营类型===============>");
 	        System.out.println(list_type_cert);
-	
+
 	        // 4、将数据放到模型域当中
 	        model.addAttribute("types", types);
 	        model.addAttribute("certs", certs);
@@ -231,10 +233,10 @@ tags:
 	        System.out.println("经营类型--资质----");
 	        System.out.println(list_type_cert_json);
 	        model.addAttribute("list_type_cert_json", list_type_cert_json);
-	
+
 	        return "manager/servicemanager/type";
 	    }
-	
+
 	    @RequestMapping("/update_type_cert")
 	    @ResponseBody
 	    public String update_type_cert(TAccountTypeCert tAccountTypeCert) {
@@ -250,10 +252,10 @@ tags:
 	            System.out.println("移除一条记录========>");
 	            cTypeService.removeTypeCert(tAccountTypeCert);
 	        }
-	
+
 	        return "success";
 	    }
-	
+
 	}
 
 
@@ -263,42 +265,42 @@ tags:
 
 1）单表的写读操作
 
-```
+```java
 
 
 	package com.atguigu.scw.manager.service.impl;
-	
+
 	import java.util.List;
-	
+
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.stereotype.Service;
-	
+
 	import com.atguigu.scw.manager.bean.TAccountTypeCert;
 	import com.atguigu.scw.manager.bean.TAccountTypeCertExample;
 	import com.atguigu.scw.manager.bean.TAccountTypeCertExample.Criteria;
 	import com.atguigu.scw.manager.dao.TAccountTypeCertMapper;
 	import com.atguigu.scw.manager.service.CertTypeService;
-	
+
 	@Service
 	public class CertTypeServiceImpl implements CertTypeService {
-	
+
 	    @Autowired
 	    TAccountTypeCertMapper mapper;
-	
+
 	    //查询资质和账户中间表
 	    @Override
 	    public List<TAccountTypeCert> getAllCertType() {
 	        List<TAccountTypeCert> list_type_cert = mapper.selectByExample(null);
 	        return list_type_cert;
 	    }
-	
+
 	    // 增加经营类型--资质
 	    @Override
 	    public int updateTypeCert(TAccountTypeCert tAccountTypeCert) {
 	        int count = mapper.insertSelective(tAccountTypeCert);
 	        return count;
 	    }
-	
+
 	    // 删除经营类型--资质
 	    @Override
 	    public int removeTypeCert(TAccountTypeCert tAccountTypeCert) {
@@ -309,9 +311,9 @@ tags:
 	        int count = mapper.deleteByExample(example);
 	        return count;
 	    }
-	
+
 	}
-	
+
 
 ```
 
@@ -322,7 +324,7 @@ tags:
 
 解决
 
-```
+```xml
 
 	<property name="url" value="jdbc:mysql://localhost:3306/scw_0325?useUnicode=true&amp;characterEncoding=UTF-8" ></property>
 

@@ -2,7 +2,9 @@
 ---
 title: svn版本控制
 date: 2019-01-09 12:58:55
+categories: 日常记录
 tags:
+	-	svn
 ---
 
 1、svn下载
@@ -79,7 +81,7 @@ tip:等号左边没有空格，等号右边有一个空格。
 ```
 
 	D:\mytest\mycheckout>svn checkout svn://localhost/OA MyOA
-	
+
 ```
 
 ![](https://i.imgur.com/vvRuF4T.png)
