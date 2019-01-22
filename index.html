@@ -216,7 +216,7 @@
 
     
 
-    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
 
   </li>
         
@@ -233,7 +233,7 @@
 
     
 
-    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
 
   </li>
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/22/优化点击事件绑定/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shenlibing">
@@ -305,7 +305,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/myhexo/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/" class="post-title-link" itemprop="url">帆软报表部署配置_emoss5用户分配角色、角色分配权限</a>
+                <a href="/myhexo/2019/01/22/优化点击事件绑定/" class="post-title-link" itemprop="url">优化点击事件绑定</a>
               
             
           </h1>
@@ -323,14 +323,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:08:50" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:07:21" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
             
 
             
@@ -371,225 +371,10 @@
       
         
           
-            <p>1、帆软报表部署</p>
-<p>客户端工具sftp下载链接</p>
-<p><a href="https://www.netsarang.com/download/down_form.html?code=623" target="_blank" rel="noopener">https://www.netsarang.com/download/down_form.html?code=623</a></p>
-<p>使用sftp</p>
-<p><a href="https://www.netsarang.com/download/down_xfp6.html?token=dEFiMWxoUEhuNU1hQlMrRG9qU20yZ0Bnc1hKVGJhaHpkY3hBUUNMNFBoaXVn" target="_blank" rel="noopener">https://www.netsarang.com/download/down_xfp6.html?token=dEFiMWxoUEhuNU1hQlMrRG9qU20yZ0Bnc1hKVGJhaHpkY3hBUUNMNFBoaXVn</a></p>
-<p>1）用客户端工具sftp登录到135.125.60.122机子</p>
-<p>文件–新建</p>
-<p><img src="https://i.imgur.com/2BmJwbi.png" alt=""></p>
-<p><img src="https://i.imgur.com/v4wyabN.png" alt=""></p>
-<p>报表存放路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/opt/FineBI/webapps/WebReport/WEB-INF/reportlets</span><br></pre></td></tr></table></figure>
-<p>2）菜单配置</p>
-<p>基础应用–权限模型–菜单管理</p>
-<p><img src="https://i.imgur.com/wIRwxey.png" alt=""></p>
-<p>建立菜单层级关系</p>
-<p>在资源评价菜单下-建立杜邦报表分析文件夹–建立2018杜邦报表3层目录结构</p>
-<p>在2018杜邦报表(1)下配置报表位置引用–填写<strong>菜单编码(表名)、排序号、菜单名称(表名中文描述)、菜单URL</strong></p>
-<p><img src="https://i.imgur.com/OpkMozW.png" alt=""></p>
-<p>菜单URL的配置</p>
-<p><img src="https://i.imgur.com/sWq1soL.png" alt=""></p>
-<p><img src="https://i.imgur.com/dFluLNT.png" alt=""></p>
-<p>2、建员工、建用户、为用户分配角色、为角色分配权限</p>
-<p>1）建员工–基础应用–权限模型–员工管理</p>
-<p><img src="https://i.imgur.com/3Dy5jZ7.png" alt=""></p>
-<p>2）建用户–基础应用–权限模型–用户管理–新增</p>
-<p><img src="https://i.imgur.com/P72nX6J.png" alt=""></p>
-<p><img src="https://i.imgur.com/m5MJU1X.png" alt=""></p>
-<p><strong>新建用户之前必须先建员工、角色、部门，在建用户的时候可以为该用户分配角色和菜单权限</strong></p>
-<p><img src="https://i.imgur.com/foNIVta.png" alt=""></p>
-<p>3）为用户分配角色–基础应用–权限模型–角色用户设置</p>
-<p><img src="https://i.imgur.com/aXEslSF.png" alt=""></p>
-<p>先选中角色，然后为该角色添加用户</p>
-<p><img src="https://i.imgur.com/OTsxbsS.png" alt=""></p>
-<p>4）为角色分配权限–基础应用–权限模型–角色管理</p>
-<p><img src="https://i.imgur.com/DzlEsPW.png" alt=""></p>
-<p>先选中角色，然后为该角色勾选拥有的菜单权限</p>
-<p><img src="https://i.imgur.com/ssEptko.png" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="shenlibing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myhexo/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兵兵">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/myhexo/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" class="post-title-link" itemprop="url">网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:08:18" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1、网易邮箱发送电子邮件</p>
-<p>为了安全，网易邮箱开启pop3授权码验证，该授权码可以让客户端进行登录</p>
-<p><img src="https://i.imgur.com/MepAaVz.png" alt=""></p>
-<p><img src="https://i.imgur.com/BzfesnI.png" alt=""></p>
-<p>qq开启授权码</p>
-<p><a href="https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;no=1001256&amp;&amp;id=28" target="_blank" rel="noopener">https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;no=1001256&amp;&amp;id=28</a></p>
-<p>实现：<br>JavaMailAPI使用比较麻烦，这里采用的是Apache Commons Email</p>
-<p>导入依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-email&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.4&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>测试：<br>A simple text email</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Test</span><br><span class="line">   public void test01() throws Exception &#123;</span><br><span class="line">       SimpleEmail email = new SimpleEmail();</span><br><span class="line">       // 设置主机名，远程服务器的主机名</span><br><span class="line">       email.setHostName(&quot;smtp.163.com&quot;);</span><br><span class="line">       email.setSmtpPort(25);</span><br><span class="line">       // 设置登陆远程服务器的账号和pop3授权码</span><br><span class="line">       email.setAuthentication(&quot;15501892660@163.com&quot;, &quot;xxxxxxx&quot;);</span><br><span class="line"></span><br><span class="line">       // 编写一个邮件</span><br><span class="line">       // 设置发送给谁</span><br><span class="line">       email.addTo(&quot;782125244@qq.com&quot;);</span><br><span class="line">       // 设置这个邮件来源于哪里</span><br><span class="line">       email.setFrom(&quot;15501892660@163.com&quot;);</span><br><span class="line">       // 设置邮件主题</span><br><span class="line">       email.setSubject(&quot;163发给qq的测试邮件 &quot;);</span><br><span class="line">       // 设置邮件内容</span><br><span class="line">       email.setMsg(&quot;测试邮件&quot;);</span><br><span class="line">       // 邮件发送</span><br><span class="line">       email.send();</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>参考：</p>
-<p><a href="http://commons.apache.org/proper/commons-email/userguide.html" target="_blank" rel="noopener">http://commons.apache.org/proper/commons-email/userguide.html</a></p>
-<p>2、搭建James邮件服务器</p>
-<p>下载</p>
-<p><a href="https://archive.apache.org/dist/james/server/" target="_blank" rel="noopener">https://archive.apache.org/dist/james/server/</a></p>
-<p>quick-start</p>
-<p><a href="http://james.apache.org/server/quick-start.html" target="_blank" rel="noopener">http://james.apache.org/server/quick-start.html</a></p>
-<p>解压</p>
-<p>D:\devsoft\apache-james-3.0-beta4</p>
-<p><img src="https://i.imgur.com/nR79WWy.png" alt=""></p>
-<p>建库</p>
-<p><img src="https://i.imgur.com/kj3faWO.png" alt=""></p>
-<p>配置数据源</p>
-<p><img src="https://i.imgur.com/9l952KR.png" alt=""></p>
-<p><img src="https://i.imgur.com/1PeU0yW.png" alt=""></p>
-<p>启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt;run.bat</span><br><span class="line">INFO  09:28:46,331 | org.apache.james.container.spring.context.JamesServerApplicationContext | Refreshing org.apache.james.container.spring.context.JamesServerApplicationContext@153f5a29: startup date [Thu Jan 03 09:28:46 CST 2019]; root of context hierarchy</span><br><span class="line">Exception in thread &quot;main&quot; org.springframework.beans.factory.BeanDefinitionStoreException: Failed to create the JAXB binder; nested exception is javax.xml.bind.JAXBException: Provider com.sun.xml.internal.bind.v2.ContextFactory could not be instantiated: com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line"></span><br><span class="line"> - with linked exception:</span><br><span class="line">[com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">]</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler$CamelContextBeanDefinitionParser.doParse(CamelNamespaceHandler.java:258)</span><br><span class="line">        at org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser.parseInternal(AbstractSingleBeanDefinitionParser.java:85)</span><br><span class="line">        at org.springframework.beans.factory.xml.AbstractBeanDefinitionParser.parse(AbstractBeanDefinitionParser.java:59)</span><br><span class="line">        at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:73)</span><br><span class="line">        at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1419)</span><br><span class="line">        at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1409)</span><br><span class="line">        at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:184)</span><br><span class="line">        at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:140)</span><br><span class="line">        at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:111)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:493)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:390)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:243)</span><br><span class="line">        at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:127)</span><br><span class="line">        at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:93)</span><br><span class="line">        at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:131)</span><br><span class="line">        at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:522)</span><br><span class="line">        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:436)</span><br><span class="line">        at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:139)</span><br><span class="line">        at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:93)</span><br><span class="line">        at org.apache.james.container.spring.context.JamesServerApplicationContext.&lt;init&gt;(JamesServerApplicationContext.java:39)</span><br><span class="line">        at org.apache.james.app.spring.JamesAppSpringMain.init(JamesAppSpringMain.java:61)</span><br><span class="line">        at org.apache.james.app.spring.JamesAppSpringMain.main(JamesAppSpringMain.java:42)</span><br><span class="line">Caused by: javax.xml.bind.JAXBException: Provider com.sun.xml.internal.bind.v2.ContextFactory could not be instantiated: com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line"></span><br><span class="line"> - with linked exception:</span><br><span class="line">[com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">]</span><br><span class="line">        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:146)</span><br><span class="line">        at javax.xml.bind.ContextFinder.find(ContextFinder.java:356)</span><br><span class="line">        at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:431)</span><br><span class="line">        at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:394)</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler.createJaxbContext(CamelNamespaceHandler.java:187)</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler.getJaxbContext(CamelNamespaceHandler.java:174)</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler$CamelContextBeanDefinitionParser.doParse(CamelNamespaceHandler.java:256)</span><br><span class="line">        ... 26 more</span><br><span class="line">Caused by: com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line"></span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException$Builder.check(IllegalAnnotationsException.java:91)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.getTypeInfoSet(JAXBContextImpl.java:445)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.&lt;init&gt;(JAXBContextImpl.java:277)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.&lt;init&gt;(JAXBContextImpl.java:124)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl$JAXBContextBuilder.build(JAXBContextImpl.java:1123)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.ContextFactory.createContext(ContextFactory.java:147)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.ContextFactory.createContext(ContextFactory.java:271)</span><br><span class="line">        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">        at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:171)</span><br><span class="line">        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:131)</span><br><span class="line">        ... 32 more</span><br><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt;run.bat</span><br><span class="line">INFO  09:37:44,247 | org.apache.james.container.spring.context.JamesServerApplicationContext | Refreshing org.apache.james.container.spring.context.JamesServerApplicationContext@7ca48474: startup date [Thu Jan 03 09:37:44 CST 2019]; root of context hierarchy</span><br><span class="line">log4j:WARN No appenders could be found for logger (org.apache.commons.configuration.ConfigurationUtils).</span><br><span class="line">log4j:WARN Please initialize the log4j system properly.</span><br><span class="line">log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.</span><br><span class="line">INFO  09:37:45,153 | org.apache.james.container.spring.context.JamesServerApplicationContext | Bean &apos;logprovider&apos; of type [class org.apache.james.container.spring.lifecycle.LogProviderImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)</span><br><span class="line">INFO  09:37:45,544 | james.mailrepositorystore | JamesMailStore init...</span><br><span class="line">INFO  09:37:45,550 | james.mailrepositorystore | Registering Repository instance of class org.apache.james.mailrepository.file.FileMailRepository to handle file protocol requests for repositories with key file</span><br><span class="line">INFO  09:37:45,550 | james.mailrepositorystore | Registering Repository instance of class org.apache.james.mailrepository.jdbc.JDBCMailRepository to handle db protocol requests for repositories with key db</span><br><span class="line">INFO  09:37:45,550 | james.mailrepositorystore | Registering Repository instance of class org.apache.james.mailrepository.jdbc.JDBCMailRepository to handle dbfile protocol requests for repositories with key dbfile</span><br><span class="line">INFO  09:37:45,551 | james.mailrepositorystore | Registering Repository instance of class org.apache.james.mailrepository.file.MBoxMailRepository to handle mbox protocol requests for repositories with key mbox</span><br><span class="line">INFO  09:37:45,936 | james.dnsservice | Autodiscovery is enabled - trying to discover your system&apos;s DNS Servers</span><br><span class="line">INFO  09:37:45,942 | james.dnsservice | Adding autodiscovered server 202.100.192.68</span><br><span class="line">INFO  09:37:45,942 | james.dnsservice | Adding autodiscovered server 202.100.199.8</span><br><span class="line">INFO  09:37:45,943 | james.dnsservice | DNS Server is: 202.100.192.68</span><br><span class="line">INFO  09:37:45,943 | james.dnsservice | DNS Server is: 202.100.199.8</span><br><span class="line">INFO  09:37:45,949 | james.dnsservice | Registered cache, resolver and search paths as DNSJava defaults</span><br><span class="line">12  James  WARN   [main] openjpa.Runtime - An error occurred while registering a ClassTransformer with PersistenceUnitInfo: name &apos;James&apos;, root URL [file:/D:/devsoft/apache-james-3.0-beta4/conf/]. The error has been consumed. To see it, set your openjpa.Runtime log level to TRACE. Load-time class transformation will not be available.</span><br><span class="line">INFO  09:37:55,187 | james.domainlist | Set autodetect to: true</span><br><span class="line">INFO  09:37:55,187 | james.domainlist | Set autodetectIP to: true</span><br><span class="line">28  James  INFO   [main] openjpa.Runtime - Starting OpenJPA 2.1.0</span><br><span class="line">52  James  INFO   [main] openjpa.jdbc.JDBC - Using dictionary class &quot;org.apache.openjpa.jdbc.sql.MySQLDictionary&quot;.</span><br><span class="line">Cannot load JDBC driver class &apos;com.mysql.jdbc.Driver&apos;</span><br><span class="line">java.lang.ClassNotFoundException: com.mysql.jdbc.Driver</span><br><span class="line">        at java.net.URLClassLoader.findClass(URLClassLoader.java:381)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:424)</span><br><span class="line">        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:357)</span><br><span class="line">        at org.apache.commons.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1420)</span><br><span class="line">        at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)</span><br><span class="line">        at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)</span><br></pre></td></tr></table></figure>
-<p>解决办法</p>
-<p>D:\devsoft\apache-james-3.0-beta4\conf\lib：存放自己导入的jar</p>
-<p>D:\devsoft\apache-james-3.0-beta4\lib：存放James默认jar</p>
-<p>复制jaxb-impl-2.1.3.jar，mysql驱动jar包到conf/lib下</p>
-<p><img src="https://i.imgur.com/4wuAqzA.png" alt=""></p>
-<p>设置服务器域名、建立账户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt; james-cli.bat -h localhost -p 9999 adddomain atguigu.com</span><br><span class="line">adddomain command executed sucessfully in 106 ms.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt; james-cli.bat -h localhost -p 9999 adduser test@atguigu.com test</span><br><span class="line">adduser command executed sucessfully in 94 ms.</span><br></pre></td></tr></table></figure>
-<p>配置Foxmail客户端连接James邮件服务器</p>
-<p><img src="https://i.imgur.com/f8p6D2w.png" alt=""><br><img src="https://i.imgur.com/9J6L4rf.png" alt=""></p>
-<p>测试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">    * 测试james发送邮件</span><br><span class="line">    * @Description (TODO这里用一句话描述这个方法的作用)</span><br><span class="line">    * @throws Exception</span><br><span class="line">    */</span><br><span class="line">   @Test</span><br><span class="line">   public void test02() throws Exception&#123;</span><br><span class="line">       SimpleEmail email = new SimpleEmail();</span><br><span class="line">       //设置主机名，远程服务器的主机名</span><br><span class="line">       email.setHostName(&quot;127.0.0.1&quot;);</span><br><span class="line">       //自定义的ip，一定要手动设置好端口号</span><br><span class="line">       email.setSmtpPort(25);</span><br><span class="line">       //设置登陆远程服务器的密码</span><br><span class="line">       email.setAuthentication(&quot;test@atguigu.com&quot;, &quot;000000&quot;);</span><br><span class="line">       </span><br><span class="line">       //编写一个邮件</span><br><span class="line">       //设置发送给谁</span><br><span class="line">       email.addTo(&quot;17512080612@163.com&quot;);</span><br><span class="line">       //设置这个邮件来源于哪里</span><br><span class="line">       email.setFrom(&quot;admin@atguigu.com&quot;);</span><br><span class="line">       //设置邮件主题</span><br><span class="line">       email.setSubject(&quot;哈哈，给你测试 &quot;);</span><br><span class="line">       //设置邮件内容</span><br><span class="line">       email.setMsg(&quot;我能给您发邮件&lt;a href=&apos;http://www.atguigu.com&apos;&gt;尚硅谷&lt;/a&gt;&quot;);</span><br><span class="line">       //邮件发送</span><br><span class="line">       email.send();</span><br><span class="line">       </span><br><span class="line">       </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+            <p>1、优化点击事件绑定</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.3.1/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id1"</span>&gt;</span>新增按钮1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id2"</span>&gt;</span>删除按钮2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id3"</span>&gt;</span>按钮3<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id4"</span>&gt;</span>按钮4<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, <span class="built_in">arguments</span>)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> actionList = &#123;</span></span><br><span class="line"><span class="javascript">        <span class="string">'id1'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id1=============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id2'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id2===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id3'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id3===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id4'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id4===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> $body = $(<span class="string">'body'</span>)</span></span><br><span class="line"><span class="javascript">    $body.on(<span class="string">'click'</span>, <span class="string">'[data-action]'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//jQuery获取html标签自定义属性值或data值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> action_name = $(<span class="keyword">this</span>).data(<span class="string">'action'</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> action = actionList[action_name]</span></span><br><span class="line"><span class="javascript">        <span class="comment">// log(action)</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// log($.isFunction(action))</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> ($.isFunction(action)) &#123;</span></span><br><span class="line"><span class="undefined">            action()</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//页面需要新增一个按钮，做扩展</span></span></span><br><span class="line"><span class="xml">    $body.append('<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id5"</span>&gt;</span>按钮5<span class="tag">&lt;/<span class="name">button</span>&gt;</span>')</span></span><br><span class="line"><span class="javascript">    $.extend(actionList, &#123;</span></span><br><span class="line"><span class="javascript">        <span class="string">'id5'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id5============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>参考</p>
+<p><a href="https://github.com/cssmagic/blog/issues/48" target="_blank" rel="noopener">https://github.com/cssmagic/blog/issues/48</a></p>
 
           
         
@@ -684,14 +469,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:07:43" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:07:43" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
             
 
             
@@ -828,6 +613,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myhexo/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/myhexo/2019/01/22/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" class="post-title-link" itemprop="url">网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:08:18" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、网易邮箱发送电子邮件</p>
+<p>为了安全，网易邮箱开启pop3授权码验证，该授权码可以让客户端进行登录</p>
+<p><img src="https://i.imgur.com/MepAaVz.png" alt=""></p>
+<p><img src="https://i.imgur.com/BzfesnI.png" alt=""></p>
+<p>qq开启授权码</p>
+<p><a href="https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;no=1001256&amp;&amp;id=28" target="_blank" rel="noopener">https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;no=1001256&amp;&amp;id=28</a></p>
+<p>实现：<br>JavaMailAPI使用比较麻烦，这里采用的是Apache Commons Email</p>
+<p>导入依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-email&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.4&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>测试：<br>A simple text email</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Test</span><br><span class="line">   public void test01() throws Exception &#123;</span><br><span class="line">       SimpleEmail email = new SimpleEmail();</span><br><span class="line">       // 设置主机名，远程服务器的主机名</span><br><span class="line">       email.setHostName(&quot;smtp.163.com&quot;);</span><br><span class="line">       email.setSmtpPort(25);</span><br><span class="line">       // 设置登陆远程服务器的账号和pop3授权码</span><br><span class="line">       email.setAuthentication(&quot;15501892660@163.com&quot;, &quot;xxxxxxx&quot;);</span><br><span class="line"></span><br><span class="line">       // 编写一个邮件</span><br><span class="line">       // 设置发送给谁</span><br><span class="line">       email.addTo(&quot;782125244@qq.com&quot;);</span><br><span class="line">       // 设置这个邮件来源于哪里</span><br><span class="line">       email.setFrom(&quot;15501892660@163.com&quot;);</span><br><span class="line">       // 设置邮件主题</span><br><span class="line">       email.setSubject(&quot;163发给qq的测试邮件 &quot;);</span><br><span class="line">       // 设置邮件内容</span><br><span class="line">       email.setMsg(&quot;测试邮件&quot;);</span><br><span class="line">       // 邮件发送</span><br><span class="line">       email.send();</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<p><a href="http://commons.apache.org/proper/commons-email/userguide.html" target="_blank" rel="noopener">http://commons.apache.org/proper/commons-email/userguide.html</a></p>
+<p>2、搭建James邮件服务器</p>
+<p>下载</p>
+<p><a href="https://archive.apache.org/dist/james/server/" target="_blank" rel="noopener">https://archive.apache.org/dist/james/server/</a></p>
+<p>quick-start</p>
+<p><a href="http://james.apache.org/server/quick-start.html" target="_blank" rel="noopener">http://james.apache.org/server/quick-start.html</a></p>
+<p>解压</p>
+<p>D:\devsoft\apache-james-3.0-beta4</p>
+<p><img src="https://i.imgur.com/nR79WWy.png" alt=""></p>
+<p>建库</p>
+<p><img src="https://i.imgur.com/kj3faWO.png" alt=""></p>
+<p>配置数据源</p>
+<p><img src="https://i.imgur.com/9l952KR.png" alt=""></p>
+<p><img src="https://i.imgur.com/1PeU0yW.png" alt=""></p>
+<p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt;run.bat</span><br><span class="line">INFO  09:28:46,331 | org.apache.james.container.spring.context.JamesServerApplicationContext | Refreshing org.apache.james.container.spring.context.JamesServerApplicationContext@153f5a29: startup date [Thu Jan 03 09:28:46 CST 2019]; root of context hierarchy</span><br><span class="line">Exception in thread &quot;main&quot; org.springframework.beans.factory.BeanDefinitionStoreException: Failed to create the JAXB binder; nested exception is javax.xml.bind.JAXBException: Provider com.sun.xml.internal.bind.v2.ContextFactory could not be instantiated: com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line"></span><br><span class="line"> - with linked exception:</span><br><span class="line">[com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">]</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler$CamelContextBeanDefinitionParser.doParse(CamelNamespaceHandler.java:258)</span><br><span class="line">        at org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser.parseInternal(AbstractSingleBeanDefinitionParser.java:85)</span><br><span class="line">        at org.springframework.beans.factory.xml.AbstractBeanDefinitionParser.parse(AbstractBeanDefinitionParser.java:59)</span><br><span class="line">        at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:73)</span><br><span class="line">        at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1419)</span><br><span class="line">        at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1409)</span><br><span class="line">        at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:184)</span><br><span class="line">        at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:140)</span><br><span class="line">        at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:111)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:493)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:390)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:243)</span><br><span class="line">        at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:127)</span><br><span class="line">        at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:93)</span><br><span class="line">        at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:131)</span><br><span class="line">        at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:522)</span><br><span class="line">        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:436)</span><br><span class="line">        at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:139)</span><br><span class="line">        at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:93)</span><br><span class="line">        at org.apache.james.container.spring.context.JamesServerApplicationContext.&lt;init&gt;(JamesServerApplicationContext.java:39)</span><br><span class="line">        at org.apache.james.app.spring.JamesAppSpringMain.init(JamesAppSpringMain.java:61)</span><br><span class="line">        at org.apache.james.app.spring.JamesAppSpringMain.main(JamesAppSpringMain.java:42)</span><br><span class="line">Caused by: javax.xml.bind.JAXBException: Provider com.sun.xml.internal.bind.v2.ContextFactory could not be instantiated: com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line"></span><br><span class="line"> - with linked exception:</span><br><span class="line">[com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">]</span><br><span class="line">        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:146)</span><br><span class="line">        at javax.xml.bind.ContextFinder.find(ContextFinder.java:356)</span><br><span class="line">        at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:431)</span><br><span class="line">        at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:394)</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler.createJaxbContext(CamelNamespaceHandler.java:187)</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler.getJaxbContext(CamelNamespaceHandler.java:174)</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler$CamelContextBeanDefinitionParser.doParse(CamelNamespaceHandler.java:256)</span><br><span class="line">        ... 26 more</span><br><span class="line">Caused by: com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line"></span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException$Builder.check(IllegalAnnotationsException.java:91)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.getTypeInfoSet(JAXBContextImpl.java:445)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.&lt;init&gt;(JAXBContextImpl.java:277)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.&lt;init&gt;(JAXBContextImpl.java:124)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl$JAXBContextBuilder.build(JAXBContextImpl.java:1123)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.ContextFactory.createContext(ContextFactory.java:147)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.ContextFactory.createContext(ContextFactory.java:271)</span><br><span class="line">        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">        at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:171)</span><br><span class="line">        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:131)</span><br><span class="line">        ... 32 more</span><br><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt;run.bat</span><br><span class="line">INFO  09:37:44,247 | org.apache.james.container.spring.context.JamesServerApplicationContext | Refreshing org.apache.james.container.spring.context.JamesServerApplicationContext@7ca48474: startup date [Thu Jan 03 09:37:44 CST 2019]; root of context hierarchy</span><br><span class="line">log4j:WARN No appenders could be found for logger (org.apache.commons.configuration.ConfigurationUtils).</span><br><span class="line">log4j:WARN Please initialize the log4j system properly.</span><br><span class="line">log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.</span><br><span class="line">INFO  09:37:45,153 | org.apache.james.container.spring.context.JamesServerApplicationContext | Bean &apos;logprovider&apos; of type [class org.apache.james.container.spring.lifecycle.LogProviderImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)</span><br><span class="line">INFO  09:37:45,544 | james.mailrepositorystore | JamesMailStore init...</span><br><span class="line">INFO  09:37:45,550 | james.mailrepositorystore | Registering Repository instance of class org.apache.james.mailrepository.file.FileMailRepository to handle file protocol requests for repositories with key file</span><br><span class="line">INFO  09:37:45,550 | james.mailrepositorystore | Registering Repository instance of class org.apache.james.mailrepository.jdbc.JDBCMailRepository to handle db protocol requests for repositories with key db</span><br><span class="line">INFO  09:37:45,550 | james.mailrepositorystore | Registering Repository instance of class org.apache.james.mailrepository.jdbc.JDBCMailRepository to handle dbfile protocol requests for repositories with key dbfile</span><br><span class="line">INFO  09:37:45,551 | james.mailrepositorystore | Registering Repository instance of class org.apache.james.mailrepository.file.MBoxMailRepository to handle mbox protocol requests for repositories with key mbox</span><br><span class="line">INFO  09:37:45,936 | james.dnsservice | Autodiscovery is enabled - trying to discover your system&apos;s DNS Servers</span><br><span class="line">INFO  09:37:45,942 | james.dnsservice | Adding autodiscovered server 202.100.192.68</span><br><span class="line">INFO  09:37:45,942 | james.dnsservice | Adding autodiscovered server 202.100.199.8</span><br><span class="line">INFO  09:37:45,943 | james.dnsservice | DNS Server is: 202.100.192.68</span><br><span class="line">INFO  09:37:45,943 | james.dnsservice | DNS Server is: 202.100.199.8</span><br><span class="line">INFO  09:37:45,949 | james.dnsservice | Registered cache, resolver and search paths as DNSJava defaults</span><br><span class="line">12  James  WARN   [main] openjpa.Runtime - An error occurred while registering a ClassTransformer with PersistenceUnitInfo: name &apos;James&apos;, root URL [file:/D:/devsoft/apache-james-3.0-beta4/conf/]. The error has been consumed. To see it, set your openjpa.Runtime log level to TRACE. Load-time class transformation will not be available.</span><br><span class="line">INFO  09:37:55,187 | james.domainlist | Set autodetect to: true</span><br><span class="line">INFO  09:37:55,187 | james.domainlist | Set autodetectIP to: true</span><br><span class="line">28  James  INFO   [main] openjpa.Runtime - Starting OpenJPA 2.1.0</span><br><span class="line">52  James  INFO   [main] openjpa.jdbc.JDBC - Using dictionary class &quot;org.apache.openjpa.jdbc.sql.MySQLDictionary&quot;.</span><br><span class="line">Cannot load JDBC driver class &apos;com.mysql.jdbc.Driver&apos;</span><br><span class="line">java.lang.ClassNotFoundException: com.mysql.jdbc.Driver</span><br><span class="line">        at java.net.URLClassLoader.findClass(URLClassLoader.java:381)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:424)</span><br><span class="line">        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:357)</span><br><span class="line">        at org.apache.commons.dbcp.BasicDataSource.createConnectionFactory(BasicDataSource.java:1420)</span><br><span class="line">        at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1371)</span><br><span class="line">        at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)</span><br></pre></td></tr></table></figure>
+<p>解决办法</p>
+<p>D:\devsoft\apache-james-3.0-beta4\conf\lib：存放自己导入的jar</p>
+<p>D:\devsoft\apache-james-3.0-beta4\lib：存放James默认jar</p>
+<p>复制jaxb-impl-2.1.3.jar，mysql驱动jar包到conf/lib下</p>
+<p><img src="https://i.imgur.com/4wuAqzA.png" alt=""></p>
+<p>设置服务器域名、建立账户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt; james-cli.bat -h localhost -p 9999 adddomain atguigu.com</span><br><span class="line">adddomain command executed sucessfully in 106 ms.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt; james-cli.bat -h localhost -p 9999 adduser test@atguigu.com test</span><br><span class="line">adduser command executed sucessfully in 94 ms.</span><br></pre></td></tr></table></figure>
+<p>配置Foxmail客户端连接James邮件服务器</p>
+<p><img src="https://i.imgur.com/f8p6D2w.png" alt=""><br><img src="https://i.imgur.com/9J6L4rf.png" alt=""></p>
+<p>测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">    * 测试james发送邮件</span><br><span class="line">    * @Description (TODO这里用一句话描述这个方法的作用)</span><br><span class="line">    * @throws Exception</span><br><span class="line">    */</span><br><span class="line">   @Test</span><br><span class="line">   public void test02() throws Exception&#123;</span><br><span class="line">       SimpleEmail email = new SimpleEmail();</span><br><span class="line">       //设置主机名，远程服务器的主机名</span><br><span class="line">       email.setHostName(&quot;127.0.0.1&quot;);</span><br><span class="line">       //自定义的ip，一定要手动设置好端口号</span><br><span class="line">       email.setSmtpPort(25);</span><br><span class="line">       //设置登陆远程服务器的密码</span><br><span class="line">       email.setAuthentication(&quot;test@atguigu.com&quot;, &quot;000000&quot;);</span><br><span class="line">       </span><br><span class="line">       //编写一个邮件</span><br><span class="line">       //设置发送给谁</span><br><span class="line">       email.addTo(&quot;17512080612@163.com&quot;);</span><br><span class="line">       //设置这个邮件来源于哪里</span><br><span class="line">       email.setFrom(&quot;admin@atguigu.com&quot;);</span><br><span class="line">       //设置邮件主题</span><br><span class="line">       email.setSubject(&quot;哈哈，给你测试 &quot;);</span><br><span class="line">       //设置邮件内容</span><br><span class="line">       email.setMsg(&quot;我能给您发邮件&lt;a href=&apos;http://www.atguigu.com&apos;&gt;尚硅谷&lt;/a&gt;&quot;);</span><br><span class="line">       //邮件发送</span><br><span class="line">       email.send();</span><br><span class="line">       </span><br><span class="line">       </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/22/maven配置/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -866,14 +833,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:06:02" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:06:02" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
             
 
             
@@ -1031,14 +998,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:11:10" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:11:10" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
             
 
             
@@ -1187,14 +1154,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:06:28" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:06:28" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
             
 
             
@@ -1358,14 +1325,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:10:41" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:10:41" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
             
 
             
@@ -1546,14 +1513,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:11:50" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:11:50" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
             
 
             
@@ -1891,7 +1858,7 @@ Dog.prototype.constructor = Dog
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/22/优化点击事件绑定/">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shenlibing">
@@ -1911,7 +1878,7 @@ Dog.prototype.constructor = Dog
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/myhexo/2019/01/22/优化点击事件绑定/" class="post-title-link" itemprop="url">优化点击事件绑定</a>
+                <a href="/myhexo/2019/01/22/帆软报表部署配置_emoss5用户分配角色、角色分配权限/" class="post-title-link" itemprop="url">帆软报表部署配置_emoss5用户分配角色、角色分配权限</a>
               
             
           </h1>
@@ -1929,14 +1896,14 @@ Dog.prototype.constructor = Dog
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:07:21" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:08:50" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
             
 
             
@@ -1977,10 +1944,43 @@ Dog.prototype.constructor = Dog
       
         
           
-            <p>1、优化点击事件绑定</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.3.1/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id1"</span>&gt;</span>新增按钮1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id2"</span>&gt;</span>删除按钮2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id3"</span>&gt;</span>按钮3<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id4"</span>&gt;</span>按钮4<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> log = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log.apply(<span class="built_in">console</span>, <span class="built_in">arguments</span>)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> actionList = &#123;</span></span><br><span class="line"><span class="javascript">        <span class="string">'id1'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id1=============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id2'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id2===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id3'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id3===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="string">'id4'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id4===============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> $body = $(<span class="string">'body'</span>)</span></span><br><span class="line"><span class="javascript">    $body.on(<span class="string">'click'</span>, <span class="string">'[data-action]'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//jQuery获取html标签自定义属性值或data值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> action_name = $(<span class="keyword">this</span>).data(<span class="string">'action'</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> action = actionList[action_name]</span></span><br><span class="line"><span class="javascript">        <span class="comment">// log(action)</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// log($.isFunction(action))</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> ($.isFunction(action)) &#123;</span></span><br><span class="line"><span class="undefined">            action()</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//页面需要新增一个按钮，做扩展</span></span></span><br><span class="line"><span class="xml">    $body.append('<span class="tag">&lt;<span class="name">button</span> <span class="attr">data-action</span>=<span class="string">"id5"</span>&gt;</span>按钮5<span class="tag">&lt;/<span class="name">button</span>&gt;</span>')</span></span><br><span class="line"><span class="javascript">    $.extend(actionList, &#123;</span></span><br><span class="line"><span class="javascript">        <span class="string">'id5'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'id5============&gt;'</span>)</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>参考</p>
-<p><a href="https://github.com/cssmagic/blog/issues/48" target="_blank" rel="noopener">https://github.com/cssmagic/blog/issues/48</a></p>
+            <p>1、帆软报表部署</p>
+<p>客户端工具sftp下载链接</p>
+<p><a href="https://www.netsarang.com/download/down_form.html?code=623" target="_blank" rel="noopener">https://www.netsarang.com/download/down_form.html?code=623</a></p>
+<p>使用sftp</p>
+<p><a href="https://www.netsarang.com/download/down_xfp6.html?token=dEFiMWxoUEhuNU1hQlMrRG9qU20yZ0Bnc1hKVGJhaHpkY3hBUUNMNFBoaXVn" target="_blank" rel="noopener">https://www.netsarang.com/download/down_xfp6.html?token=dEFiMWxoUEhuNU1hQlMrRG9qU20yZ0Bnc1hKVGJhaHpkY3hBUUNMNFBoaXVn</a></p>
+<p>1）用客户端工具sftp登录到135.125.60.122机子</p>
+<p>文件–新建</p>
+<p><img src="https://i.imgur.com/2BmJwbi.png" alt=""></p>
+<p><img src="https://i.imgur.com/v4wyabN.png" alt=""></p>
+<p>报表存放路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/opt/FineBI/webapps/WebReport/WEB-INF/reportlets</span><br></pre></td></tr></table></figure>
+<p>2）菜单配置</p>
+<p>基础应用–权限模型–菜单管理</p>
+<p><img src="https://i.imgur.com/wIRwxey.png" alt=""></p>
+<p>建立菜单层级关系</p>
+<p>在资源评价菜单下-建立杜邦报表分析文件夹–建立2018杜邦报表3层目录结构</p>
+<p>在2018杜邦报表(1)下配置报表位置引用–填写<strong>菜单编码(表名)、排序号、菜单名称(表名中文描述)、菜单URL</strong></p>
+<p><img src="https://i.imgur.com/OpkMozW.png" alt=""></p>
+<p>菜单URL的配置</p>
+<p><img src="https://i.imgur.com/sWq1soL.png" alt=""></p>
+<p><img src="https://i.imgur.com/dFluLNT.png" alt=""></p>
+<p>2、建员工、建用户、为用户分配角色、为角色分配权限</p>
+<p>1）建员工–基础应用–权限模型–员工管理</p>
+<p><img src="https://i.imgur.com/3Dy5jZ7.png" alt=""></p>
+<p>2）建用户–基础应用–权限模型–用户管理–新增</p>
+<p><img src="https://i.imgur.com/P72nX6J.png" alt=""></p>
+<p><img src="https://i.imgur.com/m5MJU1X.png" alt=""></p>
+<p><strong>新建用户之前必须先建员工、角色、部门，在建用户的时候可以为该用户分配角色和菜单权限</strong></p>
+<p><img src="https://i.imgur.com/foNIVta.png" alt=""></p>
+<p>3）为用户分配角色–基础应用–权限模型–角色用户设置</p>
+<p><img src="https://i.imgur.com/aXEslSF.png" alt=""></p>
+<p>先选中角色，然后为该角色添加用户</p>
+<p><img src="https://i.imgur.com/OTsxbsS.png" alt=""></p>
+<p>4）为角色分配权限–基础应用–权限模型–角色管理</p>
+<p><img src="https://i.imgur.com/DzlEsPW.png" alt=""></p>
+<p>先选中角色，然后为该角色勾选拥有的菜单权限</p>
+<p><img src="https://i.imgur.com/ssEptko.png" alt=""></p>
 
           
         
@@ -2075,14 +2075,14 @@ Dog.prototype.constructor = Dog
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-01-22 12:58:55 / Updated at: 13:05:42" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
+              <time title="Created: 2019-01-22 12:58:55 / Modified: 13:05:42" itemprop="dateCreated datePublished" datetime="2019-01-22T12:58:55+08:00">2019-01-22</time>
             
 
             
@@ -2271,7 +2271,7 @@ Dog.prototype.constructor = Dog
                   <a href="/myhexo/archives/">
                 
                     <span class="site-state-item-count">15</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -2325,7 +2325,7 @@ Dog.prototype.constructor = Dog
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
