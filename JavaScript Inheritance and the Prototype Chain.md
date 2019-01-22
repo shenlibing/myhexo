@@ -1,6 +1,6 @@
 ---
 title: JavaScript Inheritance and the Prototype Chain
-date: 2019-01-22 12:58:55
+date: 2019-01-02 12:58:55
 tags:
 ---
 参考：
