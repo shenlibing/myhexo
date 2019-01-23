@@ -4,10 +4,7 @@ date: 2019-01-23 09:07:30
 categories: 日常记录
 tags: 
   - hexo
-  - git
   - github
-  - node
-  - markdown
 ---
 
 1、安装Node.js
@@ -129,12 +126,7 @@ tags:
 	root: /myhexo
 	permalink: :year/:month/:day/:title/
 	permalink_defaults:
-	
-	#博客主题样式
-	# Extensions
-	## Plugins: https://hexo.io/plugins/
-	## Themes: https://hexo.io/themes/
-	theme: hexo-theme-next-master
+
 
 	#博客推送到GitHub地址配置
 	# Deployment
@@ -210,7 +202,28 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 7、拓展
 
-1）开启搜索、字数统计和阅读时长统计
+1)更换hexo主题
+
+下载
+
+[https://github.com/theme-next/hexo-theme-next](https://github.com/theme-next/hexo-theme-next)
+
+解压放到D:\mytest\myhexo\themes
+
+![](https://i.imgur.com/hfH4rEM.png)
+
+
+修改D:\mytest\myhexo\_config.yml配置文件
+
+```
+	# Extensions
+	## Plugins: https://hexo.io/plugins/
+	## Themes: https://hexo.io/themes/
+	theme: hexo-theme-next-master
+
+```
+
+2）开启搜索、字数统计和阅读时长统计
 
 安装依赖hexo-symbols-count-time、hexo-generator-searchdb，安装依赖不成功时先删除D:\mytest\myhexo\node_modules文件夹，重新安装依赖
 
@@ -263,7 +276,7 @@ D:\mytest\myhexo\_config.yml
 
 ```
 
-2）添加分类和标签
+3）添加分类和标签
 
 ```
 	$ hexo new page categories
@@ -326,6 +339,17 @@ D:\mytest\myhexo\_config.yml
 	  - node
 	  - markdown
 	---
+
+```
+
+4）更换页面菜单布局位置
+
+```
+	# Schemes
+	#scheme: Muse
+	#scheme: Mist
+	scheme: Pisces
+	#scheme: Gemini
 
 ```
 
