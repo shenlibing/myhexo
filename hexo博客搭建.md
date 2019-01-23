@@ -146,6 +146,9 @@ tags:
 
 ```
 
+4)配置GitHub Pages
+
+![](https://i.imgur.com/qSFHbX3.png)
 
 6、备份博客源文件
 
