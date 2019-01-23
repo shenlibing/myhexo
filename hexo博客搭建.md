@@ -207,3 +207,130 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 ```
     $ git checkout master
 ```
+
+7、拓展
+
+1）开启搜索、字数统计和阅读时长统计
+
+安装依赖hexo-symbols-count-time、hexo-generator-searchdb，安装依赖不成功时先删除D:\mytest\myhexo\node_modules文件夹，重新安装依赖
+
+```
+	
+	npm install hexo-symbols-count-time --save
+
+	npm install hexo-generator-searchdb --save
+
+```
+
+配置主题样式文件
+
+D:\mytest\myhexo\themes\hexo-theme-next-master\_config.yml
+
+```
+	# Local search
+	# Dependencies: https://github.com/theme-next/hexo-generator-searchdb
+	local_search:
+	  enable: true
+
+	# Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+	symbols_count_time:
+	  separated_meta: true
+	  item_text_post: true
+	  item_text_total: false
+	  awl: 4
+	  wpm: 275
+
+```
+
+配置站点文件
+
+D:\mytest\myhexo\_config.yml
+
+```
+	#阅读时长和本文字数
+	symbols_count_time:
+	  symbols: true
+	  time: true
+	  total_symbols: true
+	  total_time: true
+
+	#搜索功能
+	search:
+	  path: search.xml
+	  field: post
+	  format: html
+	  limit: 10000
+
+```
+
+2）添加分类和标签
+
+```
+	$ hexo new page categories
+
+	$ hexo new page tags
+
+```
+
+编辑D:\mytest\myhexo\source\categories\index.md
+
+```
+
+	---
+	title: categories
+	date: 2019-01-22 16:37:58
+	type: "categories"   #这部分是新添加的
+	---
+
+```
+
+编辑D:\mytest\myhexo\source\tags\index.md
+
+```
+
+	---
+	title: tags
+	date: 2019-01-22 16:38:40
+	type: "tags" #新添加的内容
+	---
+
+```
+
+修改菜单，添加categories和tags到menu中
+
+```
+	menu:
+	  home: / || home
+	  #about: /about/ || user
+	  tags: /tags/ || tags
+	  categories: /categories/ || th
+	  archives: /archives/ || archive
+	  #schedule: /schedule/ || calendar
+	  #sitemap: /sitemap.xml || sitemap
+	  #commonweal: /404/ || heartbeat
+
+```
+
+新增文章，添加categories、tags
+
+```
+
+	---
+	title: hexo博客搭建
+	date: 2019-01-23 09:07:30
+	categories: 日常记录
+	tags: 
+	  - hexo
+	  - git
+	  - github
+	  - node
+	  - markdown
+	---
+
+```
+
+参考：
+
+[【持续更新】Github Pages + Hexo 博客搭建，Next主题个性化修改](https://www.lixint.me/hexo-blog.html)
+
+[hexo史上最全搭建教程](https://blog.csdn.net/sinat_37781304/article/details/82729029)
