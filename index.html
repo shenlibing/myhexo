@@ -12,7 +12,7 @@
 
 
 
-<html class="theme-next muse" lang="">
+<html class="theme-next pisces" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,7 +70,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/myhexo/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -214,7 +214,7 @@
 
     
 
-    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
 
   </li>
         
@@ -248,7 +248,7 @@
 
     
 
-    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien</a>
 
   </li>
         
@@ -265,7 +265,7 @@
 
     
 
-    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
 
   </li>
 
@@ -276,14 +276,11 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Suche</a>
         </li>
       
     </ul>
   
-
-  
-    
 
   
 
@@ -326,6 +323,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -384,14 +384,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-23 09:07:30 / Modified: 15:05:43" itemprop="dateCreated datePublished" datetime="2019-01-23T09:07:30+08:00">2019-01-23</time>
+              <time title="Post created: 2019-01-23 09:07:30 / Updated at: 16:03:57" itemprop="dateCreated datePublished" datetime="2019-01-23T09:07:30+08:00">2019-01-23</time>
             
 
             
@@ -410,7 +410,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -442,7 +442,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">3.8k</span>
+                <span title="Symbols count in article">4k</span>
               
 
               
@@ -456,7 +456,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">3 mins.</span>
+                <span title="Reading time">4 mins.</span>
               
             </div>
           
@@ -502,7 +502,7 @@
 <p>安装 hexo-deployer-git</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>修改配置D:\mytest\myhexo_config.yml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#配置GitHub博客站址访问路径</span><br><span class="line"># URL这里要是没有配置，GitHub样式显示不出来</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://shenlibing.github.io/myhexo/</span><br><span class="line">root: /myhexo</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line">#博客主题样式</span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: hexo-theme-next-master</span><br><span class="line"></span><br><span class="line">#博客推送到GitHub地址配置</span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/shenlibing/myhexo.git</span><br><span class="line">  branch: [master]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#配置GitHub博客站址访问路径</span><br><span class="line"># URL这里要是没有配置，GitHub样式显示不出来</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://shenlibing.github.io/myhexo/</span><br><span class="line">root: /myhexo</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#博客推送到GitHub地址配置</span><br><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/shenlibing/myhexo.git</span><br><span class="line">  branch: [master]</span><br></pre></td></tr></table></figure>
 <p>4)配置GitHub Pages</p>
 <p><img src="https://i.imgur.com/qSFHbX3.png" alt=""></p>
 <p>6、备份博客源文件</p>
@@ -524,7 +524,14 @@
 <p>切换分支</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure>
 <p>7、拓展</p>
-<p>1）开启搜索、字数统计和阅读时长统计</p>
+<p>1)更换hexo主题</p>
+<p>下载</p>
+<p><a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a></p>
+<p>解压放到D:\mytest\myhexo\themes</p>
+<p><img src="https://i.imgur.com/hfH4rEM.png" alt=""></p>
+<p>修改D:\mytest\myhexo_config.yml配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: hexo-theme-next-master</span><br></pre></td></tr></table></figure>
+<p>2）开启搜索、字数统计和阅读时长统计</p>
 <p>安装依赖hexo-symbols-count-time、hexo-generator-searchdb，安装依赖不成功时先删除D:\mytest\myhexo\node_modules文件夹，重新安装依赖</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install hexo-symbols-count-time --save</span><br><span class="line"></span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
 <p>配置主题样式文件</p>
@@ -533,7 +540,7 @@
 <p>配置站点文件</p>
 <p>D:\mytest\myhexo_config.yml</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#阅读时长和本文字数</span><br><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br><span class="line"></span><br><span class="line">#搜索功能</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
-<p>2）添加分类和标签</p>
+<p>3）添加分类和标签</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br><span class="line"></span><br><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
 <p>编辑D:\mytest\myhexo\source\categories\index.md</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-01-22 16:37:58</span><br><span class="line">type: &quot;categories&quot;   #这部分是新添加的</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
@@ -543,6 +550,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  #about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  #schedule: /schedule/ || calendar</span><br><span class="line">  #sitemap: /sitemap.xml || sitemap</span><br><span class="line">  #commonweal: /404/ || heartbeat</span><br></pre></td></tr></table></figure>
 <p>新增文章，添加categories、tags</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: hexo博客搭建</span><br><span class="line">date: 2019-01-23 09:07:30</span><br><span class="line">categories: 日常记录</span><br><span class="line">tags: </span><br><span class="line">  - hexo</span><br><span class="line">  - git</span><br><span class="line">  - github</span><br><span class="line">  - node</span><br><span class="line">  - markdown</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>4）更换页面菜单布局位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">scheme: Pisces</span><br><span class="line">#scheme: Gemini</span><br></pre></td></tr></table></figure>
 <p>参考：</p>
 <p><a href="https://www.lixint.me/hexo-blog.html" target="_blank" rel="noopener">【持续更新】Github Pages + Hexo 博客搭建，Next主题个性化修改</a></p>
 <p><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">hexo史上最全搭建教程</a></p>
@@ -640,14 +649,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-15 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-15T12:58:55+08:00">2019-01-15</time>
+              <time title="Post created: 2019-01-15 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-15T12:58:55+08:00">2019-01-15</time>
             
 
             
@@ -664,7 +673,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 17:14:00" itemprop="dateModified" datetime="2019-01-22T17:14:00+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:14:00" itemprop="dateModified" datetime="2019-01-22T17:14:00+08:00">2019-01-22</time>
               
             
           </span>
@@ -678,7 +687,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -844,14 +853,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-14 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-14T12:58:55+08:00">2019-01-14</time>
+              <time title="Post created: 2019-01-14 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-14T12:58:55+08:00">2019-01-14</time>
             
 
             
@@ -868,7 +877,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 17:34:20" itemprop="dateModified" datetime="2019-01-22T17:34:20+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:34:20" itemprop="dateModified" datetime="2019-01-22T17:34:20+08:00">2019-01-22</time>
               
             
           </span>
@@ -882,7 +891,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -1084,14 +1093,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-13 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-13T12:58:55+08:00">2019-01-13</time>
+              <time title="Post created: 2019-01-13 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-13T12:58:55+08:00">2019-01-13</time>
             
 
             
@@ -1108,7 +1117,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 17:35:22" itemprop="dateModified" datetime="2019-01-22T17:35:22+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:35:22" itemprop="dateModified" datetime="2019-01-22T17:35:22+08:00">2019-01-22</time>
               
             
           </span>
@@ -1122,7 +1131,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -1324,14 +1333,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-12 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-12T12:58:55+08:00">2019-01-12</time>
+              <time title="Post created: 2019-01-12 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-12T12:58:55+08:00">2019-01-12</time>
             
 
             
@@ -1348,7 +1357,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 17:14:35" itemprop="dateModified" datetime="2019-01-22T17:14:35+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:14:35" itemprop="dateModified" datetime="2019-01-22T17:14:35+08:00">2019-01-22</time>
               
             
           </span>
@@ -1362,7 +1371,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -1561,14 +1570,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-11 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-11T12:58:55+08:00">2019-01-11</time>
+              <time title="Post created: 2019-01-11 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-11T12:58:55+08:00">2019-01-11</time>
             
 
             
@@ -1585,7 +1594,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 17:35:52" itemprop="dateModified" datetime="2019-01-22T17:35:52+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:35:52" itemprop="dateModified" datetime="2019-01-22T17:35:52+08:00">2019-01-22</time>
               
             
           </span>
@@ -1599,7 +1608,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -1791,14 +1800,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-10 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-10T12:58:55+08:00">2019-01-10</time>
+              <time title="Post created: 2019-01-10 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-10T12:58:55+08:00">2019-01-10</time>
             
 
             
@@ -1815,7 +1824,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 17:36:06" itemprop="dateModified" datetime="2019-01-22T17:36:06+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:36:06" itemprop="dateModified" datetime="2019-01-22T17:36:06+08:00">2019-01-22</time>
               
             
           </span>
@@ -1829,7 +1838,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -2028,14 +2037,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-09 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-09T12:58:55+08:00">2019-01-09</time>
+              <time title="Post created: 2019-01-09 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-09T12:58:55+08:00">2019-01-09</time>
             
 
             
@@ -2052,7 +2061,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 17:13:43" itemprop="dateModified" datetime="2019-01-22T17:13:43+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:13:43" itemprop="dateModified" datetime="2019-01-22T17:13:43+08:00">2019-01-22</time>
               
             
           </span>
@@ -2066,7 +2075,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -2274,14 +2283,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-07 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-07T12:58:55+08:00">2019-01-07</time>
+              <time title="Post created: 2019-01-07 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-07T12:58:55+08:00">2019-01-07</time>
             
 
             
@@ -2298,7 +2307,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 17:36:54" itemprop="dateModified" datetime="2019-01-22T17:36:54+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:36:54" itemprop="dateModified" datetime="2019-01-22T17:36:54+08:00">2019-01-22</time>
               
             
           </span>
@@ -2312,7 +2321,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -2504,14 +2513,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-01-06 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-06T12:58:55+08:00">2019-01-06</time>
+              <time title="Post created: 2019-01-06 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-06T12:58:55+08:00">2019-01-06</time>
             
 
             
@@ -2528,7 +2537,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 17:13:25" itemprop="dateModified" datetime="2019-01-22T17:13:25+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-22 17:13:25" itemprop="dateModified" datetime="2019-01-22T17:13:25+08:00">2019-01-22</time>
               
             
           </span>
@@ -2542,7 +2551,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
@@ -2714,7 +2723,7 @@
                   <a href="/myhexo/archives/">
                 
                     <span class="site-state-item-count">15</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -2729,7 +2738,7 @@
                       
                     
                     <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -2771,14 +2780,8 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">18</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -2842,7 +2845,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -2850,7 +2853,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
 
 
 
@@ -2938,7 +2941,9 @@
   
 
 
-  <script src="/myhexo/js/src/schemes/muse.js?v=6.7.0"></script>
+  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
 
 
 
