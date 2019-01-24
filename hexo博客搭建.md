@@ -353,6 +353,50 @@ D:\mytest\myhexo\_config.yml
 
 ```
 
+5）配置文章浏览量
+
+注册
+
+[https://leancloud.cn/](https://leancloud.cn/)
+
+创建应用
+
+![](https://i.imgur.com/NHal0S7.png)
+
+创建Class
+
+![](https://i.imgur.com/eXGym94.png)
+
+配置web安全域名
+
+![](https://i.imgur.com/FEbZt23.png)
+
+
+
+获取app_id、app_key
+
+![](https://i.imgur.com/SE6pqQj.png)
+
+编辑D:\mytest\myhexo\themes\hexo-theme-next-master\_config.yml配置文件，填app_id、
+
+app_key;security设置为false
+
+```
+
+	# Show number of visitors to each article.
+	# You can visit https://leancloud.cn get AppID and AppKey.
+	leancloud_visitors:
+	  enable: true
+	  app_id: BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz #<app_id>
+	  app_key: EEaRfb6dCMaS38laDCkSYhM9 #<app_key>
+	  # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
+	  # If you don't care about security in leancloud counter and just want to use it directly
+	  # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
+	  security: false
+	  betterPerformance: false
+
+```
+
 参考：
 
 [【持续更新】Github Pages + Hexo 博客搭建，Next主题个性化修改](https://www.lixint.me/hexo-blog.html)
