@@ -230,7 +230,23 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 ```
 
-2）开启搜索、字数统计和阅读时长统计
+2）修改站点语言
+
+编辑D:\mytest\myhexo\_config.yml
+
+```
+	# Site
+	title: 小兵兵
+	subtitle:
+	description:
+	keywords:
+	author: shenlibing
+	language: zh-CN
+	timezone:
+
+```
+
+3）开启搜索、字数统计和阅读时长统计
 
 安装依赖hexo-symbols-count-time、hexo-generator-searchdb，安装依赖不成功时先删除D:\mytest\myhexo\node_modules文件夹，重新安装依赖
 
@@ -283,7 +299,7 @@ D:\mytest\myhexo\_config.yml
 
 ```
 
-3）添加分类和标签
+4）添加分类和标签
 
 ```
 	$ hexo new page categories
@@ -349,7 +365,7 @@ D:\mytest\myhexo\_config.yml
 
 ```
 
-4）更换页面菜单布局位置
+5）更换页面菜单布局位置
 
 ```
 	# Schemes
@@ -360,7 +376,7 @@ D:\mytest\myhexo\_config.yml
 
 ```
 
-5）配置文章浏览量
+6）配置文章浏览量
 
 注册
 
@@ -403,6 +419,7 @@ app_key;security设置为false
 	  betterPerformance: false
 
 ```
+
 
 参考：
 
