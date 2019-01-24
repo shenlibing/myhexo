@@ -420,6 +420,22 @@ app_key;security设置为false
 
 ```
 
+7）插入本地图片
+
+```
+	npm install hexo-asset-image --save
+
+```
+
+编辑D:\mytest\myhexo\_config.yml配置文件
+
+```
+	post_asset_folder: true
+
+```
+
+命令hexo new post test来生成博文时，/source/_post文件夹中除了test.md外，还有一个同名test文件夹
+
 
 参考：
 
