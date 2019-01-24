@@ -200,6 +200,13 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
     $ git checkout master
 ```
 
+查看提交日志
+
+```
+	$ git log --oneline 
+
+```
+
 7、拓展
 
 1)更换hexo主题
