@@ -365,6 +365,263 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/09/svn版本控制/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myhexo/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/myhexo/2019/01/09/svn版本控制/" class="post-title-link" itemprop="url">svn版本控制</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-09 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-09T12:58:55+08:00">2019-01-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-22 17:13:43" itemprop="dateModified" datetime="2019-01-22T17:13:43+08:00">2019-01-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/myhexo/2019/01/09/svn版本控制/" class="leancloud_visitors" data-flag-title="svn版本控制">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、svn下载</p>
+<p><a href="https://sourceforge.net/projects/win32svn/" target="_blank" rel="noopener">https://sourceforge.net/projects/win32svn/</a></p>
+<p>2、验证是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">C:\Users\libingshen&gt;svn --version</span><br></pre></td></tr></table></figure>
+<p>3、创建版本库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\mytest\mysvn\OA&gt;svnadmin create D:\mytest\mysvn\OA</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/v4aUp1n.png" alt=""></p>
+<p>4、启动svn服务</p>
+<p><img src="https://i.imgur.com/CStIBx9.png" alt=""></p>
+<p>5、验证svn服务是否启动</p>
+<p>svn服务监听3690端口</p>
+<p><img src="https://i.imgur.com/sogDN9t.png" alt=""></p>
+<p>6、svn注册为Windows服务</p>
+<p>tip:等号左边没有空格，等号右边有一个空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">C:\WINDOWS\system32&gt;sc create MySVNService binpath= &quot;C:\Pmyprogram\svn\bin\svnserve.exe --service -r D:\mytest\mysvn&quot; start= auto depend= Tcpip</span><br></pre></td></tr></table></figure>
+<p>原因：每次启动svn服务时必须启动一个cmd窗口，cmd窗口一关闭，svn服务就关闭。</p>
+<p>非管理员运行时会失败。<br><img src="https://i.imgur.com/rPliKES.png" alt=""></p>
+<p>管理员运行<br><img src="https://i.imgur.com/gBmdKhJ.png" alt=""></p>
+<p><img src="https://i.imgur.com/whIFJo4.png" alt=""></p>
+<p>启动、停止、删除svn服务（管理员身份运行cmd）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//启动svn服务</span><br><span class="line">C:\WINDOWS\system32&gt;sc start MySVNService</span><br><span class="line"></span><br><span class="line">//停止服务</span><br><span class="line">C:\WINDOWS\system32&gt;sc stop MySVNService</span><br><span class="line"></span><br><span class="line">//删除服务</span><br><span class="line">C:\WINDOWS\system32&gt;sc delete MySVNService</span><br></pre></td></tr></table></figure>
+<p>7、检出项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\mytest\mycheckout&gt;svn checkout svn://localhost/OA MyOA</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/vvRuF4T.png" alt=""></p>
+<p>8、提交文件</p>
+<p>–开启匿名权限访问</p>
+<p><img src="https://i.imgur.com/hBW5DuW.png" alt=""></p>
+<p>–先将文件加入版本库，然后提交（需添加提交日志信息，不然报错）</p>
+<p>svn commit 命令最后可以不指定具体文件，此时表示提交当前工作副本中<br>的所有修改</p>
+<p><img src="https://i.imgur.com/r1IpUsZ.png" alt=""></p>
+<p>9、更新</p>
+<p>另一个客户端检出项目、更新并提交文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//远程版本库具体位置  svn://localhost/OA</span><br><span class="line">//将OA检出到本地的目录 MyOA2</span><br><span class="line">D:\mytest\mycheckout&gt;svn checkout svn://localhost/OA MyOA2</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/u4zFEcf.png" alt=""></p>
+<p><img src="https://i.imgur.com/67qMr6A.png" alt=""></p>
+<p>10、授权访问版本库</p>
+<p>–单版本库开启授权访问</p>
+<p><img src="https://i.imgur.com/emwZBDY.png" alt=""></p>
+<p>–多版本库开启授权访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在版本库根目录 D:\mytest\mysvn 下创建 commConf 目录</span><br><span class="line">将未修改的 authz 和 passwd 文件拷贝到 commConf 目录下</span><br><span class="line">修改需要设置权限的版本库的 svnserve.conf 文件</span><br><span class="line">①password-db = ../../commConf/passwd</span><br><span class="line">②authz-db = ../../commConf/authz</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/QjqreHq.png" alt=""></p>
+<p>passwd：设置访问版本库的用户信息</p>
+<p><img src="https://i.imgur.com/7TQZlnl.png" alt=""></p>
+<p>authz：设置用户访问版本库的权限</p>
+<p><img src="https://i.imgur.com/XIZ9z9v.png" alt=""></p>
+<hr>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/07/springmvc配置/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2313,7 +2570,7 @@ Dog.prototype.constructor = Dog
                 
                   <a href="/myhexo/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2371,7 +2628,9 @@ Dog.prototype.constructor = Dog
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2422,7 +2681,7 @@ Dog.prototype.constructor = Dog
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">119k</span>
+    <span title="站点总字数">135k</span>
   
 
   
@@ -2431,7 +2690,7 @@ Dog.prototype.constructor = Dog
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:48</span>
+    <span title="站点阅读时长">2:02</span>
   
 </div>
 

@@ -365,6 +365,276 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/28/HttpClient远程接口调用-实名认证/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myhexo/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/myhexo/2019/01/28/HttpClient远程接口调用-实名认证/" class="post-title-link" itemprop="url">HttpClient远程接口调用_实名认证</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-28 15:10:38 / 修改时间：17:45:22" itemprop="dateCreated datePublished" datetime="2019-01-28T15:10:38+08:00">2019-01-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/myhexo/2019/01/28/HttpClient远程接口调用-实名认证/" class="leancloud_visitors" data-flag-title="HttpClient远程接口调用_实名认证">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">16k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">15 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、HttpClient远程接口调用</p>
+<p>1)用户注册</p>
+<p><img src="https://i.imgur.com/r1gYBNs.png" alt="用户注册"></p>
+<ul>
+<li>注册按钮<code>button</code>提交表单时，要<code>return false</code></li>
+</ul>
+<p><code>form</code>表单</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- action="http://localhost:8082/scw-restapi/member/regist" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-signin"</span> <span class="attr">role</span>=<span class="string">"form"</span> <span class="attr">action</span>=<span class="string">"$&#123;ctp&#125;/member/regist"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">id</span>=<span class="string">"regForm"</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>js提交表单</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#submitBtn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> loginType = $(<span class="string">"select.form-control"</span>).val();</span><br><span class="line">	log(<span class="string">"注册类型==============&gt;"</span>, loginType)</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* if (loginType == "管理") &#123;</span></span><br><span class="line"><span class="comment">		$("#regForm").submit();</span></span><br><span class="line"><span class="comment">	&#125; else &#123;</span></span><br><span class="line"><span class="comment">		alert("此功能尚未开通");</span></span><br><span class="line"><span class="comment">	&#125; */</span></span><br><span class="line"></span><br><span class="line">	$(<span class="string">"#regForm"</span>).submit();</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>2)加载外部资源文件</p>
+<p><img src="https://i.imgur.com/URlRJg9.png" alt=""></p>
+<p>app.properties</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">restapi.server.ip=127.0.0.1</span><br><span class="line">restapi.server.port=8082</span><br><span class="line">restapi.server.apppath=scw-restapi</span><br></pre></td></tr></table></figure>
+<p>编辑<code>springmvc.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 引入外部配置文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:property-placeholder</span></span></span><br><span class="line"><span class="tag">	<span class="attr">location</span>=<span class="string">"classpath:other/app.properties"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>RestApiServerInfo.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RestApiServerInfo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// MemberService memberService;</span></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;restapi.server.ip&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String restapiserver;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;restapi.server.port&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String restapiport;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;restapi.server.apppath&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String appPath;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getRestApiURL</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"http://"</span> + restapiserver + <span class="string">":"</span> + restapiport);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"http://"</span> + restapiserver + <span class="string">":"</span> + restapiport + <span class="string">"/"</span> + appPath;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3)HTTPClient工具远程调用接口</p>
+<ul>
+<li>导入依赖</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.httpcomponents<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>httpclient<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.5.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>发送post请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static String httpPostRequest(String url, Map&lt;String, Object&gt; params)</span><br></pre></td></tr></table></figure>
+<p>工具类<code>HttpClientUtil.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.project;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.http.HttpEntity;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.NameValuePair;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.ClientProtocolException;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.entity.UrlEncodedFormEntity;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.CloseableHttpResponse;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpGet;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpPost;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.methods.HttpRequestBase;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.client.utils.URIBuilder;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.CloseableHttpClient;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.client.HttpClients;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.impl.conn.PoolingHttpClientConnectionManager;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.message.BasicNameValuePair;</span><br><span class="line"><span class="keyword">import</span> org.apache.http.util.EntityUtils;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Nan 2015-11</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpClientUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> PoolingHttpClientConnectionManager cm;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String EMPTY_STR = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String UTF_8 = <span class="string">"UTF-8"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (cm == <span class="keyword">null</span>) &#123;</span><br><span class="line">            cm = <span class="keyword">new</span> PoolingHttpClientConnectionManager();</span><br><span class="line">            cm.setMaxTotal(<span class="number">50</span>);<span class="comment">// 整个连接池最大连接数</span></span><br><span class="line">            cm.setDefaultMaxPerRoute(<span class="number">5</span>);<span class="comment">// 每路由最大连接数，默认值是2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过连接池获取HttpClient</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> CloseableHttpClient <span class="title">getHttpClient</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        init();</span><br><span class="line">        <span class="keyword">return</span> HttpClients.custom().setConnectionManager(cm).build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">httpGetRequest</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">        HttpGet httpGet = <span class="keyword">new</span> HttpGet(url);</span><br><span class="line">        <span class="keyword">return</span> getResult(httpGet);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">httpGetRequest</span><span class="params">(String url, Map&lt;String, Object&gt; params)</span> <span class="keyword">throws</span> URISyntaxException </span>&#123;</span><br><span class="line">        URIBuilder ub = <span class="keyword">new</span> URIBuilder();</span><br><span class="line">        ub.setPath(url);</span><br><span class="line"></span><br><span class="line">        ArrayList&lt;NameValuePair&gt; pairs = covertParams2NVPS(params);</span><br><span class="line">        ub.setParameters(pairs);</span><br><span class="line"></span><br><span class="line">        HttpGet httpGet = <span class="keyword">new</span> HttpGet(ub.build());</span><br><span class="line">        <span class="keyword">return</span> getResult(httpGet);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">httpGetRequest</span><span class="params">(String url, Map&lt;String, Object&gt; headers, Map&lt;String, Object&gt; params)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> URISyntaxException </span>&#123;</span><br><span class="line">        URIBuilder ub = <span class="keyword">new</span> URIBuilder();</span><br><span class="line">        ub.setPath(url);</span><br><span class="line"></span><br><span class="line">        ArrayList&lt;NameValuePair&gt; pairs = covertParams2NVPS(params);</span><br><span class="line">        ub.setParameters(pairs);</span><br><span class="line"></span><br><span class="line">        HttpGet httpGet = <span class="keyword">new</span> HttpGet(ub.build());</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; param : headers.entrySet()) &#123;</span><br><span class="line">            httpGet.addHeader(param.getKey(), String.valueOf(param.getValue()));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> getResult(httpGet);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">httpPostRequest</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">        HttpPost httpPost = <span class="keyword">new</span> HttpPost(url);</span><br><span class="line">        <span class="keyword">return</span> getResult(httpPost);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">httpPostRequest</span><span class="params">(String url, Map&lt;String, Object&gt; params)</span> <span class="keyword">throws</span> UnsupportedEncodingException </span>&#123;</span><br><span class="line">        HttpPost httpPost = <span class="keyword">new</span> HttpPost(url);</span><br><span class="line">        ArrayList&lt;NameValuePair&gt; pairs = covertParams2NVPS(params);</span><br><span class="line">        httpPost.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(pairs, UTF_8));</span><br><span class="line">        <span class="keyword">return</span> getResult(httpPost);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">httpPostRequest</span><span class="params">(String url, Map&lt;String, Object&gt; headers, Map&lt;String, Object&gt; params)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> UnsupportedEncodingException </span>&#123;</span><br><span class="line">        HttpPost httpPost = <span class="keyword">new</span> HttpPost(url);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; param : headers.entrySet()) &#123;</span><br><span class="line">            httpPost.addHeader(param.getKey(), String.valueOf(param.getValue()));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ArrayList&lt;NameValuePair&gt; pairs = covertParams2NVPS(params);</span><br><span class="line">        httpPost.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(pairs, UTF_8));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> getResult(httpPost);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> ArrayList&lt;NameValuePair&gt; <span class="title">covertParams2NVPS</span><span class="params">(Map&lt;String, Object&gt; params)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;NameValuePair&gt; pairs = <span class="keyword">new</span> ArrayList&lt;NameValuePair&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; param : params.entrySet()) &#123;</span><br><span class="line">            pairs.add(<span class="keyword">new</span> BasicNameValuePair(param.getKey(), String.valueOf(param.getValue())));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> pairs;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理Http请求</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getResult</span><span class="params">(HttpRequestBase request)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// CloseableHttpClient httpClient = HttpClients.createDefault();</span></span><br><span class="line">        CloseableHttpClient httpClient = getHttpClient();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            CloseableHttpResponse response = httpClient.execute(request);</span><br><span class="line">            <span class="comment">// response.getStatusLine().getStatusCode();</span></span><br><span class="line">            HttpEntity entity = response.getEntity();</span><br><span class="line">            <span class="keyword">if</span> (entity != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">// long len = entity.getContentLength();// -1 表示长度未知</span></span><br><span class="line">                String result = EntityUtils.toString(entity);</span><br><span class="line">                response.close();</span><br><span class="line">                <span class="comment">// httpClient.close();</span></span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClientProtocolException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> EMPTY_STR;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>远程接口返回<code>ScwReturn&lt;T&gt;</code>封装对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.scw.restapi.bean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScwReturn</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> code;<span class="comment">// 状态码 1：表示成功 0:表示失败</span></span><br><span class="line">    <span class="keyword">private</span> String msg;<span class="comment">// 要给的提示信息</span></span><br><span class="line">    <span class="keyword">private</span> T content;<span class="comment">// 响应的内容；</span></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, Object&gt; ext;<span class="comment">// 额外的数据</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCode</span><span class="params">(<span class="keyword">int</span> code)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> content;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContent</span><span class="params">(T content)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.content = content;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getExt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ext;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setExt</span><span class="params">(Map&lt;String, Object&gt; ext)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.ext = ext;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 两个快速的成功失败方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">ScwReturn&lt;T&gt; <span class="title">success</span><span class="params">(String msg, T content, Map&lt;String, Object&gt; ext)</span> </span>&#123;</span><br><span class="line">        ScwReturn&lt;T&gt; t = <span class="keyword">new</span> ScwReturn&lt;T&gt;();</span><br><span class="line">        t.setCode(<span class="number">1</span>);</span><br><span class="line">        t.setMsg(msg);</span><br><span class="line">        t.setContent(content);</span><br><span class="line">        t.setExt(ext);</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">ScwReturn&lt;T&gt; <span class="title">fail</span><span class="params">(String msg, T content, Map&lt;String, Object&gt; ext)</span> </span>&#123;</span><br><span class="line">        ScwReturn&lt;T&gt; t = <span class="keyword">new</span> ScwReturn&lt;T&gt;();</span><br><span class="line">        t.setCode(<span class="number">0</span>);</span><br><span class="line">        t.setMsg(msg);</span><br><span class="line">        t.setContent(content);</span><br><span class="line">        t.setExt(ext);</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注册调用远程接口</p>
+<ul>
+<li>发送请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String response = HttpClientUtil.httpPostRequest(url, params);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>远程接口返回的响应字符串转java对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">readValue = new ObjectMapper().readValue(response.getBytes(), new TypeReference&lt;ScwReturn&lt;TMemeber&gt;&gt;() &#123;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/regist"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">regist</span><span class="params">(TMemeber memeber, Model model)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">// 需要利用http工具去模拟发调用接口的请求</span></span><br><span class="line">    <span class="comment">// http://localhost:8082/scw-restapi/member/regist</span></span><br><span class="line">    <span class="comment">// &lt;httpclient.version&gt;4.5.3&lt;/httpclient.version&gt;</span></span><br><span class="line">    <span class="comment">// httpclient使用java代码来模拟发送请求</span></span><br><span class="line">    <span class="comment">// 能收到api调用后产生的json数据；</span></span><br><span class="line">    <span class="comment">// 1、可以将产生的json逆向成对象ScwReturn&lt;TMemeber&gt;</span></span><br><span class="line">    <span class="comment">// 2、可以直接将json写给页面</span></span><br><span class="line">    System.out.println(<span class="string">"memeber===========&gt;"</span> + memeber);</span><br><span class="line">    <span class="comment">// 注册成功以后可以来到一个页面；</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1、应该去发送请求来进行注册；java代码发请求</span></span><br><span class="line">    String url = serverInfo.getRestApiURL() + <span class="string">"/member/regist"</span>;</span><br><span class="line">    System.out.println(<span class="string">"url===========&gt;"</span> + url);</span><br><span class="line">    <span class="comment">// 2、构建请求参数</span></span><br><span class="line">    Map&lt;String, Object&gt; params = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line">    params.put(<span class="string">"loginacct"</span>, memeber.getLoginacct());</span><br><span class="line">    <span class="comment">// 密码是业务逻辑加密的，我们不用管</span></span><br><span class="line">    params.put(<span class="string">"userpswd"</span>, memeber.getUserpswd());</span><br><span class="line">    params.put(<span class="string">"email"</span>, memeber.getEmail());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 响应内容；</span></span><br><span class="line">    String response = HttpClientUtil.httpPostRequest(url, params);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 封装响应为对象</span></span><br><span class="line">    ScwReturn&lt;TMemeber&gt; readValue = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    readValue = <span class="keyword">new</span> ObjectMapper().readValue(response.getBytes(), <span class="keyword">new</span> TypeReference&lt;ScwReturn&lt;TMemeber&gt;&gt;() &#123;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断，注册成功！来到登陆页面</span></span><br><span class="line">    <span class="keyword">if</span> (readValue.getCode() == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/login.jsp"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 注册失败！来到注册页面进行回显</span></span><br><span class="line">        model.addAttribute(<span class="string">"msg"</span>, <span class="string">"用户名和邮箱已经被注册了！"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"forward:/reg.jsp"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>远程接口注册方法</p>
+<p>控制层</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * ScwReturn&lt;List&lt;TMemeber&gt;&gt;:泛型是content内容的对象的类型</span></span><br><span class="line"><span class="comment">    * </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@Description</span> (TODO这里用一句话描述这个方法的作用)</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> memeber</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@RequestMapping</span>(<span class="string">"/regist"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> ScwReturn&lt;TMemeber&gt; <span class="title">regist</span><span class="params">(TMemeber memeber)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 创建一个空的对象</span></span><br><span class="line">       TMemeber regist = <span class="keyword">new</span> TMemeber();</span><br><span class="line">       Map&lt;String, Object&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           regist = memberService.regist(memeber);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           <span class="comment">// 判断异常类型来放错误</span></span><br><span class="line">           <span class="comment">// e.printStackTrace();</span></span><br><span class="line">           hashMap.put(<span class="string">"error"</span>, <span class="string">"触犯唯一约束，请保证用户名和邮箱唯一"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       regist.setUserpswd(<span class="string">""</span>);</span><br><span class="line">       <span class="keyword">if</span> (regist.getId() != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> ScwReturn.success(<span class="string">"用户注册成功！"</span>, regist, <span class="keyword">null</span>);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> ScwReturn.fail(<span class="string">"用户注册失败!"</span>, <span class="keyword">null</span>, hashMap);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>业务层</p>
+<ul>
+<li>带条件插入</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int i = memeberMapper.insertSelective(tMemeber);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> TMemeber <span class="title">regist</span><span class="params">(TMemeber tMemeber)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">      String digest = MD5Util.digest(tMemeber.getUserpswd());</span><br><span class="line">      <span class="comment">// 加密密码保存</span></span><br><span class="line">      tMemeber.setUserpswd(digest);</span><br><span class="line">      <span class="comment">// 初始化用户名和账号</span></span><br><span class="line">      tMemeber.setUsername(tMemeber.getLoginacct());</span><br><span class="line">      <span class="comment">// 实名认证状态 0:未实名认证 1::实名认证</span></span><br><span class="line">      tMemeber.setAuthstatus(<span class="string">"0"</span>);</span><br><span class="line">      <span class="comment">// 真实姓名；实名认证是保存的</span></span><br><span class="line">      tMemeber.setRealname(<span class="string">"未实名"</span>);</span><br><span class="line">      <span class="comment">// 0：普通会员 1：月费会员 2：年费会员 3：</span></span><br><span class="line">      tMemeber.setUsertype(<span class="string">"0"</span>);</span><br><span class="line">      <span class="comment">// 身份证号，账户类型；（实名认证是做的）</span></span><br><span class="line">      <span class="comment">// 账户类型：直接保存账户的全名</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">int</span> i = memeberMapper.insertSelective(tMemeber);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 刚才就是按照这个对象给数据库插入值，希望获取到数据库分配的自增主键</span></span><br><span class="line">      <span class="keyword">return</span> tMemeber;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>2、实名认证文件上传</p>
+<p>1)上传用户资质证件</p>
+<p>导入依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>编辑<code>springmvc.xml</code>文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1、文件上传需要一个文件上传解析器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"defaultEncoding"</span> <span class="attr">value</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>前台ajax提交</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个资质文件上传的页面</span></span><br><span class="line"><span class="comment">//发送文件上传资质文件请求；</span></span><br><span class="line"><span class="keyword">var</span> fd = <span class="keyword">new</span> FormData($(<span class="string">"#certForm"</span>)[<span class="number">0</span>]);</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">	url:<span class="string">"http://localhost:8082/scw-restapi/auth/upload"</span>,</span><br><span class="line">	data:fd,</span><br><span class="line">	type:<span class="string">"post"</span>,</span><br><span class="line">	contentType:<span class="literal">false</span>,</span><br><span class="line">	dataType:<span class="string">"json"</span>,</span><br><span class="line">	processData:<span class="literal">false</span>,</span><br><span class="line">	success:<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</span><br><span class="line">		<span class="comment">//来到邮箱填写页面</span></span><br><span class="line">		location.href=<span class="string">"$&#123;ctp&#125;/auth/apply-2.html"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	error:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">		layer.msg(<span class="string">"上传失败:"</span>+e);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>控制层</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文件上传</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> String <span class="title">uploadfile</span><span class="params">(String webPath,MultipartFile file,HttpSession session)</span></span>&#123;</span><br><span class="line">       ServletContext context = session.getServletContext();</span><br><span class="line">       String realPath = context.getRealPath(webPath);</span><br><span class="line">       String name = UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>).substring(<span class="number">0</span>, <span class="number">10</span>) +<span class="string">"_file_"</span>+ file.getOriginalFilename();</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">//webPath不存在的情况下必须创建</span></span><br><span class="line">           File file2 = <span class="keyword">new</span> File(realPath);</span><br><span class="line">           <span class="keyword">if</span>(!file2.exists())&#123;</span><br><span class="line">               <span class="comment">//创建目录</span></span><br><span class="line">               file2.mkdirs();</span><br><span class="line">           &#125;</span><br><span class="line">           </span><br><span class="line">           file.transferTo(<span class="keyword">new</span> File(realPath+<span class="string">"/"</span>+name));</span><br><span class="line">           <span class="comment">//返回这个图片在服务器下的路径</span></span><br><span class="line">           <span class="keyword">return</span> webPath+<span class="string">"/"</span>+name;</span><br><span class="line">       &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="meta">@RequestMapping</span>(<span class="string">"/upload"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> ScwReturn&lt;Object&gt; <span class="title">upload</span><span class="params">(HttpSession session,</span></span></span><br><span class="line"><span class="function"><span class="params">           @RequestParam(<span class="string">"file"</span>)</span>MultipartFile[] file,</span></span><br><span class="line"><span class="function">           @<span class="title">RequestParam</span><span class="params">(<span class="string">"certid"</span>)</span>Integer[] certid,@<span class="title">RequestParam</span><span class="params">(<span class="string">"memberid"</span>)</span>Integer memberid)</span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           System.out.println(<span class="string">"资质的id"</span>+certid);</span><br><span class="line">           List&lt;TMemberCert&gt; certsList= <span class="keyword">new</span> ArrayList&lt;TMemberCert&gt;();</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;certid.length;i++) &#123;</span><br><span class="line">               TMemberCert cert = <span class="keyword">new</span> TMemberCert();</span><br><span class="line">               MultipartFile multipartFile = file[i];</span><br><span class="line">               String uploadfile = uploadfile(<span class="string">"/certsimg"</span>, multipartFile, session);</span><br><span class="line">               cert.setCertid(certid[i]);</span><br><span class="line">               cert.setMemberid(memberid);</span><br><span class="line">               cert.setIconpath(uploadfile);</span><br><span class="line">               certsList.add(cert);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">//调用业务逻辑进行保存;/删除原有资质，保存新的资质</span></span><br><span class="line">           certService.insertCerts(certsList);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">           System.out.println(e);</span><br><span class="line">           <span class="keyword">return</span> ScwReturn.fail(<span class="string">"资质保存失败！"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">return</span> ScwReturn.success(<span class="string">"保存成功！"</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>2)批量插入用户资质证件描述信息</p>
+<p>业务层</p>
+<p>CertService.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertCerts</span><span class="params">(List&lt;TMemberCert&gt; certsList)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>CertServiceImpl.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertCerts</span><span class="params">(List&lt;TMemberCert&gt; certsList)</span> </span>&#123;</span><br><span class="line">     <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">     TMemberCertExample example = <span class="keyword">new</span> TMemberCertExample();</span><br><span class="line">     Criteria criteria = example.createCriteria();</span><br><span class="line">     criteria.andMemberidEqualTo(certsList.get(<span class="number">0</span>).getMemberid());</span><br><span class="line">     <span class="comment">//先删除</span></span><br><span class="line">     memberCertMapper.deleteByExample(example);</span><br><span class="line">     <span class="comment">//后保存</span></span><br><span class="line">     certMapper.insertBatch(certsList);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>dao层</p>
+<p>TCertMapper.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertBatch</span><span class="params">(@Param(<span class="string">"certs"</span>)</span>List&lt;TMemberCert&gt; certsList)</span>;</span><br></pre></td></tr></table></figure>
+<p>TCertMapper.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- void insertBatch(@Param("certs")List&lt;TMemberCert&gt; certsList); --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertBatch"</span>&gt;</span></span><br><span class="line"> 	INSERT INTO t_member_cert(memberid,certid,iconpath) </span><br><span class="line">VALUES</span><br><span class="line"><span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"certs"</span> <span class="attr">item</span>=<span class="string">"c"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">	(#&#123;c.memberid&#125;,#&#123;c.certid&#125;,#&#123;c.iconpath&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/26/技术分享/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2620,263 +2890,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/09/svn版本控制/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="shenlibing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myhexo/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兵兵">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/myhexo/2019/01/09/svn版本控制/" class="post-title-link" itemprop="url">svn版本控制</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-09 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-09T12:58:55+08:00">2019-01-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-22 17:13:43" itemprop="dateModified" datetime="2019-01-22T17:13:43+08:00">2019-01-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/myhexo/2019/01/09/svn版本控制/" class="leancloud_visitors" data-flag-title="svn版本控制">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1、svn下载</p>
-<p><a href="https://sourceforge.net/projects/win32svn/" target="_blank" rel="noopener">https://sourceforge.net/projects/win32svn/</a></p>
-<p>2、验证是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">C:\Users\libingshen&gt;svn --version</span><br></pre></td></tr></table></figure>
-<p>3、创建版本库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\mytest\mysvn\OA&gt;svnadmin create D:\mytest\mysvn\OA</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/v4aUp1n.png" alt=""></p>
-<p>4、启动svn服务</p>
-<p><img src="https://i.imgur.com/CStIBx9.png" alt=""></p>
-<p>5、验证svn服务是否启动</p>
-<p>svn服务监听3690端口</p>
-<p><img src="https://i.imgur.com/sogDN9t.png" alt=""></p>
-<p>6、svn注册为Windows服务</p>
-<p>tip:等号左边没有空格，等号右边有一个空格。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">C:\WINDOWS\system32&gt;sc create MySVNService binpath= &quot;C:\Pmyprogram\svn\bin\svnserve.exe --service -r D:\mytest\mysvn&quot; start= auto depend= Tcpip</span><br></pre></td></tr></table></figure>
-<p>原因：每次启动svn服务时必须启动一个cmd窗口，cmd窗口一关闭，svn服务就关闭。</p>
-<p>非管理员运行时会失败。<br><img src="https://i.imgur.com/rPliKES.png" alt=""></p>
-<p>管理员运行<br><img src="https://i.imgur.com/gBmdKhJ.png" alt=""></p>
-<p><img src="https://i.imgur.com/whIFJo4.png" alt=""></p>
-<p>启动、停止、删除svn服务（管理员身份运行cmd）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//启动svn服务</span><br><span class="line">C:\WINDOWS\system32&gt;sc start MySVNService</span><br><span class="line"></span><br><span class="line">//停止服务</span><br><span class="line">C:\WINDOWS\system32&gt;sc stop MySVNService</span><br><span class="line"></span><br><span class="line">//删除服务</span><br><span class="line">C:\WINDOWS\system32&gt;sc delete MySVNService</span><br></pre></td></tr></table></figure>
-<p>7、检出项目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\mytest\mycheckout&gt;svn checkout svn://localhost/OA MyOA</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/vvRuF4T.png" alt=""></p>
-<p>8、提交文件</p>
-<p>–开启匿名权限访问</p>
-<p><img src="https://i.imgur.com/hBW5DuW.png" alt=""></p>
-<p>–先将文件加入版本库，然后提交（需添加提交日志信息，不然报错）</p>
-<p>svn commit 命令最后可以不指定具体文件，此时表示提交当前工作副本中<br>的所有修改</p>
-<p><img src="https://i.imgur.com/r1IpUsZ.png" alt=""></p>
-<p>9、更新</p>
-<p>另一个客户端检出项目、更新并提交文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//远程版本库具体位置  svn://localhost/OA</span><br><span class="line">//将OA检出到本地的目录 MyOA2</span><br><span class="line">D:\mytest\mycheckout&gt;svn checkout svn://localhost/OA MyOA2</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/u4zFEcf.png" alt=""></p>
-<p><img src="https://i.imgur.com/67qMr6A.png" alt=""></p>
-<p>10、授权访问版本库</p>
-<p>–单版本库开启授权访问</p>
-<p><img src="https://i.imgur.com/emwZBDY.png" alt=""></p>
-<p>–多版本库开启授权访问</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在版本库根目录 D:\mytest\mysvn 下创建 commConf 目录</span><br><span class="line">将未修改的 authz 和 passwd 文件拷贝到 commConf 目录下</span><br><span class="line">修改需要设置权限的版本库的 svnserve.conf 文件</span><br><span class="line">①password-db = ../../commConf/passwd</span><br><span class="line">②authz-db = ../../commConf/authz</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/QjqreHq.png" alt=""></p>
-<p>passwd：设置访问版本库的用户信息</p>
-<p><img src="https://i.imgur.com/7TQZlnl.png" alt=""></p>
-<p>authz：设置用户访问版本库的权限</p>
-<p><img src="https://i.imgur.com/XIZ9z9v.png" alt=""></p>
-<hr>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2924,7 +2937,7 @@
                 
                   <a href="/myhexo/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2982,7 +2995,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -3033,7 +3048,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">119k</span>
+    <span title="站点总字数">135k</span>
   
 
   
@@ -3042,7 +3057,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:48</span>
+    <span title="站点阅读时长">2:02</span>
   
 </div>
 
