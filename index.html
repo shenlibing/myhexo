@@ -365,6 +365,209 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/29/多表联合查询/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myhexo/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/myhexo/2019/01/29/多表联合查询/" class="post-title-link" itemprop="url">多表连接查询</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-29 14:10:18 / 修改时间：14:24:37" itemprop="dateCreated datePublished" datetime="2019-01-29T14:10:18+08:00">2019-01-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/myhexo/2019/01/29/多表联合查询/" class="leancloud_visitors" data-flag-title="多表连接查询">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">726</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、查询用户拥有的权限</p>
+<p>尚筹网第16天_讨论权限与安全</p>
+<p>子查询和连接查询2种，比较推荐连接查询，子查询比较影响性能，子查询看起来比较容易理解，而连接查询需要比较熟悉各个表之间的关系</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> p.* <span class="keyword">FROM</span> t_permission p</span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role_permission trp <span class="keyword">ON</span> trp.<span class="string">`permissionid`</span>=p.<span class="string">`id`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role tr <span class="keyword">ON</span> tr.<span class="string">`id`</span>=trp.<span class="string">`roleid`</span></span><br><span class="line">    <span class="keyword">WHERE</span> tr.id <span class="keyword">IN</span>(</span><br><span class="line">        <span class="keyword">SELECT</span> t_r.id <span class="keyword">FROM</span> t_role t_r</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_user_role t_u_r</span><br><span class="line">            <span class="keyword">ON</span> t_u_r.<span class="string">`roleid`</span>=t_r.<span class="string">`id`</span></span><br><span class="line">        <span class="keyword">WHERE</span> t_u_r.<span class="string">`userid`</span>=<span class="number">31</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">子查询不太推荐，比较影响性能</span><br><span class="line">推荐连接查询</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> p.* <span class="keyword">FROM</span> t_permission p</span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role_permission trp <span class="keyword">ON</span> trp.<span class="string">`permissionid`</span>=p.<span class="string">`id`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role tr <span class="keyword">ON</span> tr.<span class="string">`id`</span>=trp.<span class="string">`roleid`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_user_role tur <span class="keyword">ON</span> tur.<span class="string">`roleid`</span>=tr.<span class="string">`id`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_user tu <span class="keyword">ON</span> tu.<span class="string">`id`</span>=tur.<span class="string">`userid`</span></span><br><span class="line">    <span class="keyword">WHERE</span> tu.<span class="string">`id`</span>=<span class="number">31</span>;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/28/HttpClient远程接口调用-实名认证/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2649,254 +2852,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/10/ztree树形结构菜单_mybatis分页查询/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="shenlibing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myhexo/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兵兵">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/myhexo/2019/01/10/ztree树形结构菜单_mybatis分页查询/" class="post-title-link" itemprop="url">ztree树形结构菜单_mybatis分页查询</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-10 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-10T12:58:55+08:00">2019-01-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-22 17:36:06" itemprop="dateModified" datetime="2019-01-22T17:36:06+08:00">2019-01-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/myhexo/2019/01/10/ztree树形结构菜单_mybatis分页查询/" class="leancloud_visitors" data-flag-title="ztree树形结构菜单_mybatis分页查询">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">15k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">13 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1、二级树形菜单</p>
-<p>效果图</p>
-<p><img src="https://i.imgur.com/xC5UACi.png" alt=""></p>
-<p>表结构<br><img src="https://i.imgur.com/yNutkpm.png" alt=""></p>
-<p>业务层：</p>
-<p>二级菜单实现思路：</p>
-<p>1）查出父菜单（pid=0），通过遍历父菜单获得父菜单(id)，根据父菜单id值作为条件查出子菜单（子菜单pid=父菜单id），接着整理父子菜单关系；这种不推荐，假如所有菜单为18个，查出父菜单3个封装到集合时需要遍历18次，根据父菜单id作为查询子菜单的条件需要遍历3*18次。</p>
-<p>2）一次性查出所有菜单18个，使用程序进行组合，这种推荐，以空间换时间。</p>
-<p>封装菜单实体</p>
-<p><img src="https://i.imgur.com/bNHeGw9.png" alt=""></p>
-<p>业务层：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TPermission&gt; <span class="title">getAllMenus</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 保存父菜单</span></span><br><span class="line">    List&lt;TPermission&gt; menus = <span class="keyword">new</span> ArrayList&lt;TPermission&gt;();</span><br><span class="line">    Map&lt;Integer, TPermission&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, TPermission&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询所有菜单</span></span><br><span class="line">    <span class="comment">// 参数为null，表示不带条件查询菜单</span></span><br><span class="line">    List&lt;TPermission&gt; list = mapper.selectByExample(<span class="keyword">null</span>);</span><br><span class="line">    System.out.println(<span class="string">"所有菜单=========&gt;"</span>);</span><br><span class="line">    System.out.println(list);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1、将所有菜单都放在map中</span></span><br><span class="line">    <span class="comment">// 都是引用，如果从map中拿到这个数据改变以后，map中页面变化</span></span><br><span class="line">    <span class="keyword">for</span> (TPermission tPermission : list) &#123;</span><br><span class="line">        map.put(tPermission.getId(), tPermission);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、先封装父菜单，再将子菜单放入到父菜单中</span></span><br><span class="line">    <span class="keyword">for</span> (TPermission tPermission : list) &#123;</span><br><span class="line">        <span class="keyword">if</span> (tPermission.getPid() == <span class="number">0</span>) &#123;</span><br><span class="line">            menus.add(tPermission);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// tPermission（子菜单），拿到父菜单</span></span><br><span class="line">            Integer pid = tPermission.getPid();</span><br><span class="line">            <span class="comment">// 拿到父菜单；以pid的值作为map中的菜单id，就是父菜单</span></span><br><span class="line">            TPermission p_menu = map.get(pid);</span><br><span class="line">            <span class="comment">// 拿到当前父菜单的子菜单；子菜单会有一些额外的问题</span></span><br><span class="line">            <span class="comment">// 这个list第一次获取是没有的，如果添加上一次以后。这个list是有的</span></span><br><span class="line">            List&lt;TPermission&gt; childs = p_menu.getChilds();</span><br><span class="line">            <span class="keyword">if</span> (childs != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">// 当前有子菜单</span></span><br><span class="line">                childs.add(tPermission);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 当前没有子菜单</span></span><br><span class="line">                childs = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">                <span class="comment">// 添加当前子菜单</span></span><br><span class="line">                childs.add(tPermission);</span><br><span class="line">                <span class="comment">// 将当前整理好的childs设置进去</span></span><br><span class="line">                p_menu.setChilds(childs);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"父菜单===========&gt;"</span>);</span><br><span class="line">    System.out.println(menus);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> menus;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>控制层</p>
-<p>1）将整理好的父子菜单数据放入到session域中，当前用户的这次会话一直使用，只需要去数据库查询一次</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/main.html"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toMainPage</span><span class="params">(HttpSession session)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 校验</span></span><br><span class="line">    <span class="comment">// 判断session中是否有这个用户，如果没有去登陆页面</span></span><br><span class="line">    Object object = session.getAttribute(Constants.LOGIN_USER);</span><br><span class="line">    <span class="keyword">if</span> (object == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 用户没登陆</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/login.jsp"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 用户登陆才来到主页，session中没有菜单，或者菜单被我们从session中清除了</span></span><br><span class="line">        <span class="keyword">if</span> (session.getAttribute(Constants.USER_MENUS) == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 1、查出所有菜单，在页面进行显示</span></span><br><span class="line">            List&lt;TPermission&gt; menus = ps.getAllMenus();</span><br><span class="line">            <span class="comment">// 2、将查到的菜单放在session域中</span></span><br><span class="line">            <span class="comment">// 菜单这些数据没必要每次来到主页，都调用service方法进行查询；放在session用户，</span></span><br><span class="line">            <span class="comment">// 当前用户的这次会话一直使用，只需要去数据库查一次</span></span><br><span class="line">            session.setAttribute(Constants.USER_MENUS, menus);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"manager/main"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>前台：</p>
-<p>1）引入：&lt;%@ taglib prefix=”fn” uri=”<a href="http://java.sun.com/jsp/jstl/functions&quot;%&gt;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/functions&quot;%&gt;</a><br>计算后台传过来的list集合的长度：${fn:length(p_menu.childs)}</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">language</span>=<span class="string">"java"</span> <span class="attr">contentType</span>=<span class="string">"text/html; charset=UTF-8"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">pageEncoding</span>=<span class="string">"UTF-8"</span>%&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%@taglib</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> <span class="attr">prefix</span>=<span class="string">"c"</span>%&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">prefix</span>=<span class="string">"fn"</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/functions"</span>%&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-3 col-md-2 sidebar"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tree"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ul</span> <span class="attr">style</span>=<span class="string">"padding-left: 0px;"</span> <span class="attr">class</span>=<span class="string">"list-group"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item tree-closed"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"main.html"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span></span></span><br><span class="line"><span class="tag">					<span class="attr">class</span>=<span class="string">"glyphicon glyphicon-dashboard"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 控制面板<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 遍历父菜单 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">"$&#123;sessionScope.userMenus&#125;"</span> <span class="attr">var</span>=<span class="string">"p_menu"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item tree-closed"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">i</span></span></span><br><span class="line"><span class="tag">						<span class="attr">class</span>=<span class="string">"$&#123;p_menu.icon&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>$&#123;p_menu.name&#125; <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"badge"</span></span></span><br><span class="line"><span class="tag">						<span class="attr">style</span>=<span class="string">"float: right"</span>&gt;</span>$&#123;fn:length(p_menu.childs)&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">ul</span> <span class="attr">style</span>=<span class="string">"margin-top: 10px; display: none;"</span>&gt;</span></span><br><span class="line">						<span class="comment">&lt;!-- 遍历子菜单 --&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">"$&#123;p_menu.childs&#125;"</span> <span class="attr">var</span>=<span class="string">"c_menu"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"height: 30px;"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$&#123;ctp&#125;/$&#123;c_menu.url&#125;"</span> <span class="attr">data-action</span>=<span class="string">"$&#123;c_menu.id&#125;"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span></span></span><br><span class="line"><span class="tag">									<span class="attr">class</span>=<span class="string">"$&#123;c_menu.icon&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>$&#123;c_menu.name&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">ul</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2、mybatis分页查询</p>
-<p>根据用户名或者账号进行查询</p>
-<p>效果图：</p>
-<p><img src="https://i.imgur.com/uATdmaF.png" alt=""></p>
-<p>引入依赖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 分页 插件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>业务层：</p>
-<p>1）带条件查询</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TUser&gt; <span class="title">getAllUsersByCondition</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"UserServiceImpl.getAllUsersByCondition 带条件查询员工============&gt;"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询条件拼接</span></span><br><span class="line">    <span class="comment">// 第一次创建的条件，默认使用and连接的</span></span><br><span class="line">    TUserExample tUserExample = <span class="keyword">new</span> TUserExample();</span><br><span class="line">    Criteria criteria = tUserExample.createCriteria();</span><br><span class="line">    Criteria criteria2 = tUserExample.createCriteria();</span><br><span class="line">    <span class="keyword">if</span> (!str.trim().equals(<span class="string">""</span>)) &#123;</span><br><span class="line">        criteria.andLoginacctLike(<span class="string">"%"</span> + str + <span class="string">"%"</span>);</span><br><span class="line">        criteria.andUsernameLike(<span class="string">"%"</span> + str + <span class="string">"%"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    tUserExample.or(criteria2);</span><br><span class="line">    List&lt;TUser&gt; list_users_example = userMapper.selectByExample(tUserExample);</span><br><span class="line">    <span class="keyword">return</span> list_users_example;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>控制层：</p>
-<p>1）mybatis分页插件会对结果集进行包装，必须在查询前设置： PageHelper.startPage(pn, ps);</p>
-<p>2）查询后输入框数据回显：model.addAttribute(“sp”, search);（转发）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/list"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">users</span><span class="params">(@RequestParam(value = <span class="string">"pn"</span>, defaultValue = <span class="string">"1"</span>)</span> Integer pn,</span></span><br><span class="line"><span class="function">        @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"ps"</span>, defaultValue = <span class="string">"5"</span>)</span> Integer ps,</span></span><br><span class="line"><span class="function">        @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"sp"</span>, defaultValue = <span class="string">""</span>)</span> String search, Model model) </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"UserController.users 用户列表显示页===========&gt;"</span>);</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"前台请求参数[第xxx页，每页显示xxx条数]==========&gt;"</span>);</span><br><span class="line">    System.out.println(pn);</span><br><span class="line">    System.out.println(ps);</span><br><span class="line">    <span class="comment">// 分页显示数据,这里设置必须放到查询数据之前，否则前台会有问题</span></span><br><span class="line">    PageHelper.startPage(pn, ps);</span><br><span class="line"></span><br><span class="line">    List&lt;TUser&gt; list_users = userService.getAllUsersByCondition(search);</span><br><span class="line">    System.out.println(<span class="string">"查询到的所有用户列表========&gt;"</span>);</span><br><span class="line">    System.out.println(list_users);</span><br><span class="line"></span><br><span class="line">    PageInfo&lt;TUser&gt; users = <span class="keyword">new</span> PageInfo&lt;&gt;(list_users, <span class="number">5</span>);</span><br><span class="line">    System.out.println(<span class="string">"分页后的数据处理"</span>);</span><br><span class="line">    System.out.println(users);</span><br><span class="line">    <span class="comment">// 将查询用户列表数据放在请求域中，表单查询参数回显到页面</span></span><br><span class="line">    model.addAttribute(<span class="string">"users"</span>, users);</span><br><span class="line">    model.addAttribute(<span class="string">"sp"</span>, search);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"manager/permission/user"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>前台：</p>
-<p>1）为所有分页连接绑定单击事件，让其动态的带上分页的查询参数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> href = $(<span class="keyword">this</span>).attr(<span class="string">"href"</span>) + <span class="string">"&amp;sp="</span>+ $(<span class="string">"input[name='sp']"</span>).val()&lt;br/&gt;</span><br><span class="line">$(<span class="keyword">this</span>).attr(<span class="string">"href"</span>, href)</span><br></pre></td></tr></table></figure>
-<p>2)全选和全不选函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//全选/全不选函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkall_reverse</span>(<span class="params">check_all_btn, check_btn</span>) </span>&#123;</span><br><span class="line">	check_all_btn.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">//如果是原生的属性，使用prop获取比较好</span></span><br><span class="line">		check_btn.prop(<span class="string">"checked"</span>, $(<span class="keyword">this</span>).prop(<span class="string">"checked"</span>))</span><br><span class="line">	&#125;)</span><br><span class="line">	check_btn.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">//当check_btn点满以后check_all_btn勾上，否则不选中</span></span><br><span class="line">		<span class="comment">//获取被选中的checkbtn个数</span></span><br><span class="line">		<span class="keyword">var</span> flag = check_btn.filter(<span class="string">":checked"</span>).length == check_btn.length</span><br><span class="line">		check_all_btn.prop(<span class="string">"checked"</span>, flag);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">language</span>=<span class="string">"java"</span> <span class="attr">contentType</span>=<span class="string">"text/html; charset=UTF-8"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">pageEncoding</span>=<span class="string">"UTF-8"</span>%&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"author"</span> <span class="attr">content</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">%@include</span> <span class="attr">file</span>=<span class="string">"/WEB-INF/includes/css-file.jsp"</span>%&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"$&#123;ctp&#125;/css/main.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">.tree li &#123;</span></span><br><span class="line"><span class="undefined">	list-style-type: none;</span></span><br><span class="line"><span class="undefined">	cursor: pointer;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">table tbody tr:nth-child(odd) &#123;</span></span><br><span class="line"><span class="undefined">	background: #F4F4F4;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">table tbody td:nth-child(even) &#123;</span></span><br><span class="line"><span class="undefined">	color: #C00;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag">	    //设置导航条上的显示</span></span><br><span class="line"><span class="tag">				<span class="attr">pageContext.setAttribute</span>("<span class="attr">navinfo</span>", "用户维护");</span></span><br><span class="line"><span class="tag">				//设置点击高亮效果</span></span><br><span class="line"><span class="tag">				<span class="attr">pageContext.setAttribute</span>("<span class="attr">curUrl</span>", "<span class="attr">permission</span>/<span class="attr">user</span>/<span class="attr">list</span>");</span></span><br><span class="line"><span class="tag">	%&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 引入navbar--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">%@include</span> <span class="attr">file</span>=<span class="string">"/WEB-INF/includes/nav-bar.jsp"</span>%&gt;</span><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 引入树形菜单 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">%@include</span> <span class="attr">file</span>=<span class="string">"/WEB-INF/includes/user_menu.jsp"</span>%&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel panel-default"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-heading"</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"panel-title"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-th"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 数据列表</span><br><span class="line">						<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-body"</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-inline"</span> <span class="attr">role</span>=<span class="string">"form"</span> <span class="attr">style</span>=<span class="string">"float: left;"</span></span></span><br><span class="line"><span class="tag">							<span class="attr">action</span>=<span class="string">"$&#123;ctp &#125;/permission/user/list"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group has-feedback"</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span>查询条件<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control has-success"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"sp"</span></span></span><br><span class="line"><span class="tag">										<span class="attr">placeholder</span>=<span class="string">"用户名/账号查询"</span> <span class="attr">value</span>=<span class="string">"$&#123;sp&#125;"</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"btn btn-warning"</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-search"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 查询</span><br><span class="line">							<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span></span></span><br><span class="line"><span class="tag">							<span class="attr">style</span>=<span class="string">"float: right; margin-left: 10px;"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">" glyphicon glyphicon-remove"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 删除</span><br><span class="line">						<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span></span></span><br><span class="line"><span class="tag">							<span class="attr">style</span>=<span class="string">"float: right;"</span> <span class="attr">onclick</span>=<span class="string">"window.location.href='add.html'"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-plus"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 新增</span><br><span class="line">						<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">hr</span> <span class="attr">style</span>=<span class="string">"clear: both;"</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"table-responsive"</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table  table-bordered"</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">th</span> <span class="attr">width</span>=<span class="string">"30"</span>&gt;</span>#<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">th</span> <span class="attr">width</span>=<span class="string">"30"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"checkall_btn"</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">th</span>&gt;</span>账号<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">th</span>&gt;</span>名称<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">th</span>&gt;</span>邮箱地址<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">th</span> <span class="attr">width</span>=<span class="string">"100"</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">"$&#123;users.list&#125;"</span> <span class="attr">var</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">td</span>&gt;</span>$&#123;user.id&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">class</span>=<span class="string">"single_check"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">td</span>&gt;</span>$&#123;user.loginacct &#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">td</span>&gt;</span>$&#123;user.username &#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">td</span>&gt;</span>$&#123;user.email &#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-success btn-xs"</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">" glyphicon glyphicon-check"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-xs"</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">" glyphicon glyphicon-pencil"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-danger btn-xs"</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">" glyphicon glyphicon-remove"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">								<span class="tag">&lt;<span class="name">tfoot</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"6"</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">											<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"pagination"</span>&gt;</span></span><br><span class="line">												<span class="comment">&lt;!-- 即使点击分页连接也应该带上查询条件的值 --&gt;</span></span><br><span class="line">												<span class="comment">&lt;!-- 给分页超链接绑定单击事件； --&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$&#123;ctp&#125;/permission/user/list?pn=1"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">												<span class="comment">&lt;!-- 是否还有前一页 --&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$&#123;users.hasPreviousPage&#125;"</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span></span></span><br><span class="line"><span class="tag">														<span class="attr">href</span>=<span class="string">"$&#123;ctp&#125;/permission/user/list?pn=$&#123;users.prePage&#125;"</span>&gt;</span>上一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">												<span class="comment">&lt;!-- 遍历页数 --&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">"$&#123;users.navigatepageNums&#125;"</span> <span class="attr">var</span>=<span class="string">"pn"</span>&gt;</span></span><br><span class="line">													<span class="comment">&lt;!-- 当前页 --&gt;</span></span><br><span class="line">													<span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$&#123;pn==users.pageNum &#125;"</span>&gt;</span></span><br><span class="line">														<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span></span></span><br><span class="line"><span class="tag">															<span class="attr">href</span>=<span class="string">"$&#123;ctp&#125;/permission/user/list?pn=$&#123;pn&#125;"</span>&gt;</span>$&#123;pn&#125;<span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">																<span class="attr">class</span>=<span class="string">"sr-only"</span>&gt;</span>(current)<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$&#123;pn != users.pageNum &#125;"</span>&gt;</span></span><br><span class="line">														<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$&#123;ctp&#125;/permission/user/list?pn=$&#123;pn&#125;"</span>&gt;</span>$&#123;pn &#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span><br><span class="line">												<span class="comment">&lt;!--是否还有下一页  --&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$&#123;users.hasNextPage&#125;"</span>&gt;</span></span><br><span class="line">													<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span></span></span><br><span class="line"><span class="tag">														<span class="attr">href</span>=<span class="string">"$&#123;ctp&#125;/permission/user/list?pn=$&#123;users.nextPage&#125;"</span>&gt;</span>下一页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span></span></span><br><span class="line"><span class="tag">													<span class="attr">href</span>=<span class="string">"$&#123;ctp&#125;/permission/user/list?pn=$&#123;users.pages&#125;"</span>&gt;</span>末页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">										<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">									<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">								<span class="tag">&lt;/<span class="name">tfoot</span>&gt;</span></span><br><span class="line">							<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">%@include</span> <span class="attr">file</span>=<span class="string">"/WEB-INF/includes/js-file.jsp"</span>%&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 引入树形菜单结构点击时动态显示页面高亮效果的js --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">%@include</span> <span class="attr">file</span>=<span class="string">"/WEB-INF/includes/common-js.jsp"</span>%&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">		$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">			$(<span class="string">".list-group-item"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="keyword">if</span> ($(<span class="keyword">this</span>).find(<span class="string">"ul"</span>)) &#123;</span></span><br><span class="line"><span class="javascript">					$(<span class="keyword">this</span>).toggleClass(<span class="string">"tree-closed"</span>);</span></span><br><span class="line"><span class="javascript">					<span class="keyword">if</span> ($(<span class="keyword">this</span>).hasClass(<span class="string">"tree-closed"</span>)) &#123;</span></span><br><span class="line"><span class="javascript">						$(<span class="string">"ul"</span>, <span class="keyword">this</span>).hide(<span class="string">"fast"</span>);</span></span><br><span class="line"><span class="javascript">					&#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">						$(<span class="string">"ul"</span>, <span class="keyword">this</span>).show(<span class="string">"fast"</span>);</span></span><br><span class="line"><span class="undefined">					&#125;</span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;);</span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="javascript">		$(<span class="string">"tbody .btn-success"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">			<span class="built_in">window</span>.location.href = <span class="string">"assignRole.html"</span>;</span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="javascript">		$(<span class="string">"tbody .btn-primary"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">			<span class="built_in">window</span>.location.href = <span class="string">"edit.html"</span>;</span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="comment">//当前页面所在的哪个超链接是color:red</span></span></span><br><span class="line"><span class="javascript">		<span class="comment">//他的父list-group-item.  tree-closed是没有的</span></span></span><br><span class="line"><span class="javascript">		<span class="comment">//找到当前页面的a连接</span></span></span><br><span class="line"><span class="javascript">		<span class="comment">//使用css为某个元素加样式  list-group-item</span></span></span><br><span class="line"><span class="javascript">		<span class="comment">//为所有分页连接绑定单击事件，让其动态的带上分页的查询参数</span></span></span><br><span class="line"><span class="javascript">		$(<span class="string">".pagination"</span>).find(<span class="string">"a"</span>).click(</span></span><br><span class="line"><span class="javascript">				<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">					<span class="comment">//1、获取到查询表单的查询参数</span></span></span><br><span class="line"><span class="javascript">					<span class="comment">//不禁用默认行为，而是为超链接多拼装上查询条件</span></span></span><br><span class="line"><span class="javascript">					<span class="comment">//为超链接动态拼装查询条件</span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> href = $(<span class="keyword">this</span>).attr(<span class="string">"href"</span>) + <span class="string">"&amp;sp="</span></span></span><br><span class="line"><span class="javascript">							+ $(<span class="string">"input[name='sp']"</span>).val()</span></span><br><span class="line"><span class="javascript">					$(<span class="keyword">this</span>).attr(<span class="string">"href"</span>, href)</span></span><br><span class="line"><span class="undefined">				&#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="comment">//这是调用了抽取过来的方法；</span></span></span><br><span class="line"><span class="javascript">		checkall_reverse($(<span class="string">"#checkall_btn"</span>), $(<span class="string">".single_check"</span>))</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2944,7 +2899,7 @@
                 
                   <a href="/myhexo/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3004,7 +2959,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -3064,7 +3021,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:03</span>
+    <span title="站点阅读时长">2:04</span>
   
 </div>
 

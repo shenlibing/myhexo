@@ -94,20 +94,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="小兵兵">
-<meta property="og:url" content="https://shenlibing.github.io/myhexo/archives/2019/index.html">
+  <meta name="description" content="1、查询用户拥有的权限 尚筹网第16天_讨论权限与安全 子查询和连接查询2种，比较推荐连接查询，子查询比较影响性能，子查询看起来比较容易理解，而连接查询需要比较熟悉各个表之间的关系 123456789101112131415161718SELECT DISTINCT p.* FROM t_permission p    LEFT JOIN t_role_permission trp ON trp.">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多表连接查询">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/01/29/多表联合查询/index.html">
 <meta property="og:site_name" content="小兵兵">
+<meta property="og:description" content="1、查询用户拥有的权限 尚筹网第16天_讨论权限与安全 子查询和连接查询2种，比较推荐连接查询，子查询比较影响性能，子查询看起来比较容易理解，而连接查询需要比较熟悉各个表之间的关系 123456789101112131415161718SELECT DISTINCT p.* FROM t_permission p    LEFT JOIN t_role_permission trp ON trp.">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-29T06:24:37.839Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小兵兵">
+<meta name="twitter:title" content="多表连接查询">
+<meta name="twitter:description" content="1、查询用户拥有的权限 尚筹网第16天_讨论权限与安全 子查询和连接查询2种，比较推荐连接查询，子查询比较影响性能，子查询看起来比较容易理解，而连接查询需要比较熟悉各个表之间的关系 123456789101112131415161718SELECT DISTINCT p.* FROM t_permission p    LEFT JOIN t_role_permission trp ON trp.">
 
 
 
 
 
 
-  <link rel="canonical" href="https://shenlibing.github.io/myhexo/archives/2019/">
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/01/29/多表联合查询/">
 
 
 
@@ -117,7 +122,7 @@
   };
 </script>
 
-  <title>归档 | 小兵兵</title>
+  <title>多表连接查询 | 小兵兵</title>
   
 
 
@@ -165,7 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
         <a href="https://github.com/shenlibing/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -273,7 +278,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -344,423 +349,238 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/29/多表联合查询/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myhexo/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">多表连接查询
+
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-29 14:10:18 / 修改时间：14:24:37" itemprop="dateCreated datePublished" datetime="2019-01-29T14:10:18+08:00">2019-01-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 19 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/29/多表联合查询/" itemprop="url">
+          
             
-              <span itemprop="name">多表连接查询</span>
             
-          </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-29T14:10:18+08:00" content="2019-01-29">
-          01-29
-        </time>
-      </div>
+          
+          
+            <span id="/myhexo/2019/01/29/多表联合查询/" class="leancloud_visitors" data-flag-title="多表连接查询">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
 
-    </header>
-  </article>
+          
 
+          
+            <div class="post-symbolscount">
+              
 
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">726</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/28/HttpClient远程接口调用-实名认证/" itemprop="url">
-            
-              <span itemprop="name">HttpClient远程接口调用_实名认证</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-28T15:10:38+08:00" content="2019-01-28">
-          01-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/26/技术分享/" itemprop="url">
-            
-              <span itemprop="name">技术分享</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-26T09:27:20+08:00" content="2019-01-26">
-          01-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>1、查询用户拥有的权限</p>
+<p>尚筹网第16天_讨论权限与安全</p>
+<p>子查询和连接查询2种，比较推荐连接查询，子查询比较影响性能，子查询看起来比较容易理解，而连接查询需要比较熟悉各个表之间的关系</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> p.* <span class="keyword">FROM</span> t_permission p</span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role_permission trp <span class="keyword">ON</span> trp.<span class="string">`permissionid`</span>=p.<span class="string">`id`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role tr <span class="keyword">ON</span> tr.<span class="string">`id`</span>=trp.<span class="string">`roleid`</span></span><br><span class="line">    <span class="keyword">WHERE</span> tr.id <span class="keyword">IN</span>(</span><br><span class="line">        <span class="keyword">SELECT</span> t_r.id <span class="keyword">FROM</span> t_role t_r</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_user_role t_u_r</span><br><span class="line">            <span class="keyword">ON</span> t_u_r.<span class="string">`roleid`</span>=t_r.<span class="string">`id`</span></span><br><span class="line">        <span class="keyword">WHERE</span> t_u_r.<span class="string">`userid`</span>=<span class="number">31</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">子查询不太推荐，比较影响性能</span><br><span class="line">推荐连接查询</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> p.* <span class="keyword">FROM</span> t_permission p</span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role_permission trp <span class="keyword">ON</span> trp.<span class="string">`permissionid`</span>=p.<span class="string">`id`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role tr <span class="keyword">ON</span> tr.<span class="string">`id`</span>=trp.<span class="string">`roleid`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_user_role tur <span class="keyword">ON</span> tur.<span class="string">`roleid`</span>=tr.<span class="string">`id`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_user tu <span class="keyword">ON</span> tu.<span class="string">`id`</span>=tur.<span class="string">`userid`</span></span><br><span class="line">    <span class="keyword">WHERE</span> tu.<span class="string">`id`</span>=<span class="number">31</span>;</span><br></pre></td></tr></table></figure>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/25/es6异步/" itemprop="url">
-            
-              <span itemprop="name">es6异步</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-25T17:28:47+08:00" content="2019-01-25">
-          01-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/23/hexo博客搭建/" itemprop="url">
-            
-              <span itemprop="name">hexo博客搭建</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-23T09:07:30+08:00" content="2019-01-23">
-          01-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/15/优化点击事件绑定/" itemprop="url">
-            
-              <span itemprop="name">优化点击事件绑定</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-15T12:58:55+08:00" content="2019-01-15">
-          01-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/14/用户分配角色_角色维护权限树/" itemprop="url">
-            
-              <span itemprop="name">用户分配角色_角色维护权限树</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-14T12:58:55+08:00" content="2019-01-14">
-          01-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" itemprop="url">
-            
-              <span itemprop="name">网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-13T12:58:55+08:00" content="2019-01-13">
-          01-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/12/帆软报表部署配置_emoss5用户分配角色、角色分配权限/" itemprop="url">
-            
-              <span itemprop="name">帆软报表部署配置_emoss5用户分配角色、角色分配权限</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-12T12:58:55+08:00" content="2019-01-12">
-          01-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/myhexo/2019/01/11/二维矩阵显示账户类型和资质_ajax异步传参_插入mysql中文乱码/" itemprop="url">
-            
-              <span itemprop="name">二维矩阵显示账户类型和资质_ajax异步传参_插入mysql中文乱码</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-11T12:58:55+08:00" content="2019-01-11">
-          01-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/myhexo/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/myhexo/2019/01/28/HttpClient远程接口调用-实名认证/" rel="next" title="HttpClient远程接口调用_实名认证">
+                <i class="fa fa-chevron-left"></i> HttpClient远程接口调用_实名认证
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/myhexo/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/myhexo/archives/2019/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1041,6 +861,10 @@
 
 
   
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
@@ -1051,6 +875,8 @@
 
   
 
+
+  
 
 
   
@@ -1383,38 +1209,37 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function() {
-        entries.push( $(this).attr('id').trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
           }
         })
         .fail(function ({ responseJSON }) {
@@ -1439,9 +1264,7 @@
             });
           };
           
-            if ($('.post-title-link').length >= 1) {
-              showTime(Counter);
-            }
+            addCount(Counter);
           
         });
     });
