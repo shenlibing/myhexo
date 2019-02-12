@@ -131,7 +131,9 @@ ajax异步提交表单`$("#subBtn").on('click', function() { return false}`是js
 	</form>
 ```
 
-ajax提交`type : "post",contentType : false,processData : false`  
+ajax提交`type : "post",contentType : false,processData : false` 
+
+进度条:获取`myXhr = $.ajaxSettings.xhr()`对象并返回
 
 ```html
 	<form id='submitForm'>
@@ -154,18 +156,18 @@ ajax提交`type : "post",contentType : false,processData : false`
 				type : "post",
 				contentType : false,
 				processData : false,
-					//获取ajaxSettings中的xhr对象，为它的upload属性绑定progress事件的处理函数  
-					xhr : function() {
-						myXhr = $.ajaxSettings.xhr()
-						//检查upload属性是否存在  
-						if (myXhr.upload) {
-							//绑定progress事件的回调函数  
-							myXhr.upload.addEventListener('progress',
-									progressHandlingFunction, false)
-						}
-						//xhr对象返回给jQuery使用  
-						return myXhr;
-					},
+				//获取ajaxSettings中的xhr对象，为它的upload属性绑定progress事件的处理函数  
+				xhr : function() {
+					myXhr = $.ajaxSettings.xhr()
+					//检查upload属性是否存在  
+					if (myXhr.upload) {
+						//绑定progress事件的回调函数  
+						myXhr.upload.addEventListener('progress',
+								progressHandlingFunction, false)
+					}
+					//xhr对象返回给jQuery使用  
+					return myXhr;
+				},
 				success : function(result) {
 					console.log("result==========>", result)
 				},
