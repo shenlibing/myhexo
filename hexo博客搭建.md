@@ -220,7 +220,7 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 ![](https://i.imgur.com/hfH4rEM.png)
 
 
-修改D:\mytest\myhexo\_config.yml配置文件
+修改`D:\mytest\myhexo\_config.yml`配置文件
 
 ```
 	# Extensions
@@ -232,7 +232,7 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 2）修改站点语言
 
-编辑D:\mytest\myhexo\_config.yml
+编辑`D:\mytest\myhexo\_config.yml`文件
 
 ```
 	# Site
@@ -260,7 +260,8 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 配置主题样式文件
 
-D:\mytest\myhexo\themes\hexo-theme-next-master\_config.yml
+
+进入`D:\mytest\myhexo\themes\hexo-theme-next-master\`文件夹，编辑_config.yml文件
 
 ```
 	# Local search
@@ -280,7 +281,7 @@ D:\mytest\myhexo\themes\hexo-theme-next-master\_config.yml
 
 配置站点文件
 
-D:\mytest\myhexo\_config.yml
+编辑`D:\mytest\myhexo\_config.yml`文件
 
 ```
 	#阅读时长和本文字数
@@ -400,7 +401,7 @@ D:\mytest\myhexo\_config.yml
 
 ![](https://i.imgur.com/SE6pqQj.png)
 
-编辑D:\mytest\myhexo\themes\hexo-theme-next-master\_config.yml配置文件，填app_id、
+编辑`D:\mytest\myhexo\themes\hexo-theme-next-master\_config.yml`配置文件，填app_id、
 
 app_key;security设置为false
 
@@ -429,7 +430,7 @@ app_key;security设置为false
 
 ```
 
-编辑D:\mytest\myhexo\_config.yml配置文件
+编辑`D:\mytest\myhexo\_config.yml`配置文件
 
 ```
 	post_asset_folder: true
@@ -458,6 +459,7 @@ app_key;security设置为false
 ```
 10）添加友情链接
 
+方式一
 进入`D:\mytest\myhexo\themes\hexo-theme-next-master\layout\_partials`文件夹，在`footer.swig`文件末尾追加
 
 ```
@@ -467,6 +469,37 @@ app_key;security设置为false
   <a class="theme-link"  href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
   <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
  </div>
+
+```
+
+方式二
+进入`D:\mytest\myhexo\themes\hexo-theme-next-master`文件夹，编辑`_config.yml`文件
+
+```
+	# Blog rolls
+	links_icon: link
+	links_title: Links
+	links_layout: block
+	#links_layout: inline
+	#links:
+	  #Title: http://example.com
+	links:
+	  美团技术团队: https://tech.meituan.com/
+	  百度FEX: http://fex.baidu.com/
+	  淘宝FED: http://taobaofed.org/
+
+```
+
+11）设置阅读全文
+
+进入`D:\mytest\myhexo\themes\hexo-theme-next-master`文件夹，编辑`_config.yml`文件
+
+```
+	# Automatically Excerpt. Not recommend.
+	# Use <!-- more --> in the post to control excerpt accurately.
+	auto_excerpt:
+	  enable: true
+	  length: 150
 
 ```
 
