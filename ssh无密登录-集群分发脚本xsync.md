@@ -3,6 +3,7 @@ title: ssh无密登录_集群分发脚本xsync
 date: 2019-02-18 14:48:50
 categories: 日常记录
 tags:
+ - Linux
  - ssh
  - scp
  - rsync
