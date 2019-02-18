@@ -8,6 +8,7 @@
         <category>日常记录</category>
       </categories>
       <tags>
+        <tag>Linux</tag>
         <tag>ssh</tag>
         <tag>scp</tag>
         <tag>rsync</tag>
