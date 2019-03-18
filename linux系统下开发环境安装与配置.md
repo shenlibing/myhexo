@@ -69,7 +69,7 @@ git version 2.18.0
 ```
 
 
-> **设置开机时关闭防火墙**
+> ## 设置开机时关闭防火墙 ##
 
 ```
 [root@192 vsftpd]# chkconfig iptables off
@@ -77,7 +77,7 @@ git version 2.18.0
 ```
 
 
-> **jdk安装**
+> ## jdk安装 ##
 
 [下载](https://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-x64.rpm?AuthParam=1551932562_fbefc7bf2ff59b8dd7dbb54130a3442a)
 
@@ -125,7 +125,7 @@ export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/li
 
 ```
 
-> **Tomcat安装**
+> ## Tomcat安装 ##
 
 [下载](https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-7/v7.0.93/bin/apache-tomcat-7.0.93.tar.gz)
 
@@ -170,7 +170,7 @@ export PATH=$PATH:$CATALINA_HOME/bin
 
 
 
-> **Maven安装**
+> ## Maven安装 ##
 
 [下载](https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz)
 
@@ -205,7 +205,7 @@ export PATH=$PATH:$MAVEN_HOME/bin
 
 ```
 
-> **vsftpd安装**
+> ## vsftpd安装 ##
 
 
 安装
@@ -301,7 +301,7 @@ anonymous_enable=no
 访问[ftp://192.168.1.104/](ftp://192.168.1.104/)
 
 
-> **安装Nginx**
+> ## 安装Nginx ##
 
 [下载](http://nginx.org/download/nginx-1.14.2.tar.gz)
 
@@ -370,7 +370,7 @@ root       5626   2868  0 01:09 pts/0    00:00:00 grep nginx
 
 
 
-> **Nginx配置虚拟域名**
+> ### Nginx配置虚拟域名 ###
 
 编辑`/usr/local/nginx/conf/nginx.conf`文件，追加
 
@@ -410,7 +410,7 @@ server {
 
 
 
-> **mysql安装**
+> ## mysql安装 ##
 
 安装
 
@@ -712,7 +712,14 @@ Query OK, 0 rows affected (0.00 sec)
 
 ```
 
-> **git安装**
+导入`sql`文件
+
+```
+mysql> source /opt/module/mmall.sql
+
+```
+
+> ## git安装 ##
 
 [下载](https://codeload.github.com/git/git/tar.gz/v2.18.0)
 
@@ -784,6 +791,9 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA1sZvTnjQyVn7r2C7G9Q/WyVTTmJYqWhQdVfh3tBCUX8k
 ```
 [root@192 mytest]# git config --global user.name "shenlibng"
 [root@192 mytest]# git config --global user.email "782125244@qq.com"
+[root@192 mytest]# git config --global core.autocrlf false
+[root@192 mytest]# git config --global core.quotepath off
+[root@192 mytest]# git config --global gui.encoding utf-8
 
 ```
 
