@@ -103,7 +103,7 @@
 <meta property="og:description" content="安装系统环境  CentOS 6.8 64位  jdk版本  7u80 64位  Tomcat版本  Tomcat7  maven版本  Apache Maven 3.6.0   vsftpd版本  vsftpd-2.2.2-24.el6.x86_64  Nginx版本  nginx-1.14.2  mysql版本  mysql-server-5.1.73-8.el6_8.x86_64  git">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/03/07/linux系统下开发环境安装与配置/开放Tomcat端口.png">
-<meta property="og:updated_time" content="2019-03-19T08:37:15.516Z">
+<meta property="og:updated_time" content="2019-03-25T09:40:21.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux系统下开发环境安装与配置">
 <meta name="twitter:description" content="安装系统环境  CentOS 6.8 64位  jdk版本  7u80 64位  Tomcat版本  Tomcat7  maven版本  Apache Maven 3.6.0   vsftpd版本  vsftpd-2.2.2-24.el6.x86_64  Nginx版本  nginx-1.14.2  mysql版本  mysql-server-5.1.73-8.el6_8.x86_64  git">
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-19 16:37:15" itemprop="dateModified" datetime="2019-03-19T16:37:15+08:00">2019-03-19</time>
+                <time title="修改时间：2019-03-25 17:40:21" itemprop="dateModified" datetime="2019-03-25T17:40:21+08:00">2019-03-25</time>
               
             
           </span>
@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">16k</span>
+                <span title="本文字数">17k</span>
               
 
               
@@ -484,7 +484,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">15 分钟</span>
+                <span title="阅读时长">16 分钟</span>
               
             </div>
           
@@ -628,12 +628,23 @@
 <p>访问<a href="http://192.168.1.104/" target="_blank" rel="noopener">http://192.168.1.104/</a></p>
 <blockquote>
 <h3 id="Nginx配置虚拟域名"><a href="#Nginx配置虚拟域名" class="headerlink" title="Nginx配置虚拟域名"></a>Nginx配置虚拟域名</h3></blockquote>
+<p>配置虚拟域名映射</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@192 vhost]# cat /etc/hosts</span><br><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#centos</span><br><span class="line">#192.168.1.104  www.imooc.com</span><br><span class="line">127.0.0.1 www.imooc.com</span><br></pre></td></tr></table></figure>
+<p>测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@192 sbin]# ping www.imooc.com</span><br><span class="line">PING www.imooc.com (127.0.0.1) 56(84) bytes of data.</span><br><span class="line">64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.013 ms</span><br><span class="line">64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.032 ms</span><br></pre></td></tr></table></figure>
 <p>编辑<code>/usr/local/nginx/conf/nginx.conf</code>文件，追加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">###########################vhost##############################################</span><br><span class="line">   include vhost/*.conf;</span><br></pre></td></tr></table></figure>
 <p>在<code>/usr/local/nginx/conf</code>目录下，新建<code>vhost</code>文件夹</p>
-<p>在<code>/usr/local/nginx/conf/vhost</code>目录下，新建域名转发<code>www.test.com.conf</code>配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@192 vhost]# cat /usr/local/nginx/conf/vhost/www.test.com.conf </span><br><span class="line">#Start www.test.com</span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name  www.test.com;</span><br><span class="line"> </span><br><span class="line">    access_log  /usr/local/nginx/logs/access.log combined;</span><br><span class="line">    index  index.html index.htm index.php;</span><br><span class="line"></span><br><span class="line">    if ( $query_string ~* &quot;.*[\;&apos;\&lt;\&gt;].*&quot; )&#123; </span><br><span class="line">	return 404;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    # send request back to apach</span><br><span class="line">    location / &#123;</span><br><span class="line">       proxy_pass http://127.0.0.1:8080/; </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>访问<a href="www.test.com">www.test.com</a></p>
+<p>在<code>/usr/local/nginx/conf/vhost</code>目录下，新建域名转发<code>www.mytest.com.conf</code>配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@192 vhost]# cat /usr/local/nginx/conf/vhost/www.mytest.com.conf </span><br><span class="line">#Start www.mytest.com</span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name  www.mytest.com;</span><br><span class="line"> </span><br><span class="line">    access_log  /usr/local/nginx/logs/access.log combined;</span><br><span class="line">    index  index.html index.htm index.php;</span><br><span class="line"></span><br><span class="line">    if ( $query_string ~* &quot;.*[\;&apos;\&lt;\&gt;].*&quot; )&#123; </span><br><span class="line">	return 404;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    # send request back to apach</span><br><span class="line">    location / &#123;</span><br><span class="line">       proxy_pass http://127.0.0.1:8080/; </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问<a href="www.test.com">www.mytest.com</a></p>
+<blockquote>
+<h3 id="Nginx配置静态资源转发"><a href="#Nginx配置静态资源转发" class="headerlink" title="Nginx配置静态资源转发"></a>Nginx配置静态资源转发</h3></blockquote>
+<p>编辑<code>/usr/local/nginx/conf/nginx.conf</code>文件，追加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">###########################vhost##############################################</span><br><span class="line">   include vhost/*.conf;</span><br></pre></td></tr></table></figure>
+<p>在<code>/usr/local/nginx/conf</code>目录下，新建<code>vhost</code>文件夹</p>
+<p>在<code>/usr/local/nginx/conf/vhost</code>目录下，新建域名转发<code>www.mytest.com.conf</code>配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@192 vhost]# cat /usr/local/nginx/conf/vhost/www.mytest.com.conf </span><br><span class="line">#Start www.mytest.com</span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name  www.mytest.com;</span><br><span class="line"> </span><br><span class="line">    access_log  /usr/local/nginx/logs/access.log combined;</span><br><span class="line">    index  index.html index.htm index.php;</span><br><span class="line"></span><br><span class="line">    if ( $query_string ~* &quot;.*[\;&apos;\&lt;\&gt;].*&quot; )&#123; </span><br><span class="line">	return 404;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    # send request back to apach</span><br><span class="line">    location / &#123;</span><br><span class="line">       root /ftpfile/; </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <h2 id="mysql安装"><a href="#mysql安装" class="headerlink" title="mysql安装"></a>mysql安装</h2></blockquote>
 <p>安装</p>
@@ -825,7 +836,7 @@
                 
                   <a href="/myhexo/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -927,7 +938,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">37</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -997,7 +1012,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置开机时关闭防火墙"><span class="nav-number">1.</span> <span class="nav-text">设置开机时关闭防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk安装"><span class="nav-number">2.</span> <span class="nav-text">jdk安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat安装"><span class="nav-number">3.</span> <span class="nav-text">Tomcat安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven安装"><span class="nav-number">4.</span> <span class="nav-text">Maven安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vsftpd安装"><span class="nav-number">5.</span> <span class="nav-text">vsftpd安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nginx"><span class="nav-number">6.</span> <span class="nav-text">安装Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx配置虚拟域名"><span class="nav-number">6.1.</span> <span class="nav-text">Nginx配置虚拟域名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql安装"><span class="nav-number">7.</span> <span class="nav-text">mysql安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git安装"><span class="nav-number">8.</span> <span class="nav-text">git安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启防火墙配置"><span class="nav-number">9.</span> <span class="nav-text">开启防火墙配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置开机时关闭防火墙"><span class="nav-number">1.</span> <span class="nav-text">设置开机时关闭防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk安装"><span class="nav-number">2.</span> <span class="nav-text">jdk安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat安装"><span class="nav-number">3.</span> <span class="nav-text">Tomcat安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven安装"><span class="nav-number">4.</span> <span class="nav-text">Maven安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vsftpd安装"><span class="nav-number">5.</span> <span class="nav-text">vsftpd安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nginx"><span class="nav-number">6.</span> <span class="nav-text">安装Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx配置虚拟域名"><span class="nav-number">6.1.</span> <span class="nav-text">Nginx配置虚拟域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx配置静态资源转发"><span class="nav-number">6.2.</span> <span class="nav-text">Nginx配置静态资源转发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql安装"><span class="nav-number">7.</span> <span class="nav-text">mysql安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git安装"><span class="nav-number">8.</span> <span class="nav-text">git安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启防火墙配置"><span class="nav-number">9.</span> <span class="nav-text">开启防火墙配置</span></a></li></ol></div>
             
 
           </div>
@@ -1029,7 +1044,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">244k</span>
+    <span title="站点总字数">265k</span>
   
 
   
@@ -1038,7 +1053,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:42</span>
+    <span title="站点阅读时长">4:01</span>
   
 </div>
 
