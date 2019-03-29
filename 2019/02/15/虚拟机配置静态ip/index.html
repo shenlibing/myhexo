@@ -102,14 +102,14 @@
 <meta property="og:site_name" content="小兵兵">
 <meta property="og:description" content="镜像下载链接  https://wiki.centos.org/Download 环境：CentOS-6.8-x86_64-bin-DVD1.iso 1、克隆虚拟机 修改主机名 [root@192 桌面]# vim /etc/sysconfig/network 12NETWORKING=yesHOSTNAME=192.168.1.104 修改网卡信息 [root@192 桌面]# vim /etc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.imgur.com/cSNXhqG.png">
-<meta property="og:image" content="https://i.imgur.com/55gzibv.png">
-<meta property="og:image" content="https://i.imgur.com/ryljnTp.png">
-<meta property="og:updated_time" content="2019-02-15T08:36:23.001Z">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/02/15/虚拟机配置静态ip/nat模式配置.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/02/15/虚拟机配置静态ip/NAT设置网关.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/02/15/虚拟机配置静态ip/宿主机vmnet8网卡信息.png">
+<meta property="og:updated_time" content="2019-03-28T04:26:38.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机配置静态ip">
 <meta name="twitter:description" content="镜像下载链接  https://wiki.centos.org/Download 环境：CentOS-6.8-x86_64-bin-DVD1.iso 1、克隆虚拟机 修改主机名 [root@192 桌面]# vim /etc/sysconfig/network 12NETWORKING=yesHOSTNAME=192.168.1.104 修改网卡信息 [root@192 桌面]# vim /etc">
-<meta name="twitter:image" content="https://i.imgur.com/cSNXhqG.png">
+<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/02/15/虚拟机配置静态ip/nat模式配置.png">
 
 
 
@@ -416,12 +416,24 @@
                 
               
 
-              <time title="创建时间：2019-02-15 15:05:16 / 修改时间：16:36:23" itemprop="dateCreated datePublished" datetime="2019-02-15T15:05:16+08:00">2019-02-15</time>
+              <time title="创建时间：2019-02-15 15:05:16" itemprop="dateCreated datePublished" datetime="2019-02-15T15:05:16+08:00">2019-02-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-28 12:26:38" itemprop="dateModified" datetime="2019-03-28T12:26:38+08:00">2019-03-28</time>
               
             
           </span>
@@ -529,12 +541,12 @@
 <p>2、NAT模式配置</p>
 <p><strong>编辑–虚拟网络编辑器</strong></p>
 <p>配置静态ip网段和子网掩码</p>
-<p><img src="https://i.imgur.com/cSNXhqG.png" alt=""></p>
+<p><img src="/myhexo/2019/02/15/虚拟机配置静态ip/nat模式配置.png" alt=""></p>
 <p>NAT设置</p>
 <p>网关ip不能和vmnet8的ip地址冲突</p>
-<p><img src="https://i.imgur.com/55gzibv.png" alt=""></p>
+<p><img src="/myhexo/2019/02/15/虚拟机配置静态ip/NAT设置网关.png" alt=""></p>
 <p>宿主机上的<code>vmnet8</code>网卡会自动分配ip</p>
-<p><img src="https://i.imgur.com/ryljnTp.png" alt=""></p>
+<p><img src="/myhexo/2019/02/15/虚拟机配置静态ip/宿主机vmnet8网卡信息.png" alt=""></p>
 <p>3、配置静态ip</p>
 <blockquote>
 <p>ONBOOT=yes系统启动时激活网卡<br>BOOTPROTO=static通过指定方式的办法来获得地址，设置为静态手动配置<br>IPADDR=192.168.1.104主机ip地址<br>GATEWAY=192.168.1.2网关<br>NETMASK=255.255.255.0子网掩码<br>DNS1=8.8.8.8配置DNS域名解析访问互联网<br>DNS2=8.8.4.4</p>
@@ -841,7 +853,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">265k</span>
+    <span title="站点总字数">292k</span>
   
 
   
@@ -850,7 +862,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:26</span>
   
 </div>
 
