@@ -12,7 +12,7 @@ tags:
 
 1)用户注册
 
-![用户注册](https://i.imgur.com/r1gYBNs.png)
+![用户注册](注册按钮.png)
 
 
 
@@ -50,7 +50,7 @@ js提交表单
 
 2)加载外部资源文件
 
-![](https://i.imgur.com/URlRJg9.png)
+![](加载外部资源文件.png)
 
 app.properties
 

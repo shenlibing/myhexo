@@ -11,9 +11,9 @@ tags:
 
 为了安全，网易邮箱开启pop3授权码验证，该授权码可以让客户端进行登录
 
-![](https://i.imgur.com/MepAaVz.png)
+![](网易邮箱开启pop3服务.png)
 
-![](https://i.imgur.com/BzfesnI.png)
+![](网易邮箱开启pop3服务开启授权码登录第三方客户端.png)
 
 qq开启授权码
 
@@ -91,18 +91,18 @@ quick-start
 
 D:\devsoft\apache-james-3.0-beta4
 
-![](https://i.imgur.com/nR79WWy.png)
+![](解压James.png)
 
 建库
 
-![](https://i.imgur.com/kj3faWO.png)
+![](搭建James邮件服务器建库.jpg)
 
 
 配置数据源
 
-![](https://i.imgur.com/9l952KR.png)
+![](搭建James邮件服务器配置数据源.png)
 
-![](https://i.imgur.com/1PeU0yW.png)
+![](搭建James邮件服务器配置数据源2.png)
 
 
 启动
@@ -259,7 +259,7 @@ D:\devsoft\apache-james-3.0-beta4\lib：存放James默认jar
 
 复制jaxb-impl-2.1.3.jar，mysql驱动jar包到conf/lib下
 
-![](https://i.imgur.com/4wuAqzA.png)
+![](搭建James邮件服务器.png)
 
 
 设置服务器域名、建立账户
@@ -277,8 +277,8 @@ D:\devsoft\apache-james-3.0-beta4\lib：存放James默认jar
 
 配置Foxmail客户端连接James邮件服务器
 
-![](https://i.imgur.com/f8p6D2w.png)
-![](https://i.imgur.com/9J6L4rf.png)
+![](配置Foxmail客户端.png)
+![](配置Foxmail客户端2.png)
 
 
 测试：

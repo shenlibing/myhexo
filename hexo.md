@@ -1,5 +1,5 @@
 ---
-title: hexo博客搭建
+title: hexo
 date: 2019-01-23 09:07:30
 categories: 日常记录
 tags: 
@@ -101,7 +101,7 @@ tags:
 
 将公钥内容上传到GitHub
 
-![](https://i.imgur.com/o3BsfxD.png)
+![](上传公钥到GitHub.png)
 
 
 2)GitHub创建仓库作为hexo博客的站点
@@ -140,7 +140,7 @@ tags:
 
 4)配置GitHub Pages
 
-![](https://i.imgur.com/qSFHbX3.png)
+![](配置GitHub page.png)
 
 6、备份博客源文件
 
@@ -177,7 +177,7 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 将博客源文件分支设为推送的默认分支，git push推送直接推送到src分支
 
-![](https://i.imgur.com/4glUdGW.png)
+![](设置上传默认分支.png)
 
 
 补充：
@@ -217,7 +217,7 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 解压放到D:\mytest\myhexo\themes
 
-![](https://i.imgur.com/hfH4rEM.png)
+![](下载解压主题后存放位置.png)
 
 
 修改`D:\mytest\myhexo\_config.yml`配置文件
@@ -385,21 +385,21 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 创建应用
 
-![](https://i.imgur.com/NHal0S7.png)
+![](leancloud创建应用.png)
 
 创建Class
 
-![](https://i.imgur.com/eXGym94.png)
+![](创建Class.png)
 
 配置web安全域名
 
-![](https://i.imgur.com/FEbZt23.png)
+![](配置web安全域名.png)
 
 
 
 获取app_id、app_key
 
-![](https://i.imgur.com/SE6pqQj.png)
+![](获取app_id和app_key.png)
 
 编辑`D:\mytest\myhexo\themes\hexo-theme-next-master\_config.yml`配置文件，填app_id、
 

@@ -26,18 +26,18 @@ tags:
 	D:\mytest\mysvn\OA>svnadmin create D:\mytest\mysvn\OA
 
 ```
-![](https://i.imgur.com/v4aUp1n.png)
+![](创建版本库.png)
 
 
 4、启动svn服务
 
-![](https://i.imgur.com/CStIBx9.png)
+![](启动svn服务.png)
 
 5、验证svn服务是否启动
 
 svn服务监听3690端口
 
-![](https://i.imgur.com/sogDN9t.png)
+![](验证服务是否启动.png)
 
 6、svn注册为Windows服务
 
@@ -52,13 +52,13 @@ tip:等号左边没有空格，等号右边有一个空格。
 原因：每次启动svn服务时必须启动一个cmd窗口，cmd窗口一关闭，svn服务就关闭。
 
 非管理员运行时会失败。
-![](https://i.imgur.com/rPliKES.png)
+
+![](注册svn服务失败.png)
 
 管理员运行
-![](https://i.imgur.com/gBmdKhJ.png)
 
-![](https://i.imgur.com/whIFJo4.png)
-
+![](管理员注册svn服务成功.png)
+![](创建svn服务.png)
 
 启动、停止、删除svn服务（管理员身份运行cmd）
 
@@ -84,20 +84,20 @@ tip:等号左边没有空格，等号右边有一个空格。
 
 ```
 
-![](https://i.imgur.com/vvRuF4T.png)
+![](检查项目.png)
 
 8、提交文件
 
 --开启匿名权限访问
 
-![](https://i.imgur.com/hBW5DuW.png)
+![](开启匿名权限访问.png)
 
 --先将文件加入版本库，然后提交（需添加提交日志信息，不然报错）
 
 svn commit 命令最后可以不指定具体文件，此时表示提交当前工作副本中
 的所有修改
 
-![](https://i.imgur.com/r1IpUsZ.png)
+![](svn提交文件.png)
 
 9、更新
 
@@ -111,16 +111,16 @@ svn commit 命令最后可以不指定具体文件，此时表示提交当前工
 
 ```
 
-![](https://i.imgur.com/u4zFEcf.png)
+![](另一个客户端检出项目.png)
 
-![](https://i.imgur.com/67qMr6A.png)
+![](更新文件并提交文件.png)
 
 
 10、授权访问版本库
 
 --单版本库开启授权访问
 
-![](https://i.imgur.com/emwZBDY.png)
+![](授权访问版本库配置步骤一.png)
 
 --多版本库开启授权访问
 
@@ -133,14 +133,14 @@ svn commit 命令最后可以不指定具体文件，此时表示提交当前工
 	②authz-db = ../../commConf/authz
 
 ```
-![](https://i.imgur.com/QjqreHq.png)
+![](授权访问版本库配置步骤二.png)
 
 passwd：设置访问版本库的用户信息
 
-![](https://i.imgur.com/7TQZlnl.png)
+![](passwd.png)
 
 authz：设置用户访问版本库的权限
 
-![](https://i.imgur.com/XIZ9z9v.png)
+![](authz.png)
 
 ---

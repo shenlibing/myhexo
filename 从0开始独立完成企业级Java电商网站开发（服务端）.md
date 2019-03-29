@@ -203,7 +203,7 @@ generatorConfig.xml
 
 运行
 
-![](https://i.imgur.com/qnemdWZ.png)
+![](mybatis-generator.png)
 
 > #### `mybatis-plugin` idea插件，实现mybatis的接口文件和xml自动跳转 ####
 
@@ -389,7 +389,7 @@ generatorConfig.xml
 
 入参需要指定当前用户id
 
-![](https://i.imgur.com/ZlF4aTr.png)
+![](横向越权.png)
 
 > ### 纵向越权 ###
 
@@ -397,7 +397,7 @@ generatorConfig.xml
 
 盐值加密
 
-![](https://i.imgur.com/pmMhfnj.png)
+![](盐值加密.png)
 
 MD5Util.java
 
@@ -536,17 +536,16 @@ password.salt = geelysdafaqj23ou89ZXcj@#$@#$#@KJdjklj;D../dSF.,
 
 应用：明文加密
 
-![](https://i.imgur.com/2wvMx8C.png)
+![](密码盐值加密.png)
 
 > ### guava缓存 ###
 
 设置token并传给前台用户
 
-![设置token并传给前台用户](https://i.imgur.com/XamfCWS.png)
+![设置token并传给前台用户](guava缓存.png)
 
 验证token
-
-![](https://i.imgur.com/6vGkvHb.png)
+![](guava缓存2.png)
 
 TokenCache.java
 
@@ -776,9 +775,6 @@ public enum ResponseCode {
 
 ```
 
-
-
-
 > ## 分类模块 ##
 
 > ### 递归算法 ###
@@ -825,22 +821,22 @@ public enum ResponseCode {
 
 Set集合
 
-![](https://i.imgur.com/aop8PMd.png)
+![](复杂对象排重.png)
 
 重写自定义对象Category的`equals`和`hashCode`方法
 
-![](https://i.imgur.com/qfyqdeR.png)
+![](复杂对象排重2.png)
 
 > ### 无限层级树结构设计 ###
 
-![](https://i.imgur.com/4GKdI5S.png)
+![](无限层级树结构设计.png)
 
 
 > ## 商品模块 ##
 
 > ### POJO、BO、VO抽象模型 ###
 
-![](https://i.imgur.com/fyJkFwA.png)
+![](POJO、BO、VO抽象模型.png)
 
 Product.java
 
@@ -1142,7 +1138,7 @@ public class ProductDetailVo {
 
 Tomcat启动加载静态代码块
 
-![](https://i.imgur.com/8L40Q57.png)
+![](静态代码块.png)
 
 > ### 时间转换工具类`DateTimeUtil.java` ###
 
@@ -1216,29 +1212,27 @@ public class DateTimeUtil {
 
 配置pom.xml
 
-![](https://i.imgur.com/qWAxHaz.png)
+![](mybatis-pagehelper.png)
 
 实现
 
-![](https://i.imgur.com/7uUshel.png)
+![](mybatis-pagehelper2.png)
 
 
 > ### mybatis-pagehelper动态排序 ###
 
-![](https://i.imgur.com/HIKECrM.png)
+![](mybatis-pagehelper排序.png)
 
 > ### mybatis对List遍历的实现方法 ###
 
-![](https://i.imgur.com/vJ3fuMa.png)
-
-![](https://i.imgur.com/ZeR60yv.png)
+![](mybatis对List遍历的实现方法.png)
 
 
 > ### mybatis对where语句动态拼装 ###
 
-![](https://i.imgur.com/nTvL0P4.png)
+![](mybatis对where语句动态拼装.png)
 
-![](https://i.imgur.com/LpHdSg8.png)
+![](mybatis对where语句动态拼装2.png)
 
 
 > ### FTP服务对接 ###
@@ -1480,7 +1474,7 @@ public class FTPUtil {
 
 和ftp文件上传类似，只是对返回值有特殊要求
 
-![](https://i.imgur.com/Jmi5lfB.png)
+![](富文本文件上传.png)
 
 > ## 购物车模块 ##
 
@@ -1535,9 +1529,9 @@ public class BigDecimalUtil {
 
 > ### 高复用的逻辑方法封装思想 ###
 
-![](https://i.imgur.com/5yKpee8.png)
+![](高复用的逻辑方法封装思想.png)
 
-![](https://i.imgur.com/NvoBhO6.png)
+![](高复用的逻辑方法封装思想2.png)
 
 > ### 解决商业运算丢失精度的坑 ###
 
@@ -1582,7 +1576,7 @@ public class BigDecimalTest {
 
 > ### 订单号生成规则 ###
 
-![](https://i.imgur.com/aM4jRwa.png)
+![](订单号生成规则.png)
 
 > ### 强大的常量、枚举设计 ###
 
@@ -1738,30 +1732,33 @@ public class Const {
 ```
 
 使用
-![](https://i.imgur.com/vAubUzj.png)
-![](https://i.imgur.com/JTVLCjt.png)
-![](https://i.imgur.com/HBgO0Po.png)
+![](强大的常量、枚举设计.png)
+![](强大的常量、枚举设计2.png)
+![](强大的常量、枚举设计3.png)
 
 > ### mybatis批量插入 ###
-![](https://i.imgur.com/b6UASP5.png)
-![](https://i.imgur.com/uB4etOC.png)
-![](https://i.imgur.com/2DoCstY.png)
+
+![](mybatis批量插入.png)
+
+![](mybatis批量插入2.png)
+
+![](mybatis批量插入3.png)
 
 > ## 收货地址 ##
 
 > ### 同步获取自增主键 ###
 
-![](https://i.imgur.com/fblDGo5.png)
+![](同步获取自增主键.png)
 
-![](https://i.imgur.com/vGXQhTv.png)
+![](同步获取自增主键2.png)
 
 > ### 数据绑定的对象绑定 ###
 
-![](https://i.imgur.com/zbPE63c.png)
+![](数据绑定的对象绑定.png)
 
 收货地址对象必须要有`get`和`set`方法
 
-![](https://i.imgur.com/DhpkYJ0.png)
+![](数据绑定的对象绑定2.png)
 
 > ### 越权问题升级巩固 ###
 
@@ -1777,7 +1774,7 @@ public class Const {
 
 [沙箱环境使用](https://docs.open.alipay.com/200/105311/)
 
-![](https://i.imgur.com/WzMdaqC.png)
+![](沙箱环境配置.png)
 
 [生成RSA密钥](https://docs.open.alipay.com/291/105971/)
 
@@ -1785,11 +1782,11 @@ public class Const {
 
 导入依赖
 
-![](https://i.imgur.com/BIPH7Mt.png)
+![](支付宝支付流程与集成.png)
 
 配置maven插件,除了`pom.xml`配置的依赖，lib包中的依赖也会一起打包部署
 
-![](https://i.imgur.com/S2oTyvF.png)
+![](支付宝支付流程与集成2.png)
 
 配置沙箱环境`zfbinfo.properties`
 
@@ -1836,17 +1833,17 @@ heartbeat_duration = 900
 
 配置回调`url`
 
-![](https://i.imgur.com/5zbjvhk.png)
+![](二维码生成，扫码支付.png)
 
 两次回调，扫码进行一次回调，扫码付款成功进行一次回调
 
-![](https://i.imgur.com/8flXFOx.png)
+![](二维码生成，扫码支付2.png)
 
-![](https://i.imgur.com/lOOhSBV.png)
+![](二维码生成，扫码支付3.png)
 
 生成二维码，上传到`ftp`服务器
 
-![](https://i.imgur.com/mIhIukR.png)
+![](二维码生成，扫码支付4.png)
 
 
 OrderServiceImpl.java

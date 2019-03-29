@@ -74,18 +74,18 @@ CentOS-6.8-x86_64-bin-DVD1.iso
 
 配置静态ip网段和子网掩码
 
-![](https://i.imgur.com/cSNXhqG.png)
+![](nat模式配置.png)
 
 NAT设置
 
 网关ip不能和vmnet8的ip地址冲突
 
-![](https://i.imgur.com/55gzibv.png)
+![](NAT设置网关.png)
 
 
 宿主机上的`vmnet8`网卡会自动分配ip
 
-![](https://i.imgur.com/ryljnTp.png)
+![](宿主机vmnet8网卡信息.png)
 
 
 3、配置静态ip

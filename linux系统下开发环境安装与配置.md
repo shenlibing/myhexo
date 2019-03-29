@@ -372,6 +372,30 @@ root       5626   2868  0 01:09 pts/0    00:00:00 grep nginx
 
 > ### Nginx配置虚拟域名 ###
 
+配置虚拟域名映射
+
+```
+[root@192 vhost]# cat /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+
+#centos
+#192.168.1.104  www.imooc.com
+127.0.0.1 www.imooc.com
+
+```
+
+测试
+
+```
+[root@192 sbin]# ping www.imooc.com
+PING www.imooc.com (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.013 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.032 ms
+
+```
+
 编辑`/usr/local/nginx/conf/nginx.conf`文件，追加
 
 ```
@@ -382,14 +406,14 @@ root       5626   2868  0 01:09 pts/0    00:00:00 grep nginx
 
 在`/usr/local/nginx/conf`目录下，新建`vhost`文件夹
 
-在`/usr/local/nginx/conf/vhost`目录下，新建域名转发`www.test.com.conf`配置文件
+在`/usr/local/nginx/conf/vhost`目录下，新建域名转发`www.mytest.com.conf`配置文件
 
 ```
-[root@192 vhost]# cat /usr/local/nginx/conf/vhost/www.test.com.conf 
-#Start www.test.com
+[root@192 vhost]# cat /usr/local/nginx/conf/vhost/www.mytest.com.conf 
+#Start www.mytest.com
 server {
     listen 80;
-    server_name  www.test.com;
+    server_name  www.mytest.com;
  
     access_log  /usr/local/nginx/logs/access.log combined;
     index  index.html index.htm index.php;
@@ -406,7 +430,43 @@ server {
 
 ```
 
-访问[www.test.com](www.test.com)
+访问[www.mytest.com](www.test.com)
+
+> ### Nginx配置静态资源转发 ###
+
+编辑`/usr/local/nginx/conf/nginx.conf`文件，追加
+
+```
+ ###########################vhost##############################################
+    include vhost/*.conf;
+
+```
+
+在`/usr/local/nginx/conf`目录下，新建`vhost`文件夹
+
+在`/usr/local/nginx/conf/vhost`目录下，新建域名转发`www.mytest.com.conf`配置文件
+
+```
+[root@192 vhost]# cat /usr/local/nginx/conf/vhost/www.mytest.com.conf 
+#Start www.mytest.com
+server {
+    listen 80;
+    server_name  www.mytest.com;
+ 
+    access_log  /usr/local/nginx/logs/access.log combined;
+    index  index.html index.htm index.php;
+
+    if ( $query_string ~* ".*[\;'\<\>].*" ){ 
+	return 404;
+     }
+
+    # send request back to apach
+    location / {
+       root /ftpfile/; 
+   }
+}
+
+```
 
 
 
@@ -798,7 +858,65 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA1sZvTnjQyVn7r2C7G9Q/WyVTTmJYqWhQdVfh3tBCUX8k
 ```
 
 
+> ## 开启防火墙配置 ##
+
+查看防火墙初始化配置
+
+```
+[root@192 ~]# cat /etc/sysconfig/iptables
+# Firewall configuration written by system-config-firewall
+# Manual customization of this file is not recommended.
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+
+```
+
+开放Tomcat端口
+
+![](开放Tomcat端口.png)
 
 
+重启生效防火墙
+
+```
+[root@192 ~]# service iptables restart
+iptables：将链设置为政策 ACCEPT：filter                    [确定]
+iptables：清除防火墙规则：                                 [确定]
+iptables：正在卸载模块：                                   [确定]
+iptables：应用防火墙规则：                                 [确定]
+
+```
+
+查看防火墙状态
+
+```
+[root@192 ~]# service iptables status
+表格：filter
+Chain INPUT (policy ACCEPT)
+num  target     prot opt source               destination         
+1    ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           state RELATED,ESTABLISHED 
+2    ACCEPT     icmp --  0.0.0.0/0            0.0.0.0/0           
+3    ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0           
+4    ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0           state NEW tcp dpt:22 
+5    ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0           tcp dpt:8080 
+6    REJECT     all  --  0.0.0.0/0            0.0.0.0/0           reject-with icmp-host-prohibited 
+
+Chain FORWARD (policy ACCEPT)
+num  target     prot opt source               destination         
+1    REJECT     all  --  0.0.0.0/0            0.0.0.0/0           reject-with icmp-host-prohibited 
+
+Chain OUTPUT (policy ACCEPT)
+num  target     prot opt source               destination  
+
+```
 
 
