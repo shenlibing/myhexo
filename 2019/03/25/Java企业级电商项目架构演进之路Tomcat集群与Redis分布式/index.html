@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/03/25/Java企业级电商项目架构演进之路Tomcat集群与Redis分布式/Redis分布式缓存修改端口.png">
 <meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/03/25/Java企业级电商项目架构演进之路Tomcat集群与Redis分布式/包装代理类.png">
 <meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/03/25/Java企业级电商项目架构演进之路Tomcat集群与Redis分布式/controller使用RESTful风格.png">
-<meta property="og:updated_time" content="2019-04-02T03:21:36.565Z">
+<meta property="og:updated_time" content="2019-04-02T03:22:50.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat集群与Redis分布式">
 <meta name="twitter:description" content="Lombok原理及使用  下载 官网 插件下载  IDEA安装Lombok插件 Add the Lombok IntelliJ plugin to add lombok support for IntelliJ:Go to File &amp;gt; Settings &amp;gt; PluginsClick on Browse repositories…Search for Lombok PluginCli">
@@ -447,7 +447,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-02 11:21:36" itemprop="dateModified" datetime="2019-04-02T11:21:36+08:00">2019-04-02</time>
+                <time title="修改时间：2019-04-02 11:22:50" itemprop="dateModified" datetime="2019-04-02T11:22:50+08:00">2019-04-02</time>
               
             
           </span>
@@ -504,7 +504,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">78k</span>
+                <span title="本文字数">77k</span>
               
 
               
@@ -518,7 +518,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1:11</span>
+                <span title="阅读时长">1:10</span>
               
             </div>
           
@@ -1236,7 +1236,6 @@
 <blockquote>
 <h3 id="使用Redisson分布式锁"><a href="#使用Redisson分布式锁" class="headerlink" title="使用Redisson分布式锁"></a>使用Redisson分布式锁</h3></blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//    @Scheduled(cron="0 */1 * * * ?")</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">closeOrderTaskV4</span><span class="params">()</span></span>&#123;</span><br><span class="line">        RLock lock = redissonManager.getRedisson().getLock(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);</span><br><span class="line">        <span class="keyword">boolean</span> getLock = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(getLock = lock.tryLock(<span class="number">0</span>,<span class="number">50</span>, TimeUnit.SECONDS))&#123;</span><br><span class="line">                log.info(<span class="string">"Redisson获取到分布式锁:&#123;&#125;,ThreadName:&#123;&#125;"</span>,Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,Thread.currentThread().getName());</span><br><span class="line">                <span class="keyword">int</span> hour = Integer.parseInt(PropertiesUtil.getProperty(<span class="string">"close.order.task.time.hour"</span>,<span class="string">"2"</span>));</span><br><span class="line"><span class="comment">//                iOrderService.closeOrder(hour);</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                log.info(<span class="string">"Redisson没有获取到分布式锁:&#123;&#125;,ThreadName:&#123;&#125;"</span>,Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,Thread.currentThread().getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            log.error(<span class="string">"Redisson分布式锁获取异常"</span>,e);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(!getLock)&#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            lock.unlock();</span><br><span class="line">            log.info(<span class="string">"Redisson分布式锁释放锁"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">Tomcat集群</span><br><span class="line">Nginx负载均衡策略解析</span><br><span class="line">Nginx负载均衡配置及实战</span><br><span class="line">Tomcat+Nginx集群环境搭建</span><br><span class="line">Redis+Cookie+Jackson+Filter原生解决集群Session共享问题</span><br><span class="line">Spring Session零侵入解决集群环境Session共享实战</span><br><span class="line"></span><br><span class="line">Redis基础强化</span><br><span class="line">Redis环境搭建</span><br><span class="line">Redis常用命令实战</span><br><span class="line">Redis数据结构解析</span><br><span class="line">Jedis源码解析</span><br><span class="line">Jedis API的封装</span><br><span class="line"></span><br><span class="line">Redis分布式</span><br><span class="line">Redis分布式环境搭建</span><br><span class="line">Consistent hashing分布式算法原理讲解</span><br><span class="line">Redis分布式Sharded分片连接源码解析</span><br><span class="line">ShardedJdeisPool连接池编写实战</span><br><span class="line">Redis分布式锁实战</span><br><span class="line"></span><br><span class="line">单点登录</span><br><span class="line">Redis构建Session服务器</span><br><span class="line">Redis+Cookie+Jackson+Filter实现单点登录</span><br><span class="line">SessionExpireFilter构建Session时间重置过滤器</span><br><span class="line">Spring Session源码解析</span><br><span class="line">Spring Session实现单点登录</span><br><span class="line"></span><br><span class="line">定时关单</span><br><span class="line">Spring Schedule Cron表达式</span><br><span class="line">Spring Schedule实现定时关单</span><br><span class="line">Sprig Schedule+Redis分布式锁实战</span><br><span class="line">分布式任务调度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">实用工具封装</span><br><span class="line">Jedis及ShardedJedis客户端连接封装及使用</span><br><span class="line">Cookie封装及使用</span><br><span class="line">Jackson源码解析</span><br><span class="line">Jackson实现JSON多泛型序列化及反序列化</span><br><span class="line"></span><br><span class="line">项目代码重构</span><br><span class="line">Guava Cache迁移Redis分布式缓存</span><br><span class="line">SpringMVC拦截器实现管理员权限统一校验</span><br><span class="line">SpringMVC全局异常控制</span><br><span class="line">SpringMVC RESTful实现商品搜索及浏览</span><br><span class="line"></span><br><span class="line">开发集群实战</span><br><span class="line">Lombok原理及使用</span><br><span class="line">Java Decompiler</span><br><span class="line">Redis Desktop Manager</span><br><span class="line">Multi-Process Debug</span><br><span class="line">iTerm联动操作多窗口命令行</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1565,7 +1564,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">324k</span>
+    <span title="站点总字数">323k</span>
   
 
   
