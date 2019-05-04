@@ -1,5 +1,5 @@
 ---
-title: Java企业级电商项目架构演进之路Tomcat集群与Redis分布式
+title: Tomcat集群与Redis分布式
 date: 2019-03-25 09:58:28
 categories: 日常记录
 tags:
@@ -1302,13 +1302,14 @@ OK
 
 [Quick Start](http://docs.redisdesktop.com/en/latest/quick-start/)
 
-> ## 单点登录 ##
+> ## 原生单点登录 ##
 
-Redis+Cookie+Jackson+Filter实现单点登录
+原生Redis+Cookie+Jackson+Filter解决session共享问题实现单点登录
 
-> ### 项目集成Redis客户端Jedis ###
+> ### java使用Jedis客户端 ###
 
-编辑`pom.xml`
+
+> #### 编辑`pom.xml` ####
 
 ```xml
 <dependency>
@@ -1319,7 +1320,7 @@ Redis+Cookie+Jackson+Filter实现单点登录
 
 ```
 
-> ### Redis连接池构建 ###
+> #### 获取连接 ####
 
 从连接池获取连接
 
@@ -1401,11 +1402,10 @@ public class RedisPool {
 
 ```
 
-> ### Jedis API封装 ###
+> #### Jedis API封装 ####
 
-> #### 封装RedisPoolUtil ####
+读写数据
 
-工具类
 
 ```java
 
@@ -1534,12 +1534,9 @@ public class RedisPoolUtil {
 
 > ### Jackson封装JacksonUtil ###
 
+> #### 编辑`pom.xml` ####
 
-> #### 多泛型序列化和反序列化 ####
-
-编辑`pom.xml`
-
-```
+```xml
 <dependency>
     <groupId>org.codehaus.jackson</groupId>
     <artifactId>jackson-mapper-asl</artifactId>
@@ -1548,7 +1545,7 @@ public class RedisPoolUtil {
 
 ```
 
-`JsonUtil`工具类
+> #### 多泛型序列化和反序列化 ####
 
 ```java
 
@@ -1725,19 +1722,549 @@ public class JsonUtil {
 
 > ### Cookie封装 ###
 
+其中`COOKIE_NAME`和`COOKIE_DOMAIN`是根据实际项目，线上的域名来配置的，如果扩展开来讲，对于里面每个属性，在二级/三级域名下的读写问题是必须要细化的
+
+Cookie的读、写、删
+
+```java
+package com.mmall.util;
+
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Created by geely
+ */
+@Slf4j
+public class CookieUtil {
+
+    private final static String COOKIE_DOMAIN = ".happymmall.com";
+    private final static String COOKIE_NAME = "mmall_login_token";
+
+
+    public static String readLoginToken(HttpServletRequest request){
+        Cookie[] cks = request.getCookies();
+        if(cks != null){
+            for(Cookie ck : cks){
+                log.info("read cookieName:{},cookieValue:{}",ck.getName(),ck.getValue());
+                if(StringUtils.equals(ck.getName(),COOKIE_NAME)){
+                    log.info("return cookieName:{},cookieValue:{}",ck.getName(),ck.getValue());
+                    return ck.getValue();
+                }
+            }
+        }
+        return null;
+    }
+
+    //X:domain=".happymmall.com"
+    //a:A.happymmall.com            cookie:domain=A.happymmall.com;path="/"
+    //b:B.happymmall.com            cookie:domain=B.happymmall.com;path="/"
+    //c:A.happymmall.com/test/cc    cookie:domain=A.happymmall.com;path="/test/cc"
+    //d:A.happymmall.com/test/dd    cookie:domain=A.happymmall.com;path="/test/dd"
+    //e:A.happymmall.com/test       cookie:domain=A.happymmall.com;path="/test"
+
+    public static void writeLoginToken(HttpServletResponse response,String token){
+        Cookie ck = new Cookie(COOKIE_NAME,token);
+        ck.setDomain(COOKIE_DOMAIN);
+        ck.setPath("/");//代表设置在根目录
+        ck.setHttpOnly(true);
+        //单位是秒。
+        //如果这个maxage不设置的话，cookie就不会写入硬盘，而是写在内存。只在当前页面有效。
+        ck.setMaxAge(60 * 60 * 24 * 365);//如果是-1，代表永久
+        log.info("write cookieName:{},cookieValue:{}",ck.getName(),ck.getValue());
+        response.addCookie(ck);
+    }
+
+
+    public static void delLoginToken(HttpServletRequest request,HttpServletResponse response){
+        Cookie[] cks = request.getCookies();
+        if(cks != null){
+            for(Cookie ck : cks){
+                if(StringUtils.equals(ck.getName(),COOKIE_NAME)){
+                    ck.setDomain(COOKIE_DOMAIN);
+                    ck.setPath("/");
+                    ck.setMaxAge(0);//设置成0，代表删除此cookie。
+                    log.info("del cookieName:{},cookieValue:{}",ck.getName(),ck.getValue());
+                    response.addCookie(ck);
+                    return;
+                }
+            }
+        }
+    }
+
+}
+
+```
+
 
 > ### SessionExpireFilter构建Session时间重置过滤器 ###
 
+> #### 编辑`web.xml` ####
+
+```xml
+<filter>
+    <filter-name>sessionExpireFilter</filter-name>
+    <filter-class>com.mmall.controller.common.SessionExpireFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>sessionExpireFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+</filter-mapping>
+
+```
+
+> #### 时间重置过滤器类 ####
+
+SessionExpireFilter.java
+
+```java
+package com.mmall.controller.common;
+
+
+import com.mmall.common.Const;
+import com.mmall.pojo.User;
+import com.mmall.util.CookieUtil;
+import com.mmall.util.JsonUtil;
+import com.mmall.util.RedisShardedPoolUtil;
+import org.apache.commons.lang.StringUtils;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+
+/**
+ * Created by geely
+ */
+public class SessionExpireFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest httpServletRequest = (HttpServletRequest)servletRequest;
+
+        String loginToken = CookieUtil.readLoginToken(httpServletRequest);
+
+        if(StringUtils.isNotEmpty(loginToken)){
+            //判断logintoken是否为空或者""；
+            //如果不为空的话，符合条件，继续拿user信息
+
+            String userJsonStr = RedisShardedPoolUtil.get(loginToken);
+            User user = JsonUtil.string2Obj(userJsonStr,User.class);
+            if(user != null){
+                //如果user不为空，则重置session的时间，即调用expire命令
+                RedisShardedPoolUtil.expire(loginToken, Const.RedisCacheExtime.REDIS_SESSION_EXTIME);
+            }
+        }
+        filterChain.doFilter(servletRequest,servletResponse);
+    }
+
+
+    @Override
+    public void destroy() {
+
+    }
+}
+
+```
 
 > ### Guava Cache迁移Redis分布式缓存 ###
 
+描述：修改密码时需要验证`token`，`token`的生成是在校验忘记密码的问题答案是正确的时候生成，如果答案是正确的话，返回给前台。重置密码发起请求携带该`token`到后台校验是否一致。
+
 > #### 集群后Guava Cache的不足 ####
 
+`Tomcat`之前使用的`guava cache`存储`token`，它只存在于`tomcat`实例上，`tomcat`及`tomcat`之间并不共享，所以必须迁移。否则负载均衡就`TomcatA`存储了`guava cache`，`TomcatB`想拿就拿不到了
 
 > #### Guava Cache迁移Redis缓存 ####
 
+> ##### 修改前 #####
 
-> ## Spring Session框架集成零侵入实现单点登录 ##
+`guava cache`存储`token`
+
+```java
+public ServerResponse<String> checkAnswer(String username,String question,String answer){
+    int resultCount = userMapper.checkAnswer(username,question,answer);
+    if(resultCount>0){
+        //说明问题及问题答案是这个用户的,并且是正确的
+        String forgetToken = UUID.randomUUID().toString();
+        TokenCache.setKey(TokenCache.TOKEN_PREFIX+username,forgetToken);
+        return ServerResponse.createBySuccess(forgetToken);
+    }
+    return ServerResponse.createByErrorMessage("问题的答案错误");
+}
+
+public ServerResponse<String> forgetResetPassword(String username,String passwordNew,String forgetToken){
+    if(org.apache.commons.lang3.StringUtils.isBlank(forgetToken)){
+        return ServerResponse.createByErrorMessage("参数错误,token需要传递");
+    }
+    ServerResponse validResponse = this.checkValid(username,Const.USERNAME);
+    if(validResponse.isSuccess()){
+        //用户不存在
+        return ServerResponse.createByErrorMessage("用户不存在");
+    }
+    String token = TokenCache.getKey(TokenCache.TOKEN_PREFIX+username);
+    if(org.apache.commons.lang3.StringUtils.isBlank(token)){
+        return ServerResponse.createByErrorMessage("token无效或者过期");
+    }
+
+    if(org.apache.commons.lang3.StringUtils.equals(forgetToken,token)){
+        String md5Password  = MD5Util.MD5EncodeUtf8(passwordNew);
+        int rowCount = userMapper.updatePasswordByUsername(username,md5Password);
+
+        if(rowCount > 0){
+            return ServerResponse.createBySuccessMessage("修改密码成功");
+        }
+    }else{
+        return ServerResponse.createByErrorMessage("token错误,请重新获取重置密码的token");
+    }
+    return ServerResponse.createByErrorMessage("修改密码失败");
+}
+```
+
+> ##### 修改后 #####
+
+后台`token`保存在`Redis`上
+
+```java
+public ServerResponse<String> checkAnswer(String username,String question,String answer){
+    int resultCount = userMapper.checkAnswer(username,question,answer);
+    if(resultCount>0){
+        //说明问题及问题答案是这个用户的,并且是正确的
+        String forgetToken = UUID.randomUUID().toString();
+        RedisShardedPoolUtil.setEx(Const.TOKEN_PREFIX+username,forgetToken,60*60*12);
+        return ServerResponse.createBySuccess(forgetToken);
+    }
+    return ServerResponse.createByErrorMessage("问题的答案错误");
+}
+
+public ServerResponse<String> forgetResetPassword(String username,String passwordNew,String forgetToken){
+    if(org.apache.commons.lang3.StringUtils.isBlank(forgetToken)){
+        return ServerResponse.createByErrorMessage("参数错误,token需要传递");
+    }
+    ServerResponse validResponse = this.checkValid(username,Const.USERNAME);
+    if(validResponse.isSuccess()){
+        //用户不存在
+        return ServerResponse.createByErrorMessage("用户不存在");
+    }
+    String token = RedisShardedPoolUtil.get(Const.TOKEN_PREFIX+username);
+    if(org.apache.commons.lang3.StringUtils.isBlank(token)){
+        return ServerResponse.createByErrorMessage("token无效或者过期");
+    }
+
+    if(org.apache.commons.lang3.StringUtils.equals(forgetToken,token)){
+        String md5Password  = MD5Util.MD5EncodeUtf8(passwordNew);
+        int rowCount = userMapper.updatePasswordByUsername(username,md5Password);
+
+        if(rowCount > 0){
+            return ServerResponse.createBySuccessMessage("修改密码成功");
+        }
+    }else{
+        return ServerResponse.createByErrorMessage("token错误,请重新获取重置密码的token");
+    }
+    return ServerResponse.createByErrorMessage("修改密码失败");
+}
+```
+
+
+> ## Redis分布式环境搭建 ##
+
+第一个Redis不变，修改第二个Redis
+
+
+> ### 编辑`redis.conf` ###
+
+![](Redis分布式缓存修改端口.png)
+
+> ### 启动 ###
+
+第一个默认启动,默认端口6379
+
+```
+[root@192 src]# ./redis-server &
+
+```
+
+第二个指定配置文件启动，修改后的端口6380
+
+```
+[root@192 src]# ./redis-server ../redis.conf &
+
+```
+
+> ### java代码连接Redis分布式缓存 ###
+
+一致性算法
+
+> #### 获取连接 ####
+
+```java
+package com.mmall.common;
+
+import com.mmall.util.PropertiesUtil;
+import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.JedisShardInfo;
+import redis.clients.jedis.ShardedJedis;
+import redis.clients.jedis.ShardedJedisPool;
+import redis.clients.util.Hashing;
+import redis.clients.util.Sharded;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by geely
+ */
+public class RedisShardedPool {
+    private static ShardedJedisPool pool;//sharded jedis连接池
+    private static Integer maxTotal = Integer.parseInt(PropertiesUtil.getProperty("redis.max.total","20")); //最大连接数
+    private static Integer maxIdle = Integer.parseInt(PropertiesUtil.getProperty("redis.max.idle","20"));//在jedispool中最大的idle状态(空闲的)的jedis实例的个数
+    private static Integer minIdle = Integer.parseInt(PropertiesUtil.getProperty("redis.min.idle","20"));//在jedispool中最小的idle状态(空闲的)的jedis实例的个数
+
+    private static Boolean testOnBorrow = Boolean.parseBoolean(PropertiesUtil.getProperty("redis.test.borrow","true"));//在borrow一个jedis实例的时候，是否要进行验证操作，如果赋值true。则得到的jedis实例肯定是可以用的。
+    private static Boolean testOnReturn = Boolean.parseBoolean(PropertiesUtil.getProperty("redis.test.return","true"));//在return一个jedis实例的时候，是否要进行验证操作，如果赋值true。则放回jedispool的jedis实例肯定是可以用的。
+
+    private static String redis1Ip = PropertiesUtil.getProperty("redis1.ip");
+    private static Integer redis1Port = Integer.parseInt(PropertiesUtil.getProperty("redis1.port"));
+    private static String redis2Ip = PropertiesUtil.getProperty("redis2.ip");
+    private static Integer redis2Port = Integer.parseInt(PropertiesUtil.getProperty("redis2.port"));
+
+
+
+
+    private static void initPool(){
+        JedisPoolConfig config = new JedisPoolConfig();
+
+        config.setMaxTotal(maxTotal);
+        config.setMaxIdle(maxIdle);
+        config.setMinIdle(minIdle);
+
+        config.setTestOnBorrow(testOnBorrow);
+        config.setTestOnReturn(testOnReturn);
+
+        //连接耗尽的时候，是否阻塞，false会抛出异常，true阻塞直到超时。默认为true。
+        config.setBlockWhenExhausted(true);
+
+        JedisShardInfo info1 = new JedisShardInfo(redis1Ip,redis1Port,1000*2);
+
+        JedisShardInfo info2 = new JedisShardInfo(redis2Ip,redis2Port,1000*2);
+
+        List<JedisShardInfo> jedisShardInfoList = new ArrayList<JedisShardInfo>(2);
+
+        jedisShardInfoList.add(info1);
+        jedisShardInfoList.add(info2);
+
+        pool = new ShardedJedisPool(config,jedisShardInfoList, Hashing.MURMUR_HASH, Sharded.DEFAULT_KEY_TAG_PATTERN);
+    }
+
+    static{
+        initPool();
+    }
+
+    public static ShardedJedis getJedis(){
+        return pool.getResource();
+    }
+
+
+    public static void returnBrokenResource(ShardedJedis jedis){
+        pool.returnBrokenResource(jedis);
+    }
+
+
+
+    public static void returnResource(ShardedJedis jedis){
+        pool.returnResource(jedis);
+    }
+
+
+    public static void main(String[] args) {
+        ShardedJedis jedis = pool.getResource();
+
+        for(int i =0;i<10;i++){
+            jedis.set("key"+i,"value"+i);
+        }
+        returnResource(jedis);
+
+//        pool.destroy();//临时调用，销毁连接池中的所有连接
+        System.out.println("program is end");
+
+
+    }
+}
+
+```
+
+> #### 读写数据 ####
+
+```java
+package com.mmall.util;
+
+import com.mmall.common.RedisShardedPool;
+import lombok.extern.slf4j.Slf4j;
+import redis.clients.jedis.ShardedJedis;
+
+/**
+ * Created by geely
+ */
+@Slf4j
+public class RedisShardedPoolUtil {
+
+    /**
+     * 设置key的有效期，单位是秒
+     * @param key
+     * @param exTime
+     * @return
+     */
+    public static Long expire(String key,int exTime){
+        ShardedJedis jedis = null;
+        Long result = null;
+        try {
+            jedis = RedisShardedPool.getJedis();
+            result = jedis.expire(key,exTime);
+        } catch (Exception e) {
+            log.error("expire key:{} error",key,e);
+            RedisShardedPool.returnBrokenResource(jedis);
+            return result;
+        }
+        RedisShardedPool.returnResource(jedis);
+        return result;
+    }
+
+    //exTime的单位是秒
+    public static String setEx(String key,String value,int exTime){
+        ShardedJedis jedis = null;
+        String result = null;
+        try {
+            jedis = RedisShardedPool.getJedis();
+            result = jedis.setex(key,exTime,value);
+        } catch (Exception e) {
+            log.error("setex key:{} value:{} error",key,value,e);
+            RedisShardedPool.returnBrokenResource(jedis);
+            return result;
+        }
+        RedisShardedPool.returnResource(jedis);
+        return result;
+    }
+
+    public static String set(String key,String value){
+        ShardedJedis jedis = null;
+        String result = null;
+
+        try {
+            jedis = RedisShardedPool.getJedis();
+            result = jedis.set(key,value);
+        } catch (Exception e) {
+            log.error("set key:{} value:{} error",key,value,e);
+            RedisShardedPool.returnBrokenResource(jedis);
+            return result;
+        }
+        RedisShardedPool.returnResource(jedis);
+        return result;
+    }
+
+    public static String getSet(String key,String value){
+        ShardedJedis jedis = null;
+        String result = null;
+
+        try {
+            jedis = RedisShardedPool.getJedis();
+            result = jedis.getSet(key,value);
+        } catch (Exception e) {
+            log.error("getset key:{} value:{} error",key,value,e);
+            RedisShardedPool.returnBrokenResource(jedis);
+            return result;
+        }
+        RedisShardedPool.returnResource(jedis);
+        return result;
+    }
+
+    public static String get(String key){
+        ShardedJedis jedis = null;
+        String result = null;
+        try {
+            jedis = RedisShardedPool.getJedis();
+            result = jedis.get(key);
+        } catch (Exception e) {
+            log.error("get key:{} error",key,e);
+            RedisShardedPool.returnBrokenResource(jedis);
+            return result;
+        }
+        RedisShardedPool.returnResource(jedis);
+        return result;
+    }
+
+    public static Long del(String key){
+        ShardedJedis jedis = null;
+        Long result = null;
+        try {
+            jedis = RedisShardedPool.getJedis();
+            result = jedis.del(key);
+        } catch (Exception e) {
+            log.error("del key:{} error",key,e);
+            RedisShardedPool.returnBrokenResource(jedis);
+            return result;
+        }
+        RedisShardedPool.returnResource(jedis);
+        return result;
+    }
+
+    public static Long setnx(String key,String value){
+        ShardedJedis jedis = null;
+        Long result = null;
+
+        try {
+            jedis = RedisShardedPool.getJedis();
+            result = jedis.setnx(key,value);
+        } catch (Exception e) {
+            log.error("setnx key:{} value:{} error",key,value,e);
+            RedisShardedPool.returnBrokenResource(jedis);
+            return result;
+        }
+        RedisShardedPool.returnResource(jedis);
+        return result;
+    }
+
+
+    public static void main(String[] args) {
+        ShardedJedis jedis = RedisShardedPool.getJedis();
+
+        RedisPoolUtil.set("keyTest","value");
+
+        String value = RedisPoolUtil.get("keyTest");
+
+        RedisPoolUtil.setEx("keyex","valueex",60*10);
+
+        RedisPoolUtil.expire("keyTest",60*20);
+
+        RedisPoolUtil.del("keyTest");
+
+
+        String aaa = RedisPoolUtil.get(null);
+        System.out.println(aaa);
+
+        System.out.println("end");
+
+
+    }
+
+}
+
+```
+
+
+
+> ## Spring Session单点登录 ##
 
 > ### 参考 ###
 
@@ -1758,12 +2285,6 @@ public class JsonUtil {
   <groupId>org.springframework.session</groupId>
   <artifactId>spring-session-data-redis</artifactId>
   <version>1.2.0.RELEASE</version>
-</dependency>
-
-<dependency>
-  <groupId>org.redisson</groupId>
-  <artifactId>redisson</artifactId>
-  <version>2.9.0</version>
 </dependency>
 
 ```
@@ -1950,7 +2471,7 @@ public class ExceptionResolver implements HandlerExceptionResolver{
 
 ```
 
-> ## SpringMVC拦截器实现管理员权限统一校验 ##
+> ## SpringMVC拦截器 ##
 
 > ### springmvc配置拦截器 ###
 
@@ -2172,61 +2693,516 @@ if(user == null || (user.getRole().intValue() != Const.Role.ROLE_ADMIN)){
 }
 ```
 
+> ## SpringMVC RESTful改造 ##
+
+> ### 编辑`web.xml` ###
+
+修改前
+
+```xml
+<servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>*.do</url-pattern>
+</servlet-mapping>
 
 ```
-Tomcat集群
-Nginx负载均衡策略解析
-Nginx负载均衡配置及实战
-Tomcat+Nginx集群环境搭建
-Redis+Cookie+Jackson+Filter原生解决集群Session共享问题
-Spring Session零侵入解决集群环境Session共享实战
 
-Redis基础强化
-Redis环境搭建
-Redis常用命令实战
-Redis数据结构解析
-Jedis源码解析
-Jedis API的封装
+修改后
 
-Redis分布式
-Redis分布式环境搭建
-Consistent hashing分布式算法原理讲解
-Redis分布式Sharded分片连接源码解析
-ShardedJdeisPool连接池编写实战
-Redis分布式锁实战
+```xml
+<servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+</servlet>
 
-单点登录
-Redis构建Session服务器
-Redis+Cookie+Jackson+Filter实现单点登录
-SessionExpireFilter构建Session时间重置过滤器
-Spring Session源码解析
-Spring Session实现单点登录
-
-定时关单
-Spring Schedule Cron表达式
-Spring Schedule实现定时关单
-Sprig Schedule+Redis分布式锁实战
-分布式任务调度
-
-
-实用工具封装
-Jedis及ShardedJedis客户端连接封装及使用
-Cookie封装及使用
-Jackson源码解析
-Jackson实现JSON多泛型序列化及反序列化
-
-项目代码重构
-Guava Cache迁移Redis分布式缓存
-SpringMVC拦截器实现管理员权限统一校验
-SpringMVC全局异常控制
-SpringMVC RESTful实现商品搜索及浏览
-
-开发集群实战
-Lombok原理及使用
-Java Decompiler
-Redis Desktop Manager
-Multi-Process Debug
-iTerm联动操作多窗口命令行
+<servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
 
 ```
+
+> ### controller使用RESTful风格 ###
+
+> #### 根据id查询产品 ####
+
+修改前
+
+```java
+@RequestMapping("detail.do")
+@ResponseBody
+public ServerResponse<ProductDetailVo> detail(Integer productId){
+    return iProductService.getProductDetail(productId);
+}
+
+```
+修改后
+
+```java
+@RequestMapping(value = "/{productId}", method = RequestMethod.GET)
+@ResponseBody
+public ServerResponse<ProductDetailVo> detailRESTful(@PathVariable Integer productId){
+    return iProductService.getProductDetail(productId);
+}
+
+```
+
+> #### 搜索产品 ####
+
+> ##### `keyword、categoryId`不为空 #####
+
+修改前
+
+```java
+@RequestMapping("list.do")
+@ResponseBody
+public ServerResponse<PageInfo> list(@RequestParam(value = "keyword",required = false)String keyword,
+                                     @RequestParam(value = "categoryId",required = false)Integer categoryId,
+                                     @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
+                                     @RequestParam(value = "pageSize",defaultValue = "10") int pageSize,
+                                     @RequestParam(value = "orderBy",defaultValue = "") String orderBy){
+    return iProductService.getProductByKeywordCategory(keyword,categoryId,pageNum,pageSize,orderBy);
+}
+
+```
+
+修改后
+
+```java
+//http://www.happymmall.com/product/手机/100012/1/10/price_asc
+@RequestMapping(value = "/{keyword}/{categoryId}/{pageNum}/{pageSize}/{orderBy}",method = RequestMethod.GET)
+@ResponseBody
+public ServerResponse<PageInfo> listRESTful(@PathVariable(value = "keyword")String keyword,
+                                     @PathVariable(value = "categoryId")Integer categoryId,
+                                     @PathVariable(value = "pageNum") Integer pageNum,
+                                     @PathVariable(value = "pageSize") Integer pageSize,
+                                     @PathVariable(value = "orderBy") String orderBy){
+    if(pageNum == null){
+        pageNum = 1;
+    }
+    if(pageSize == null){
+        pageSize = 10;
+    }
+    if(StringUtils.isBlank(orderBy)){
+        orderBy = "price_asc";
+    }
+
+    return iProductService.getProductByKeywordCategory(keyword,categoryId,pageNum,pageSize,orderBy);
+}
+
+```
+
+> ##### `keyword、categoryId`有一个为空 #####
+
+> ###### 修改后版本一 ######
+
+`keyword`为空
+
+```java
+//    http://www.happymmall.com/product/100012/1/10/price_asc
+@RequestMapping(value = "/{categoryId}/{pageNum}/{pageSize}/{orderBy}",method = RequestMethod.GET)
+@ResponseBody
+public ServerResponse<PageInfo> listRESTfulBadcase(@PathVariable(value = "categoryId")Integer categoryId,
+                                            @PathVariable(value = "pageNum") Integer pageNum,
+                                            @PathVariable(value = "pageSize") Integer pageSize,
+                                            @PathVariable(value = "orderBy") String orderBy){
+    if(pageNum == null){
+        pageNum = 1;
+    }
+    if(pageSize == null){
+        pageSize = 10;
+    }
+    if(StringUtils.isBlank(orderBy)){
+        orderBy = "price_asc";
+    }
+
+    return iProductService.getProductByKeywordCategory("",categoryId,pageNum,pageSize,orderBy);
+}
+```
+
+`categoryId`为空
+
+```java
+@RequestMapping(value = "/{keyword}/{pageNum}/{pageSize}/{orderBy}",method = RequestMethod.GET)
+@ResponseBody
+public ServerResponse<PageInfo> listRESTfulBadcase(@PathVariable(value = "keyword")String keyword,
+                                            @PathVariable(value = "pageNum") Integer pageNum,
+                                            @PathVariable(value = "pageSize") Integer pageSize,
+                                            @PathVariable(value = "orderBy") String orderBy){
+    if(pageNum == null){
+        pageNum = 1;
+    }
+    if(pageSize == null){
+        pageSize = 10;
+    }
+    if(StringUtils.isBlank(orderBy)){
+        orderBy = "price_asc";
+    }
+
+    return iProductService.getProductByKeywordCategory(keyword,null,pageNum,pageSize,orderBy);
+}
+
+```
+
+浏览器请求http://localhost:8088/mmall_war_exploded/product/100012/1/10/price_asc
+
+![](controller使用RESTful风格.png)
+
+发生了歧义，不知道要走哪一个方法，所以报错了
+
+
+> ###### 修改后版本二 ######
+
+`categoryId`为空
+
+```java
+//http://www.happymmall.com/product/keyword/手机/1/10/price_asc
+@RequestMapping(value = "/keyword/{keyword}/{pageNum}/{pageSize}/{orderBy}",method = RequestMethod.GET)
+@ResponseBody
+public ServerResponse<PageInfo> listRESTful(@PathVariable(value = "keyword")String keyword,
+                                                   @PathVariable(value = "pageNum") Integer pageNum,
+                                                   @PathVariable(value = "pageSize") Integer pageSize,
+                                                   @PathVariable(value = "orderBy") String orderBy){
+    if(pageNum == null){
+        pageNum = 1;
+    }
+    if(pageSize == null){
+        pageSize = 10;
+    }
+    if(StringUtils.isBlank(orderBy)){
+        orderBy = "price_asc";
+    }
+
+    return iProductService.getProductByKeywordCategory(keyword,null,pageNum,pageSize,orderBy);
+}
+
+```
+
+`keyword`为空
+
+```java
+//http://www.happymmall.com/product/category/100012/1/10/price_asc
+@RequestMapping(value = "/category/{categoryId}/{pageNum}/{pageSize}/{orderBy}",method = RequestMethod.GET)
+@ResponseBody
+public ServerResponse<PageInfo> listRESTful(@PathVariable(value = "categoryId")Integer categoryId,
+                                                   @PathVariable(value = "pageNum") Integer pageNum,
+                                                   @PathVariable(value = "pageSize") Integer pageSize,
+                                                   @PathVariable(value = "orderBy") String orderBy){
+    if(pageNum == null){
+        pageNum = 1;
+    }
+    if(pageSize == null){
+        pageSize = 10;
+    }
+    if(StringUtils.isBlank(orderBy)){
+        orderBy = "price_asc";
+    }
+
+    return iProductService.getProductByKeywordCategory("",categoryId,pageNum,pageSize,orderBy);
+}
+```
+
+浏览器访问`http://localhost:8088/mmall_war_exploded/product/keyword/手机/1/10/price_asc`和`http://localhost:8088/mmall_war_exploded/product/category/100002/1/10/price_asc`
+
+这样子就可以避免歧义
+
+> ## Spring Schedul定时任务 ##
+
+> ### Cron生成器 ###
+
+[在线Cron表达式生成器](http://cron.qqe2.com/)
+
+> ### 定时任务配置 ###
+
+注解方式配置定时任务
+
+> #### 编辑spring配置文件 ####
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+xmlns:task="http://www.springframework.org/schema/task"
+xsi:schemaLocation="http://www.springframework.org/schema/task
+     http://www.springframework.org/schema/task/spring-task.xsd"
+
+<task:annotation-driven/>
+</beans>
+
+```
+
+> #### 创建定时任务类 ####
+
+```java
+package com.mmall.task;
+
+import com.mmall.service.IOrderService;
+import com.mmall.util.PropertiesUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+/**
+ * Created by geely
+ */
+@Component
+@Slf4j
+public class CloseOrderTask {
+
+    @Autowired
+    private IOrderService iOrderService;
+
+    //每隔5秒执行一次
+    @Scheduled(cron="*/5 * * * * ?")
+    public void closeOrderTaskV1(){
+        log.info("关闭订单定时任务启动");
+        int hour = Integer.parseInt(PropertiesUtil.getProperty("close.order.task.time.hour","2"));
+//        iOrderService.closeOrder(hour);
+        log.info("关闭订单定时任务结束");
+    }
+}
+
+```
+
+> ## MySQL行锁、表锁 ##
+
+> ### 行锁 ###
+
+> #### 明确的主键 ####
+
+> ##### 明确指定主键`id`，并且有结果集,产生行锁 #####
+
+```sql
+SELECT
+	*
+FROM
+	mmall_product
+WHERE
+	id = '26' FOR UPDATE;
+
+```
+
+> ##### 明确指定主键`id`，并且无结果集,无锁 #####
+
+```sql
+SELECT
+	*
+FROM
+	mmall_product
+WHERE
+	id = '66' FOR UPDATE;
+
+```
+
+> ### 表锁 ###
+
+> #### 无明确的主键 ####
+
+> ##### 无主键,产生表锁 #####
+
+```sql
+SELECT
+	*
+FROM
+	mmall_product
+WHERE
+	NAME = 'Apple iPhone 7 Plus (A1661) 128G 玫瑰金色 移动联通电信4G手机' FOR UPDATE;
+```
+
+> ##### 主键不明确产生表锁 #####
+
+```sql
+SELECT
+	*
+FROM
+	mmall_product
+WHERE
+	id <> '66' FOR UPDATE;
+
+```
+
+```sql
+SELECT
+	*
+FROM
+	mmall_product
+WHERE
+	id LIKE '66' FOR UPDATE;
+
+```
+
+> ### 使用 ###
+
+关单:查询订单的时候，订单包含了子订单，根据子订单号查询产品
+
+```xml
+<select id="selectStockByProductId" resultType="int" parameterType="java.lang.Integer">
+select
+stock
+from mmall_product
+where id = #{id}
+for update
+</select>
+
+```
+
+> ### xml转义 ###
+
+用`<![CDATA[]]>`包裹住有转义的字符即可
+
+```xml
+<select id="selectOrderStatusByCreateTime" resultMap="BaseResultMap" parameterType="map">
+SELECT
+<include refid="Base_Column_List"/>
+from mmall_order
+where status = #{status}
+<![CDATA[
+and create_time <= #{date}
+]]>
+order by create_time desc
+</select>
+
+```
+
+> ## 原生分布式锁 ##
+
+Spring Schedule+Redis分布式锁构建分布式任务调度
+
+> ### 简单版 ###
+
+获取到锁，锁住时间5秒，如果此期间发生中断，会导致死锁
+
+```java
+//    @Scheduled(cron="0 */1 * * * ?")
+    public void closeOrderTaskV2(){
+        log.info("关闭订单定时任务启动");
+        long lockTimeout = Long.parseLong(PropertiesUtil.getProperty("lock.timeout","5000"));
+
+        Long setnxResult = RedisShardedPoolUtil.setnx(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,String.valueOf(System.currentTimeMillis()+lockTimeout));
+        if(setnxResult != null && setnxResult.intValue() == 1){
+            //如果返回值是1，代表设置成功，获取锁
+            closeOrder(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+        }else{
+            log.info("没有获得分布式锁:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+        }
+        log.info("关闭订单定时任务结束");
+    }
+
+    private void closeOrder(String lockName){
+        //有效期50秒，防止死锁
+        RedisShardedPoolUtil.expire(lockName,5);
+        log.info("获取{},ThreadName:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,Thread.currentThread().getName());
+        int hour = Integer.parseInt(PropertiesUtil.getProperty("close.order.task.time.hour","2"));
+        iOrderService.closeOrder(hour);
+        RedisShardedPoolUtil.del(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+        log.info("释放{},ThreadName:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,Thread.currentThread().getName());
+        log.info("===============================");
+    }
+
+
+```
+
+> ### 安全版 ###
+
+双重防死锁
+
+未获取到锁，继续判断，判断时间戳，看是否可以重置并获取到锁
+
+```java
+    @Scheduled(cron="0 */1 * * * ?")
+    public void closeOrderTaskV3(){
+        log.info("关闭订单定时任务启动");
+        long lockTimeout = Long.parseLong(PropertiesUtil.getProperty("lock.timeout","5000"));
+        Long setnxResult = RedisShardedPoolUtil.setnx(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,String.valueOf(System.currentTimeMillis()+lockTimeout));
+        if(setnxResult != null && setnxResult.intValue() == 1){
+            closeOrder(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+        }else{
+            //未获取到锁，继续判断，判断时间戳，看是否可以重置并获取到锁
+            String lockValueStr = RedisShardedPoolUtil.get(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+            if(lockValueStr != null && System.currentTimeMillis() > Long.parseLong(lockValueStr)){
+                String getSetResult = RedisShardedPoolUtil.getSet(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,String.valueOf(System.currentTimeMillis()+lockTimeout));
+                //再次用当前时间戳getset。
+                //返回给定的key的旧值，->旧值判断，是否可以获取锁
+                //当key没有旧值时，即key不存在时，返回nil ->获取锁
+                //这里我们set了一个新的value值，获取旧的值。
+                if(getSetResult == null || (getSetResult != null && StringUtils.equals(lockValueStr,getSetResult))){
+                    //真正获取到锁
+                    closeOrder(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+                }else{
+                    log.info("没有获取到分布式锁:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+                }
+            }else{
+                log.info("没有获取到分布式锁:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+            }
+        }
+        log.info("关闭订单定时任务结束");
+    }
+
+    private void closeOrder(String lockName){
+        //有效期50秒，防止死锁
+        RedisShardedPoolUtil.expire(lockName,5);
+        log.info("获取{},ThreadName:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,Thread.currentThread().getName());
+        int hour = Integer.parseInt(PropertiesUtil.getProperty("close.order.task.time.hour","2"));
+        iOrderService.closeOrder(hour);
+        RedisShardedPoolUtil.del(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+        log.info("释放{},ThreadName:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,Thread.currentThread().getName());
+        log.info("===============================");
+    }
+
+
+```
+
+> ## Redisson分布式锁 ##
+
+> ### 编辑pom.xml ###
+
+```xml
+<dependency>
+  <groupId>org.redisson</groupId>
+  <artifactId>redisson</artifactId>
+  <version>2.9.0</version>
+</dependency>
+<dependency>
+  <groupId>com.fasterxml.jackson.dataformat</groupId>
+  <artifactId>jackson-dataformat-avro</artifactId>
+  <version>2.9.0</version>
+</dependency>
+
+```
+
+> ### 使用Redisson分布式锁 ###
+
+```java
+//    @Scheduled(cron="0 */1 * * * ?")
+    public void closeOrderTaskV4(){
+        RLock lock = redissonManager.getRedisson().getLock(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
+        boolean getLock = false;
+        try {
+            if(getLock = lock.tryLock(0,50, TimeUnit.SECONDS)){
+                log.info("Redisson获取到分布式锁:{},ThreadName:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,Thread.currentThread().getName());
+                int hour = Integer.parseInt(PropertiesUtil.getProperty("close.order.task.time.hour","2"));
+//                iOrderService.closeOrder(hour);
+            }else{
+                log.info("Redisson没有获取到分布式锁:{},ThreadName:{}",Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK,Thread.currentThread().getName());
+            }
+        } catch (InterruptedException e) {
+            log.error("Redisson分布式锁获取异常",e);
+        } finally {
+            if(!getLock){
+                return;
+            }
+            lock.unlock();
+            log.info("Redisson分布式锁释放锁");
+        }
+    }
+
+```
+
 
