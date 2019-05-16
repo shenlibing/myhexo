@@ -7,20 +7,19 @@ tags:
   - github
 ---
 
-
-> # 安装Node.js #
+# 安装Node.js #
 
 [https://nodejs.org/en/](https://nodejs.org/en/)
 
 
 
-> # 安装Git #
+# 安装Git #
 
 [https://git-scm.com/](https://git-scm.com/)
 
 
 
-> # 安装Hexo #
+# 安装Hexo #
 
 ```
 	//全局安装
@@ -67,8 +66,7 @@ tags:
 
 ```
 
-
-> # Hexo博客初始化 #
+# Hexo博客初始化 #
 
 ```
 	$ cd D:\mytest\myhexo
@@ -85,10 +83,9 @@ tags:
 
 ```
 
-> # Hexo博客部署到GitHub #
+# Hexo博客部署到GitHub #
 
-
-> ## 本地客户端与GitHub建立授权连接生成公私钥 ##
+## 本地客户端与GitHub建立授权连接生成公私钥 ##
 
 ```
     ssh-keygen -t rsa -C "782125244@qq.com"
@@ -106,12 +103,11 @@ tags:
 
 ![](上传公钥到GitHub.png)
 
-
-> ## GitHub创建仓库作为hexo博客的站点 ##
-
+## GitHub创建仓库作为hexo博客的站点 ##
 
 
-> ## hexo配置GitHub连接 ##
+
+## hexo配置GitHub连接 ##
 
 安装 hexo-deployer-git
 
@@ -142,12 +138,11 @@ tags:
 
 ```
 
-> ## 配置GitHub Pages ##
+## 配置GitHub Pages ##
 
 ![](配置GitHub page.png)
 
-
-> # 备份博客源文件 #
+# 备份博客源文件 #
 
 hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_posts文件夹下的博客源文件
 
@@ -212,11 +207,9 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 ```
 
+# 拓展 #
 
-> # 拓展 #
-
-
-> ## 更换hexo主题 ##
+## 更换hexo主题 ##
 
 下载
 
@@ -237,8 +230,7 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 ```
 
-
-> ## 修改站点语言 ##
+## 修改站点语言 ##
 
 编辑`D:\mytest\myhexo\_config.yml`文件
 
@@ -254,8 +246,7 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 ```
 
-
-> ## 开启搜索、字数统计和阅读时长统计 ##
+## 开启搜索、字数统计和阅读时长统计 ##
 
 安装依赖hexo-symbols-count-time、hexo-generator-searchdb，安装依赖不成功时先删除D:\mytest\myhexo\node_modules文件夹，重新安装依赖
 
@@ -309,8 +300,7 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 ```
 
-
-> ## 添加分类和标签 ##
+## 添加分类和标签 ##
 
 ```
 	$ hexo new page categories
@@ -376,8 +366,7 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 ```
 
-
-> ## 更换页面菜单布局位置 ##
+## 更换页面菜单布局位置 ##
 
 ```
 	# Schemes
@@ -388,8 +377,7 @@ hexo部署到GitHub只上传.deploy_git文件夹的内容，并不会上传_post
 
 ```
 
-
-> ## 配置文章浏览量 ##
+## 配置文章浏览量 ##
 
 注册
 
@@ -433,8 +421,7 @@ app_key;security设置为false
 
 ```
 
-
-> ## 插入本地图片 ##
+## 插入本地图片 ##
 
 安装依赖
 
@@ -452,8 +439,7 @@ app_key;security设置为false
 
 命令hexo new post test来生成博文时，/source/_post文件夹中除了test.md外，还有一个同名test文件夹
 
-
-> ## 设置动态背景 ##
+## 设置动态背景 ##
 
 进入D:\mytest\myhexo\themes\hexo-theme-next-master\layout\文件夹，编辑_layout.swig文件，在`</body>`之前添加
 
@@ -462,7 +448,7 @@ app_key;security设置为false
 
 ```
 
-> ## 添加Fork me on GitHub ##
+## 添加Fork me on GitHub ##
 
 进入D:\mytest\myhexo\themes\hexo-theme-next-master\layout\文件夹，编辑_layout.swig文件，在
 `<div class="headband"></div>`下面添加选择的[图标样式代码](http://tholman.com/github-corners/)
@@ -472,7 +458,7 @@ app_key;security设置为false
 
 ```
 
-> ## 添加友情链接 ##
+## 添加友情链接 ##
 
 方式一
 进入`D:\mytest\myhexo\themes\hexo-theme-next-master\layout\_partials`文件夹，在`footer.swig`文件末尾追加
@@ -505,8 +491,7 @@ app_key;security设置为false
 
 ```
 
-
-> ## 设置阅读全文 ##
+## 设置阅读全文 ##
 
 进入`D:\mytest\myhexo\themes\hexo-theme-next-master`文件夹，编辑`_config.yml`文件
 
