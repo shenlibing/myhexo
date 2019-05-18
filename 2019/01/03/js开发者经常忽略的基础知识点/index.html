@@ -486,7 +486,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">1.8k</span>
               
 
               
@@ -523,21 +523,29 @@
         <p>1、字符串匹配</p>
 <p>匹配所有</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Mistake</span></span><br><span class="line"><span class="comment">// 踩到坑了</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"David is an Arsenal fan, which means David is great"</span>;</span><br><span class="line">str.replace(<span class="string">"David"</span>, <span class="string">"Darren"</span>);</span><br><span class="line"><span class="comment">// "Darren is an Arsenal fan, which means David is great"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Desired</span></span><br><span class="line"><span class="comment">// 符合预期</span></span><br><span class="line">str.replace(<span class="regexp">/David/g</span>, <span class="string">"Darren"</span>);</span><br><span class="line"><span class="comment">// "Darren is an Arsenal fan, which means Darren is great"</span></span><br></pre></td></tr></table></figure>
+
 <p>忽略大小写</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">str.replace(<span class="regexp">/david/gi</span>, <span class="string">"Darren"</span>);</span><br><span class="line"><span class="comment">// "Darren will always be an Arsenal fan, which means Darren will always be great"</span></span><br></pre></td></tr></table></figure>
+
 <p>2、将“类数组”元素（比如 arguments 参数列表、节点列表和属性列表）转换成真正的数组</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> nodesArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">"div"</span>));</span><br><span class="line"><span class="comment">// "true" array of DIVs</span></span><br><span class="line"><span class="comment">// 得到一个由 div 元素组成的“真正的”数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> argsArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line"><span class="comment">// changes arguments to "true" array</span></span><br><span class="line"><span class="comment">// 把 arguments 转换成一个“真正的”数组</span></span><br></pre></td></tr></table></figure>
+
 <p>克隆数组</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> clone = myArray.slice(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// naive clone</span></span><br><span class="line"><span class="comment">// 浅克隆</span></span><br></pre></td></tr></table></figure>
+
 <p>3、数组的sort方法</p>
 <p>简单排序</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">2</span>].sort();</span><br><span class="line"><span class="comment">// Returns: [1, 2, 3, 9]</span></span><br><span class="line"><span class="comment">// 返回 [1, 2, 3, 9]</span></span><br></pre></td></tr></table></figure>
+
 <p>复杂排序</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"Robin Van PurseStrings"</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"Theo Walcott"</span>, <span class="attr">age</span>: <span class="number">24</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">"Bacary Sagna"</span>, <span class="attr">age</span>: <span class="number">28</span>  &#125;</span><br><span class="line">].sort(<span class="function"><span class="keyword">function</span>(<span class="params">obj1, obj2</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Ascending: first age less than the previous</span></span><br><span class="line">    <span class="comment">// 实现增序排列：前者的 age 小于后者</span></span><br><span class="line">    <span class="keyword">return</span> obj1.age - obj2.age;</span><br><span class="line">&#125;);</span><br><span class="line">    <span class="comment">// Returns:  </span></span><br><span class="line">    <span class="comment">// [</span></span><br><span class="line">    <span class="comment">//    &#123; name: "Theo Walcott", age: 24 &#125;,</span></span><br><span class="line">    <span class="comment">//    &#123; name: "Bacary Sagna", age: 28  &#125;,</span></span><br><span class="line">    <span class="comment">//    &#123; name: "Robin Van PurseStrings", age: 30 &#125;</span></span><br><span class="line">    <span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+
 <p>4、push合并数组</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> mergeTo = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">var</span> mergeFrom = [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(mergeTo, mergeFrom);</span><br><span class="line"></span><br><span class="line">mergeTo; <span class="comment">// is: [4, 5, 6, 7, 8, 9]</span></span><br></pre></td></tr></table></figure>
+
 <p>5、join拼接字符串</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = [</span><br><span class="line">    <span class="string">'&lt;div&gt;'</span>,</span><br><span class="line">    <span class="string">'&lt;button id="lucky-draw"&gt;Lucky Draw&lt;/button&gt;'</span>,</span><br><span class="line">    <span class="string">'&lt;/div&gt;'</span></span><br><span class="line">].join(<span class="string">''</span>)</span><br><span class="line">log(str)</span><br></pre></td></tr></table></figure>
+
 <p>参考</p>
 <p><a href="https://github.com/cssmagic/blog/issues/21" target="_blank" rel="noopener">https://github.com/cssmagic/blog/issues/21</a></p>
 
@@ -847,7 +855,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">17:06</span>
+    <span title="站点阅读时长">17:07</span>
   
 </div>
 

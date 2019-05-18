@@ -534,31 +534,25 @@
 <p><a href="https://babeljs.io/setup#installation" target="_blank" rel="noopener">https://babeljs.io/setup#installation</a></p>
 <p>1)生成package.json文件(描述项目所需要的各种模块，以及项目的配置信息—比如名称、版本、许可证等元数据)</p>
 <p>npm init</p>
-<pre><code>D:\mytest\babel&gt;npm  init
-</code></pre><p>2)安装项目依赖</p>
+<pre><code>D:\mytest\babel&gt;npm  init</code></pre><p>2)安装项目依赖</p>
 <p>install Babel CLI locally</p>
-<pre><code>D:\mytest\babel&gt;npm install --save-dev @babel/core @babel/cli
-</code></pre><p>3）添加编译运行脚本命令</p>
+<pre><code>D:\mytest\babel&gt;npm install --save-dev @babel/core @babel/cli</code></pre><p>3）添加编译运行脚本命令</p>
 <pre><code>&quot;scripts&quot;: {
 &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
 &quot;build&quot;: &quot;babel src -d src_build&quot;
-  },
-</code></pre><p>结果</p>
+  },</code></pre><p>结果</p>
 <p><img src="https://i.imgur.com/IRIhf5S.png" alt=""></p>
 <p>4）运行脚本命令</p>
-<pre><code>D:\mytest\babel&gt;npm run build
-</code></pre><p>此时并没有成功的将es6的语法转成es5</p>
+<pre><code>D:\mytest\babel&gt;npm run build</code></pre><p>此时并没有成功的将es6的语法转成es5</p>
 <p><img src="https://i.imgur.com/fio2XsV.png" alt=""></p>
 <p>5）添加.babelrc文件</p>
 <p>Great! You’ve configured Babel but you haven’t made it actually do anything. Create a .babelrc config in your project root and enable some plugins.</p>
 <p>To start, you can use the env preset, which enables transforms for ES2015+</p>
-<pre><code>D:\mytest\babel&gt;npm install @babel/preset-env --save-dev
-</code></pre><p>结果</p>
+<pre><code>D:\mytest\babel&gt;npm install @babel/preset-env --save-dev</code></pre><p>结果</p>
 <p><img src="https://i.imgur.com/S1zb6x4.png" alt=""></p>
 <p><img src="https://i.imgur.com/t0f2DeM.png" alt=""></p>
 <p>6）重新运行脚本命令</p>
-<pre><code>D:\mytest\babel&gt;npm run build
-</code></pre><p><img src="https://i.imgur.com/BKUMyyi.png" alt=""></p>
+<pre><code>D:\mytest\babel&gt;npm run build</code></pre><p><img src="https://i.imgur.com/BKUMyyi.png" alt=""></p>
 <p>7)使用编译后的js</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
@@ -574,8 +568,7 @@
   &lt;/script&gt;
 &lt;/body&gt;
 
-&lt;/html&gt;
-</code></pre><p>babel官网参考手册</p>
+&lt;/html&gt;</code></pre><p>babel官网参考手册</p>
 <p><a href="https://babeljs.io/docs/en/usage" target="_blank" rel="noopener">https://babeljs.io/docs/en/usage</a></p>
 
       
@@ -882,7 +875,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">17:06</span>
+    <span title="站点阅读时长">17:07</span>
   
 </div>
 

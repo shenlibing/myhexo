@@ -474,7 +474,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">726</span>
+                <span title="本文字数">727</span>
               
 
               
@@ -512,6 +512,7 @@
 <p>尚筹网第16天_讨论权限与安全</p>
 <p>子查询和连接查询2种，比较推荐连接查询，子查询比较影响性能，子查询看起来比较容易理解，而连接查询需要比较熟悉各个表之间的关系</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> p.* <span class="keyword">FROM</span> t_permission p</span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role_permission trp <span class="keyword">ON</span> trp.<span class="string">`permissionid`</span>=p.<span class="string">`id`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role tr <span class="keyword">ON</span> tr.<span class="string">`id`</span>=trp.<span class="string">`roleid`</span></span><br><span class="line">    <span class="keyword">WHERE</span> tr.id <span class="keyword">IN</span>(</span><br><span class="line">        <span class="keyword">SELECT</span> t_r.id <span class="keyword">FROM</span> t_role t_r</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_user_role t_u_r</span><br><span class="line">            <span class="keyword">ON</span> t_u_r.<span class="string">`roleid`</span>=t_r.<span class="string">`id`</span></span><br><span class="line">        <span class="keyword">WHERE</span> t_u_r.<span class="string">`userid`</span>=<span class="number">31</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">子查询不太推荐，比较影响性能</span><br><span class="line">推荐连接查询</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> p.* <span class="keyword">FROM</span> t_permission p</span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role_permission trp <span class="keyword">ON</span> trp.<span class="string">`permissionid`</span>=p.<span class="string">`id`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_role tr <span class="keyword">ON</span> tr.<span class="string">`id`</span>=trp.<span class="string">`roleid`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_user_role tur <span class="keyword">ON</span> tur.<span class="string">`roleid`</span>=tr.<span class="string">`id`</span></span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_user tu <span class="keyword">ON</span> tu.<span class="string">`id`</span>=tur.<span class="string">`userid`</span></span><br><span class="line">    <span class="keyword">WHERE</span> tu.<span class="string">`id`</span>=<span class="number">31</span>;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -819,7 +820,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">17:06</span>
+    <span title="站点阅读时长">17:07</span>
   
 </div>
 
