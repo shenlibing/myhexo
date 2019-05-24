@@ -101,83 +101,83 @@
 <meta property="og:site_name" content="小兵兵">
 <meta property="og:description" content="学习目标  会调用订单系统接口 实现订单结算功能 实现微信支付功能   订单系统接口 我们不做开发，只讲解  导入订单服务 把课前资料提供的leyou-order复制到D:\heima\code\leyou目录。 然后在工程内导入：   然后导入module：   选择导入module：   选择目录中的 ly-order：   打开父工程leyou的pom文件，添加ly-order模块：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527849592739.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527849713858.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527849755740.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527988253596.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527988384844.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528724925709.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534050474425.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534050501639.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534050571547.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528726383029.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534050960735.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534056625226.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534056963545.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534057111628.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534057197865.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534057752285.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528729105237.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534057869509.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534058725566.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534058696076.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059150417.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059488506.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059550338.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059762431.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059802562.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059974834.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534060051812.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528796883071.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534060875467.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534061834503.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534061965270.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534062028046.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534062115599.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527990452791.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534062458952.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534063127883.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534063368728.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534068627040.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528011713709.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534070259673.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528012065388.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534070467947.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534070743780.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528012881735.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534071010391.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534071493245.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534071647717.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534071794146.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534072483208.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534072753146.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534073678931.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534073704731.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534074122199.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534074293296.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534074374101.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528340102503.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528340136603.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528340413139.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527848350188.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527848358128.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527848368179.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/chapter6_5_1.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362159620.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362220886.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534313526721.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362348399.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534313925398.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362377494.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362023061.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362420151.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362464276.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528376883924.png">
-<meta property="og:updated_time" content="2019-05-04T05:49:35.965Z">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527849592739.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527849713858.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527849755740.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527988253596.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527988384844.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528724925709.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534050474425.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534050501639.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534050571547.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528726383029.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534050960735.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534056625226.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534056963545.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534057111628.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534057197865.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534057752285.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528729105237.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534057869509.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534058725566.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534058696076.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534059150417.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534059488506.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534059550338.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534059762431.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534059802562.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534059974834.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534060051812.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528796883071.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534060875467.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534061834503.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534061965270.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534062028046.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534062115599.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527990452791.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534062458952.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534063127883.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534063368728.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534068627040.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528011713709.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534070259673.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528012065388.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534070467947.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534070743780.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528012881735.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534071010391.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534071493245.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534071647717.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534071794146.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534072483208.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534072753146.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534073678931.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534073704731.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534074122199.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534074293296.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534074374101.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528340102503.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528340136603.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528340413139.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527848350188.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527848358128.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527848368179.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/chapter6_5_1.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528362159620.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528362220886.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534313526721.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528362348399.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1534313925398.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528362377494.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528362023061.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528362420151.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528362464276.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1528376883924.png">
+<meta property="og:updated_time" content="2019-05-23T08:34:28.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="day19-下单">
 <meta name="twitter:description" content="学习目标  会调用订单系统接口 实现订单结算功能 实现微信支付功能   订单系统接口 我们不做开发，只讲解  导入订单服务 把课前资料提供的leyou-order复制到D:\heima\code\leyou目录。 然后在工程内导入：   然后导入module：   选择导入module：   选择目录中的 ly-order：   打开父工程leyou的pom文件，添加ly-order模块：">
-<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527849592739.png">
+<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/04/27/day19-下单/1527849592739.png">
 
 
 
@@ -501,7 +501,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-04 13:49:35" itemprop="dateModified" datetime="2019-05-04T13:49:35+08:00">2019-05-04</time>
+                <time title="修改时间：2019-05-23 16:34:28" itemprop="dateModified" datetime="2019-05-23T16:34:28+08:00">2019-05-23</time>
               
             
           </span>
@@ -588,15 +588,15 @@
 <h2 id="导入订单服务"><a href="#导入订单服务" class="headerlink" title="导入订单服务"></a>导入订单服务</h2></blockquote>
 <p>把课前资料提供的<code>leyou-order</code>复制到<code>D:\heima\code\leyou</code>目录。</p>
 <p>然后在工程内导入：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527849592739.png" alt="1527849592739"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1527849592739.png" alt="1527849592739"></p>
 <p>然后导入module：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527849713858.png" alt="1527849713858"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1527849713858.png" alt="1527849713858"></p>
 <p>选择导入module：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527849755740.png" alt="1527849755740"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1527849755740.png" alt="1527849755740"></p>
 <p>选择目录中的 <code>ly-order</code>：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527988253596.png" alt="1527988253596"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1527988253596.png" alt="1527988253596"></p>
 <p>打开父工程leyou的pom文件，添加<code>ly-order</code>模块：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527988384844.png" alt="1527988384844"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1527988384844.png" alt="1527988384844"></p>
 <blockquote>
 <h2 id="Swagger-UI"><a href="#Swagger-UI" class="headerlink" title="Swagger-UI"></a>Swagger-UI</h2></blockquote>
 <p>丝袜哥</p>
@@ -611,7 +611,7 @@
 <p>OpenAPI是一个编写API文档的规范，然而如果手动去编写OpenAPI规范的文档，是非常麻烦的。而Swagger就是一个实现了OpenAPI规范的工具集。</p>
 <p>官网：<a href="https://swagger.io/" target="_blank" rel="noopener">https://swagger.io/</a></p>
 <p>看官方的说明：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528724925709.png" alt="1528724925709"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528724925709.png" alt="1528724925709"></p>
 <p>Swagger包含的工具集：</p>
 <ul>
 <li><strong>Swagger编辑器：</strong> Swagger Editor允许您在浏览器中编辑YAML中的OpenAPI规范并实时预览文档。</li>
@@ -644,11 +644,11 @@
 <blockquote>
 <h4 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h4></blockquote>
 <p>启动服务，然后访问：<a href="http://localhost:8089/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8089/swagger-ui.html</a></p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534050474425.png" alt="1534050474425"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534050474425.png" alt="1534050474425"></p>
 <p>点击order-controller，查看接口信息：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534050501639.png" alt="1534050501639"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534050501639.png" alt="1534050501639"></p>
 <p>点击任意一个接口，即可看到详细信息：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534050571547.png" alt="1534050571547"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534050571547.png" alt="1534050571547"></p>
 <blockquote>
 <h2 id="测试接口"><a href="#测试接口" class="headerlink" title="测试接口"></a>测试接口</h2></blockquote>
 <blockquote>
@@ -661,19 +661,19 @@
 <li>返回结果：订单编号</li>
 </ul>
 <p>点击<code>Try It Out</code>来测试：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528726383029.png" alt="1528726383029"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1528726383029.png" alt="1528726383029"></p>
 <p>输入数据：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"totalPay"</span>: <span class="number">236800</span>,</span><br><span class="line">  <span class="attr">"postFee"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"paymentType"</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">"actualPay"</span>: <span class="number">236800</span>,</span><br><span class="line">  <span class="attr">"buyerMessage"</span>: <span class="literal">null</span>,</span><br><span class="line">  <span class="attr">"buyerNick"</span>: <span class="string">"huge"</span>,</span><br><span class="line">  <span class="attr">"orderDetails"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"skuId"</span>: <span class="number">3893493</span>,</span><br><span class="line">      <span class="attr">"num"</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">"title"</span>: <span class="string">"苹果（Apple）iPhone 6 (A1586) 16GB 金色 移动联通电信4G手机3"</span>,</span><br><span class="line">      <span class="attr">"price"</span>: <span class="number">236800</span>,</span><br><span class="line">      <span class="attr">"ownSpec"</span>: <span class="string">"&#123;\"机身颜色\":\"钻雕蓝\",\"内存\":\"4GB\",\"机身存储\":\"64GB\"&#125;"</span>,</span><br><span class="line">      <span class="attr">"image"</span>: <span class="string">"http://image.leyou.com/images/9/4/1524297342728.jpg"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"receiver"</span>: <span class="string">"锋哥"</span>,</span><br><span class="line">  <span class="attr">"receiverMobile"</span>: <span class="string">"15800000000"</span>,</span><br><span class="line">  <span class="attr">"receiverState"</span>: <span class="string">"上海"</span>,</span><br><span class="line">  <span class="attr">"receiverCity"</span>: <span class="string">"上海"</span>,</span><br><span class="line">  <span class="attr">"receiverDistrict"</span>: <span class="string">"浦东新签"</span>,</span><br><span class="line">  <span class="attr">"receiverAddress"</span>: <span class="string">"航头镇航头路18号传智播客3号楼"</span>,</span><br><span class="line">  <span class="attr">"receiverZip"</span>: <span class="string">"210000"</span>,</span><br><span class="line">  <span class="attr">"invoiceType"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"sourceType"</span>:<span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>然后点击execute：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534050960735.png" alt="1534050960735"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534050960735.png" alt="1534050960735"></p>
 <p>结果：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534056625226.png" alt="1534056625226"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534056625226.png" alt="1534056625226"></p>
 <p>下单需要登录，通过登录生成token：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534056963545.png" alt="1534056963545"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534056963545.png" alt="1534056963545"></p>
 <p>把token的值手动加入到浏览器的cookie中：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534057111628.png" alt="1534057111628"></p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534057197865.png" alt="1534057197865"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534057111628.png" alt="1534057111628"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534057197865.png" alt="1534057197865"></p>
 <p>添加成功，响应订单编号。但是和数据库保存的订单编号不太一样（后几位不一样，浏览器展示长整型会出现精度损失）</p>
 <blockquote>
 <h3 id="生成ID的方式"><a href="#生成ID的方式" class="headerlink" title="生成ID的方式"></a>生成ID的方式</h3></blockquote>
@@ -685,13 +685,13 @@
 <p>雪花算法</p>
 </blockquote>
 <p>这里的订单id是通过一个工具类生成的：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534057752285.png" alt="1534057752285"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1534057752285.png" alt="1534057752285"></p>
 <p>而工具类所采用的生成id算法，是由Twitter公司开源的snowflake（雪花）算法。</p>
 <blockquote>
 <p>简单原理</p>
 </blockquote>
 <p>雪花算法会生成一个64位的二进制数据，为一个Long型。(转换成字符串后长度最多19位) ，其基本结构：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528729105237.png" alt="1528729105237"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528729105237.png" alt="1528729105237"></p>
 <p>第一位：为未使用</p>
 <p>第二部分：41位为毫秒级时间(41位的长度可以使用69年)</p>
 <p>第三部分：5位datacenterId和5位workerId(10位的长度最多支持部署1024个节点）</p>
@@ -712,7 +712,7 @@
 <blockquote>
 <p>使用：</p>
 </blockquote>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534057869509.png" alt="1534057869509"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534057869509.png" alt="1534057869509"></p>
 <blockquote>
 <h3 id="查询订单接口"><a href="#查询订单接口" class="headerlink" title="查询订单接口"></a>查询订单接口</h3></blockquote>
 <p>接口说明：</p>
@@ -723,9 +723,9 @@
 <li>返回结果：Order，订单的json对象</li>
 </ul>
 <p>测试：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534058725566.png" alt="1534058725566"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534058725566.png" alt="1534058725566"></p>
 <p>结果：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534058696076.png" alt="1534058696076"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534058696076.png" alt="1534058696076"></p>
 <blockquote>
 <h3 id="更新订单状态"><a href="#更新订单状态" class="headerlink" title="更新订单状态"></a>更新订单状态</h3></blockquote>
 <p>接口说明：</p>
@@ -740,11 +740,11 @@
 <li>返回结果：null</li>
 </ul>
 <p>测试：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059150417.png" alt="1534059150417"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534059150417.png" alt="1534059150417"></p>
 <p>结果：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059488506.png" alt="1534059488506"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534059488506.png" alt="1534059488506"></p>
 <p>数据库中也发生了改变：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059550338.png" alt="1534059550338"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534059550338.png" alt="1534059550338"></p>
 <blockquote>
 <h3 id="分页查询订单"><a href="#分页查询订单" class="headerlink" title="分页查询订单"></a>分页查询订单</h3></blockquote>
 <p>接口说明：</p>
@@ -767,9 +767,9 @@
 </li>
 </ul>
 <p>测试：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059762431.png" alt="1534059762431"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534059762431.png" alt="1534059762431"></p>
 <p>结果：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059802562.png" alt="1534059802562"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534059802562.png" alt="1534059802562"></p>
 <blockquote>
 <h3 id="生成微信付款链接"><a href="#生成微信付款链接" class="headerlink" title="生成微信付款链接"></a>生成微信付款链接</h3></blockquote>
 <p>接口说明：</p>
@@ -780,9 +780,9 @@
 <li>返回结果：String类型，生成的微信支付链接</li>
 </ul>
 <p>测试：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534059974834.png" alt="1534059974834"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534059974834.png" alt="1534059974834"></p>
 <p>结果：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534060051812.png" alt="1534060051812"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534060051812.png" alt="1534060051812"></p>
 <blockquote>
 <h4 id="微信支付工具"><a href="#微信支付工具" class="headerlink" title="微信支付工具"></a>微信支付工具</h4></blockquote>
 <blockquote>
@@ -791,7 +791,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PayHelper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> WXPay wxPay;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(PayHelper.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> StringRedisTemplate redisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OrderService orderService;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PayHelper</span><span class="params">(PayConfig payConfig)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 真实开发时</span></span><br><span class="line">        wxPay = <span class="keyword">new</span> WXPay(payConfig);</span><br><span class="line">        <span class="comment">// 测试时</span></span><br><span class="line">        <span class="comment">// wxPay = new WXPay(payConfig, WXPayConstants.SignType.MD5, true);</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">createPayUrl</span><span class="params">(Long orderId)</span> </span>&#123;</span><br><span class="line">        String key = <span class="string">"ly.pay.url."</span> + orderId;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String url = <span class="keyword">this</span>.redisTemplate.opsForValue().get(key);</span><br><span class="line">            <span class="keyword">if</span> (StringUtils.isNotBlank(url)) &#123;</span><br><span class="line">                <span class="keyword">return</span> url;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            logger.error(<span class="string">"查询缓存付款链接异常,订单编号：&#123;&#125;"</span>, orderId, e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Map&lt;String, String&gt; data = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">            <span class="comment">// 商品描述</span></span><br><span class="line">            data.put(<span class="string">"body"</span>, <span class="string">"乐优商城测试"</span>);</span><br><span class="line">            <span class="comment">// 订单号</span></span><br><span class="line">            data.put(<span class="string">"out_trade_no"</span>, orderId.toString());</span><br><span class="line">            <span class="comment">//货币</span></span><br><span class="line">            data.put(<span class="string">"fee_type"</span>, <span class="string">"CNY"</span>);</span><br><span class="line">            <span class="comment">//金额，单位是分</span></span><br><span class="line">            data.put(<span class="string">"total_fee"</span>, <span class="string">"1"</span>);</span><br><span class="line">            <span class="comment">//调用微信支付的终端IP（estore商城的IP）</span></span><br><span class="line">            data.put(<span class="string">"spbill_create_ip"</span>, <span class="string">"127.0.0.1"</span>);</span><br><span class="line">            <span class="comment">//回调地址</span></span><br><span class="line">            data.put(<span class="string">"notify_url"</span>, <span class="string">"http://test.leyou.com/wxpay/notify"</span>);</span><br><span class="line">            <span class="comment">// 交易类型为扫码支付</span></span><br><span class="line">            data.put(<span class="string">"trade_type"</span>, <span class="string">"NATIVE"</span>);</span><br><span class="line">            <span class="comment">//商品id,使用假数据</span></span><br><span class="line">            data.put(<span class="string">"product_id"</span>, <span class="string">"1234567"</span>);</span><br><span class="line"></span><br><span class="line">            Map&lt;String, String&gt; result = <span class="keyword">this</span>.wxPay.unifiedOrder(data);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="string">"SUCCESS"</span>.equals(result.get(<span class="string">"return_code"</span>))) &#123;</span><br><span class="line">                String url = result.get(<span class="string">"code_url"</span>);</span><br><span class="line">                <span class="comment">// 将付款地址缓存，时间为10分钟</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="keyword">this</span>.redisTemplate.opsForValue().set(key, url, <span class="number">10</span>, TimeUnit.MINUTES);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    logger.error(<span class="string">"缓存付款链接异常,订单编号：&#123;&#125;"</span>, orderId, e);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> url;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                logger.error(<span class="string">"创建预交易订单失败，错误信息：&#123;&#125;"</span>, result.get(<span class="string">"return_msg"</span>));</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            logger.error(<span class="string">"创建预交易订单异常"</span>, e);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询订单状态</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> orderId</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PayState <span class="title">queryOrder</span><span class="params">(Long orderId)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, String&gt; data = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">// 订单号</span></span><br><span class="line">        data.put(<span class="string">"out_trade_no"</span>, orderId.toString());</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Map&lt;String, String&gt; result = <span class="keyword">this</span>.wxPay.orderQuery(data);</span><br><span class="line">            <span class="keyword">if</span> (result == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">// 未查询到结果，认为是未付款</span></span><br><span class="line">                <span class="keyword">return</span> PayState.NOT_PAY;</span><br><span class="line">            &#125;</span><br><span class="line">            String state = result.get(<span class="string">"trade_state"</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">"SUCCESS"</span>.equals(state)) &#123;</span><br><span class="line">                <span class="comment">// success，则认为付款成功</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">// 修改订单状态</span></span><br><span class="line">                <span class="keyword">this</span>.orderService.updateStatus(orderId, <span class="number">2</span>);</span><br><span class="line">                <span class="keyword">return</span> PayState.SUCCESS;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (StringUtils.equals(<span class="string">"USERPAYING"</span>, state)</span><br><span class="line">                       || StringUtils.equals(<span class="string">"NOTPAY"</span>, state)) &#123;</span><br><span class="line">                <span class="comment">// 未付款或正在付款，都认为是未付款</span></span><br><span class="line">                <span class="keyword">return</span> PayState.NOT_PAY;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 其它状态认为是付款失败</span></span><br><span class="line">                <span class="keyword">return</span> PayState.FAIL;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            logger.error(<span class="string">"查询订单状态异常"</span>, e);</span><br><span class="line">            <span class="keyword">return</span> PayState.NOT_PAY;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>跟支付相关的其它几个类：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528796883071.png" alt="1528796883071"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528796883071.png" alt="1528796883071"></p>
 <blockquote>
 <h3 id="查询支付状态"><a href="#查询支付状态" class="headerlink" title="查询支付状态"></a>查询支付状态</h3></blockquote>
 <p>接口说明：</p>
@@ -804,40 +804,40 @@
 <blockquote>
 <h4 id="未付款"><a href="#未付款" class="headerlink" title="未付款"></a>未付款</h4></blockquote>
 <p>未付款时查询，测试：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534060875467.png" alt="1534060875467"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534060875467.png" alt="1534060875467"></p>
 <p>结果：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534061834503.png" alt="1534061834503"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534061834503.png" alt="1534061834503"></p>
 <p>因为尚未付款，所以查询返回0。</p>
 <blockquote>
 <h4 id="付款"><a href="#付款" class="headerlink" title="付款"></a>付款</h4></blockquote>
 <p>通过JS把链接变成二维码。</p>
 <p>找到课前资料提供的JS页面：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534061965270.png" alt="1534061965270"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534061965270.png" alt="1534061965270"></p>
 <p>进入，并输入刚刚生成的地址：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534062028046.png" alt="1534062028046"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534062028046.png" alt="1534062028046"></p>
 <blockquote>
 <h4 id="已付款"><a href="#已付款" class="headerlink" title="已付款"></a>已付款</h4></blockquote>
 <p>扫码支付，然后再次查询：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534062115599.png" alt="1534062115599"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534062115599.png" alt="1534062115599"></p>
 <p>状态码为1，代表支付成功了！</p>
 <blockquote>
 <h1 id="订单结算页"><a href="#订单结算页" class="headerlink" title="订单结算页"></a>订单结算页</h1></blockquote>
 <blockquote>
 <h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2></blockquote>
 <p>在购物车页面的最下方，有一个去结算按钮：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527990452791.png" alt="1527990452791"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1527990452791.png" alt="1527990452791"></p>
 <p>当点击结算，我们应该跳转到订单结算页，即：<code>getOrderInfo.html</code></p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534062458952.png" alt="1534062458952"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1534062458952.png" alt="1534062458952"></p>
 <p>查看购物车的<code>结算</code>按钮：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534063127883.png" alt="1534063127883"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534063127883.png" alt="1534063127883"></p>
 <p>可以看到，地址是正确的。但是只有登录用户才可以去结算付款，因此我们不能直接跳转，而是在跳转前校验用户的登录状态，如果发现是未登录，应该重定向到登录页！</p>
 <p>我们给这个按钮绑定点击事件：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534063368728.png" alt="1534063368728"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534063368728.png" alt="1534063368728"></p>
 <p>事件中判断登录状态，进行页面跳转：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">toOrderInfo() &#123;</span><br><span class="line">    <span class="comment">// 判断是否登录</span></span><br><span class="line">    ly.verifyUser().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 已登录</span></span><br><span class="line">        <span class="built_in">window</span>.location.href = <span class="string">"/getOrderInfo.html"</span></span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 未登录</span></span><br><span class="line">        <span class="built_in">window</span>.location.href = <span class="string">"/login.html?returnUrl="</span> + <span class="built_in">window</span>.location.href;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>登录后测试：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534068627040.png" alt="1534068627040"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534068627040.png" alt="1534068627040"></p>
 <p>此处页面需要渲染的内容主要包含3部分：</p>
 <ul>
 <li>收货人信息</li>
@@ -846,9 +846,9 @@
 </ul>
 <blockquote>
 <h2 id="收货人信息（作业）"><a href="#收货人信息（作业）" class="headerlink" title="收货人信息（作业）"></a>收货人信息（作业）</h2></blockquote>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528011713709.png" alt="1528011713709"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1528011713709.png" alt="1528011713709"></p>
 <p>这里的收货人信息肯定是当前登录用户的收货地址。所以需要根据当前登录用户去查询，目前我们在页面是写的假数据：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534070259673.png" alt="1534070259673"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534070259673.png" alt="1534070259673"></p>
 <p>大家可以在在后台提供地址的增删改查接口，然后页面加载时根据当前登录用户查询，而后赋值给addresses即可。</p>
 <blockquote>
 <h2 id="支付方式"><a href="#支付方式" class="headerlink" title="支付方式"></a>支付方式</h2></blockquote>
@@ -858,36 +858,36 @@
 <li>货到付款</li>
 </ul>
 <p>与我们订单数据中的<code>paymentType</code>关联：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528012065388.png" alt="1528012065388"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1528012065388.png" alt="1528012065388"></p>
 <p>所以我们可以在Vue实例中定义一个属性来记录支付方式：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534070467947.png" alt="1534070467947"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534070467947.png" alt="1534070467947"></p>
 <p>然后在页面渲染时与这个变量关联：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534070743780.png" alt="1534070743780"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534070743780.png" alt="1534070743780"></p>
 <blockquote>
 <h2 id="商品列表"><a href="#商品列表" class="headerlink" title="商品列表"></a>商品列表</h2></blockquote>
 <p>效果图：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528012881735.png" alt="1528012881735"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1528012881735.png" alt="1528012881735"></p>
 <p>这里的送货清单，其实就是购物车中用户选择的要付款的商品</p>
 <p>因此，我们需要在购物车跳转过来的同时，携带选中的购物车的信息</p>
 <blockquote>
 <h3 id="购物车信息获取"><a href="#购物车信息获取" class="headerlink" title="购物车信息获取"></a>购物车信息获取</h3></blockquote>
 <p>我们修改<code>cart.html</code>中的页面跳转逻辑，把用户选中的购物车信息传递过来：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534071010391.png" alt="1534071010391"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534071010391.png" alt="1534071010391"></p>
 <p>然后在<code>created</code>钩子函数中获取购物车数据，保存到本地属性，要注意的是，我们应该在获取数据前校验用户登录状态，如果发现未登录，则直接重定向到登录页：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534071493245.png" alt="1534071493245"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534071493245.png" alt="1534071493245"></p>
 <p>然后重新加载页面，查看控制台：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534071647717.png" alt="1534071647717"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534071647717.png" alt="1534071647717"></p>
 <blockquote>
 <h3 id="页面渲染"><a href="#页面渲染" class="headerlink" title="页面渲染"></a>页面渲染</h3></blockquote>
 <p>要修改的页面位置：每一个li就是一件商品</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534071794146.png" alt="1534071794146"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534071794146.png" alt="1534071794146"></p>
 <p>我们修改为：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"send-detail"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(cart,index) in carts"</span> <span class="attr">:key</span>=<span class="string">"index"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sendGoods"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"yui3-g"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"yui3-u-1-6"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">width</span>=<span class="string">"70px"</span> <span class="attr">height</span>=<span class="string">"70px"</span> <span class="attr">:src</span>=<span class="string">"cart.image"</span>/&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"yui3-u-7-12"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"desc"</span>&gt;</span>&#123;&#123;cart.title&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"seven"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"(v) in JSON.parse(cart.ownSpec)"</span>&gt;</span>&#123;&#123;v + "  "&#125;&#125; <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"yui3-u-1-12"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"price"</span>&gt;</span>￥&#123;&#123;ly.formatPrice(cart.price * cart.num)&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"yui3-u-1-12"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"num"</span>&gt;</span>&#123;&#123;cart.num&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"yui3-u-1-12"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"exit"</span>&gt;</span>有货<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <h2 id="总金额"><a href="#总金额" class="headerlink" title="总金额"></a>总金额</h2></blockquote>
 <p>另外在商品列表下面，还有一个总金额的计算：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534072483208.png" alt="1534072483208"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534072483208.png" alt="1534072483208"></p>
 <p>可以看出这里主要有4个数据：</p>
 <ul>
 <li>总金额：totalPay</li>
@@ -896,20 +896,20 @@
 <li>实付金额：actualPay</li>
 </ul>
 <p>不过我们没有做优惠活动，另外运费需要结合物流系统来计算，暂时我们都设置为0，在order属性中写死：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534072753146.png" alt="1534072753146"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534072753146.png" alt="1534072753146"></p>
 <p>我们通过计算属性来得到<code>totalPay</code>和<code>actualPay</code>值：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    totalNum()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.carts.reduce(<span class="function">(<span class="params">c1, c2</span>) =&gt;</span> c1 + c2.num, <span class="number">0</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    totalPay()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.carts.reduce(<span class="function">(<span class="params">c1, c2</span>) =&gt;</span> c1 + c2.price * c2.num, <span class="number">0</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    actualPay()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.totalPay + <span class="keyword">this</span>.order.postFee - <span class="keyword">this</span>.order.discount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
 <p>然后在页面渲染：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534073678931.png" alt="1534073678931"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534073678931.png" alt="1534073678931"></p>
 <p>效果：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534073704731.png" alt="1534073704731"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534073704731.png" alt="1534073704731"></p>
 <blockquote>
 <h2 id="提交订单"><a href="#提交订单" class="headerlink" title="提交订单"></a>提交订单</h2></blockquote>
 <blockquote>
 <h3 id="页面提交"><a href="#页面提交" class="headerlink" title="页面提交"></a>页面提交</h3></blockquote>
 <p>来看下订单接口所需要的数据：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534074122199.png" alt="1534074122199"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534074122199.png" alt="1534074122199"></p>
 <p>分为3部分，分别是</p>
 <ul>
 <li><p>订单本身的基本信息</p>
@@ -924,7 +924,7 @@
 <ul>
 <li>就是购物车中的商品，不过购物车数据会多出一个userId，我们去除即可：</li>
 </ul>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534074293296.png" alt="1534074293296"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534074293296.png" alt="1534074293296"></p>
 </li>
 <li><p>物流信息</p>
 <ul>
@@ -933,22 +933,22 @@
 </li>
 </ul>
 <p>给提交按钮绑定事件：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534074374101.png" alt="1534074374101"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534074374101.png" alt="1534074374101"></p>
 <p>然后编写方法，组织数据并提交：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    submit() &#123;</span><br><span class="line">        <span class="comment">// 把购物车数据处理成订单详情</span></span><br><span class="line">        <span class="keyword">const</span> orderDetails = <span class="keyword">this</span>.carts.map(<span class="function">(<span class="params">&#123;userId, ...rest&#125;</span>) =&gt;</span> rest);</span><br><span class="line">        <span class="comment">// 处理物流信息</span></span><br><span class="line">        <span class="keyword">const</span> addr = <span class="keyword">this</span>.addresses[<span class="keyword">this</span>.selectedAddress];</span><br><span class="line">        <span class="keyword">const</span> obj = &#123;</span><br><span class="line">            receiver: addr.name,</span><br><span class="line">            receiverState: addr.state,</span><br><span class="line">            receiverCity: addr.city,</span><br><span class="line">            receiverAddress: addr.address,</span><br><span class="line">            receiverDistrict: addr.district,</span><br><span class="line">            receiverMobile: addr.phone,</span><br><span class="line">            receiverZip: addr.zipCode</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 复制到订单对象</span></span><br><span class="line">        <span class="built_in">Object</span>.assign(<span class="keyword">this</span>.order, obj, &#123;</span><br><span class="line">            orderDetails,</span><br><span class="line">            totalPay: <span class="keyword">this</span>.totalPay,</span><br><span class="line">            actualPay: <span class="keyword">this</span>.actualPay,</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 提交订单</span></span><br><span class="line">        ly.http.post(<span class="string">"/order"</span>, <span class="keyword">this</span>.order).then(<span class="function">(<span class="params">&#123;data&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// 在线支付，需要到付款页</span></span><br><span class="line">            <span class="built_in">window</span>.location = <span class="string">"pay.html?orderId="</span> + data;</span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">resp</span>) =&gt;</span> &#123;</span><br><span class="line">            alert(<span class="string">"订单提交失败，可能是缺货!"</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <h3 id="精度损失问题"><a href="#精度损失问题" class="headerlink" title="精度损失问题"></a>精度损失问题</h3></blockquote>
 <p>在页面点击提交测试：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528340102503.png" alt="1528340102503"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528340102503.png" alt="1528340102503"></p>
 <p>成功生成订单！</p>
 <p>然后看页面跳转：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528340136603.png" alt="1528340136603"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528340136603.png" alt="1528340136603"></p>
 <p>好像有什么不对？订单号的最后2位不正确啊！</p>
 <p>这其实是因为JS的长整数精度有限，java的Long类型数据超出了范围，所以出现了精度损失。</p>
 <p>我们后台返回的是Json的字符串，在axios内部会自动调用 JSON.parse()方法把json字符串转为JS数据，就会出现进度损失。如果不进行转换，依然当做字符串来使用，就不会有问题了。</p>
 <p>因此，我们重写axios对响应的处理回调函数：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528340413139.png" alt="1528340413139"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528340413139.png" alt="1528340413139"></p>
 <p>再次测试，就OK了。</p>
 <p>接下来就轮到支付了。</p>
 <blockquote>
@@ -956,11 +956,11 @@
 <blockquote>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2></blockquote>
 <p>微信支付官方文档：<a href="https://pay.weixin.qq.com/index.php/core/home/login?return_url=%2F" target="_blank" rel="noopener">https://pay.weixin.qq.com/index.php/core/home/login?return_url=%2F</a></p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527848350188.png" alt="1527848350188"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1527848350188.png" alt="1527848350188"></p>
 <p>我们选择开发文档，而后进入选择页面：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527848358128.png" alt="1527848358128"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1527848358128.png" alt="1527848358128"></p>
 <p>选择扫码支付：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1527848368179.png" alt="1527848368179"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1527848368179.png" alt="1527848368179"></p>
 <p>此处我们使用模式二来开发：</p>
 <blockquote>
 <h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2></blockquote>
@@ -969,7 +969,7 @@
 <p>商户后台系统将code_url值生成二维码图片，用户使用微信客户端扫码后发起支付。</p>
 <p>注意：code_url有效期为2小时，过期后扫码不能再发起支付。 </p>
 <p>流程图：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/chapter6_5_1.png" alt="2wa23131"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/chapter6_5_1.png" alt="2wa23131"></p>
 <p>这里我们把商户（我们）要做的事情总结一下：</p>
 <ul>
 <li>1、商户生成订单</li>
@@ -1001,27 +1001,27 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> payVm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el:<span class="string">"#payVm"</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        ly,</span><br><span class="line">        orderId:<span class="number">0</span>,<span class="comment">// 订单编号</span></span><br><span class="line">    &#125;,</span><br><span class="line">    created()&#123;</span><br><span class="line">        <span class="comment">// 判断登录状态</span></span><br><span class="line">        ly.http.get(<span class="string">"/auth/verify"</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// 获取订单编号</span></span><br><span class="line">            <span class="keyword">this</span>.orderId = ly.getUrlParam(<span class="string">"orderId"</span>);</span><br><span class="line">            <span class="comment">// 获取请求链接</span></span><br><span class="line">            ly.http.get(<span class="string">"/order/url/"</span> + <span class="keyword">this</span>.orderId)</span><br><span class="line">                .then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(resp.data);</span><br><span class="line">                &#125;)</span><br><span class="line">        &#125;.catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="comment">// 未登录，跳转至登录页</span></span><br><span class="line">             location.href = <span class="string">"/login.html?returnUrl="</span> + location.href;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    components: &#123;</span><br><span class="line">        shortcut: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">"./js/pages/shortcut.js"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>后台已经定义好生成付款地址的接口。</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362159620.png" alt="1528362159620"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528362159620.png" alt="1528362159620"></p>
 <p>刷新页面查看：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362220886.png" alt="1528362220886"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528362220886.png" alt="1528362220886"></p>
 <blockquote>
 <h3 id="生成二维码-1"><a href="#生成二维码-1" class="headerlink" title="生成二维码"></a>生成二维码</h3></blockquote>
 <p>这里我们使用一个生成二维码的JS插件：qrcode，官网：<a href="https://github.com/davidshimjs/qrcodejs" target="_blank" rel="noopener">https://github.com/davidshimjs/qrcodejs</a></p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534313526721.png" alt="1534313526721"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534313526721.png" alt="1534313526721"></p>
 <p>我们把课这个js脚本引入到项目中：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362348399.png" alt="1528362348399"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528362348399.png" alt="1528362348399"></p>
 <p>官方使用案例：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1534313925398.png" alt="1534313925398"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1534313925398.png" alt="1534313925398"></p>
 <p>然后在页面引用：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362377494.png" alt="1528362377494"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528362377494.png" alt="1528362377494"></p>
 <p>页面定义一个div，用于展示二维码：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362023061.png" alt="1528362023061"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528362023061.png" alt="1528362023061"></p>
 <p>然后获取到付款链接后，根据链接生成二维码：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362420151.png" alt="1528362420151"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528362420151.png" alt="1528362420151"></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断登录状态</span></span><br><span class="line">ly.http.get(<span class="string">"/auth/verify"</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 获取订单编号</span></span><br><span class="line">    <span class="keyword">this</span>.orderId = ly.getUrlParam(<span class="string">"orderId"</span>);</span><br><span class="line">    <span class="comment">// 获取请求链接</span></span><br><span class="line">    ly.http.get(<span class="string">"/order/url/"</span> + <span class="keyword">this</span>.orderId)</span><br><span class="line">        .then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">new</span> QRCode(<span class="built_in">document</span>.getElementById(<span class="string">"qrImage"</span>), &#123;</span><br><span class="line">                text: resp.data,</span><br><span class="line">                width: <span class="number">250</span>,</span><br><span class="line">                height: <span class="number">250</span>,</span><br><span class="line">                colorDark: <span class="string">"#000000"</span>,</span><br><span class="line">                colorLight: <span class="string">"#ffffff"</span>,</span><br><span class="line">                correctLevel: QRCode.CorrectLevel.H</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 未登录，跳转至登录页</span></span><br><span class="line">    location.href = <span class="string">"/login.html?returnUrl="</span> + location.href;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>刷新页面，查看效果：</p>
-<p> <img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528362464276.png" alt="1528362464276"></p>
+<p> <img src="/myhexo/2019/04/27/day19-下单/1528362464276.png" alt="1528362464276"></p>
 <p>此时，客户用手机扫描二维码，可以看到付款页面。</p>
 <blockquote>
 <h2 id="付款状态查询"><a href="#付款状态查询" class="headerlink" title="付款状态查询"></a>付款状态查询</h2></blockquote>
@@ -1034,7 +1034,7 @@
 <blockquote>
 <h3 id="付款成功页面"><a href="#付款成功页面" class="headerlink" title="付款成功页面"></a>付款成功页面</h3></blockquote>
 <p>当付款成功后，自动跳转到付款成功页面：</p>
-<p><img src="/myhexo/2019/04/27/day19-下单/day19-%E4%B8%8B%E5%8D%95/1528376883924.png" alt="1528376883924"></p>
+<p><img src="/myhexo/2019/04/27/day19-下单/1528376883924.png" alt="1528376883924"></p>
 
       
     </div>
