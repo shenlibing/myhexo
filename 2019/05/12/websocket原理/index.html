@@ -101,13 +101,13 @@
 <meta property="og:site_name" content="小兵兵">
 <meta property="og:description" content="websocket 双向通信  性能高  WebSocket是前台的东西，是HTML5带的一种东西  只有前台有WebSocket这个东西  后台没有，后台有Socket     使用socket.io实现WebSocket引入依赖123456789101112131415&amp;#123;  &quot;name&quot;: &quot;2018-2-3&quot;,  &quot;version&quot;: &quot;1.0.0&quot;,  &quot;description&quot;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/websocket%E5%8E%9F%E7%90%86%5C1557643527632.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/websocket%E5%8E%9F%E7%90%86%5C1557643770967.png">
-<meta property="og:updated_time" content="2019-05-16T03:15:35.295Z">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/1557643527632.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/1557643770967.png">
+<meta property="og:updated_time" content="2019-05-24T10:43:26.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="websocket原理">
 <meta name="twitter:description" content="websocket 双向通信  性能高  WebSocket是前台的东西，是HTML5带的一种东西  只有前台有WebSocket这个东西  后台没有，后台有Socket     使用socket.io实现WebSocket引入依赖123456789101112131415&amp;#123;  &quot;name&quot;: &quot;2018-2-3&quot;,  &quot;version&quot;: &quot;1.0.0&quot;,  &quot;description&quot;">
-<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/websocket%E5%8E%9F%E7%90%86%5C1557643527632.png">
+<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/1557643527632.png">
 
 
 
@@ -375,7 +375,7 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shenlibing">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="言宜慢,心宜善">
       <meta itemprop="image" content="/myhexo/images/myimg.jpg">
     </span>
 
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-16 11:15:35" itemprop="dateModified" datetime="2019-05-16T11:15:35+08:00">2019-05-16</time>
+                <time title="修改时间：2019-05-24 18:43:26" itemprop="dateModified" datetime="2019-05-24T18:43:26+08:00">2019-05-24</time>
               
             
           </span>
@@ -540,7 +540,7 @@
 <li>舍弃第一行和最后两行</li>
 </ul>
 <p><code>lines=lines.slice(1, lines.length-2);</code></p>
-<p><img src="/myhexo/2019/05/12/websocket原理/websocket%E5%8E%9F%E7%90%86%5C1557643527632.png" alt="1557643527632"></p>
+<p><img src="/myhexo/2019/05/12/websocket原理/1557643527632.png" alt="1557643527632"></p>
 <ul>
 <li>每行数据用”: “切开</li>
 </ul>
@@ -548,7 +548,7 @@
 <p>引入net模块</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> net=<span class="built_in">require</span>(<span class="string">'net'</span>);         <span class="comment">//TCP     原生Socket</span></span><br><span class="line"><span class="keyword">const</span> crypto=<span class="built_in">require</span>(<span class="string">'crypto'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">let server=http.createServer((req, res)=&gt;&#123;</span></span><br><span class="line"><span class="comment">  console.log('连接');</span></span><br><span class="line"><span class="comment">&#125;);</span></span><br><span class="line"><span class="comment">server.listen(8080);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server=net.createServer(<span class="function"><span class="params">sock</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'连接'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//数据过来——握手只有一次</span></span><br><span class="line">  sock.once(<span class="string">'data'</span>, data=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hand shake start...'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> str=data.toString();</span><br><span class="line">    <span class="keyword">let</span> lines=str.split(<span class="string">'\r\n'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//舍弃第一行和最后两行</span></span><br><span class="line">    lines=lines.slice(<span class="number">1</span>, lines.length<span class="number">-2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//切开</span></span><br><span class="line">    <span class="keyword">let</span> headers=&#123;&#125;;</span><br><span class="line">    lines.forEach(<span class="function"><span class="params">line</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> [key, val]=line.split(<span class="string">': '</span>);</span><br><span class="line"></span><br><span class="line">      headers[key.toLowerCase()]=val;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//console.log(headers);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(headers[<span class="string">'upgrade'</span>]!=<span class="string">'websocket'</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'其他协议'</span>, headers[<span class="string">'upgrade'</span>]);</span><br><span class="line"></span><br><span class="line">      sock.end();</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(headers[<span class="string">'sec-websocket-version'</span>]!=<span class="number">13</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'版本不对'</span>, headers[<span class="string">'sec-websocket-version'</span>]);</span><br><span class="line"></span><br><span class="line">      sock.end();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> key=headers[<span class="string">'sec-websocket-key'</span>];</span><br><span class="line">      <span class="keyword">let</span> mask=<span class="string">'258EAFA5-E914-47DA-95CA-C5AB0DC85B11'</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//sha1(key+mask)-&gt;base64=&gt;client</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> hash=crypto.createHash(<span class="string">'sha1'</span>);</span><br><span class="line">      hash.update(key+mask);</span><br><span class="line">      <span class="keyword">let</span> key2=hash.digest(<span class="string">'base64'</span>);</span><br><span class="line"></span><br><span class="line">      sock.write(<span class="string">`HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: <span class="subst">$&#123;key2&#125;</span>\r\n\r\n`</span>);</span><br><span class="line"></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'hand shake end'</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//真正的数据</span></span><br><span class="line">      sock.on(<span class="string">'data'</span>, data=&gt;&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'有数据'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">        </span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//断开了</span></span><br><span class="line">  sock.on(<span class="string">'end'</span>, ()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'客户端已断开'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
 
-<h3 id="解析真正数据"><a href="#解析真正数据" class="headerlink" title="解析真正数据"></a>解析真正数据</h3><h4 id="真正数据"><a href="#真正数据" class="headerlink" title="真正数据"></a>真正数据</h4><p><img src="/myhexo/2019/05/12/websocket原理/websocket%E5%8E%9F%E7%90%86%5C1557643770967.png" alt="1557643770967"></p>
+<h3 id="解析真正数据"><a href="#解析真正数据" class="headerlink" title="解析真正数据"></a>解析真正数据</h3><h4 id="真正数据"><a href="#真正数据" class="headerlink" title="真正数据"></a>真正数据</h4><p><img src="/myhexo/2019/05/12/websocket原理/1557643770967.png" alt="1557643770967"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">81       9c       11       2d       f8       bd         数据.....</span><br><span class="line">10000001 10011100 00010001 00101101 11111000 10111101</span><br><span class="line"></span><br><span class="line">11 2d f8 bd</span><br><span class="line">6a 0f 96 dc 7c 48 da 87 33 40 8b da 33 01 da d9 70 59 99 9f 2b 76 c9 8f 3d 18 a5 c0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1 000 0001   1 0011100 00010001 00101101 11111000 10111101</span><br><span class="line">F RSV opcode M payload masking-key</span><br><span class="line">I            A 28个字</span><br><span class="line">N            S</span><br><span class="line">             K</span><br></pre></td></tr></table></figure>
 
 <h4 id="帧结构"><a href="#帧结构" class="headerlink" title="帧结构"></a>帧结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7</span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br><span class="line">|F|R|R|R| opcode|M| Payload len |    Extended payload length    |</span><br><span class="line">|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |</span><br><span class="line">|N|V|V|V|       |S|             |   (if payload len==126/127)   |</span><br><span class="line">| |1|2|3|       |K|             |                               |</span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br><span class="line">|     Extended payload length continued, if payload len == 127  |</span><br><span class="line">+-------------------------------+-------------------------------+</span><br><span class="line">|                               |Masking-key, if MASK set to 1  |</span><br><span class="line">+-------------------------------+-------------------------------+</span><br><span class="line">| Masking-key (continued)       |          Payload Data         |</span><br><span class="line">+-------------------------------+-------------------------------+</span><br><span class="line">|                     Payload Data continued ...                |</span><br><span class="line">+---------------------------------------------------------------+</span><br><span class="line">|                     Payload Data continued ...                |</span><br><span class="line">+---------------------------------------------------------------+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">FIN               1bit 是否最后一帧</span><br><span class="line">RSV               3bit 预留</span><br><span class="line">Opcode            4bit 帧类型</span><br><span class="line">Mask              1bit 掩码，是否加密数据，默认必须置为1</span><br><span class="line">Payload           7bit 长度</span><br><span class="line">Masking-key       1 or 4 bit 掩码</span><br><span class="line">Payload data      (x + y) bytes 数据</span><br><span class="line">Extension data    x bytes  扩展数据</span><br><span class="line">Application data  y bytes  程序数据</span><br></pre></td></tr></table></figure>
@@ -676,7 +676,7 @@
               <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
             
               <p class="site-author-name" itemprop="name">shenlibing</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
           </div>
 
           
@@ -686,7 +686,7 @@
                 
                   <a href="/myhexo/archives/">
                 
-                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -888,7 +888,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">1.1m</span>
+    <span title="站点总字数">1.2m</span>
   
 
   
@@ -897,7 +897,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">17:09</span>
+    <span title="站点阅读时长">17:27</span>
   
 </div>
 
