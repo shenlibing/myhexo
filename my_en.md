@@ -1,13 +1,15 @@
-
 ---
 title: my_en
 date: 2019-01-06 12:58:55
 categories: 日常记录
 tags:
-	-	english
+
 ---
 
-###2018/12/14
+english
+===
+
+## 20181214
 
 ```
 
@@ -56,7 +58,7 @@ tags:
 
 ```
 
-###20181215
+20181215
 
 参考
 [https://tylermcginnis.com/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/](https://tylermcginnis.com/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/)
@@ -92,8 +94,7 @@ tags:
 
 ```
 
-
-###20181217
+## 20181217
 
 参考
 
@@ -106,8 +107,7 @@ https://dev.to/siwalik/async-programming-basics-every-js-developer-should-know-i
 
 ```
 
-
-###20190117
+## 20190117
 
 参考：
 
@@ -140,3 +140,39 @@ https://dev.to/siwalik/async-programming-basics-every-js-developer-should-know-i
 
 
 ```
+
+
+
+## 20190523
+
+来源：
+
+[Jekyll • Simple, blog-aware, static sites | Transform your plain text into static websites and blogs](https://jekyllrb.com/)
+
+```
+Sick 厌倦
+custom domain name	自定义域名
+pesky	讨厌
+omment moderation	评论审核
+Permalinks	永久链接
+Migrate your blog 迁移你的博客
+site scaffold	站点脚手架
+metadata file	元数据文件
+Front Matter	前方问题
+Assets	资产
+SITE STRUCTURE	现场结构
+Liquid	液体
+Pagination	分页
+extendable	扩展
+static site generator	静态站点生成器
+churns	搅动
+tweak	拧
+tweaks	调整
+unearthed	发现
+regarding	关于
+nstallation wizard	安装向导
+Command Prompt instance	命令提示符实例
+code snippets	代码片段
+
+```
+

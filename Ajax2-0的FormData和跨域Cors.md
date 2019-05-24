@@ -3,6 +3,7 @@ title: Ajax2.0的FormData和跨域Cors
 date: 2019-05-15 22:04:15
 categories: 日常记录
 tags: 
+typora-root-url: Ajax2-0的FormData和跨域Cors
 ---
 
 # formdata
@@ -281,7 +282,7 @@ ajax2.0以后，浏览器请求服务器，请求头中会有`origin` ,服务器
 
 ## 关键代码
 
-![1557967647661](Ajax2-0的FormData和跨域Cors/1557967647661.png)
+![1557967647661](1557967647661.png)
 
 # 文件拖拽 #
 

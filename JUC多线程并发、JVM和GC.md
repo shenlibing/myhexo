@@ -3,6 +3,7 @@ title: JUC多线程并发、JVM和GC
 date: 2019-05-07 08:58:45
 categories: 日常记录
 tags:
+typora-root-url: JUC多线程并发、JVM和GC
 ---
 
 
@@ -388,7 +389,7 @@ Runtime.getRuntime().availableProcessors()
 
 ## 线程池的工作原理
 
-![1557299840009](JUC多线程并发、JVM和GC/1557299840009.png)
+![1557299840009](/1557299840009.png)
 
 ### execute方法执行逻辑
 
@@ -414,3 +415,4 @@ Runtime.getRuntime().availableProcessors()
 
 
 
+ 

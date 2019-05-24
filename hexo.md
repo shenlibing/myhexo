@@ -5,6 +5,7 @@ categories: 日常记录
 tags: 
   - hexo
   - github
+typora-root-url: hexo/
 ---
 
 # 安装Node.js #
@@ -439,6 +440,20 @@ app_key;security设置为false
 
 命令hexo new post test来生成博文时，/source/_post文件夹中除了test.md外，还有一个同名test文件夹
 
+## typora插入本地图片
+
+### typora设置
+
+文件--偏好设置--图片插入
+
+![1558400020100](1558400020100.png)
+
+编辑--图片工具--设置图片根目录
+
+```
+typora-root-url: hexo/
+```
+
 ## 设置动态背景 ##
 
 进入D:\mytest\myhexo\themes\hexo-theme-next-master\layout\文件夹，编辑_layout.swig文件，在`</body>`之前添加
@@ -504,10 +519,19 @@ app_key;security设置为false
 
 ```
 
-参考：
+
+
+# 参考：
 
 [【持续更新】Github Pages + Hexo 博客搭建，Next主题个性化修改](https://www.lixint.me/hexo-blog.html)
 
 [Hexo+NexT 打造一个炫酷博客](https://juejin.im/post/5bcd2d395188255c3b7dc1db)
 
 [hexo史上最全搭建教程](https://blog.csdn.net/sinat_37781304/article/details/82729029)
+
+[用 Typora 写 Hexo 博客 | zhangnew](https://zhangnew.com/Typora-Hexo.html)
+
+[使用Typora+Hexo+Google Drive打造自己的云笔记 | 情起·而深](https://www.liu.app/2018/07/27/Hexo/%E4%BD%BF%E7%94%A8Typora+Hexo+Google%20Drive%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BA%91%E7%AC%94%E8%AE%B0/)
+
+[我的云端硬盘 - Google 云端硬盘](https://drive.google.com/drive/my-drive)
+

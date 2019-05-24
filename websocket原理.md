@@ -4,7 +4,7 @@ title: websocket原理
 date: 2019-05-12 14:21:06
 categories:
 tags:
-
+typora-root-url: websocket原理
 ---
 
 
@@ -252,7 +252,7 @@ Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 
 ` lines=lines.slice(1, lines.length-2);`
 
-![1557643527632](websocket原理\1557643527632.png)
+![1557643527632](1557643527632.png)
 
 - 每行数据用": "切开
 
@@ -342,7 +342,7 @@ server.listen(8080);
 
 #### 真正数据
 
-![1557643770967](websocket原理\1557643770967.png)
+![1557643770967](1557643770967.png)
 
 ```
 81       9c       11       2d       f8       bd         数据.....
