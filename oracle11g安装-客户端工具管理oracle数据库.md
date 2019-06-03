@@ -44,6 +44,14 @@ DD-MON-RR 修改为: YYYY-MM-DD HH24:MI:SS
 
 
 
+#### 代码格式化
+
+`Ctrl+F7`
+
+#### 运行
+
+`F9`或者`Ctrl+Enter`
+
 ## PL\SQL 
 
 ### [下载](https://www.allroundautomations.com/plsqldev.html)
