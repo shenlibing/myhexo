@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/myhexo/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="安装下载MySQL :: Download MySQL Community Server (Archived Versions)  rzsz1[root@192 modules]# yum -y  install lrzsz  上传1234[root@192 modules]# lltotal 66632-rw-r--r--. 1 root root 17855952 Jun  8 20:04 M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/index.html">
+<meta property="og:site_name" content="小兵兵">
+<meta property="og:description" content="安装下载MySQL :: Download MySQL Community Server (Archived Versions)  rzsz1[root@192 modules]# yum -y  install lrzsz  上传1234[root@192 modules]# lltotal 66632-rw-r--r--. 1 root root 17855952 Jun  8 20:04 M">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/1559999836333.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/1560149842747.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/1560004124502.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/1560151970456.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/1560045917048.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/1560241574572.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/1560241687522.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/1560245341475.png">
+<meta property="og:updated_time" content="2019-06-11T09:35:46.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql">
+<meta name="twitter:description" content="安装下载MySQL :: Download MySQL Community Server (Archived Versions)  rzsz1[root@192 modules]# yum -y  install lrzsz  上传1234[root@192 modules]# lltotal 66632-rw-r--r--. 1 root root 17855952 Jun  8 20:04 M">
+<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/06/08/mysql/1559999836333.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/06/08/mysql/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>mysql | 小兵兵</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+        <a href="https://github.com/shenlibing/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/myhexo/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵兵</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/06/08/mysql/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="言宜慢,心宜善">
+      <meta itemprop="image" content="/myhexo/images/myimg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mysql
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-08 16:08:53" itemprop="dateCreated datePublished" datetime="2019-06-08T16:08:53+08:00">2019-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-11 17:35:46" itemprop="dateModified" datetime="2019-06-11T17:35:46+08:00">2019-06-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/myhexo/2019/06/08/mysql/" class="leancloud_visitors" data-flag-title="mysql">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">26k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">24 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="https://downloads.mysql.com/archives/community/" target="_blank" rel="noopener">MySQL :: Download MySQL Community Server (Archived Versions)</a></p>
+<p><img src="/myhexo/2019/06/08/mysql/1559999836333.png" alt="1559999836333"></p>
+<h2 id="rzsz"><a href="#rzsz" class="headerlink" title="rzsz"></a>rzsz</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@192 modules]# yum -y  install lrzsz</span><br></pre></td></tr></table></figure>
+
+<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@192 modules]# ll</span><br><span class="line">total 66632</span><br><span class="line">-rw-r--r--. 1 root root 17855952 Jun  8 20:04 MySQL-client-5.5.48-1.linux2.6.x86_64.rpm</span><br><span class="line">-rw-r--r--. 1 root root 50372369 Jun  8 20:24 MySQL-server-5.5.48-1.linux2.6.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@192 modules]# rpm -qa | grep -i mysql</span><br><span class="line">mysql-libs-5.1.73-7.el6.x86_64</span><br><span class="line">[root@192 modules]# rpm -e --nodeps mysql-libs-5.1.73-7.el6.x86_64</span><br></pre></td></tr></table></figure>
+
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@192 modules]# yum -y remove mysql-libs-5.1.73-7.el6.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>如果提示<code>“GPG keys...”</code>安装失败，解决方案：<code>rpm -ivh rpm软件名  --force --nodoeps</code></p>
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@192 modules]# rpm -ivh MySQL-server-5.5.48-1.linux2.6.x86_64.rpm </span><br><span class="line">warning: MySQL-server-5.5.48-1.linux2.6.x86_64.rpm: Header V3 DSA/SHA1 Signature, key ID 5072e1f5: NOKEY</span><br><span class="line">Preparing...                ########################################### [100%]</span><br><span class="line">   1:MySQL-server           ########################################### [100%]</span><br><span class="line">190608 20:32:37 [Note] /usr/sbin/mysqld (mysqld 5.5.48) starting as process 26375 ...</span><br><span class="line">190608 20:32:37 [Note] /usr/sbin/mysqld (mysqld 5.5.48) starting as process 26382 ...</span><br><span class="line"></span><br><span class="line">PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</span><br><span class="line">To do so, start the server, then issue the following commands:</span><br><span class="line"></span><br><span class="line">/usr/bin/mysqladmin -u root password &apos;new-password&apos;</span><br><span class="line">/usr/bin/mysqladmin -u root -h 192.168.1.101 password &apos;new-password&apos;</span><br><span class="line"></span><br><span class="line">Alternatively you can run:</span><br><span class="line">/usr/bin/mysql_secure_installation</span><br><span class="line"></span><br><span class="line">which will also give you the option of removing the test</span><br><span class="line">databases and anonymous user created by default.  This is</span><br><span class="line">strongly recommended for production servers.</span><br><span class="line"></span><br><span class="line">See the manual for more instructions.</span><br><span class="line"></span><br><span class="line">Please report any problems at http://bugs.mysql.com/</span><br></pre></td></tr></table></figure>
+
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@192 modules]# rpm -ivh MySQL-client-5.5.48-1.linux2.6.x86_64.rpm </span><br><span class="line">warning: MySQL-client-5.5.48-1.linux2.6.x86_64.rpm: Header V3 DSA/SHA1 Signature, key ID 5072e1f5: NOKEY</span><br><span class="line">Preparing...                ########################################### [100%]</span><br><span class="line">   1:MySQL-client           ########################################### [100%]</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@192 mysql]# mysqladmin --version</span><br><span class="line">mysqladmin  Ver 8.42 Distrib 5.5.48, for Linux on x86_64</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><h3 id="方式一-1"><a href="#方式一-1" class="headerlink" title="方式一"></a>方式一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@192 mysql]# service mysql start;</span><br><span class="line">Starting MySQL..                                           [  OK  ]</span><br></pre></td></tr></table></figure>
+
+<h3 id="方式二-1"><a href="#方式二-1" class="headerlink" title="方式二"></a>方式二</h3><ul>
+<li>在计算机<code>reboot</code>后 登陆<code>MySQL</code> : <code>mysql</code>可能会报错：  <code>&quot;/var/lib/mysql/mysql.sock不存在&quot;</code><ul>
+<li>原因：是<code>Mysql</code>服务没有启动</li>
+<li>解决 ：  启动服务<ol>
+<li>每次使用前 手动启动服务  <code>/etc/init.d/mysql start</code> </li>
+<li>开机自启  <code>chkconfig mysql on</code>    ,<code>chkconfig mysql off</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@192 modules]# /etc/init.d/mysql start</span><br><span class="line">Starting MySQL..                                           [  OK  ]</span><br></pre></td></tr></table></figure>
+
+<h3 id="方式三"><a href="#方式三" class="headerlink" title="方式三"></a>方式三</h3><ul>
+<li>开启自启<code>mysql</code>服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@192 mysql]# chkconfig mysql on</span><br><span class="line">[root@192 mysql]# chkconfig mysql --list</span><br><span class="line">mysql          	0:off	1:off	2:on	3:on	4:on	5:on	6:off</span><br></pre></td></tr></table></figure>
+
+<h2 id="关闭服务"><a href="#关闭服务" class="headerlink" title="关闭服务"></a>关闭服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@192 mysql]# service mysql stop</span><br><span class="line">Shutting down MySQL...                                     [  OK  ]</span><br></pre></td></tr></table></figure>
+
+<h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@192 mysql]# service mysql restart;</span><br><span class="line">Shutting down MySQL.                                       [  OK  ]</span><br><span class="line">Starting MySQL..                                           [  OK  ]</span><br></pre></td></tr></table></figure>
+
+<h2 id="检查开机是否自动启动mysql服务"><a href="#检查开机是否自动启动mysql服务" class="headerlink" title="检查开机是否自动启动mysql服务"></a>检查开机是否自动启动mysql服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@192 mysql]# ntsysv</span><br></pre></td></tr></table></figure>
+
+<p><img src="/myhexo/2019/06/08/mysql/1560149842747.png" alt="1560149842747"></p>
+<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@192 modules]# /usr/bin/mysqladmin -u root password &apos;000000&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@192 modules]# mysql -uroot -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 2</span><br><span class="line">Server version: 5.5.48 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant all privileges  on *.* to root@&apos;%&apos; identified by &quot;000000&quot;;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><ul>
+<li><p>客户端连接不上</p>
+<p><img src="/myhexo/2019/06/08/mysql/1560004124502.png" alt="1560004124502"></p>
+<ul>
+<li><p>关闭防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# service iptables stop;</span><br><span class="line">iptables: Setting chains to policy ACCEPT: filter          [  OK  ]</span><br><span class="line">iptables: Flushing firewall rules:                         [  OK  ]</span><br><span class="line">iptables: Unloading modules:                               [  OK  ]</span><br><span class="line">[root@192 ~]# service iptables status;</span><br><span class="line">iptables: Firewall is not running.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>rpm</code>安装<code>mysql</code>，找不到<code>/etc/my.cnf</code></p>
+<ul>
+<li>复制<code>/usr/share/mysql</code>目录下的<code>my-huge.cnf</code>文件到<code>/etc</code>目录，并改名为<code>my.cnf</code>即可</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@192 mysql]# cp /usr/share/mysql/my-huge.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
+
+<h1 id="数据库存放目录"><a href="#数据库存放目录" class="headerlink" title="数据库存放目录"></a>数据库存放目录</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@192 mysql]# ps -ef|grep mysql</span><br><span class="line">root       5790   3618  0 14:13 pts/1    00:00:00 mysql -uroot -p</span><br><span class="line">root       5802   4605  0 14:24 pts/3    00:00:00 mysql -uroot -p</span><br><span class="line">root       7266      1  0 14:46 pts/0    00:00:00 /bin/sh /usr/bin/mysqld_safe --datadir=/var/lib/mysql --pid-file=/var/lib/mysql/192.168.1.101.pid</span><br><span class="line">mysql      7615   7266  0 14:46 pts/0    00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib64/mysql/plugin --user=mysql --log-error=/var/lib/mysql/192.168.1.101.err --pid-file=/var/lib/mysql/192.168.1.101.pid --socket=/var/lib/mysql/mysql.sock --port=3306</span><br><span class="line">root       7672   4519  0 15:02 pts/0    00:00:00 grep mysql</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数据库目录<code>datadir=/var/lib/mysql</code></li>
+<li><code>pid</code>文件目录：<code>--pid-file=/var/lib/mysql/bigdata01.pid</code></li>
+</ul>
+<h2 id="MySQL核心目录"><a href="#MySQL核心目录" class="headerlink" title="MySQL核心目录"></a>MySQL核心目录</h2><ul>
+<li>/var/lib/mysql :mysql 安装目录</li>
+<li>/usr/share/mysql:  配置文件</li>
+<li>/usr/bin：命令目录（mysqladmin、mysqldump等）</li>
+<li>/etc/init.d/mysql启停脚本</li>
+</ul>
+<h2 id="MySQL配置文件"><a href="#MySQL配置文件" class="headerlink" title="MySQL配置文件"></a>MySQL配置文件</h2><ul>
+<li>my-huge.cnf    高端服务器  1-2G内存</li>
+<li>my-large.cnf   中等规模</li>
+<li>my-medium.cnf  一般</li>
+<li>my-small.cnf   较小</li>
+</ul>
+<p>但是，以上配置文件<code>mysql</code>默认不能识别，默认只能识别<code>/etc/my.cnf</code>，因此需要拷贝一份以上配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@192 mysql]# cp /usr/share/mysql/my-huge.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
+
+<p>注意：<code>mysql5.5</code>默认配置文件<code>/etc/my.cnf</code>；<code>Mysql5.6</code>默认配置文件<code>/etc/mysql-default.cnf</code></p>
+<h1 id="mysql字符编码"><a href="#mysql字符编码" class="headerlink" title="mysql字符编码"></a>mysql字符编码</h1><h2 id="查看字符编码"><a href="#查看字符编码" class="headerlink" title="查看字符编码"></a>查看字符编码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;%char%&apos;;</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| Variable_name            | Value                      |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| character_set_client     | utf8                       |</span><br><span class="line">| character_set_connection | utf8                       |</span><br><span class="line">| character_set_database   | latin1                     |</span><br><span class="line">| character_set_filesystem | binary                     |</span><br><span class="line">| character_set_results    | utf8                       |</span><br><span class="line">| character_set_server     | latin1                     |</span><br><span class="line">| character_set_system     | utf8                       |</span><br><span class="line">| character_sets_dir       | /usr/share/mysql/charsets/ |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">8 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改字符编码为utf8"><a href="#修改字符编码为utf8" class="headerlink" title="修改字符编码为utf8"></a>修改字符编码为utf8</h2><p>编辑配置文件<code>vim /etc/my.cnf</code>，追加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">character_set_server=utf8</span><br><span class="line">character_set_client=utf8</span><br><span class="line">collation_server=utf8_general_ci</span><br></pre></td></tr></table></figure>
+
+<p>再次查看字符编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;%char%&apos;;</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| Variable_name            | Value                      |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">| character_set_client     | utf8                       |</span><br><span class="line">| character_set_connection | utf8                       |</span><br><span class="line">| character_set_database   | utf8                       |</span><br><span class="line">| character_set_filesystem | binary                     |</span><br><span class="line">| character_set_results    | utf8                       |</span><br><span class="line">| character_set_server     | utf8                       |</span><br><span class="line">| character_set_system     | utf8                       |</span><br><span class="line">| character_sets_dir       | /usr/share/mysql/charsets/ |</span><br><span class="line">+--------------------------+----------------------------+</span><br><span class="line">8 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="清屏"><a href="#清屏" class="headerlink" title="清屏"></a>清屏</h2><ul>
+<li>Ctrl+L</li>
+<li>system clear</li>
+</ul>
+<h1 id="SQL语句查询"><a href="#SQL语句查询" class="headerlink" title="SQL语句查询"></a>SQL语句查询</h1><p><a href="https://www.cnblogs.com/annsshadow/p/5037667.html" target="_blank" rel="noopener">步步深入：MySQL架构总览-&gt;查询执行流程-&gt;SQL解析顺序 - AnnsShadoW - 博客园</a></p>
+<h2 id="语法顺序"><a href="#语法顺序" class="headerlink" title="语法顺序"></a>语法顺序</h2><ol>
+<li>SELECT</li>
+<li>FROM</li>
+<li>LEFT JOIN</li>
+<li>ON</li>
+<li>WHERE</li>
+<li>GROUP BY</li>
+<li>HAVING</li>
+<li>ORDER BY</li>
+<li>LIMIT</li>
+</ol>
+<h2 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> <span class="keyword">order</span> <span class="keyword">ON</span> user.id = order.uid <span class="keyword">WHERE</span> order.price &gt; <span class="number">1000</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> user.name <span class="keyword">HAVING</span> <span class="keyword">count</span>(<span class="number">1</span>) &gt; <span class="number">5</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> user.name <span class="keyword">LIMIT</span> <span class="number">0</span>,<span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>FROM（将最近的两张表，进行笛卡尔积），得到临时结果集VT1</li>
+<li>ON（将VT1按照它的条件进行过滤）—VT2</li>
+<li>LEFT JOIN（保留左表的记录）—VT3</li>
+<li>WHERE（过滤VT3中的记录）–VT4…VTn</li>
+<li>GROUP BY（对VT4的记录进行分组）—VT5</li>
+<li>HAVING（对VT5中的记录进行过滤）—VT6</li>
+<li>SELECT（对VT6中的记录，选取指定的列）–VT7</li>
+<li>ORDER BY（对VT7的记录进行排序）–游标</li>
+<li>LIMIT（对排序之后的值进行分页）</li>
+</ol>
+<h2 id="WHERE条件执行顺序（影响性能）"><a href="#WHERE条件执行顺序（影响性能）" class="headerlink" title="WHERE条件执行顺序（影响性能）"></a>WHERE条件执行顺序（影响性能）</h2><ul>
+<li>MYSQL：从左往右去执行WHERE条件的。</li>
+<li>Oracle：从右往左去执行WHERE条件的。</li>
+</ul>
+<p>结论：写WHERE条件的时候，优先级高的部分要去编写过滤力度最大的条件语句。</p>
+<p><img src="/myhexo/2019/06/08/mysql/1560151970456.png" alt="1560151970456"></p>
+<h1 id="多表之间关系"><a href="#多表之间关系" class="headerlink" title="多表之间关系"></a>多表之间关系</h1><h2 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h2><h2 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h2><p><strong>从表</strong>是：<strong>分类表</strong>。从表中，应该有一个字段去关联主表，而这个关联字段就是<strong>主键</strong>。</p>
+<p><strong>主表</strong>是：<strong>商品表</strong>。主表中，应该有一个字段去关联从表，而这个关联字段就是<strong>外键</strong>。</p>
+<p><img src="/myhexo/2019/06/08/mysql/1560045917048.png" alt="1560045917048"></p>
+<p> 在互联网项目中，一般情况下，<strong>不建议建立外键关系</strong>。</p>
+<h2 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h2><ul>
+<li>双向的一对多</li>
+</ul>
+<h1 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h1><ul>
+<li>存储引擎是针对表的,MySQL 5.5之后，默认的存储引擎由MyISAM变为<strong>InnoDB</strong>。</li>
+</ul>
+<h2 id="查询数据库支持哪些引擎"><a href="#查询数据库支持哪些引擎" class="headerlink" title="查询数据库支持哪些引擎"></a>查询数据库支持哪些引擎</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mysql&gt; show engines;</span><br><span class="line">+--------------------+---------+----------------------------------------------------------------+--------------+------+------------+</span><br><span class="line">| Engine             | Support | Comment                                                        | Transactions | XA   | Savepoints |</span><br><span class="line">+--------------------+---------+----------------------------------------------------------------+--------------+------+------------+</span><br><span class="line">| PERFORMANCE_SCHEMA | YES     | Performance Schema                                             | NO           | NO   | NO         |</span><br><span class="line">| MRG_MYISAM         | YES     | Collection of identical MyISAM tables                          | NO           | NO   | NO         |</span><br><span class="line">| CSV                | YES     | CSV storage engine                                             | NO           | NO   | NO         |</span><br><span class="line">| BLACKHOLE          | YES     | /dev/null storage engine (anything you write to it disappears) | NO           | NO   | NO         |</span><br><span class="line">| MEMORY             | YES     | Hash based, stored in memory, useful for temporary tables      | NO           | NO   | NO         |</span><br><span class="line">| InnoDB             | DEFAULT | Supports transactions, row-level locking, and foreign keys     | YES          | YES  | YES        |</span><br><span class="line">| ARCHIVE            | YES     | Archive storage engine                                         | NO           | NO   | NO         |</span><br><span class="line">| MyISAM             | YES     | MyISAM storage engine                                          | NO           | NO   | NO         |</span><br><span class="line">| FEDERATED          | NO      | Federated MySQL storage engine                                 | NULL         | NULL | NULL       |</span><br><span class="line">+--------------------+---------+----------------------------------------------------------------+--------------+------+------------+</span><br><span class="line">9 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看当前使用的引擎"><a href="#查看当前使用的引擎" class="headerlink" title="查看当前使用的引擎"></a>查看当前使用的引擎</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;%storage_engine%&apos; ;</span><br><span class="line">+------------------------+--------+</span><br><span class="line">| Variable_name          | Value  |</span><br><span class="line">+------------------------+--------+</span><br><span class="line">| default_storage_engine | InnoDB |</span><br><span class="line">| storage_engine         | InnoDB |</span><br><span class="line">+------------------------+--------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="指定数据库对象的引擎"><a href="#指定数据库对象的引擎" class="headerlink" title="指定数据库对象的引擎"></a>指定数据库对象的引擎</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tb(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">4</span>) auto_increment ,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">5</span>),</span><br><span class="line">	dept <span class="built_in">varchar</span>(<span class="number">5</span>) ,</span><br><span class="line">	primary <span class="keyword">key</span>(<span class="keyword">id</span>)		</span><br><span class="line">)<span class="keyword">ENGINE</span>=MyISAM AUTO_INCREMENT=<span class="number">1</span></span><br><span class="line"> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8   ;</span><br></pre></td></tr></table></figure>
+
+<h1 id="日志文件、数据文件"><a href="#日志文件、数据文件" class="headerlink" title="日志文件、数据文件"></a>日志文件、数据文件</h1><h2 id="日志位置"><a href="#日志位置" class="headerlink" title="日志位置"></a>日志位置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW  GLOBAL VARIABLES LIKE &apos;%log%&apos;;</span><br><span class="line">+-----------------------------------------+----------------------------------+</span><br><span class="line">| Variable_name                           | Value                            |</span><br><span class="line">+-----------------------------------------+----------------------------------+</span><br><span class="line">| back_log                                | 50                               |</span><br><span class="line">| binlog_cache_size                       | 32768                            |</span><br><span class="line">| binlog_direct_non_transactional_updates | OFF                              |</span><br><span class="line">| binlog_format                           | MIXED                            |</span><br><span class="line">| binlog_stmt_cache_size                  | 32768                            |</span><br><span class="line">| expire_logs_days                        | 0                                |</span><br><span class="line">| general_log                             | OFF                              |</span><br><span class="line">| general_log_file                        | /var/lib/mysql/192.log           |</span><br><span class="line">| innodb_flush_log_at_trx_commit          | 1                                |</span><br><span class="line">| innodb_locks_unsafe_for_binlog          | OFF                              |</span><br><span class="line">| innodb_log_buffer_size                  | 8388608                          |</span><br><span class="line">| innodb_log_file_size                    | 5242880                          |</span><br><span class="line">| innodb_log_files_in_group               | 2                                |</span><br><span class="line">| innodb_log_group_home_dir               | ./                               |</span><br><span class="line">| innodb_mirrored_log_groups              | 1                                |</span><br><span class="line">| log                                     | OFF                              |</span><br><span class="line">| log_bin                                 | ON                               |</span><br><span class="line">| log_bin_trust_function_creators         | OFF                              |</span><br><span class="line">| log_error                               | /var/lib/mysql/192.168.1.101.err |</span><br><span class="line">| log_output                              | FILE                             |</span><br><span class="line">| log_queries_not_using_indexes           | OFF                              |</span><br><span class="line">| log_slave_updates                       | OFF                              |</span><br><span class="line">| log_slow_queries                        | OFF                              |</span><br><span class="line">| log_warnings                            | 1                                |</span><br><span class="line">| max_binlog_cache_size                   | 18446744073709547520             |</span><br><span class="line">| max_binlog_size                         | 1073741824                       |</span><br><span class="line">| max_binlog_stmt_cache_size              | 18446744073709547520             |</span><br><span class="line">| max_relay_log_size                      | 0                                |</span><br><span class="line">| relay_log                               |                                  |</span><br><span class="line">| relay_log_index                         |                                  |</span><br><span class="line">| relay_log_info_file                     | relay-log.info                   |</span><br><span class="line">| relay_log_purge                         | ON                               |</span><br><span class="line">| relay_log_recovery                      | OFF                              |</span><br><span class="line">| relay_log_space_limit                   | 0                                |</span><br><span class="line">| slow_query_log                          | OFF                              |</span><br><span class="line">| slow_query_log_file                     | /var/lib/mysql/192-slow.log      |</span><br><span class="line">| sql_log_bin                             | ON                               |</span><br><span class="line">| sql_log_off                             | OFF                              |</span><br><span class="line">| sync_binlog                             | 0                                |</span><br><span class="line">| sync_relay_log                          | 0                                |</span><br><span class="line">| sync_relay_log_info                     | 0                                |</span><br><span class="line">+-----------------------------------------+----------------------------------+</span><br><span class="line">41 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="二进制日志"><a href="#二进制日志" class="headerlink" title="二进制日志"></a>二进制日志</h3><ul>
+<li>记录了<strong>数据库所有的ddl语句和dml语句</strong>，但不包括select语句内容</li>
+<li>用于恢复数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW VARIABLES LIKE &apos;log_bin%&apos;;</span><br><span class="line">+---------------------------------+-------+</span><br><span class="line">| Variable_name                   | Value |</span><br><span class="line">+---------------------------------+-------+</span><br><span class="line">| log_bin                         | ON    |</span><br><span class="line">| log_bin_trust_function_creators | OFF   |</span><br><span class="line">+---------------------------------+-------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="错误日志"><a href="#错误日志" class="headerlink" title="错误日志"></a>错误日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;  SHOW VARIABLES LIKE &apos;log_error%&apos;;</span><br><span class="line">+---------------+----------------------------------+</span><br><span class="line">| Variable_name | Value                            |</span><br><span class="line">+---------------+----------------------------------+</span><br><span class="line">| log_error     | /var/lib/mysql/192.168.1.101.err |</span><br><span class="line">+---------------+----------------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询日志"><a href="#查询日志" class="headerlink" title="查询日志"></a>查询日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;  SHOW VARIABLES LIKE &apos;general_log%&apos;;</span><br><span class="line">+------------------+------------------------+</span><br><span class="line">| Variable_name    | Value                  |</span><br><span class="line">+------------------+------------------------+</span><br><span class="line">| general_log      | OFF                    |</span><br><span class="line">| general_log_file | /var/lib/mysql/192.log |</span><br><span class="line">+------------------+------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="慢查询日志"><a href="#慢查询日志" class="headerlink" title="慢查询日志"></a>慢查询日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW VARIABLES LIKE &apos;slow_query_log%&apos;;</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| Variable_name       | Value                       |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| slow_query_log      | OFF                         |</span><br><span class="line">| slow_query_log_file | /var/lib/mysql/192-slow.log |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW VARIABLES LIKE &apos;long_query_time%&apos;;</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">| Variable_name   | Value     |</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">| long_query_time | 10.000000 |</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据位置"><a href="#数据位置" class="headerlink" title="数据位置"></a>数据位置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW VARIABLES LIKE &apos;%datadir%&apos;;</span><br><span class="line">+---------------+-----------------+</span><br><span class="line">| Variable_name | Value           |</span><br><span class="line">+---------------+-----------------+</span><br><span class="line">| datadir       | /var/lib/mysql/ |</span><br><span class="line">+---------------+-----------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h1><p><a href="https://en.wikipedia.org/wiki/B-tree" target="_blank" rel="noopener">B-tree - Wikipedia</a></p>
+<p><a href="https://dev.mysql.com/doc/refman/5.5/en/optimization.html" target="_blank" rel="noopener">MySQL :: MySQL 5.5 Reference Manual :: 8 Optimization</a></p>
+<p><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" rel="noopener">MySQL索引背后的数据结构及算法原理</a></p>
+<p><a href="https://blog.csdn.net/endlu/article/details/51720299" target="_blank" rel="noopener">BTree和B+Tree详解</a></p>
+<p>SQL优化， 主要就是 在<strong>优化索引</strong>，索引就 相当于书的目录</p>
+<p>索引(index)是帮助MYSQL高效获取数据的数据结构。<strong>索引是数据结构</strong>（树：B树(默认)、Hash树…）</p>
+<h2 id="B树索引"><a href="#B树索引" class="headerlink" title="B树索引"></a>B树索引</h2><ul>
+<li><code>select * from student where age = 33</code>如果不加索引，从上往下查找需要查找5次，而加了索引，查找的节点处于第三层，所以只需要查找3次</li>
+</ul>
+<p><img src="/myhexo/2019/06/08/mysql/1560241574572.png" alt="1560241574572"></p>
+<h2 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B+Tree"></a>B+Tree</h2><ul>
+<li><code>Btree</code>数据全部放在叶子节点</li>
+</ul>
+<p><img src="/myhexo/2019/06/08/mysql/1560241687522.png" alt="1560241687522"></p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>主键索引：  不能重复，是一种特殊的唯一索引，不允许有空值</li>
+<li>唯一索引  ：不能重复，允许为空值</li>
+<li>单值索引  ： 单列， age ;一个表可以多个单值索引,name。</li>
+<li>组合索引  ：多个列构成的索引 ，只有在查询条件中使用了这些字段的左边字段时，索引才会被使用，使用组合索引时遵循<strong>最左前缀集合</strong>。</li>
+</ul>
+<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><p>如果一个字段是主键<code>primary key</code>，则该字段默认就是主键索引,需要注意的是<code>DDL</code>语句会自动提交,我们不需要手动<code>commit</code></p>
+<h3 id="方式一-2"><a href="#方式一-2" class="headerlink" title="方式一"></a>方式一</h3><p><code>create 索引类型  索引名  on 表(字段)</code></p>
+<ul>
+<li>单值索引</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span>   dept_index <span class="keyword">on</span>  tb(dept);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>唯一索引</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">unique</span> <span class="keyword">index</span>  name_index <span class="keyword">on</span> tb(<span class="keyword">name</span>) ;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>组合索引</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> dept_name_index <span class="keyword">on</span> tb(dept,<span class="keyword">name</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="方式二-2"><a href="#方式二-2" class="headerlink" title="方式二"></a>方式二</h3><p><code>alter table 表名 索引类型  索引名（字段）</code></p>
+<ul>
+<li>单值索引</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb <span class="keyword">add</span> <span class="keyword">index</span> dept_index(dept) ;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>唯一索引</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb <span class="keyword">add</span> <span class="keyword">unique</span> <span class="keyword">index</span> name_index(<span class="keyword">name</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>组合索引</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tb <span class="keyword">add</span> <span class="keyword">index</span> dept_name_index(dept,<span class="keyword">name</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><p><code>drop index 索引名 on 表名 ;</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">index</span> name_index <span class="keyword">on</span> tb ;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h2><ul>
+<li><code>show index from 表名 ;</code></li>
+<li><code>show index from 表名 \G</code></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show index from tb;</span><br><span class="line">+<span class="comment">-------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+</span></span><br><span class="line">| Table | Non_unique | Key_name   | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | <span class="keyword">Comment</span> | Index_comment |</span><br><span class="line">+<span class="comment">-------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+</span></span><br><span class="line">| tb    |          <span class="number">0</span> | PRIMARY    |            <span class="number">1</span> | <span class="keyword">id</span>          | A         |           <span class="number">0</span> |     <span class="literal">NULL</span> | <span class="literal">NULL</span>   |      | BTREE      |         |               |</span><br><span class="line">| tb    |          <span class="number">1</span> | dept_index |            <span class="number">1</span> | dept        | A         |        <span class="literal">NULL</span> |     <span class="literal">NULL</span> | <span class="literal">NULL</span>   | YES  | BTREE      |         |               |</span><br><span class="line">+<span class="comment">-------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+</span></span><br><span class="line"><span class="number">2</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li>提高查询效率（降低IO使用率）</li>
+<li>降低CPU使用率 （<code>...order by age desc</code>,因为 B树索引 本身就是一个 好排序的结构，因此在排序时  可以直接使用）</li>
+</ul>
+<h2 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h2><ul>
+<li>索引本身很大， 可以存放在内存/硬盘（通常为 硬盘）</li>
+<li>索引不是所有情况均适用<ul>
+<li>少量数据 </li>
+<li>频繁更新的字段 </li>
+<li>很少使用的字段</li>
+</ul>
+</li>
+<li>索引会降低增删改的效率（增删改  查）</li>
+</ul>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><ul>
+<li>尽量创建组合索引（组合索引其实会默认按照最左前缀原则帮我们创建多组索引）</li>
+<li>组合索引（id,name,sex）会帮我们创建多组索引—–&gt;[id],[id,name],[id,sex],[id,name,sex],[name,sex]</li>
+</ul>
+<h1 id="SQL故障排除"><a href="#SQL故障排除" class="headerlink" title="SQL故障排除"></a>SQL故障排除</h1><ul>
+<li>慢查询日志:MySQL提供的一种日志记录，用于记录MySQL种响应时间超过阀值的SQL语句 （long_query_time，默认10秒）</li>
+<li>慢查询日志默认是关闭的；建议一般开发调优时是打开，而最终部署时关闭。</li>
+<li>性能优化思路<ul>
+<li>首先需要使用慢查询功能，去获取所有查询时间比较长的SQL语句</li>
+<li>其次使用explain命令去查看有问题的SQL的执行计划</li>
+<li>最后可以使用show profile[s] 查看有问题的SQL的性能使用情况</li>
+</ul>
+</li>
+</ul>
+<h2 id="查看慢查询"><a href="#查看慢查询" class="headerlink" title="查看慢查询"></a>查看慢查询</h2><h3 id="临时开启"><a href="#临时开启" class="headerlink" title="临时开启"></a>临时开启</h3><h4 id="方式一-3"><a href="#方式一-3" class="headerlink" title="方式一"></a>方式一</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;%slow_query_log%&apos; ;</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| Variable_name       | Value                       |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| slow_query_log      | OFF                         |</span><br><span class="line">| slow_query_log_file | /var/lib/mysql/192-slow.log |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; set global slow_query_log = ON;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; show variables like &apos;%slow_query_log%&apos; ;</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| Variable_name       | Value                       |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| slow_query_log      | ON                          |</span><br><span class="line">| slow_query_log_file | /var/lib/mysql/192-slow.log |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h4 id="方式二-3"><a href="#方式二-3" class="headerlink" title="方式二"></a>方式二</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;%slow_query_log%&apos; ;</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| Variable_name       | Value                       |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| slow_query_log      | OFF                         |</span><br><span class="line">| slow_query_log_file | /var/lib/mysql/192-slow.log |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; set global slow_query_log = 1 ;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; show variables like &apos;%slow_query_log%&apos; ;</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| Variable_name       | Value                       |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">| slow_query_log      | ON                          |</span><br><span class="line">| slow_query_log_file | /var/lib/mysql/192-slow.log |</span><br><span class="line">+---------------------+-----------------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="永久开启"><a href="#永久开启" class="headerlink" title="永久开启"></a>永久开启</h3><p>编辑<code>/etc/my.cnf</code> 中追加配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf </span><br><span class="line">[mysqld]</span><br><span class="line">slow_query_log=1</span><br><span class="line">slow_query_log_file=/var/lib/mysql/localhost-slow.log</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看慢查询阀值"><a href="#查看慢查询阀值" class="headerlink" title="查看慢查询阀值"></a>查看慢查询阀值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;%long_query_time%&apos; ;</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">| Variable_name   | Value     |</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">| long_query_time | 10.000000 |</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="临时设置阀值"><a href="#临时设置阀值" class="headerlink" title="临时设置阀值"></a>临时设置阀值</h3><ul>
+<li>设置完毕后，重新登陆后起效 （不需要重启服务）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;%long_query_time%&apos; ;</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">| Variable_name   | Value     |</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">| long_query_time | 10.000000 |</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; set global long_query_time = 5 ;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; show variables like &apos;%long_query_time%&apos; ;</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">| Variable_name   | Value     |</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">| long_query_time | 10.000000 |</span><br><span class="line">+-----------------+-----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; exit;</span><br><span class="line">Bye</span><br><span class="line">[root@192 ~]# mysql -uroot -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 4</span><br><span class="line">Server version: 5.5.48-log MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt; show variables like &apos;%long_query_time%&apos; ;</span><br><span class="line">+-----------------+----------+</span><br><span class="line">| Variable_name   | Value    |</span><br><span class="line">+-----------------+----------+</span><br><span class="line">| long_query_time | 5.000000 |</span><br><span class="line">+-----------------+----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="永久设置阀值"><a href="#永久设置阀值" class="headerlink" title="永久设置阀值"></a>永久设置阀值</h3><p>编辑<code>/etc/my.cnf</code>中追加配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf </span><br><span class="line">[mysqld]</span><br><span class="line">long_query_time=3</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看SQL执行计划"><a href="#查看SQL执行计划" class="headerlink" title="查看SQL执行计划"></a>查看SQL执行计划</h2><p><code>explain +SQL语句</code></p>
+<h3 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h3><ul>
+<li>课程表<code>(course)</code></li>
+<li>教师表<code>(teacher)</code></li>
+<li>教师课程描述表<code>(teacherCard)</code></li>
+</ul>
+<p><img src="/myhexo/2019/06/08/mysql/1560245341475.png" alt="1560245341475"></p>
+<h3 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> course</span><br><span class="line">(</span><br><span class="line">cid <span class="built_in">int</span>(<span class="number">3</span>),</span><br><span class="line">cname <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">tid <span class="built_in">int</span>(<span class="number">3</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> teacher</span><br><span class="line">(</span><br><span class="line">tid <span class="built_in">int</span>(<span class="number">3</span>),</span><br><span class="line">tname <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">tcid <span class="built_in">int</span>(<span class="number">3</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> teacherCard</span><br><span class="line">(</span><br><span class="line">tcid <span class="built_in">int</span>(<span class="number">3</span>),</span><br><span class="line">tcdesc <span class="built_in">varchar</span>(<span class="number">200</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> course <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'java'</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> course <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">'html'</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> course <span class="keyword">values</span>(<span class="number">3</span>,<span class="string">'sql'</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> course <span class="keyword">values</span>(<span class="number">4</span>,<span class="string">'web'</span>,<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> teacher <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'tz'</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> teacher <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">'tw'</span>,<span class="number">2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> teacher <span class="keyword">values</span>(<span class="number">3</span>,<span class="string">'tl'</span>,<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> teacherCard <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'tzdesc'</span>) ;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> teacherCard <span class="keyword">values</span>(<span class="number">2</span>,<span class="string">'twdesc'</span>) ;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> teacherCard <span class="keyword">values</span>(<span class="number">3</span>,<span class="string">'tldesc'</span>) ;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看SQL性能使用情况"><a href="#查看SQL性能使用情况" class="headerlink" title="查看SQL性能使用情况"></a>查看SQL性能使用情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select @@profiling;</span><br><span class="line">+-------------+</span><br><span class="line">| @@profiling |</span><br><span class="line">+-------------+</span><br><span class="line">|           0 |</span><br><span class="line">+-------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; set profiling=1; </span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @@profiling;</span><br><span class="line">+-------------+</span><br><span class="line">| @@profiling |</span><br><span class="line">+-------------+</span><br><span class="line">|           1 |</span><br><span class="line">+-------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select sleep(20);</span><br><span class="line">+-----------+</span><br><span class="line">| sleep(20) |</span><br><span class="line">+-----------+</span><br><span class="line">|         0 |</span><br><span class="line">+-----------+</span><br><span class="line">1 row in set (20.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; show profiles;</span><br><span class="line">+----------+-------------+--------------------+</span><br><span class="line">| Query_ID | Duration    | Query              |</span><br><span class="line">+----------+-------------+--------------------+</span><br><span class="line">|        1 |  0.00007700 | select @@profiling |</span><br><span class="line">|        2 | 20.00080200 | select sleep(20)   |</span><br><span class="line">+----------+-------------+--------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; show profile;</span><br><span class="line">+----------------------+-----------+</span><br><span class="line">| Status               | Duration  |</span><br><span class="line">+----------------------+-----------+</span><br><span class="line">| starting             |  0.000033 |</span><br><span class="line">| checking permissions |  0.000002 |</span><br><span class="line">| Opening tables       |  0.000004 |</span><br><span class="line">| init                 |  0.000006 |</span><br><span class="line">| optimizing           |  0.000002 |</span><br><span class="line">| executing            |  0.000006 |</span><br><span class="line">| User sleep           | 20.000621 |</span><br><span class="line">| end                  |  0.000012 |</span><br><span class="line">| query end            |  0.000002 |</span><br><span class="line">| closing tables       |  0.000002 |</span><br><span class="line">| freeing items        |  0.000042 |</span><br><span class="line">| logging slow query   |  0.000003 |</span><br><span class="line">| logging slow query   |  0.000065 |</span><br><span class="line">| cleaning up          |  0.000004 |</span><br><span class="line">+----------------------+-----------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; show profile cpu,swaps for query 2;</span><br><span class="line">+----------------------+-----------+----------+------------+-------+</span><br><span class="line">| Status               | Duration  | CPU_user | CPU_system | Swaps |</span><br><span class="line">+----------------------+-----------+----------+------------+-------+</span><br><span class="line">| starting             |  0.000033 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| checking permissions |  0.000002 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| Opening tables       |  0.000004 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| init                 |  0.000006 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| optimizing           |  0.000002 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| executing            |  0.000006 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| User sleep           | 20.000621 | 0.006000 |   0.005999 |     0 |</span><br><span class="line">| end                  |  0.000012 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| query end            |  0.000002 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| closing tables       |  0.000002 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| freeing items        |  0.000042 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| logging slow query   |  0.000003 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| logging slow query   |  0.000065 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">| cleaning up          |  0.000004 | 0.000000 |   0.000000 |     0 |</span><br><span class="line">+----------------------+-----------+----------+------------+-------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/myhexo/2019/05/25/HTML5特性-CSS3基础-HTML5移动端基础-touch事件基础-touch多点触摸事件/" rel="next" title="HTML5特性_CSS3基础_HTML5移动端基础_touch事件基础_touch多点触摸事件">
+                <i class="fa fa-chevron-left"></i> HTML5特性_CSS3基础_HTML5移动端基础_touch事件基础_touch多点触摸事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
+            
+              <p class="site-author-name" itemprop="name">shenlibing</p>
+              <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/myhexo/archives/">
+                
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/myhexo/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/myhexo/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rzsz"><span class="nav-number">1.2.</span> <span class="nav-text">rzsz</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传"><span class="nav-number">1.3.</span> <span class="nav-text">上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载"><span class="nav-number">1.4.</span> <span class="nav-text">卸载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方式一"><span class="nav-number">1.4.1.</span> <span class="nav-text">方式一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式二"><span class="nav-number">1.4.2.</span> <span class="nav-text">方式二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端"><span class="nav-number">1.5.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端"><span class="nav-number">1.6.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证"><span class="nav-number">1.7.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动服务"><span class="nav-number">1.8.</span> <span class="nav-text">启动服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方式一-1"><span class="nav-number">1.8.1.</span> <span class="nav-text">方式一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式二-1"><span class="nav-number">1.8.2.</span> <span class="nav-text">方式二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式三"><span class="nav-number">1.8.3.</span> <span class="nav-text">方式三</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭服务"><span class="nav-number">1.9.</span> <span class="nav-text">关闭服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启服务"><span class="nav-number">1.10.</span> <span class="nav-text">重启服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查开机是否自动启动mysql服务"><span class="nav-number">1.11.</span> <span class="nav-text">检查开机是否自动启动mysql服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改密码"><span class="nav-number">1.12.</span> <span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-number">1.13.</span> <span class="nav-text">连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#授权"><span class="nav-number">1.14.</span> <span class="nav-text">授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坑"><span class="nav-number">1.15.</span> <span class="nav-text">坑</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库存放目录"><span class="nav-number">2.</span> <span class="nav-text">数据库存放目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL核心目录"><span class="nav-number">2.1.</span> <span class="nav-text">MySQL核心目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL配置文件"><span class="nav-number">2.2.</span> <span class="nav-text">MySQL配置文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql字符编码"><span class="nav-number">3.</span> <span class="nav-text">mysql字符编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看字符编码"><span class="nav-number">3.1.</span> <span class="nav-text">查看字符编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改字符编码为utf8"><span class="nav-number">3.2.</span> <span class="nav-text">修改字符编码为utf8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清屏"><span class="nav-number">3.3.</span> <span class="nav-text">清屏</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL语句查询"><span class="nav-number">4.</span> <span class="nav-text">SQL语句查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法顺序"><span class="nav-number">4.1.</span> <span class="nav-text">语法顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行顺序"><span class="nav-number">4.2.</span> <span class="nav-text">执行顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHERE条件执行顺序（影响性能）"><span class="nav-number">4.3.</span> <span class="nav-text">WHERE条件执行顺序（影响性能）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多表之间关系"><span class="nav-number">5.</span> <span class="nav-text">多表之间关系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一对一"><span class="nav-number">5.1.</span> <span class="nav-text">一对一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一对多"><span class="nav-number">5.2.</span> <span class="nav-text">一对多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多对多"><span class="nav-number">5.3.</span> <span class="nav-text">多对多</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#存储引擎"><span class="nav-number">6.</span> <span class="nav-text">存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查询数据库支持哪些引擎"><span class="nav-number">6.1.</span> <span class="nav-text">查询数据库支持哪些引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看当前使用的引擎"><span class="nav-number">6.2.</span> <span class="nav-text">查看当前使用的引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定数据库对象的引擎"><span class="nav-number">6.3.</span> <span class="nav-text">指定数据库对象的引擎</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日志文件、数据文件"><span class="nav-number">7.</span> <span class="nav-text">日志文件、数据文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#日志位置"><span class="nav-number">7.1.</span> <span class="nav-text">日志位置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制日志"><span class="nav-number">7.1.1.</span> <span class="nav-text">二进制日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误日志"><span class="nav-number">7.1.2.</span> <span class="nav-text">错误日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询日志"><span class="nav-number">7.1.3.</span> <span class="nav-text">查询日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慢查询日志"><span class="nav-number">7.1.4.</span> <span class="nav-text">慢查询日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据位置"><span class="nav-number">7.2.</span> <span class="nav-text">数据位置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL优化"><span class="nav-number">8.</span> <span class="nav-text">SQL优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#B树索引"><span class="nav-number">8.1.</span> <span class="nav-text">B树索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Tree"><span class="nav-number">8.2.</span> <span class="nav-text">B+Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">8.3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建索引"><span class="nav-number">8.4.</span> <span class="nav-text">创建索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方式一-2"><span class="nav-number">8.4.1.</span> <span class="nav-text">方式一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式二-2"><span class="nav-number">8.4.2.</span> <span class="nav-text">方式二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除索引"><span class="nav-number">8.5.</span> <span class="nav-text">删除索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询索引"><span class="nav-number">8.6.</span> <span class="nav-text">查询索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优势"><span class="nav-number">8.7.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弊端"><span class="nav-number">8.8.</span> <span class="nav-text">弊端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议"><span class="nav-number">8.9.</span> <span class="nav-text">建议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL故障排除"><span class="nav-number">9.</span> <span class="nav-text">SQL故障排除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看慢查询"><span class="nav-number">9.1.</span> <span class="nav-text">查看慢查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#临时开启"><span class="nav-number">9.1.1.</span> <span class="nav-text">临时开启</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方式一-3"><span class="nav-number">9.1.1.1.</span> <span class="nav-text">方式一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方式二-3"><span class="nav-number">9.1.1.2.</span> <span class="nav-text">方式二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永久开启"><span class="nav-number">9.1.2.</span> <span class="nav-text">永久开启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看慢查询阀值"><span class="nav-number">9.1.3.</span> <span class="nav-text">查看慢查询阀值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#临时设置阀值"><span class="nav-number">9.1.4.</span> <span class="nav-text">临时设置阀值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永久设置阀值"><span class="nav-number">9.1.5.</span> <span class="nav-text">永久设置阀值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看SQL执行计划"><span class="nav-number">9.2.</span> <span class="nav-text">查看SQL执行计划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表结构"><span class="nav-number">9.2.1.</span> <span class="nav-text">表结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备数据"><span class="nav-number">9.2.2.</span> <span class="nav-text">准备数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看SQL性能使用情况"><span class="nav-number">9.3.</span> <span class="nav-text">查看SQL性能使用情况</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenlibing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">1.2m</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">18:47</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+
+ <div>友情链接：
+  <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.kawabangga.com/"> 卡瓦邦噶 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.linuxprobe.com/chapter-00.html/"> Linux就该这么学 </a><span>&nbsp;&nbsp;</span>
+ </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/myhexo/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz',
+                'X-LC-Key': 'EEaRfb6dCMaS38laDCkSYhM9',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
