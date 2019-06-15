@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/myhexo/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="涉及技术介绍HibernateYour relational data. Objectively. - Hibernate ORM Object/Relational MappingHibernate ORM enables developers to more easily write applications whose data outlives the application proces">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringData">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/06/15/SpringData/index.html">
+<meta property="og:site_name" content="小兵兵">
+<meta property="og:description" content="涉及技术介绍HibernateYour relational data. Objectively. - Hibernate ORM Object/Relational MappingHibernate ORM enables developers to more easily write applications whose data outlives the application proces">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/15/SpringData/1560590752790.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/06/15/SpringData/1560591084871.png">
+<meta property="og:updated_time" content="2019-06-15T10:13:44.958Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringData">
+<meta name="twitter:description" content="涉及技术介绍HibernateYour relational data. Objectively. - Hibernate ORM Object/Relational MappingHibernate ORM enables developers to more easily write applications whose data outlives the application proces">
+<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/06/15/SpringData/1560590752790.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/06/15/SpringData/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SpringData | 小兵兵</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+        <a href="https://github.com/shenlibing/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/myhexo/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵兵</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/06/15/SpringData/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="言宜慢,心宜善">
+      <meta itemprop="image" content="/myhexo/images/myimg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SpringData
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-15 16:49:31 / 修改时间：18:13:44" itemprop="dateCreated datePublished" datetime="2019-06-15T16:49:31+08:00">2019-06-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/myhexo/2019/06/15/SpringData/" class="leancloud_visitors" data-flag-title="SpringData">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">24k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">22 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="涉及技术介绍"><a href="#涉及技术介绍" class="headerlink" title="涉及技术介绍"></a>涉及技术介绍</h1><h2 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h2><p><a href="http://hibernate.org/orm/" target="_blank" rel="noopener">Your relational data. Objectively. - Hibernate ORM</a></p>
+<p><strong>Object/Relational Mapping</strong><br>Hibernate ORM enables developers to more easily write applications whose data outlives the application process. As an Object/Relational Mapping (ORM) framework, Hibernate is concerned with data persistence as it applies to relational databases (via JDBC). Unfamiliar with the notion of ORM? Read here.</p>
+<p><strong>JPA Provider</strong><br>In addition to its own “native” API, Hibernate is also an implementation of the Java Persistence API (JPA) specification. As such, it can be easily used in any environment supporting JPA including Java SE applications, Java EE application servers, Enterprise OSGi containers, etc.</p>
+<p><strong>Idiomatic persistence</strong><br>Hibernate enables you to develop persistent classes following natural Object-oriented idioms including inheritance, polymorphism, association, composition, and the Java collections framework. Hibernate requires no interfaces or base classes for persistent classes and enables any class or data structure to be persistent.</p>
+<p><strong>High Performance</strong><br>Hibernate supports lazy initialization, numerous fetching strategies and optimistic locking with automatic versioning and time stamping. Hibernate requires no special database tables or fields and generates much of the SQL at system initialization time instead of at runtime.</p>
+<p>Hibernate consistently offers superior performance over straight JDBC code, both in terms of developer productivity and runtime performance.</p>
+<p><strong>Scalability</strong><br>Hibernate was designed to work in an application server cluster and deliver a highly scalable architecture. Hibernate scales well in any environment: Use it to drive your in-house Intranet that serves hundreds of users or for mission-critical applications that serve hundreds of thousands.</p>
+<p><strong>Reliable</strong><br>Hibernate is well known for its excellent stability and quality, proven by the acceptance and use by tens of thousands of Java developers.</p>
+<p><strong>Extensibility</strong><br>Hibernate is highly configurable and extensible.</p>
+<h2 id="JPA-标准"><a href="#JPA-标准" class="headerlink" title="JPA 标准"></a>JPA 标准</h2><p><a href="https://en.wikipedia.org/wiki/Java_Persistence_API" target="_blank" rel="noopener">Java Persistence API - Wikipedia</a></p>
+<p>The <strong>Java Persistence API</strong> (<strong>JPA</strong>) is a <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank" rel="noopener">Java</a> <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank" rel="noopener">application programming interface</a> specification that describes the management of <a href="https://en.wikipedia.org/wiki/Relational_data_model" target="_blank" rel="noopener">relational data</a> in applications using <a href="https://en.wikipedia.org/wiki/Java_Platform,_Standard_Edition" target="_blank" rel="noopener">Java Platform, Standard Edition</a> and <a href="https://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition" target="_blank" rel="noopener">Java Platform, Enterprise Edition</a>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Persistence_(computer_science)" target="_blank" rel="noopener">Persistence</a> in this context covers three areas:</p>
+<ul>
+<li>the <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank" rel="noopener">API</a> itself, defined in the <code>javax.persistence</code> package</li>
+<li>the <a href="https://en.wikipedia.org/wiki/Java_Persistence_Query_Language" target="_blank" rel="noopener">Java Persistence Query Language</a> (JPQL)</li>
+<li>object/relational metadata</li>
+</ul>
+<h2 id="Hibernate-JPA"><a href="#Hibernate-JPA" class="headerlink" title="Hibernate JPA"></a>Hibernate JPA</h2><p><code>Hibernate</code> 在<code>3.2</code> 以后根据<code>JPA</code> 规范提供了一套操作持久层的 API</p>
+<h2 id="Spring-Data"><a href="#Spring-Data" class="headerlink" title="Spring Data"></a>Spring Data</h2><p><a href="https://spring.io/projects/spring-data" target="_blank" rel="noopener">Spring Data</a></p>
+<p>Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while still retaining the special traits of the underlying data store.</p>
+<p>It makes it easy to use data access technologies, relational and non-relational databases, map-reduce frameworks, and cloud-based data services. This is an umbrella project which contains many subprojects that are specific to a given database. The projects are developed by working together with many of the companies and developers that are behind these exciting technologies.</p>
+<h2 id="Spring-Data-JPA"><a href="#Spring-Data-JPA" class="headerlink" title="Spring Data JPA"></a>Spring Data JPA</h2><p><a href="https://spring.io/projects/spring-data-jpa" target="_blank" rel="noopener">Spring Data JPA</a></p>
+<p>Spring Data JPA, part of the larger Spring Data family, makes it easy to easily implement JPA based repositories. This module deals with enhanced support for JPA based data access layers. It makes it easier to build Spring-powered applications that use data access technologies.</p>
+<p>Implementing a data access layer of an application has been cumbersome for quite a while. Too much boilerplate code has to be written to execute simple queries as well as perform pagination, and auditing. Spring Data JPA aims to significantly improve the implementation of data access layers by reducing the effort to the amount that’s actually needed. As a developer you write your repository interfaces, including custom finder methods, and Spring will provide the implementation automatically.</p>
+<h2 id="Spring-Data-Redis"><a href="#Spring-Data-Redis" class="headerlink" title="Spring Data Redis"></a>Spring Data Redis</h2><p><a href="https://spring.io/projects/spring-data-redis" target="_blank" rel="noopener">Spring Data Redis</a></p>
+<p>Spring Data Redis, part of the larger Spring Data family, provides easy configuration and access to Redis from Spring applications. It offers both low-level and high-level abstractions for interacting with the store, freeing the user from infrastructural concerns.</p>
+<h1 id="Spring-整合-Hibernate"><a href="#Spring-整合-Hibernate" class="headerlink" title="Spring  整合 Hibernate"></a>Spring  整合 Hibernate</h1><h2 id="导入jar包"><a href="#导入jar包" class="headerlink" title="导入jar包"></a>导入jar包</h2><h3 id="spring-jar包"><a href="#spring-jar包" class="headerlink" title="spring jar包"></a>spring jar包</h3><h4 id="spring-ioc"><a href="#spring-ioc" class="headerlink" title="spring-ioc"></a>spring-ioc</h4><p>spring-beans-4.2.0.RELEASE.jar</p>
+<p>spring-context-4.2.0.RELEASE.jar</p>
+<p>spring-core-4.2.0.RELEASE.jar</p>
+<p>spring-expression-4.2.0.RELEASE.jar</p>
+<h4 id="spring-aop"><a href="#spring-aop" class="headerlink" title="spring-aop"></a>spring-aop</h4><p>aopalliance.jar</p>
+<p>aspectjrt.jar</p>
+<p>aspectjweaver.jar</p>
+<p>spring-aop-4.2.0.RELEASE.jar</p>
+<p>spring-aspects-4.2.0.RELEASE.jar</p>
+<h4 id="spring-jdbc"><a href="#spring-jdbc" class="headerlink" title="spring-jdbc"></a>spring-jdbc</h4><p>spring-jdbc-4.2.0.RELEASE.jar</p>
+<p>spring-tx-4.2.0.RELEASE.jar</p>
+<h4 id="spring-orm"><a href="#spring-orm" class="headerlink" title="spring-orm"></a>spring-orm</h4><p>spring-orm-4.2.0.RELEASE.jar</p>
+<h4 id="spring-test"><a href="#spring-test" class="headerlink" title="spring-test"></a>spring-test</h4><p>spring-test-4.2.0.RELEASE.jar</p>
+<h4 id="apache-logging"><a href="#apache-logging" class="headerlink" title="apache-logging"></a>apache-logging</h4><p>commons-logging-1.1.1.jar</p>
+<h3 id="hibernate-jar包"><a href="#hibernate-jar包" class="headerlink" title="hibernate jar包"></a>hibernate jar包</h3><h4 id="hibernate-core"><a href="#hibernate-core" class="headerlink" title="hibernate-core"></a>hibernate-core</h4><p>antlr-2.7.7.jar</p>
+<p>dom4j-1.6.1.jar</p>
+<p>geronimo-jta_1.1_spec-1.1.1.jar</p>
+<p>hibernate-commons-annotations-5.0.1.Final.jar</p>
+<p>hibernate-core-5.0.7.Final.jar</p>
+<p>hibernate-jpa-2.1-api-1.0.0.Final.jar</p>
+<p>jandex-2.0.0.Final.jar</p>
+<p>javassist-3.18.1-GA.jar</p>
+<p>jboss-logging-3.3.0.Final.jar</p>
+<h4 id="mysqql-driver"><a href="#mysqql-driver" class="headerlink" title="mysqql-driver"></a>mysqql-driver</h4><p>mysql-connector-java-5.1.7-bin.jar</p>
+<h4 id="c3p0连接池"><a href="#c3p0连接池" class="headerlink" title="c3p0连接池"></a>c3p0连接池</h4><p>c3p0-0.9.2.1.jar</p>
+<p>hibernate-c3p0-5.0.7.Final.jar</p>
+<p>mchange-commons-java-0.2.3.4.jar</p>
+<p><img src="/myhexo/2019/06/15/SpringData/1560590752790.png" alt="1560590752790"></p>
+<h2 id="spring整合hibernate"><a href="#spring整合hibernate" class="headerlink" title="spring整合hibernate"></a>spring整合hibernate</h2><p>编写配置文件</p>
+<ul>
+<li>配置读取properties文件的工具类</li>
+<li>配置c3p0数据库连接池</li>
+<li>配置Hibernate的SeesionFactory</li>
+<li>配置Hibernate的事务管理器</li>
+<li>配置开启注解事务处理</li>
+<li>配置springIOC的注解扫描</li>
+</ul>
+<p>applicationContext.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> <span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/context/spring-context.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/aop</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/aop/spring-aop.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/tx </span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/tx/spring-tx.xsd"</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置读取properties文件的工具类 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">"classpath:jdbc.properties"</span>/&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置c3p0数据库连接池 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driver.class&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.username&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置Hibernate的SeesionFactory --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.LocalSessionFactoryBean"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- hibernateProperties属性：配置与hibernate相关的内容，如显示sql语句，开启正向工程 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernateProperties"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- 显示当前执行的sql语句 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- 开启正向工程 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.hbm2ddl.auto"</span>&gt;</span>update<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 扫描实体所在的包 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"packagesToScan"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">value</span>&gt;</span>com.bjsxt.pojo<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置Hibernate的事务管理器 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.HibernateTransactionManager"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置开启注解事务处理 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>/&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置springIOC的注解扫描 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.bjsxt"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="hibernate完成CRUD"><a href="#hibernate完成CRUD" class="headerlink" title="hibernate完成CRUD"></a>hibernate完成CRUD</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><p><img src="/myhexo/2019/06/15/SpringData/1560591084871.png" alt="1560591084871"></p>
+<h3 id="编写实体类"><a href="#编写实体类" class="headerlink" title="编写实体类"></a>编写实体类</h3><p>Users.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bjsxt.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.persistence.Column;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Entity;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.GeneratedValue;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.GenerationType;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Id;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Table;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name=<span class="string">"t_users"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Users</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span>(strategy=GenerationType.IDENTITY)<span class="comment">//strategy=GenerationType.IDENTITY 自增长</span></span><br><span class="line">	<span class="meta">@Column</span>(name=<span class="string">"userid"</span>)</span><br><span class="line">	<span class="keyword">private</span> Integer userid;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Column</span>(name=<span class="string">"username"</span>)</span><br><span class="line">	<span class="keyword">private</span> String username;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Column</span>(name=<span class="string">"userage"</span>)</span><br><span class="line">	<span class="keyword">private</span> Integer userage;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getUserid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> userid;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserid</span><span class="params">(Integer userid)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.userid = userid;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> username;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.username = username;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getUserage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> userage;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserage</span><span class="params">(Integer userage)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.userage = userage;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"Users [userid="</span> + userid + <span class="string">", username="</span> + username + <span class="string">", userage="</span> + userage + <span class="string">"]"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>添加 <code>HibernateTemplate</code>，修改<code>applicationContext.xml</code>配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置HiberanteTemplate对象 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"hibernateTemplate"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.HibernateTemplate"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="编写接口"><a href="#编写接口" class="headerlink" title="编写接口"></a>编写接口</h3><p>UsersDao.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bjsxt.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bjsxt.pojo.Users;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UsersDao</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insertUsers</span><span class="params">(Users users)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">updateUsers</span><span class="params">(Users users)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">deleteUsers</span><span class="params">(Users users)</span></span>;</span><br><span class="line">	<span class="function">Users <span class="title">selectUsersById</span><span class="params">(Integer userid)</span></span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写实现类"><a href="#编写实现类" class="headerlink" title="编写实现类"></a>编写实现类</h3><p>UsersDaoImpl.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bjsxt.dao.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.hibernate.Query;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Session;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.orm.hibernate5.HibernateTemplate;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bjsxt.dao.UsersDao;</span><br><span class="line"><span class="keyword">import</span> com.bjsxt.pojo.Users;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UsersDaoImpl</span>  <span class="keyword">implements</span> <span class="title">UsersDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> HibernateTemplate hibernateTemplate;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertUsers</span><span class="params">(Users users)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.hibernateTemplate.save(users);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateUsers</span><span class="params">(Users users)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.hibernateTemplate.update(users);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteUsers</span><span class="params">(Users users)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.hibernateTemplate.delete(users);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Users <span class="title">selectUsersById</span><span class="params">(Integer userid)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.hibernateTemplate.get(Users.class, userid);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写测试代码"><a href="#编写测试代码" class="headerlink" title="编写测试代码"></a>编写测试代码</h3><p>UsersDaoImplTest.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bjsxt.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.annotation.Rollback;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.ContextConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bjsxt.dao.UsersDao;</span><br><span class="line"><span class="keyword">import</span> com.bjsxt.pojo.Users;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(<span class="string">"classpath:applicationContext.xml"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UsersDaoImplTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> UsersDao usersDao;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 添加用户</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="meta">@Transactional</span><span class="comment">// 在测试类对于事务提交方式默认的是回滚。</span></span><br><span class="line">	<span class="meta">@Rollback</span>(<span class="keyword">false</span>)<span class="comment">//取消自动回滚</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInsertUsers</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Users users = <span class="keyword">new</span> Users();</span><br><span class="line">		users.setUserage(<span class="number">20</span>);</span><br><span class="line">		users.setUsername(<span class="string">"张三"</span>);</span><br><span class="line">		<span class="keyword">this</span>.usersDao.insertUsers(users);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 更新用户</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="meta">@Transactional</span></span><br><span class="line">	<span class="meta">@Rollback</span>(<span class="keyword">false</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateUsers</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Users users = <span class="keyword">new</span> Users();</span><br><span class="line">		users.setUserid(<span class="number">2</span>);</span><br><span class="line">		users.setUserage(<span class="number">22</span>);</span><br><span class="line">		users.setUsername(<span class="string">"李四"</span>);</span><br><span class="line">		<span class="keyword">this</span>.usersDao.updateUsers(users);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 根据userid查询用户</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectUsersById</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Users users = <span class="keyword">this</span>.usersDao.selectUsersById(<span class="number">2</span>);</span><br><span class="line">		System.out.println(users);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除用户</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="meta">@Transactional</span></span><br><span class="line">	<span class="meta">@Rollback</span>(<span class="keyword">false</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeleteUsers</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Users users = <span class="keyword">new</span> Users();</span><br><span class="line">		users.setUserid(<span class="number">2</span>);</span><br><span class="line">		<span class="keyword">this</span>.usersDao.deleteUsers(users);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HQL查询"><a href="#HQL查询" class="headerlink" title="HQL查询"></a>HQL查询</h2><p><code>HQL：Hibernate Query Language</code><br><code>HQL</code>的语法：就是将原来的 <code>sql</code>语句中的表与字段名称换成对象与属性的名称就可以了</p>
+<h3 id="修改接口"><a href="#修改接口" class="headerlink" title="修改接口"></a>修改接口</h3><p>添加查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;Users&gt; <span class="title">selectUserByName</span><span class="params">(String username)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改实现类"><a href="#修改实现类" class="headerlink" title="修改实现类"></a>修改实现类</h3><p>实现查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Users&gt; <span class="title">selectUserByName</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//getCurrentSession:当前session必须要有事务边界，且只能处理唯一的一个事务。当事务提交或者回滚后session自动失效</span></span><br><span class="line">	<span class="comment">//openSession:每次都会打开一个新的session.加入每次使用多次。则获得的是不同session对象。使用完毕后我们需要手动的调用colse方法关闭session</span></span><br><span class="line">Session session = <span class="keyword">this</span>.hibernateTemplate.getSessionFactory().getCurrentSession();</span><br><span class="line"><span class="comment">//sql:select * from t_users where username = </span></span><br><span class="line">Query query = session.createQuery(<span class="string">"from Users where username = :abc"</span>);</span><br><span class="line">Query queryTemp = query.setString(<span class="string">"abc"</span>,username);</span><br><span class="line">	<span class="keyword">return</span> queryTemp.list();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写测试代码-1"><a href="#编写测试代码-1" class="headerlink" title="编写测试代码"></a>编写测试代码</h3><p>测试<code>HQL</code>查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * HQL测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectUserByName</span><span class="params">()</span></span>&#123;</span><br><span class="line">	List&lt;Users&gt; list = <span class="keyword">this</span>.usersDao.selectUserByName(<span class="string">"张三"</span>);</span><br><span class="line">	<span class="keyword">for</span> (Users users : list) &#123;</span><br><span class="line">		System.out.println(users);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL查询"><a href="#SQL查询" class="headerlink" title="SQL查询"></a>SQL查询</h2><h3 id="修改接口-1"><a href="#修改接口-1" class="headerlink" title="修改接口"></a>修改接口</h3><p>添加查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;Users&gt; <span class="title">selectUserByNameUseSQL</span><span class="params">(String username)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改实现类-1"><a href="#修改实现类-1" class="headerlink" title="修改实现类"></a>修改实现类</h3><p>实现查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Users&gt; <span class="title">selectUserByNameUseSQL</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">	Session session = <span class="keyword">this</span>.hibernateTemplate.getSessionFactory().getCurrentSession();</span><br><span class="line">	Query query = session.createSQLQuery(<span class="string">"select * from t_users where username = ?"</span>).addEntity(Users.class).setString(<span class="number">0</span>, username);</span><br><span class="line">	<span class="keyword">return</span> query.list();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写测试代码-2"><a href="#编写测试代码-2" class="headerlink" title="编写测试代码"></a>编写测试代码</h3><p>测试<code>SQL</code>查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * SQL测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectUserByNameUseSQL</span><span class="params">()</span></span>&#123;</span><br><span class="line">	List&lt;Users&gt; list = <span class="keyword">this</span>.usersDao.selectUserByNameUseSQL(<span class="string">"张三"</span>);</span><br><span class="line">	<span class="keyword">for</span> (Users users : list) &#123;</span><br><span class="line">		System.out.println(users);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="QBC查询"><a href="#QBC查询" class="headerlink" title="QBC查询"></a>QBC查询</h2><p><code>QBC：Query By Criteria</code></p>
+<h3 id="修改接口-2"><a href="#修改接口-2" class="headerlink" title="修改接口"></a>修改接口</h3><p>添加查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;Users&gt; <span class="title">selectUserByNameUseCriteria</span><span class="params">(String username)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改实现类-2"><a href="#修改实现类-2" class="headerlink" title="修改实现类"></a>修改实现类</h3><p>实现接口查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Users&gt; <span class="title">selectUserByNameUseCriteria</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">	Session session = <span class="keyword">this</span>.hibernateTemplate.getSessionFactory().getCurrentSession();</span><br><span class="line">	<span class="comment">//sql:select * from t_users where username = 张三</span></span><br><span class="line">	Criteria c = session.createCriteria(Users.class);</span><br><span class="line">	c.add(Restrictions.eq(<span class="string">"username"</span>, username));</span><br><span class="line">	<span class="keyword">return</span> c.list();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写测试代码-3"><a href="#编写测试代码-3" class="headerlink" title="编写测试代码"></a>编写测试代码</h3><p>测试<code>QBC</code>查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Criteria测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectUserByNameUseCriteria</span><span class="params">()</span></span>&#123;</span><br><span class="line">	List&lt;Users&gt; list = <span class="keyword">this</span>.usersDao.selectUserByNameUseCriteria(<span class="string">"张三"</span>);</span><br><span class="line">	<span class="keyword">for</span> (Users users : list) &#123;</span><br><span class="line">		System.out.println(users);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Spring整合Hibernate-JPA"><a href="#Spring整合Hibernate-JPA" class="headerlink" title="Spring整合Hibernate JPA"></a>Spring整合Hibernate JPA</h1><p><code>JPA：</code>由 <code>Sun</code>公司提供了一对对于持久层操作的标准(接口+文档)<br><code>Hibernate:</code>是 <code>Gavin King</code>开发的一套对于持久层操作的自动的<code>ORM</code>框架。<br><code>Hibernate JPA:</code>是在<code>Hibernate3.2</code>版本那种提供了对于 <code>JPA</code>的标准的实现。提供了一套按<br>照 <code>JPA</code> 标准来实现持久层开发的 <code>API</code></p>
+<h2 id="导入jar包-1"><a href="#导入jar包-1" class="headerlink" title="导入jar包"></a>导入jar包</h2><p>在项目中导入 <code>HIbernateJPA</code>相关的 <code>jar</code></p>
+<p>hibernate-entitymanager-5.0.7.Final.jar</p>
+<h2 id="修改配置文件-1"><a href="#修改配置文件-1" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>修改<code>applicationContext.xml</code>配置文件</p>
+<ul>
+<li>配置读取properties文件的工具类</li>
+<li>配置c3p0数据库连接池</li>
+<li>Spring整合JPA  配置EntityManagerFactory</li>
+<li>配置jpa的事务管理器</li>
+<li>配置开启注解事务处理</li>
+<li>配置springIOC的注解扫描</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> <span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/context/spring-context.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/aop</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/aop/spring-aop.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/tx </span></span></span><br><span class="line"><span class="tag"><span class="string">	http://www.springframework.org/schema/tx/spring-tx.xsd"</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置读取properties文件的工具类 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">"classpath:jdbc.properties"</span>/&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置c3p0数据库连接池 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driver.class&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.username&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- Spring整合JPA  配置EntityManagerFactory--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"entityManagerFactory"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jpaVedorAdapter"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- hibernate相关的属性的注入 --&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- 配置数据库类型 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"database"</span> <span class="attr">value</span>=<span class="string">"MYSQL"</span>/&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- 正向工程 自动创建表 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"generateDdl"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">				<span class="comment">&lt;!-- 显示执行的SQL --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"showSql"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 扫描实体的包 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"packagesToScan"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">value</span>&gt;</span>com.bjsxt.pojo<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 配置jpa的事务管理器 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.jpa.JpaTransactionManager"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"entityManagerFactory"</span> <span class="attr">ref</span>=<span class="string">"entityManagerFactory"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置开启注解事务处理 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>/&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 配置springIOC的注解扫描 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.bjsxt"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Hibernate-JPA的CRUD"><a href="#Hibernate-JPA的CRUD" class="headerlink" title="Hibernate JPA的CRUD"></a>Hibernate JPA的CRUD</h2><h3 id="编写实体类-1"><a href="#编写实体类-1" class="headerlink" title="编写实体类"></a>编写实体类</h3><p>Users.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bjsxt.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.persistence.Column;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Entity;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.GeneratedValue;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.GenerationType;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Id;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Table;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name=<span class="string">"t_users"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Users</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span>(strategy=GenerationType.IDENTITY)<span class="comment">//strategy=GenerationType.IDENTITY 自增长</span></span><br><span class="line">	<span class="meta">@Column</span>(name=<span class="string">"userid"</span>)</span><br><span class="line">	<span class="keyword">private</span> Integer userid;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Column</span>(name=<span class="string">"username"</span>)</span><br><span class="line">	<span class="keyword">private</span> String username;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Column</span>(name=<span class="string">"userage"</span>)</span><br><span class="line">	<span class="keyword">private</span> Integer userage;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getUserid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> userid;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserid</span><span class="params">(Integer userid)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.userid = userid;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> username;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.username = username;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getUserage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> userage;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserage</span><span class="params">(Integer userage)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.userage = userage;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"Users [userid="</span> + userid + <span class="string">", username="</span> + username + <span class="string">", userage="</span> + userage + <span class="string">"]"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写接口-1"><a href="#编写接口-1" class="headerlink" title="编写接口"></a>编写接口</h3><p>UsersDao.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bjsxt.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bjsxt.pojo.Users;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UsersDao</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insertUsers</span><span class="params">(Users users)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">updateUsers</span><span class="params">(Users users)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">deleteUsers</span><span class="params">(Users users)</span></span>;</span><br><span class="line">	<span class="function">Users <span class="title">selectUsersById</span><span class="params">(Integer userid)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写实现类-1"><a href="#编写实现类-1" class="headerlink" title="编写实现类"></a>编写实现类</h3><p>UsersDaoImpl.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bjsxt.dao.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.persistence.EntityManager;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.PersistenceContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.hibernate.Criteria;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Query;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Session;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.criterion.Restrictions;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.orm.hibernate5.HibernateTemplate;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bjsxt.dao.UsersDao;</span><br><span class="line"><span class="keyword">import</span> com.bjsxt.pojo.Users;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UsersDaoImpl</span>  <span class="keyword">implements</span> <span class="title">UsersDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@PersistenceContext</span>(name=<span class="string">"entityManagerFactory"</span>)</span><br><span class="line">	<span class="keyword">private</span> EntityManager entityManager;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertUsers</span><span class="params">(Users users)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.entityManager.persist(users);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateUsers</span><span class="params">(Users users)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.entityManager.merge(users);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteUsers</span><span class="params">(Users users)</span> </span>&#123;</span><br><span class="line">		Users  u = <span class="keyword">this</span>.selectUsersById(users.getUserid());</span><br><span class="line">		<span class="keyword">this</span>.entityManager.remove(u);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Users <span class="title">selectUsersById</span><span class="params">(Integer userid)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.entityManager.find(Users.class, userid);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写测试代码-4"><a href="#编写测试代码-4" class="headerlink" title="编写测试代码"></a>编写测试代码</h3><p>UsersDaoImplTest.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bjsxt.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.annotation.Rollback;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.ContextConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bjsxt.dao.UsersDao;</span><br><span class="line"><span class="keyword">import</span> com.bjsxt.pojo.Users;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(<span class="string">"classpath:applicationContext.xml"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UsersDaoImplTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> UsersDao usersDao;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 添加用户</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="meta">@Transactional</span><span class="comment">// 在测试类对于事务提交方式默认的是回滚。</span></span><br><span class="line">	<span class="meta">@Rollback</span>(<span class="keyword">false</span>)<span class="comment">//取消自动回滚</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testInsertUsers</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Users users = <span class="keyword">new</span> Users();</span><br><span class="line">		users.setUserage(<span class="number">24</span>);</span><br><span class="line">		users.setUsername(<span class="string">"王小丽"</span>);</span><br><span class="line">		<span class="keyword">this</span>.usersDao.insertUsers(users);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 更新用户</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="meta">@Transactional</span></span><br><span class="line">	<span class="meta">@Rollback</span>(<span class="keyword">false</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateUsers</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Users users = <span class="keyword">new</span> Users();</span><br><span class="line">		users.setUserid(<span class="number">5</span>);</span><br><span class="line">		users.setUserage(<span class="number">22</span>);</span><br><span class="line">		users.setUsername(<span class="string">"王五"</span>);</span><br><span class="line">		<span class="keyword">this</span>.usersDao.updateUsers(users);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 根据userid查询用户</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectUsersById</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Users users = <span class="keyword">this</span>.usersDao.selectUsersById(<span class="number">4</span>);</span><br><span class="line">		System.out.println(users);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除用户</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="meta">@Transactional</span></span><br><span class="line">	<span class="meta">@Rollback</span>(<span class="keyword">false</span>)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeleteUsers</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Users users = <span class="keyword">new</span> Users();</span><br><span class="line">		users.setUserid(<span class="number">4</span>);</span><br><span class="line">		<span class="keyword">this</span>.usersDao.deleteUsers(users);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HQL查询-1"><a href="#HQL查询-1" class="headerlink" title="HQL查询"></a>HQL查询</h2><h3 id="修改接口-3"><a href="#修改接口-3" class="headerlink" title="修改接口"></a>修改接口</h3><p>添加<code>HQL</code>查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;Users&gt; <span class="title">selectUserByName</span><span class="params">(String username)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改实现类-3"><a href="#修改实现类-3" class="headerlink" title="修改实现类"></a>修改实现类</h3><p>实现<code>HQL</code>查询接口方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Users&gt; <span class="title">selectUserByName</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.entityManager.createQuery(<span class="string">" from Users where username = :abc"</span>).setParameter(<span class="string">"abc"</span>, username).getResultList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改测试代码"><a href="#修改测试代码" class="headerlink" title="修改测试代码"></a>修改测试代码</h3><p>测试<code>HQL</code>查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * HQL测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectUserByName</span><span class="params">()</span></span>&#123;</span><br><span class="line">	List&lt;Users&gt; list = <span class="keyword">this</span>.usersDao.selectUserByName(<span class="string">"王五"</span>);</span><br><span class="line">	<span class="keyword">for</span> (Users users : list) &#123;</span><br><span class="line">		System.out.println(users);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL查询-1"><a href="#SQL查询-1" class="headerlink" title="SQL查询"></a>SQL查询</h2><h3 id="修改接口-4"><a href="#修改接口-4" class="headerlink" title="修改接口"></a>修改接口</h3><p>添加<code>SQL</code>查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;Users&gt; <span class="title">selectUserByNameUseSQL</span><span class="params">(String username)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改实现类-4"><a href="#修改实现类-4" class="headerlink" title="修改实现类"></a>修改实现类</h3><p>实现<code>SQL</code>查询接口方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Users&gt; <span class="title">selectUserByNameUseSQL</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//在Hibernate JPA中 如果通过？方式来帮顶参数，那么他的查数是从1开始的。而hibernate中是从0开始的。</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.entityManager.createNativeQuery(<span class="string">"select * from t_users where username = ?"</span>, Users.class).setParameter(<span class="number">1</span>, username).getResultList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改测试代码-1"><a href="#修改测试代码-1" class="headerlink" title="修改测试代码"></a>修改测试代码</h3><p>测试<code>SQL</code>查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * SQL测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectUserByNameUseSQL</span><span class="params">()</span></span>&#123;</span><br><span class="line">	List&lt;Users&gt; list = <span class="keyword">this</span>.usersDao.selectUserByNameUseSQL(<span class="string">"王五"</span>);</span><br><span class="line">	<span class="keyword">for</span> (Users users : list) &#123;</span><br><span class="line">		System.out.println(users);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="QBC查询-1"><a href="#QBC查询-1" class="headerlink" title="QBC查询"></a>QBC查询</h2><h3 id="修改接口-5"><a href="#修改接口-5" class="headerlink" title="修改接口"></a>修改接口</h3><p>添加<code>QBC</code>查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;Users&gt; <span class="title">selectUserByNameUseCriteria</span><span class="params">(String username)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改实现类-5"><a href="#修改实现类-5" class="headerlink" title="修改实现类"></a>修改实现类</h3><p>实现<code>QBC</code>查询接口方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Users&gt; <span class="title">selectUserByNameUseCriteria</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//CriteriaBuilder对象：创建一个CriteriaQuery,创建查询条件。</span></span><br><span class="line">	CriteriaBuilder builber = <span class="keyword">this</span>.entityManager.getCriteriaBuilder();</span><br><span class="line">	<span class="comment">//CriteriaQuery对象：执行查询的Criteria对象</span></span><br><span class="line">	<span class="comment">//select  * from t_users</span></span><br><span class="line">	CriteriaQuery&lt;Users&gt; query = builber.createQuery(Users.class);</span><br><span class="line">	<span class="comment">//获取要查询的实体类的对象</span></span><br><span class="line">	Root&lt;Users&gt; root = query.from(Users.class);</span><br><span class="line">	<span class="comment">//封装查询条件</span></span><br><span class="line">	Predicate cate = builber.equal(root.get(<span class="string">"username"</span>), username);</span><br><span class="line">	<span class="comment">//select * from t_users where username = 张三</span></span><br><span class="line">	query.where(cate);</span><br><span class="line">	<span class="comment">//执行查询</span></span><br><span class="line">	TypedQuery&lt;Users&gt; typeQuery = <span class="keyword">this</span>.entityManager.createQuery(query);</span><br><span class="line">	<span class="keyword">return</span> typeQuery.getResultList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改测试代码-2"><a href="#修改测试代码-2" class="headerlink" title="修改测试代码"></a>修改测试代码</h3><p>测试<code>QBC</code>查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Criteria测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectUserByNameUseCriteria</span><span class="params">()</span></span>&#123;</span><br><span class="line">	List&lt;Users&gt; list = <span class="keyword">this</span>.usersDao.selectUserByNameUseCriteria(<span class="string">"王五"</span>);</span><br><span class="line">	<span class="keyword">for</span> (Users users : list) &#123;</span><br><span class="line">		System.out.println(users);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/myhexo/2019/06/13/dubbo/" rel="next" title="dubbo">
+                <i class="fa fa-chevron-left"></i> dubbo
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
+            
+              <p class="site-author-name" itemprop="name">shenlibing</p>
+              <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/myhexo/archives/">
+                
+                    <span class="site-state-item-count">59</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/myhexo/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/myhexo/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#涉及技术介绍"><span class="nav-number">1.</span> <span class="nav-text">涉及技术介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hibernate"><span class="nav-number">1.1.</span> <span class="nav-text">Hibernate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JPA-标准"><span class="nav-number">1.2.</span> <span class="nav-text">JPA 标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hibernate-JPA"><span class="nav-number">1.3.</span> <span class="nav-text">Hibernate JPA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Data"><span class="nav-number">1.4.</span> <span class="nav-text">Spring Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Data-JPA"><span class="nav-number">1.5.</span> <span class="nav-text">Spring Data JPA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Data-Redis"><span class="nav-number">1.6.</span> <span class="nav-text">Spring Data Redis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-整合-Hibernate"><span class="nav-number">2.</span> <span class="nav-text">Spring  整合 Hibernate</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入jar包"><span class="nav-number">2.1.</span> <span class="nav-text">导入jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#spring-jar包"><span class="nav-number">2.1.1.</span> <span class="nav-text">spring jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-ioc"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">spring-ioc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-aop"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">spring-aop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-jdbc"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">spring-jdbc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-orm"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">spring-orm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-test"><span class="nav-number">2.1.1.5.</span> <span class="nav-text">spring-test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apache-logging"><span class="nav-number">2.1.1.6.</span> <span class="nav-text">apache-logging</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hibernate-jar包"><span class="nav-number">2.1.2.</span> <span class="nav-text">hibernate jar包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hibernate-core"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">hibernate-core</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysqql-driver"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">mysqql-driver</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c3p0连接池"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">c3p0连接池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring整合hibernate"><span class="nav-number">2.2.</span> <span class="nav-text">spring整合hibernate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hibernate完成CRUD"><span class="nav-number">2.3.</span> <span class="nav-text">hibernate完成CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库"><span class="nav-number">2.3.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写实体类"><span class="nav-number">2.3.2.</span> <span class="nav-text">编写实体类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.3.3.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写接口"><span class="nav-number">2.3.4.</span> <span class="nav-text">编写接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写实现类"><span class="nav-number">2.3.5.</span> <span class="nav-text">编写实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写测试代码"><span class="nav-number">2.3.6.</span> <span class="nav-text">编写测试代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HQL查询"><span class="nav-number">2.4.</span> <span class="nav-text">HQL查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改接口"><span class="nav-number">2.4.1.</span> <span class="nav-text">修改接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改实现类"><span class="nav-number">2.4.2.</span> <span class="nav-text">修改实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写测试代码-1"><span class="nav-number">2.4.3.</span> <span class="nav-text">编写测试代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL查询"><span class="nav-number">2.5.</span> <span class="nav-text">SQL查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改接口-1"><span class="nav-number">2.5.1.</span> <span class="nav-text">修改接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改实现类-1"><span class="nav-number">2.5.2.</span> <span class="nav-text">修改实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写测试代码-2"><span class="nav-number">2.5.3.</span> <span class="nav-text">编写测试代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QBC查询"><span class="nav-number">2.6.</span> <span class="nav-text">QBC查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改接口-2"><span class="nav-number">2.6.1.</span> <span class="nav-text">修改接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改实现类-2"><span class="nav-number">2.6.2.</span> <span class="nav-text">修改实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写测试代码-3"><span class="nav-number">2.6.3.</span> <span class="nav-text">编写测试代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring整合Hibernate-JPA"><span class="nav-number">3.</span> <span class="nav-text">Spring整合Hibernate JPA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入jar包-1"><span class="nav-number">3.1.</span> <span class="nav-text">导入jar包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件-1"><span class="nav-number">3.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hibernate-JPA的CRUD"><span class="nav-number">3.3.</span> <span class="nav-text">Hibernate JPA的CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编写实体类-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">编写实体类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写接口-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">编写接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写实现类-1"><span class="nav-number">3.3.3.</span> <span class="nav-text">编写实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写测试代码-4"><span class="nav-number">3.3.4.</span> <span class="nav-text">编写测试代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HQL查询-1"><span class="nav-number">3.4.</span> <span class="nav-text">HQL查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改接口-3"><span class="nav-number">3.4.1.</span> <span class="nav-text">修改接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改实现类-3"><span class="nav-number">3.4.2.</span> <span class="nav-text">修改实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改测试代码"><span class="nav-number">3.4.3.</span> <span class="nav-text">修改测试代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL查询-1"><span class="nav-number">3.5.</span> <span class="nav-text">SQL查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改接口-4"><span class="nav-number">3.5.1.</span> <span class="nav-text">修改接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改实现类-4"><span class="nav-number">3.5.2.</span> <span class="nav-text">修改实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改测试代码-1"><span class="nav-number">3.5.3.</span> <span class="nav-text">修改测试代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QBC查询-1"><span class="nav-number">3.6.</span> <span class="nav-text">QBC查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改接口-5"><span class="nav-number">3.6.1.</span> <span class="nav-text">修改接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改实现类-5"><span class="nav-number">3.6.2.</span> <span class="nav-text">修改实现类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改测试代码-2"><span class="nav-number">3.6.3.</span> <span class="nav-text">修改测试代码</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenlibing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">1.3m</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">20:08</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+
+ <div>友情链接：
+  <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.kawabangga.com/"> 卡瓦邦噶 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.linuxprobe.com/chapter-00.html/"> Linux就该这么学 </a><span>&nbsp;&nbsp;</span>
+ </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/myhexo/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz',
+                'X-LC-Key': 'EEaRfb6dCMaS38laDCkSYhM9',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
