@@ -44,21 +44,21 @@
 
 
 
-<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
 
 
-  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
 
 
 
@@ -69,7 +69,7 @@
 <script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/myhexo/',
+    root: '/',
     scheme: 'Pisces',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -95,28 +95,29 @@
 
 
   <meta name="description" content="Callable接口Runnable和Callable的区别 Runnable是自从java1.1就有了，而Callable是1.5之后才加上去的   Callable规定的方法是call(),Runnable规定的方法是run()   Callable的任务执行后可返回值，而Runnable的任务是不能返回值(是void)   call方法可以抛出异常，run方法不可以   运行Callable">
+<meta name="keywords" content="多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JUC多线程并发、JVM和GC">
-<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/05/07/JUC多线程并发、JVM和GC/index.html">
+<meta property="og:url" content="https://shenlibing.github.io/2019/05/07/JUC多线程并发、JVM和GC/index.html">
 <meta property="og:site_name" content="小兵兵">
 <meta property="og:description" content="Callable接口Runnable和Callable的区别 Runnable是自从java1.1就有了，而Callable是1.5之后才加上去的   Callable规定的方法是call(),Runnable规定的方法是run()   Callable的任务执行后可返回值，而Runnable的任务是不能返回值(是void)   call方法可以抛出异常，run方法不可以   运行Callable">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/07/JUC多线程并发、JVM和GC/1557299840009.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/07/JUC多线程并发、JVM和GC/1564643060262.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/07/JUC多线程并发、JVM和GC/1564643600222.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/07/JUC多线程并发、JVM和GC/1564647962235.png">
-<meta property="og:updated_time" content="2019-08-01T09:00:17.801Z">
+<meta property="og:image" content="https://shenlibing.github.io/2019/05/07/JUC多线程并发、JVM和GC/1557299840009.png">
+<meta property="og:image" content="https://shenlibing.github.io/2019/05/07/JUC多线程并发、JVM和GC/1564643060262.png">
+<meta property="og:image" content="https://shenlibing.github.io/2019/05/07/JUC多线程并发、JVM和GC/1564643600222.png">
+<meta property="og:image" content="https://shenlibing.github.io/2019/05/07/JUC多线程并发、JVM和GC/1564647962235.png">
+<meta property="og:updated_time" content="2019-08-08T03:23:35.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JUC多线程并发、JVM和GC">
 <meta name="twitter:description" content="Callable接口Runnable和Callable的区别 Runnable是自从java1.1就有了，而Callable是1.5之后才加上去的   Callable规定的方法是call(),Runnable规定的方法是run()   Callable的任务执行后可返回值，而Runnable的任务是不能返回值(是void)   call方法可以抛出异常，run方法不可以   运行Callable">
-<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/05/07/JUC多线程并发、JVM和GC/1557299840009.png">
+<meta name="twitter:image" content="https://shenlibing.github.io/2019/05/07/JUC多线程并发、JVM和GC/1557299840009.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/05/07/JUC多线程并发、JVM和GC/">
+  <link rel="canonical" href="https://shenlibing.github.io/2019/05/07/JUC多线程并发、JVM和GC/">
 
 
 
@@ -185,7 +186,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/myhexo/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">小兵兵</span>
         <span class="logo-line-after"><i></i></span>
@@ -224,7 +225,7 @@
 
     
 
-    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -241,7 +242,7 @@
 
     
 
-    <a href="/myhexo/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
         
@@ -258,7 +259,7 @@
 
     
 
-    <a href="/myhexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
         
@@ -275,7 +276,7 @@
 
     
 
-    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
         
@@ -292,7 +293,7 @@
 
     
 
-    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
 
@@ -373,12 +374,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/05/07/JUC多线程并发、JVM和GC/">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/2019/05/07/JUC多线程并发、JVM和GC/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shenlibing">
       <meta itemprop="description" content="言宜慢,心宜善">
-      <meta itemprop="image" content="/myhexo/images/myimg.jpg">
+      <meta itemprop="image" content="/images/myimg.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -433,7 +434,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-01 17:00:17" itemprop="dateModified" datetime="2019-08-01T17:00:17+08:00">2019-08-01</time>
+                <time title="修改时间：2019-08-08 11:23:35" itemprop="dateModified" datetime="2019-08-08T11:23:35+08:00">2019-08-08</time>
               
             
           </span>
@@ -450,7 +451,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
 
                 
                 
@@ -465,7 +466,7 @@
 
           
           
-            <span id="/myhexo/2019/05/07/JUC多线程并发、JVM和GC/" class="leancloud_visitors" data-flag-title="JUC多线程并发、JVM和GC">
+            <span id="/2019/05/07/JUC多线程并发、JVM和GC/" class="leancloud_visitors" data-flag-title="JUC多线程并发、JVM和GC">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -587,7 +588,7 @@
 <h2 id="线程池的合理配置"><a href="#线程池的合理配置" class="headerlink" title="线程池的合理配置"></a>线程池的合理配置</h2><h3 id="获取系统设备处理器核数"><a href="#获取系统设备处理器核数" class="headerlink" title="获取系统设备处理器核数"></a>获取系统设备处理器核数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Runtime.getRuntime().availableProcessors()</span><br></pre></td></tr></table></figure>
 
 <h2 id="考虑因素"><a href="#考虑因素" class="headerlink" title="考虑因素"></a>考虑因素</h2><h3 id="CPU密集型"><a href="#CPU密集型" class="headerlink" title="CPU密集型"></a>CPU密集型</h3><p>线程数 = CPU可用核心数/(1 - 阻塞系数)，其中阻塞系数的取值在0和1之间</p>
-<h3 id="IO密集型"><a href="#IO密集型" class="headerlink" title="IO密集型"></a>IO密集型</h3><h2 id="线程池的工作原理"><a href="#线程池的工作原理" class="headerlink" title="线程池的工作原理"></a>线程池的工作原理</h2><p><img src="/myhexo/2019/05/07/JUC多线程并发、JVM和GC/1557299840009.png" alt="1557299840009"></p>
+<h3 id="IO密集型"><a href="#IO密集型" class="headerlink" title="IO密集型"></a>IO密集型</h3><h2 id="线程池的工作原理"><a href="#线程池的工作原理" class="headerlink" title="线程池的工作原理"></a>线程池的工作原理</h2><p><img src="/2019/05/07/JUC多线程并发、JVM和GC/1557299840009.png" alt="1557299840009"></p>
 <h3 id="execute方法执行逻辑"><a href="#execute方法执行逻辑" class="headerlink" title="execute方法执行逻辑"></a>execute方法执行逻辑</h3><h4 id="核心线程数"><a href="#核心线程数" class="headerlink" title="核心线程数"></a>核心线程数</h4><p>如果当前运行的线程少于<code>corePoolSize</code>，则会创建新的线程来执行新的任务</p>
 <h4 id="加入阻塞队列"><a href="#加入阻塞队列" class="headerlink" title="加入阻塞队列"></a>加入阻塞队列</h4><p>如果运行的线程个数等于或者大于<code>corePoolSize</code>，则会将提交的任务存放到阻塞队列<code>workQueue</code>中</p>
 <h4 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h4><p>如果当前<code>workQueue</code>队列已满的话，则会创建新的线程来执行任务</p>
@@ -601,7 +602,7 @@
 
 <p>运行</p>
 <p>配置参数</p>
-<p><img src="/myhexo/2019/05/07/JUC多线程并发、JVM和GC/1564643060262.png" alt="1564643060262"></p>
+<p><img src="/2019/05/07/JUC多线程并发、JVM和GC/1564643060262.png" alt="1564643060262"></p>
 <p>结果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.lang.OutOfMemoryError: Java heap space</span><br><span class="line">	at java.util.Arrays.copyOf(Arrays.java:3332)</span><br><span class="line">	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:124)</span><br><span class="line">	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:448)</span><br><span class="line">	at java.lang.StringBuilder.append(StringBuilder.java:136)</span><br><span class="line">	at JavaHeapSpaceDemo.main(JavaHeapSpaceDemo.java:9)</span><br></pre></td></tr></table></figure>
 
@@ -611,7 +612,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GCOverheadDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                list.add(String.valueOf(++i).intern());</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"**************i:"</span> + i);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">throw</span> e;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>运行参数配置</p>
-<p><img src="/myhexo/2019/05/07/JUC多线程并发、JVM和GC/1564643600222.png" alt="1564643600222"></p>
+<p><img src="/2019/05/07/JUC多线程并发、JVM和GC/1564643600222.png" alt="1564643600222"></p>
 <p> 结果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">[GC (Allocation Failure) [PSYoungGen: 2048K-&gt;480K(2560K)] 2048K-&gt;916K(9728K), 0.0043924 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] </span><br><span class="line">[GC (Allocation Failure) [PSYoungGen: 2528K-&gt;480K(2560K)] 2964K-&gt;2709K(9728K), 0.0022096 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] </span><br><span class="line">[GC (Allocation Failure) [PSYoungGen: 2528K-&gt;504K(2560K)] 4757K-&gt;4835K(9728K), 0.0028678 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] </span><br><span class="line">[GC (Allocation Failure) [PSYoungGen: 2552K-&gt;488K(2560K)] 6883K-&gt;6764K(9728K), 0.0032660 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 488K-&gt;0K(2560K)] [ParOldGen: 6276K-&gt;6188K(7168K)] 6764K-&gt;6188K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0784031 secs] [Times: user=0.25 sys=0.00, real=0.08 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2048K-&gt;738K(2560K)] [ParOldGen: 6188K-&gt;7039K(7168K)] 8236K-&gt;7777K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0437521 secs] [Times: user=0.19 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2048K-&gt;2046K(2560K)] [ParOldGen: 7039K-&gt;7039K(7168K)] 9087K-&gt;9086K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0405225 secs] [Times: user=0.28 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2048K-&gt;2047K(2560K)] [ParOldGen: 7039K-&gt;7039K(7168K)] 9087K-&gt;9087K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0315932 secs] [Times: user=0.13 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7039K-&gt;7039K(7168K)] 9087K-&gt;9087K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0350043 secs] [Times: user=0.23 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7041K-&gt;7041K(7168K)] 9089K-&gt;9089K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0343159 secs] [Times: user=0.25 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7043K-&gt;7043K(7168K)] 9091K-&gt;9091K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0335877 secs] [Times: user=0.33 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7044K-&gt;7044K(7168K)] 9092K-&gt;9092K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0324352 secs] [Times: user=0.20 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7046K-&gt;7046K(7168K)] 9094K-&gt;9094K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0329995 secs] [Times: user=0.20 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7048K-&gt;7048K(7168K)] 9096K-&gt;9096K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0342704 secs] [Times: user=0.14 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7050K-&gt;7050K(7168K)] 9098K-&gt;9098K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0336287 secs] [Times: user=0.11 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7051K-&gt;7051K(7168K)] 9099K-&gt;9099K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0324847 secs] [Times: user=0.22 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7053K-&gt;7053K(7168K)] 9101K-&gt;9101K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0342784 secs] [Times: user=0.22 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7055K-&gt;7055K(7168K)] 9103K-&gt;9103K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0334541 secs] [Times: user=0.33 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7057K-&gt;7057K(7168K)] 9105K-&gt;9105K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0341891 secs] [Times: user=0.22 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7058K-&gt;7058K(7168K)] 9106K-&gt;9106K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0302677 secs] [Times: user=0.19 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7060K-&gt;7060K(7168K)] 9108K-&gt;9108K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0326491 secs] [Times: user=0.19 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7062K-&gt;7062K(7168K)] 9110K-&gt;9110K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0327378 secs] [Times: user=0.11 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7064K-&gt;7064K(7168K)] 9112K-&gt;9112K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0325700 secs] [Times: user=0.09 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7065K-&gt;7065K(7168K)] 9113K-&gt;9113K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0322844 secs] [Times: user=0.11 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7067K-&gt;7067K(7168K)] 9115K-&gt;9115K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0269232 secs] [Times: user=0.11 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7069K-&gt;7069K(7168K)] 9117K-&gt;9117K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0343916 secs] [Times: user=0.11 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7071K-&gt;7071K(7168K)] 9119K-&gt;9119K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0329739 secs] [Times: user=0.09 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7072K-&gt;7072K(7168K)] 9120K-&gt;9120K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0311813 secs] [Times: user=0.05 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7074K-&gt;7074K(7168K)] 9122K-&gt;9122K(9728K), [Metaspace: 3225K-&gt;3225K(1056768K)], 0.0385086 secs] [Times: user=0.05 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7078K-&gt;7058K(7168K)] 9126K-&gt;9106K(9728K), [Metaspace: 3228K-&gt;3228K(1056768K)], 0.0489022 secs] [Times: user=0.17 sys=0.00, real=0.05 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7060K-&gt;7060K(7168K)] 9108K-&gt;9108K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0297955 secs] [Times: user=0.14 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7061K-&gt;7061K(7168K)] 9109K-&gt;9109K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0277327 secs] [Times: user=0.06 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7063K-&gt;7063K(7168K)] 9111K-&gt;9111K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0337749 secs] [Times: user=0.25 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7065K-&gt;7065K(7168K)] 9113K-&gt;9113K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0274153 secs] [Times: user=0.06 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7067K-&gt;7067K(7168K)] 9115K-&gt;9115K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0325819 secs] [Times: user=0.16 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7069K-&gt;7069K(7168K)] 9117K-&gt;9117K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0353046 secs] [Times: user=0.19 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7070K-&gt;7070K(7168K)] 9118K-&gt;9118K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0310516 secs] [Times: user=0.22 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7072K-&gt;7072K(7168K)] 9120K-&gt;9120K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0344718 secs] [Times: user=0.13 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7074K-&gt;7074K(7168K)] 9122K-&gt;9122K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0291248 secs] [Times: user=0.09 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7076K-&gt;7076K(7168K)] 9124K-&gt;9124K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0330405 secs] [Times: user=0.11 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7078K-&gt;7078K(7168K)] 9126K-&gt;9126K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0394979 secs] [Times: user=0.16 sys=0.00, real=0.04 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7079K-&gt;7079K(7168K)] 9127K-&gt;9127K(9728K), [Metaspace: 3229K-&gt;3229K(1056768K)], 0.0327822 secs] [Times: user=0.16 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7083K-&gt;7081K(7168K)] 9131K-&gt;9129K(9728K), [Metaspace: 3233K-&gt;3233K(1056768K)], 0.0320142 secs] [Times: user=0.17 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7083K-&gt;7083K(7168K)] 9131K-&gt;9131K(9728K), [Metaspace: 3234K-&gt;3234K(1056768K)], 0.0321638 secs] [Times: user=0.19 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7088K-&gt;7088K(7168K)] 9136K-&gt;9136K(9728K), [Metaspace: 3234K-&gt;3234K(1056768K)], 0.0324113 secs] [Times: user=0.11 sys=0.00, real=0.03 secs] </span><br><span class="line">[Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;2047K(2560K)] [ParOldGen: 7090K-&gt;7090K(7168K)] 9138K-&gt;9138K(9728K), [Metaspace: 3234K-&gt;3234K(1056768K)], 0.0362137 secs] [Times: user=0.11 sys=0.00, real=0.04 secs] </span><br><span class="line">Exception in thread &quot;main&quot; [Full GC (Ergonomics) [PSYoungGen: 2047K-&gt;0K(2560K)] [ParOldGen: 7112K-&gt;633K(7168K)] 9160K-&gt;633K(9728K), [Metaspace: 3269K-&gt;3269K(1056768K)], 0.0058288 secs] [Times: user=0.11 sys=0.00, real=0.01 secs] </span><br><span class="line">java.lang.OutOfMemoryError: GC overhead limit exceeded</span><br><span class="line">	at java.lang.Integer.toString(Integer.java:403)</span><br><span class="line">	at java.lang.String.valueOf(String.java:3099)</span><br><span class="line">	at GCOverheadDemo.main(GCOverheadDemo.java:13)</span><br><span class="line">Heap</span><br><span class="line"> PSYoungGen      total 2560K, used 126K [0x00000000ffd00000, 0x0000000100000000, 0x0000000100000000)</span><br><span class="line">  eden space 2048K, 6% used [0x00000000ffd00000,0x00000000ffd1fa60,0x00000000fff00000)</span><br><span class="line">  from space 512K, 0% used [0x00000000fff80000,0x00000000fff80000,0x0000000100000000)</span><br><span class="line">  to   space 512K, 0% used [0x00000000fff00000,0x00000000fff00000,0x00000000fff80000)</span><br><span class="line"> ParOldGen       total 7168K, used 633K [0x00000000ff600000, 0x00000000ffd00000, 0x00000000ffd00000)</span><br><span class="line">  object space 7168K, 8% used [0x00000000ff600000,0x00000000ff69e6f8,0x00000000ffd00000)</span><br><span class="line"> Metaspace       used 3334K, capacity 4500K, committed 4864K, reserved 1056768K</span><br><span class="line">  class space    used 360K, capacity 388K, committed 512K, reserved 1048576K</span><br></pre></td></tr></table></figure>
 
@@ -646,7 +647,7 @@
 <p>修改用户线程数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# ulimit -u</span><br><span class="line">4096</span><br><span class="line">[root@192 ~]# vim /etc/security/limits.d/90-nproc.conf</span><br></pre></td></tr></table></figure>
 
-<p><img src="/myhexo/2019/05/07/JUC多线程并发、JVM和GC/1564647962235.png" alt="1564647962235"></p>
+<p><img src="/2019/05/07/JUC多线程并发、JVM和GC/1564647962235.png" alt="1564647962235"></p>
 <h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8及之后的版本使用Metaspace来替代永久代。</p>
 <p>Metaspace是方法区在HotSpot的实现，它与永久代最大的区别在于：Metaspace并不在虚拟机内存中而是使用本地内存，也即在java8中，classe metadata（the virtual machines internal presentation of java class），被存储在叫做Metaspace的native memory</p>
 <p>永久代（java8后被元空间Metaspace取代了）存放了一下信息：</p>
@@ -683,6 +684,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
+          
+        </div>
+      
 
       
       
@@ -692,7 +699,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/myhexo/2019/05/04/java8深入剖析与实战/" rel="next" title="java8深入剖析与实战">
+              <a href="/2019/05/04/java8深入剖析与实战/" rel="next" title="java8深入剖析与实战">
                 <i class="fa fa-chevron-left"></i> java8深入剖析与实战
               </a>
             
@@ -702,7 +709,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/myhexo/2019/05/12/websocket原理/" rel="prev" title="websocket原理">
+              <a href="/2019/05/12/websocket原理/" rel="prev" title="websocket原理">
                 websocket原理 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -763,7 +770,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
+              <img class="site-author-image" itemprop="image" src="/images/myimg.jpg" alt="shenlibing">
             
               <p class="site-author-name" itemprop="name">shenlibing</p>
               <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
@@ -774,7 +781,7 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/myhexo/archives/">
+                  <a href="/archives/">
                 
                     <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">日志</span>
@@ -786,7 +793,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/myhexo/categories/index.html">
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -797,7 +804,37 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -807,7 +844,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/myhexo/tags/index.html">
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -888,7 +925,37 @@
                     
                       
                     
-                    <span class="site-state-item-count">39</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1079,7 +1146,7 @@
     
     
   
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
@@ -1094,44 +1161,44 @@
 
 
   
-  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
-
-  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
-
-
-
-  
-  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
-<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
-
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
 
 
 
@@ -1154,7 +1221,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/myhexo/" + search_path;
+    var path = "/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {

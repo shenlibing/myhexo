@@ -44,21 +44,21 @@
 
 
 
-<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
 
 
-  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
 
 
 
@@ -69,7 +69,7 @@
 <script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/myhexo/',
+    root: '/',
     scheme: 'Pisces',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -95,26 +95,27 @@
 
 
   <meta name="description" content="websocket 双向通信  性能高  WebSocket是前台的东西，是HTML5带的一种东西  只有前台有WebSocket这个东西  后台没有，后台有Socket     使用socket.io实现WebSocket引入依赖123456789101112131415&amp;#123;  &quot;name&quot;: &quot;2018-2-3&quot;,  &quot;version&quot;: &quot;1.0.0&quot;,  &quot;description&quot;">
+<meta name="keywords" content="websocket">
 <meta property="og:type" content="article">
 <meta property="og:title" content="websocket原理">
-<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/index.html">
+<meta property="og:url" content="https://shenlibing.github.io/2019/05/12/websocket原理/index.html">
 <meta property="og:site_name" content="小兵兵">
 <meta property="og:description" content="websocket 双向通信  性能高  WebSocket是前台的东西，是HTML5带的一种东西  只有前台有WebSocket这个东西  后台没有，后台有Socket     使用socket.io实现WebSocket引入依赖123456789101112131415&amp;#123;  &quot;name&quot;: &quot;2018-2-3&quot;,  &quot;version&quot;: &quot;1.0.0&quot;,  &quot;description&quot;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/1557643527632.png">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/1557643770967.png">
-<meta property="og:updated_time" content="2019-05-24T10:43:26.607Z">
+<meta property="og:image" content="https://shenlibing.github.io/2019/05/12/websocket原理/1557643527632.png">
+<meta property="og:image" content="https://shenlibing.github.io/2019/05/12/websocket原理/1557643770967.png">
+<meta property="og:updated_time" content="2019-08-08T03:29:28.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="websocket原理">
 <meta name="twitter:description" content="websocket 双向通信  性能高  WebSocket是前台的东西，是HTML5带的一种东西  只有前台有WebSocket这个东西  后台没有，后台有Socket     使用socket.io实现WebSocket引入依赖123456789101112131415&amp;#123;  &quot;name&quot;: &quot;2018-2-3&quot;,  &quot;version&quot;: &quot;1.0.0&quot;,  &quot;description&quot;">
-<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/1557643527632.png">
+<meta name="twitter:image" content="https://shenlibing.github.io/2019/05/12/websocket原理/1557643527632.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/05/12/websocket原理/">
+  <link rel="canonical" href="https://shenlibing.github.io/2019/05/12/websocket原理/">
 
 
 
@@ -183,7 +184,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/myhexo/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">小兵兵</span>
         <span class="logo-line-after"><i></i></span>
@@ -222,7 +223,7 @@
 
     
 
-    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -239,7 +240,7 @@
 
     
 
-    <a href="/myhexo/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
         
@@ -256,7 +257,7 @@
 
     
 
-    <a href="/myhexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
         
@@ -273,7 +274,7 @@
 
     
 
-    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
         
@@ -290,7 +291,7 @@
 
     
 
-    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
 
@@ -371,12 +372,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/05/12/websocket原理/">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/2019/05/12/websocket原理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shenlibing">
       <meta itemprop="description" content="言宜慢,心宜善">
-      <meta itemprop="image" content="/myhexo/images/myimg.jpg">
+      <meta itemprop="image" content="/images/myimg.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -431,12 +432,30 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-24 18:43:26" itemprop="dateModified" datetime="2019-05-24T18:43:26+08:00">2019-05-24</time>
+                <time title="修改时间：2019-08-08 11:29:28" itemprop="dateModified" datetime="2019-08-08T11:29:28+08:00">2019-08-08</time>
               
             
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -445,7 +464,7 @@
 
           
           
-            <span id="/myhexo/2019/05/12/websocket原理/" class="leancloud_visitors" data-flag-title="websocket原理">
+            <span id="/2019/05/12/websocket原理/" class="leancloud_visitors" data-flag-title="websocket原理">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -540,7 +559,7 @@
 <li>舍弃第一行和最后两行</li>
 </ul>
 <p><code>lines=lines.slice(1, lines.length-2);</code></p>
-<p><img src="/myhexo/2019/05/12/websocket原理/1557643527632.png" alt="1557643527632"></p>
+<p><img src="/2019/05/12/websocket原理/1557643527632.png" alt="1557643527632"></p>
 <ul>
 <li>每行数据用”: “切开</li>
 </ul>
@@ -548,7 +567,7 @@
 <p>引入net模块</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> net=<span class="built_in">require</span>(<span class="string">'net'</span>);         <span class="comment">//TCP     原生Socket</span></span><br><span class="line"><span class="keyword">const</span> crypto=<span class="built_in">require</span>(<span class="string">'crypto'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">let server=http.createServer((req, res)=&gt;&#123;</span></span><br><span class="line"><span class="comment">  console.log('连接');</span></span><br><span class="line"><span class="comment">&#125;);</span></span><br><span class="line"><span class="comment">server.listen(8080);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server=net.createServer(<span class="function"><span class="params">sock</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'连接'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//数据过来——握手只有一次</span></span><br><span class="line">  sock.once(<span class="string">'data'</span>, data=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hand shake start...'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> str=data.toString();</span><br><span class="line">    <span class="keyword">let</span> lines=str.split(<span class="string">'\r\n'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//舍弃第一行和最后两行</span></span><br><span class="line">    lines=lines.slice(<span class="number">1</span>, lines.length<span class="number">-2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//切开</span></span><br><span class="line">    <span class="keyword">let</span> headers=&#123;&#125;;</span><br><span class="line">    lines.forEach(<span class="function"><span class="params">line</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> [key, val]=line.split(<span class="string">': '</span>);</span><br><span class="line"></span><br><span class="line">      headers[key.toLowerCase()]=val;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//console.log(headers);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(headers[<span class="string">'upgrade'</span>]!=<span class="string">'websocket'</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'其他协议'</span>, headers[<span class="string">'upgrade'</span>]);</span><br><span class="line"></span><br><span class="line">      sock.end();</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(headers[<span class="string">'sec-websocket-version'</span>]!=<span class="number">13</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'版本不对'</span>, headers[<span class="string">'sec-websocket-version'</span>]);</span><br><span class="line"></span><br><span class="line">      sock.end();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">let</span> key=headers[<span class="string">'sec-websocket-key'</span>];</span><br><span class="line">      <span class="keyword">let</span> mask=<span class="string">'258EAFA5-E914-47DA-95CA-C5AB0DC85B11'</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//sha1(key+mask)-&gt;base64=&gt;client</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> hash=crypto.createHash(<span class="string">'sha1'</span>);</span><br><span class="line">      hash.update(key+mask);</span><br><span class="line">      <span class="keyword">let</span> key2=hash.digest(<span class="string">'base64'</span>);</span><br><span class="line"></span><br><span class="line">      sock.write(<span class="string">`HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: <span class="subst">$&#123;key2&#125;</span>\r\n\r\n`</span>);</span><br><span class="line"></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'hand shake end'</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">//真正的数据</span></span><br><span class="line">      sock.on(<span class="string">'data'</span>, data=&gt;&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'有数据'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">        </span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//断开了</span></span><br><span class="line">  sock.on(<span class="string">'end'</span>, ()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'客户端已断开'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
 
-<h3 id="解析真正数据"><a href="#解析真正数据" class="headerlink" title="解析真正数据"></a>解析真正数据</h3><h4 id="真正数据"><a href="#真正数据" class="headerlink" title="真正数据"></a>真正数据</h4><p><img src="/myhexo/2019/05/12/websocket原理/1557643770967.png" alt="1557643770967"></p>
+<h3 id="解析真正数据"><a href="#解析真正数据" class="headerlink" title="解析真正数据"></a>解析真正数据</h3><h4 id="真正数据"><a href="#真正数据" class="headerlink" title="真正数据"></a>真正数据</h4><p><img src="/2019/05/12/websocket原理/1557643770967.png" alt="1557643770967"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">81       9c       11       2d       f8       bd         数据.....</span><br><span class="line">10000001 10011100 00010001 00101101 11111000 10111101</span><br><span class="line"></span><br><span class="line">11 2d f8 bd</span><br><span class="line">6a 0f 96 dc 7c 48 da 87 33 40 8b da 33 01 da d9 70 59 99 9f 2b 76 c9 8f 3d 18 a5 c0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1 000 0001   1 0011100 00010001 00101101 11111000 10111101</span><br><span class="line">F RSV opcode M payload masking-key</span><br><span class="line">I            A 28个字</span><br><span class="line">N            S</span><br><span class="line">             K</span><br></pre></td></tr></table></figure>
 
 <h4 id="帧结构"><a href="#帧结构" class="headerlink" title="帧结构"></a>帧结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7</span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br><span class="line">|F|R|R|R| opcode|M| Payload len |    Extended payload length    |</span><br><span class="line">|I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |</span><br><span class="line">|N|V|V|V|       |S|             |   (if payload len==126/127)   |</span><br><span class="line">| |1|2|3|       |K|             |                               |</span><br><span class="line">+-+-+-+-+-------+-+-------------+-------------------------------+</span><br><span class="line">|     Extended payload length continued, if payload len == 127  |</span><br><span class="line">+-------------------------------+-------------------------------+</span><br><span class="line">|                               |Masking-key, if MASK set to 1  |</span><br><span class="line">+-------------------------------+-------------------------------+</span><br><span class="line">| Masking-key (continued)       |          Payload Data         |</span><br><span class="line">+-------------------------------+-------------------------------+</span><br><span class="line">|                     Payload Data continued ...                |</span><br><span class="line">+---------------------------------------------------------------+</span><br><span class="line">|                     Payload Data continued ...                |</span><br><span class="line">+---------------------------------------------------------------+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">FIN               1bit 是否最后一帧</span><br><span class="line">RSV               3bit 预留</span><br><span class="line">Opcode            4bit 帧类型</span><br><span class="line">Mask              1bit 掩码，是否加密数据，默认必须置为1</span><br><span class="line">Payload           7bit 长度</span><br><span class="line">Masking-key       1 or 4 bit 掩码</span><br><span class="line">Payload data      (x + y) bytes 数据</span><br><span class="line">Extension data    x bytes  扩展数据</span><br><span class="line">Application data  y bytes  程序数据</span><br></pre></td></tr></table></figure>
@@ -593,6 +612,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/websocket/" rel="tag"># websocket</a>
+          
+        </div>
+      
 
       
       
@@ -602,7 +627,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/myhexo/2019/05/07/JUC多线程并发、JVM和GC/" rel="next" title="JUC多线程并发、JVM和GC">
+              <a href="/2019/05/07/JUC多线程并发、JVM和GC/" rel="next" title="JUC多线程并发、JVM和GC">
                 <i class="fa fa-chevron-left"></i> JUC多线程并发、JVM和GC
               </a>
             
@@ -612,7 +637,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/myhexo/2019/05/15/Ajax2-0的FormData和跨域Cors/" rel="prev" title="Ajax2.0的FormData和跨域Cors">
+              <a href="/2019/05/15/Ajax2-0的FormData和跨域Cors/" rel="prev" title="Ajax2.0的FormData和跨域Cors">
                 Ajax2.0的FormData和跨域Cors <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -673,7 +698,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
+              <img class="site-author-image" itemprop="image" src="/images/myimg.jpg" alt="shenlibing">
             
               <p class="site-author-name" itemprop="name">shenlibing</p>
               <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
@@ -684,7 +709,7 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/myhexo/archives/">
+                  <a href="/archives/">
                 
                     <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">日志</span>
@@ -696,7 +721,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/myhexo/categories/index.html">
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -707,7 +732,37 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -717,7 +772,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/myhexo/tags/index.html">
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -798,7 +853,37 @@
                     
                       
                     
-                    <span class="site-state-item-count">39</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -989,7 +1074,7 @@
     
     
   
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
@@ -1004,44 +1089,44 @@
 
 
   
-  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
-
-  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
-
-
-
-  
-  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
-<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
-
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
 
 
 
@@ -1064,7 +1149,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/myhexo/" + search_path;
+    var path = "/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
