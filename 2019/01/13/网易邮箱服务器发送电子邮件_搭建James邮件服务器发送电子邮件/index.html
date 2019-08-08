@@ -44,21 +44,21 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=6.7.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
 
 
 
@@ -69,7 +69,7 @@
 <script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '/myhexo/',
     scheme: 'Pisces',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -98,31 +98,31 @@
 <meta name="keywords" content="email">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件">
-<meta property="og:url" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/index.html">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/index.html">
 <meta property="og:site_name" content="小兵兵">
 <meta property="og:description" content="1、网易邮箱发送电子邮件 为了安全，网易邮箱开启pop3授权码验证，该授权码可以让客户端进行登录   qq开启授权码 https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;amp;&amp;amp;no=1001256&amp;amp;&amp;amp;id=28 实现：JavaMailAPI使用比较麻烦，这里采用的是Apache Commons Email 导入依赖 12">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1.png">
-<meta property="og:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%90%AF%E6%8E%88%E6%9D%83%E7%A0%81%E7%99%BB%E5%BD%95%E7%AC%AC%E4%B8%89%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF.png">
-<meta property="og:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E8%A7%A3%E5%8E%8BJames.png">
-<meta property="og:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BB%BA%E5%BA%93.jpg">
-<meta property="og:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.png">
-<meta property="og:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%902.png">
-<meta property="og:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
-<meta property="og:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E9%85%8D%E7%BD%AEFoxmail%E5%AE%A2%E6%88%B7%E7%AB%AF.png">
-<meta property="og:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E9%85%8D%E7%BD%AEFoxmail%E5%AE%A2%E6%88%B7%E7%AB%AF2.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%90%AF%E6%8E%88%E6%9D%83%E7%A0%81%E7%99%BB%E5%BD%95%E7%AC%AC%E4%B8%89%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E8%A7%A3%E5%8E%8BJames.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BB%BA%E5%BA%93.jpg">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%902.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E9%85%8D%E7%BD%AEFoxmail%E5%AE%A2%E6%88%B7%E7%AB%AF.png">
+<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E9%85%8D%E7%BD%AEFoxmail%E5%AE%A2%E6%88%B7%E7%AB%AF2.png">
 <meta property="og:updated_time" content="2019-08-08T03:40:58.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件">
 <meta name="twitter:description" content="1、网易邮箱发送电子邮件 为了安全，网易邮箱开启pop3授权码验证，该授权码可以让客户端进行登录   qq开启授权码 https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;amp;&amp;amp;no=1001256&amp;amp;&amp;amp;id=28 实现：JavaMailAPI使用比较麻烦，这里采用的是Apache Commons Email 导入依赖 12">
-<meta name="twitter:image" content="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1.png">
+<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">
 
 
 
@@ -191,7 +191,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/myhexo/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">小兵兵</span>
         <span class="logo-line-after"><i></i></span>
@@ -230,7 +230,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -247,7 +247,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/myhexo/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
         
@@ -264,7 +264,7 @@
 
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/myhexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
         
@@ -281,7 +281,7 @@
 
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
         
@@ -298,7 +298,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
 
@@ -379,12 +379,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shenlibing">
       <meta itemprop="description" content="言宜慢,心宜善">
-      <meta itemprop="image" content="/images/myimg.jpg">
+      <meta itemprop="image" content="/myhexo/images/myimg.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -456,7 +456,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/邮件服务器/" itemprop="url" rel="index"><span itemprop="name">邮件服务器</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/邮件服务器/" itemprop="url" rel="index"><span itemprop="name">邮件服务器</span></a></span>
 
                 
                 
@@ -471,7 +471,7 @@
 
           
           
-            <span id="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" class="leancloud_visitors" data-flag-title="网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件">
+            <span id="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/" class="leancloud_visitors" data-flag-title="网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -532,8 +532,8 @@
       
         <p>1、网易邮箱发送电子邮件</p>
 <p>为了安全，网易邮箱开启pop3授权码验证，该授权码可以让客户端进行登录</p>
-<p><img src="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1.png" alt=""></p>
-<p><img src="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%90%AF%E6%8E%88%E6%9D%83%E7%A0%81%E7%99%BB%E5%BD%95%E7%AC%AC%E4%B8%89%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF.png" alt=""></p>
+<p><img src="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1.png" alt=""></p>
+<p><img src="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E7%BD%91%E6%98%93%E9%82%AE%E7%AE%B1%E5%BC%80%E5%90%AFpop3%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%90%AF%E6%8E%88%E6%9D%83%E7%A0%81%E7%99%BB%E5%BD%95%E7%AC%AC%E4%B8%89%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF.png" alt=""></p>
 <p>qq开启授权码</p>
 <p><a href="https://service.mail.qq.com/cgi-bin/help?subtype=1&&no=1001256&&id=28" target="_blank" rel="noopener">https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;no=1001256&amp;&amp;id=28</a></p>
 <p>实现：<br>JavaMailAPI使用比较麻烦，这里采用的是Apache Commons Email</p>
@@ -552,12 +552,12 @@
 <p><a href="http://james.apache.org/server/quick-start.html" target="_blank" rel="noopener">http://james.apache.org/server/quick-start.html</a></p>
 <p>解压</p>
 <p>D:\devsoft\apache-james-3.0-beta4</p>
-<p><img src="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E8%A7%A3%E5%8E%8BJames.png" alt=""></p>
+<p><img src="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E8%A7%A3%E5%8E%8BJames.png" alt=""></p>
 <p>建库</p>
-<p><img src="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BB%BA%E5%BA%93.jpg" alt=""></p>
+<p><img src="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BB%BA%E5%BA%93.jpg" alt=""></p>
 <p>配置数据源</p>
-<p><img src="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.png" alt=""></p>
-<p><img src="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%902.png" alt=""></p>
+<p><img src="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90.png" alt=""></p>
+<p><img src="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%902.png" alt=""></p>
 <p>启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt;run.bat</span><br><span class="line">INFO  09:28:46,331 | org.apache.james.container.spring.context.JamesServerApplicationContext | Refreshing org.apache.james.container.spring.context.JamesServerApplicationContext@153f5a29: startup date [Thu Jan 03 09:28:46 CST 2019]; root of context hierarchy</span><br><span class="line">Exception in thread &quot;main&quot; org.springframework.beans.factory.BeanDefinitionStoreException: Failed to create the JAXB binder; nested exception is javax.xml.bind.JAXBException: Provider com.sun.xml.internal.bind.v2.ContextFactory could not be instantiated: com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line"></span><br><span class="line"> - with linked exception:</span><br><span class="line">[com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">]</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler$CamelContextBeanDefinitionParser.doParse(CamelNamespaceHandler.java:258)</span><br><span class="line">        at org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser.parseInternal(AbstractSingleBeanDefinitionParser.java:85)</span><br><span class="line">        at org.springframework.beans.factory.xml.AbstractBeanDefinitionParser.parse(AbstractBeanDefinitionParser.java:59)</span><br><span class="line">        at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:73)</span><br><span class="line">        at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1419)</span><br><span class="line">        at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1409)</span><br><span class="line">        at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:184)</span><br><span class="line">        at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:140)</span><br><span class="line">        at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:111)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:493)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:390)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)</span><br><span class="line">        at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)</span><br><span class="line">        at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:243)</span><br><span class="line">        at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:127)</span><br><span class="line">        at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:93)</span><br><span class="line">        at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:131)</span><br><span class="line">        at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:522)</span><br><span class="line">        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:436)</span><br><span class="line">        at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:139)</span><br><span class="line">        at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:93)</span><br><span class="line">        at org.apache.james.container.spring.context.JamesServerApplicationContext.&lt;init&gt;(JamesServerApplicationContext.java:39)</span><br><span class="line">        at org.apache.james.app.spring.JamesAppSpringMain.init(JamesAppSpringMain.java:61)</span><br><span class="line">        at org.apache.james.app.spring.JamesAppSpringMain.main(JamesAppSpringMain.java:42)</span><br><span class="line">Caused by: javax.xml.bind.JAXBException: Provider com.sun.xml.internal.bind.v2.ContextFactory could not be instantiated: com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line"></span><br><span class="line"> - with linked exception:</span><br><span class="line">[com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">]</span><br><span class="line">        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:146)</span><br><span class="line">        at javax.xml.bind.ContextFinder.find(ContextFinder.java:356)</span><br><span class="line">        at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:431)</span><br><span class="line">        at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:394)</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler.createJaxbContext(CamelNamespaceHandler.java:187)</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler.getJaxbContext(CamelNamespaceHandler.java:174)</span><br><span class="line">        at org.apache.camel.spring.handler.CamelNamespaceHandler$CamelContextBeanDefinitionParser.doParse(CamelNamespaceHandler.java:256)</span><br><span class="line">        ... 26 more</span><br><span class="line">Caused by: com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException: 1 counts of IllegalAnnotationExceptions</span><br><span class="line">类的两个属性具有相同名称 &quot;outputs&quot;</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at public java.util.List org.apache.camel.model.ResequenceDefinition.getOutputs()</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line">        this problem is related to the following location:</span><br><span class="line">                at private java.util.List org.apache.camel.model.ResequenceDefinition.outputs</span><br><span class="line">                at org.apache.camel.model.ResequenceDefinition</span><br><span class="line"></span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.IllegalAnnotationsException$Builder.check(IllegalAnnotationsException.java:91)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.getTypeInfoSet(JAXBContextImpl.java:445)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.&lt;init&gt;(JAXBContextImpl.java:277)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.&lt;init&gt;(JAXBContextImpl.java:124)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl$JAXBContextBuilder.build(JAXBContextImpl.java:1123)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.ContextFactory.createContext(ContextFactory.java:147)</span><br><span class="line">        at com.sun.xml.internal.bind.v2.ContextFactory.createContext(ContextFactory.java:271)</span><br><span class="line">        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">        at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:171)</span><br><span class="line">        at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:131)</span><br><span class="line">        ... 32 more</span><br><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt;</span><br></pre></td></tr></table></figure>
 
@@ -567,12 +567,12 @@
 <p>D:\devsoft\apache-james-3.0-beta4\conf\lib：存放自己导入的jar</p>
 <p>D:\devsoft\apache-james-3.0-beta4\lib：存放James默认jar</p>
 <p>复制jaxb-impl-2.1.3.jar，mysql驱动jar包到conf/lib下</p>
-<p><img src="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt=""></p>
+<p><img src="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E6%90%AD%E5%BB%BAJames%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt=""></p>
 <p>设置服务器域名、建立账户</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt; james-cli.bat -h localhost -p 9999 adddomain atguigu.com</span><br><span class="line">adddomain command executed sucessfully in 106 ms.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">D:\devsoft\apache-james-3.0-beta4\bin&gt; james-cli.bat -h localhost -p 9999 adduser test@atguigu.com test</span><br><span class="line">adduser command executed sucessfully in 94 ms.</span><br></pre></td></tr></table></figure>
 
 <p>配置Foxmail客户端连接James邮件服务器</p>
-<p><img src="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E9%85%8D%E7%BD%AEFoxmail%E5%AE%A2%E6%88%B7%E7%AB%AF.png" alt=""><br><img src="/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E9%85%8D%E7%BD%AEFoxmail%E5%AE%A2%E6%88%B7%E7%AB%AF2.png" alt=""></p>
+<p><img src="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E9%85%8D%E7%BD%AEFoxmail%E5%AE%A2%E6%88%B7%E7%AB%AF.png" alt=""><br><img src="/myhexo/2019/01/13/网易邮箱服务器发送电子邮件_搭建James邮件服务器发送电子邮件/%E9%85%8D%E7%BD%AEFoxmail%E5%AE%A2%E6%88%B7%E7%AB%AF2.png" alt=""></p>
 <p>测试：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 测试james发送邮件</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@Description</span> (TODO这里用一句话描述这个方法的作用)</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">       SimpleEmail email = <span class="keyword">new</span> SimpleEmail();</span><br><span class="line">       <span class="comment">//设置主机名，远程服务器的主机名</span></span><br><span class="line">       email.setHostName(<span class="string">"127.0.0.1"</span>);</span><br><span class="line">       <span class="comment">//自定义的ip，一定要手动设置好端口号</span></span><br><span class="line">       email.setSmtpPort(<span class="number">25</span>);</span><br><span class="line">       <span class="comment">//设置登陆远程服务器的密码</span></span><br><span class="line">       email.setAuthentication(<span class="string">"test@atguigu.com"</span>, <span class="string">"000000"</span>);</span><br><span class="line"></span><br><span class="line">       <span class="comment">//编写一个邮件</span></span><br><span class="line">       <span class="comment">//设置发送给谁</span></span><br><span class="line">       email.addTo(<span class="string">"17512080612@163.com"</span>);</span><br><span class="line">       <span class="comment">//设置这个邮件来源于哪里</span></span><br><span class="line">       email.setFrom(<span class="string">"admin@atguigu.com"</span>);</span><br><span class="line">       <span class="comment">//设置邮件主题</span></span><br><span class="line">       email.setSubject(<span class="string">"哈哈，给你测试 "</span>);</span><br><span class="line">       <span class="comment">//设置邮件内容</span></span><br><span class="line">       email.setMsg(<span class="string">"我能给您发邮件&lt;a href='http://www.atguigu.com'&gt;尚硅谷&lt;/a&gt;"</span>);</span><br><span class="line">       <span class="comment">//邮件发送</span></span><br><span class="line">       email.send();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
@@ -599,7 +599,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/email/" rel="tag"># email</a>
+            <a href="/myhexo/tags/email/" rel="tag"># email</a>
           
         </div>
       
@@ -612,7 +612,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/11/二维矩阵显示账户类型和资质_ajax异步传参_插入mysql中文乱码/" rel="next" title="二维矩阵显示账户类型和资质_ajax异步传参_插入mysql中文乱码">
+              <a href="/myhexo/2019/01/11/二维矩阵显示账户类型和资质_ajax异步传参_插入mysql中文乱码/" rel="next" title="二维矩阵显示账户类型和资质_ajax异步传参_插入mysql中文乱码">
                 <i class="fa fa-chevron-left"></i> 二维矩阵显示账户类型和资质_ajax异步传参_插入mysql中文乱码
               </a>
             
@@ -622,7 +622,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/14/用户分配角色_角色维护权限树/" rel="prev" title="用户分配角色_角色维护权限树">
+              <a href="/myhexo/2019/01/14/用户分配角色_角色维护权限树/" rel="prev" title="用户分配角色_角色维护权限树">
                 用户分配角色_角色维护权限树 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -674,7 +674,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/myimg.jpg" alt="shenlibing">
+              <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
             
               <p class="site-author-name" itemprop="name">shenlibing</p>
               <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
@@ -685,7 +685,7 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/myhexo/archives/">
                 
                     <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">日志</span>
@@ -697,7 +697,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
+                  <a href="/myhexo/categories/index.html">
                     
                     
                       
@@ -748,7 +748,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  <a href="/myhexo/tags/index.html">
                     
                     
                       
@@ -1033,7 +1033,7 @@
     
     
   
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
@@ -1048,44 +1048,44 @@
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=6.7.0"></script>
-
-  <script src="/js/src/motion.js?v=6.7.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
-<script src="/js/src/post-details.js?v=6.7.0"></script>
-
+  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
 
 
 
@@ -1108,7 +1108,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/" + search_path;
+    var path = "/myhexo/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
