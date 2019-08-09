@@ -887,6 +887,10 @@
           
 
   
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
 
 
 
@@ -1343,6 +1347,32 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '59b70bc1329657f547b7',
+    clientSecret: 'b7888515eb99f7410b2f640b68568d67dc14836d',
+    repo: 'myhexo',
+    owner: 'shenlibing',
+    admin: ['shenlibing'],
+    id: md5(location.pathname),
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
 
   
 
