@@ -102,13 +102,13 @@
 <meta property="og:site_name" content="小兵兵">
 <meta property="og:description" content="1、springmvc路径跳转配置 目录结构  控制层  123456789101112131415161718192021&amp;lt;!-- 使用注解开发，不用配置controller，需要配置一个组件扫描器 --&amp;gt;&amp;lt;context:component-scan base-package=&quot;com.*&quot; /&amp;gt;&amp;lt;!-- 视图解析器 --&amp;gt;&amp;lt;bean	class=&quot;o">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.imgur.com/aFawmCF.png">
-<meta property="og:image" content="https://i.imgur.com/aOtL3xC.png">
-<meta property="og:updated_time" content="2019-08-08T03:47:54.328Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/springmvc%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/springmvc%E6%8E%A7%E5%88%B6%E5%B1%82%E8%B7%AF%E5%BE%84.png">
+<meta property="og:updated_time" content="2019-08-10T03:59:24.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springmvc配置">
 <meta name="twitter:description" content="1、springmvc路径跳转配置 目录结构  控制层  123456789101112131415161718192021&amp;lt;!-- 使用注解开发，不用配置controller，需要配置一个组件扫描器 --&amp;gt;&amp;lt;context:component-scan base-package=&quot;com.*&quot; /&amp;gt;&amp;lt;!-- 视图解析器 --&amp;gt;&amp;lt;bean	class=&quot;o">
-<meta name="twitter:image" content="https://i.imgur.com/aFawmCF.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/springmvc%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png">
 
 
 
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-08 11:47:54" itemprop="dateModified" datetime="2019-08-08T11:47:54+08:00">2019-08-08</time>
+                <time title="修改时间：2019-08-10 11:59:24" itemprop="dateModified" datetime="2019-08-10T11:59:24+08:00">2019-08-10</time>
               
             
           </span>
@@ -525,9 +525,9 @@
       
         <p>1、springmvc路径跳转配置</p>
 <p>目录结构</p>
-<p><img src="https://i.imgur.com/aFawmCF.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/springmvc%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" alt=""></p>
 <p>控制层</p>
-<p><img src="https://i.imgur.com/aOtL3xC.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/springmvc%E6%8E%A7%E5%88%B6%E5%B1%82%E8%B7%AF%E5%BE%84.png" alt=""></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 使用注解开发，不用配置controller，需要配置一个组件扫描器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.*"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 视图解析器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span></span></span><br><span class="line"><span class="tag">	<span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 配置从项目根目录到指定目录一端路径 ,建议指定浅一点的目录 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/jsp/"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 文件的后缀名 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--将index2.jsp放在/WEB-INF/jsp/目录下，请求index2时不经过controller处理;</span></span><br><span class="line"><span class="comment">配置了mvc:view-controller后需要配置mvc:annotation-driven,不然走controller的请求会失效 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:view-controller</span> <span class="attr">path</span>=<span class="string">"/index2"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">view-name</span>=<span class="string">"index2"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span><span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--处理静态资源  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>index.jsp</p>
@@ -951,7 +951,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">875k</span>
+    <span title="站点总字数">876k</span>
   
 
   

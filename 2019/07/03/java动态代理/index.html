@@ -102,12 +102,12 @@
 <meta property="og:site_name" content="小兵兵">
 <meta property="og:description" content="代理：设计模式代理是一种常用的设计模式，其目的就是为其他对象提供一个代理以控制对某个对象的访问。代理类负责为委托类预处理消息，过滤消息并转发消息，以及进行消息被委托类执行后的后续处理  相关的类和接口动态代理机制的主类java.lang.reflect.Proxy：这是 Java 动态代理机制的主类，它提供了一组静态方法来为一组接口动态地生成代理类及其对象 方法一该方法用于获取指定代理对象所关联的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://shenlibing.github.io/myhexo/2019/07/03/java动态代理/1562144058102.png">
-<meta property="og:updated_time" content="2019-08-08T03:27:05.245Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1562144058102.png">
+<meta property="og:updated_time" content="2019-08-10T03:25:10.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java动态代理">
 <meta name="twitter:description" content="代理：设计模式代理是一种常用的设计模式，其目的就是为其他对象提供一个代理以控制对某个对象的访问。代理类负责为委托类预处理消息，过滤消息并转发消息，以及进行消息被委托类执行后的后续处理  相关的类和接口动态代理机制的主类java.lang.reflect.Proxy：这是 Java 动态代理机制的主类，它提供了一组静态方法来为一组接口动态地生成代理类及其对象 方法一该方法用于获取指定代理对象所关联的">
-<meta name="twitter:image" content="https://shenlibing.github.io/myhexo/2019/07/03/java动态代理/1562144058102.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1562144058102.png">
 
 
 
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-08 11:27:05" itemprop="dateModified" datetime="2019-08-08T11:27:05+08:00">2019-08-08</time>
+                <time title="修改时间：2019-08-10 11:25:10" itemprop="dateModified" datetime="2019-08-10T11:25:10+08:00">2019-08-10</time>
               
             
           </span>
@@ -523,7 +523,7 @@
 
       
         <h1 id="代理：设计模式"><a href="#代理：设计模式" class="headerlink" title="代理：设计模式"></a>代理：设计模式</h1><p>代理是一种常用的设计模式，其目的就是为其他对象提供一个代理以控制对某个对象的访问。代理类负责为委托类预处理消息，过滤消息并转发消息，以及进行消息被委托类执行后的后续处理</p>
-<p><img src="/myhexo/2019/07/03/java动态代理/1562144058102.png" alt="1562144058102"></p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1562144058102.png" alt="1562144058102"></p>
 <h1 id="相关的类和接口"><a href="#相关的类和接口" class="headerlink" title="相关的类和接口"></a>相关的类和接口</h1><h2 id="动态代理机制的主类"><a href="#动态代理机制的主类" class="headerlink" title="动态代理机制的主类"></a>动态代理机制的主类</h2><p>java.lang.reflect.Proxy：这是 Java 动态代理机制的主类，它提供了一组静态方法来为一组接口动态地生成代理类及其对象</p>
 <h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>该方法用于获取指定代理对象所关联的调用处理器</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the invocation handler for the specified proxy instance.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>   proxy the proxy instance to return the invocation handler for</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>  the invocation handler for the proxy instance</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span>  IllegalArgumentException if the argument is not a</span></span><br><span class="line"><span class="comment">     *          proxy instance</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span>  SecurityException if a security manager, &lt;em&gt;s&lt;/em&gt;, is present</span></span><br><span class="line"><span class="comment">     *          and the caller's class loader is not the same as or an</span></span><br><span class="line"><span class="comment">     *          ancestor of the class loader for the invocation handler</span></span><br><span class="line"><span class="comment">     *          and invocation of &#123;<span class="doctag">@link</span> SecurityManager#checkPackageAccess</span></span><br><span class="line"><span class="comment">     *          s.checkPackageAccess()&#125; denies access to the invocation</span></span><br><span class="line"><span class="comment">     *          handler's class.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@CallerSensitive</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> InvocationHandler <span class="title">getInvocationHandler</span><span class="params">(Object proxy)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> IllegalArgumentException</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * Verify that the object is actually a proxy instance.</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">if</span> (!isProxyClass(proxy.getClass())) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"not a proxy instance"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> Proxy p = (Proxy) proxy;</span><br><span class="line">        <span class="keyword">final</span> InvocationHandler ih = p.h;</span><br><span class="line">        <span class="keyword">if</span> (System.getSecurityManager() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            Class&lt;?&gt; ihClass = ih.getClass();</span><br><span class="line">            Class&lt;?&gt; caller = Reflection.getCallerClass();</span><br><span class="line">            <span class="keyword">if</span> (ReflectUtil.needsPackageAccessCheck(caller.getClassLoader(),</span><br><span class="line">                                                    ihClass.getClassLoader()))</span><br><span class="line">            &#123;</span><br><span class="line">                ReflectUtil.checkPackageAccess(ihClass);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ih;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -985,7 +985,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">875k</span>
+    <span title="站点总字数">876k</span>
   
 
   
