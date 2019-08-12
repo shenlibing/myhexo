@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/myhexo/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="NodeJS入门  NodeJS模块  http模块 server.js 123456789101112131415161718const http=require(&apos;http&apos;);let server=http.createServer((req, res)=&amp;gt;&amp;#123;  switch(req.url)&amp;#123;    case &apos;/aaa&apos;:      res.write(&apos;ab">
+<meta name="keywords" content="NodeJS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJS">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/03/20/NodeJS/index.html">
+<meta property="og:site_name" content="小兵兵">
+<meta property="og:description" content="NodeJS入门  NodeJS模块  http模块 server.js 123456789101112131415161718const http=require(&apos;http&apos;);let server=http.createServer((req, res)=&amp;gt;&amp;#123;  switch(req.url)&amp;#123;    case &apos;/aaa&apos;:      res.write(&apos;ab">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E8%AE%BE%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/get%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/post%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E8%A1%A8%E5%8D%95post%E8%AF%B7%E6%B1%823%E7%A7%8D%E6%96%B9%E5%BC%8F.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%99%AE%E9%80%9A%E7%BA%AF%E6%96%87%E6%9C%AC%E8%A1%A8%E5%8D%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%99%AE%E9%80%9A%E7%BA%AF%E6%96%87%E6%9C%AC%E8%A1%A8%E5%8D%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0post%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%B2%A1%E6%9C%89%E9%80%9A%E8%BF%87gz%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%93.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E9%80%9A%E8%BF%87gz%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%93.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E9%80%9A%E8%BF%87gz%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%932.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A82.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A83.png">
+<meta property="og:updated_time" content="2019-08-10T14:44:55.337Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NodeJS">
+<meta name="twitter:description" content="NodeJS入门  NodeJS模块  http模块 server.js 123456789101112131415161718const http=require(&apos;http&apos;);let server=http.createServer((req, res)=&amp;gt;&amp;#123;  switch(req.url)&amp;#123;    case &apos;/aaa&apos;:      res.write(&apos;ab">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E8%AE%BE%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/03/20/NodeJS/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>NodeJS | 小兵兵</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+        <a href="https://github.com/shenlibing/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/myhexo/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵兵</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/03/20/NodeJS/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="言宜慢,心宜善">
+      <meta itemprop="image" content="/myhexo/images/myimg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NodeJS
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-20 10:02:01" itemprop="dateCreated datePublished" datetime="2019-03-20T10:02:01+08:00">2019-03-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-10 22:44:55" itemprop="dateModified" datetime="2019-08-10T22:44:55+08:00">2019-08-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/myhexo/2019/03/20/NodeJS/" class="leancloud_visitors" data-flag-title="NodeJS">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">22k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">20 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<h2 id="NodeJS入门"><a href="#NodeJS入门" class="headerlink" title="NodeJS入门"></a>NodeJS入门</h2></blockquote>
+<blockquote>
+<h3 id="NodeJS模块"><a href="#NodeJS模块" class="headerlink" title="NodeJS模块"></a>NodeJS模块</h3></blockquote>
+<blockquote>
+<h4 id="http模块"><a href="#http模块" class="headerlink" title="http模块"></a>http模块</h4></blockquote>
+<p>server.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server=http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(req.url)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'/aaa'</span>:</span><br><span class="line">      res.write(<span class="string">'abc'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'/bbb'</span>:</span><br><span class="line">      res.write(<span class="string">'dddd'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'/1.html'</span>:</span><br><span class="line">      res.write(<span class="string">'&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;sdfasfasf&lt;/body&gt;&lt;/html&gt;'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  res.end();</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
+
+<p>server2.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server=http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">  fs.readFile(<span class="string">`www<span class="subst">$&#123;req.url&#125;</span>`</span>, (err, data)=&gt;&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">      res.write(<span class="string">'404'</span>);     <span class="comment">//?</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      res.write(data);</span><br><span class="line">    &#125;</span><br><span class="line">    res.end();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="断言——assert"><a href="#断言——assert" class="headerlink" title="断言——assert"></a>断言——assert</h4></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> assert=<span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">  assert(<span class="built_in">arguments</span>.length==<span class="number">2</span>, <span class="string">'必须传2个参数'</span>);</span><br><span class="line">  assert(<span class="keyword">typeof</span> a==<span class="string">'number'</span>, <span class="string">'第一个参数必须是数字'</span>);</span><br><span class="line">  assert(<span class="keyword">typeof</span> b==<span class="string">'number'</span>, <span class="string">'第二个参数必须是数字'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">12</span>, <span class="number">5</span>));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="File-System"><a href="#File-System" class="headerlink" title="File System"></a>File System</h4></blockquote>
+<p>读写文件</p>
+<p>fs.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">'1.txt'</span>, (err, data)=&gt;&#123;</span><br><span class="line">  <span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'有错'</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//'ads'.charCodeAt(0)</span></span><br><span class="line">    <span class="built_in">console</span>.log(data.toString());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*fs.writeFile('3.txt', 'erqwreqwere', err=&gt;&#123;</span></span><br><span class="line"><span class="comment">  if(err)&#123;</span></span><br><span class="line"><span class="comment">    console.log(err);</span></span><br><span class="line"><span class="comment">  &#125;else&#123;</span></span><br><span class="line"><span class="comment">    console.log('成功');</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">&#125;);*/</span></span><br></pre></td></tr></table></figure>
+
+<p>fs2.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">'ofo.png'</span>, (err, data)=&gt;&#123;</span><br><span class="line">  fs.writeFile(<span class="string">'ofo2.png'</span>, data, (err)=&gt;&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'成功'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h4></blockquote>
+<p>进程和线程的区别：</p>
+<p>进程拥有独立的执行空间、存储<br>同一个进程内的所有线程共享一套空间、代码</p>
+<p>多进程(PHP、Node)   成本高(慢)；安全(进程间隔离)；进程间通信麻烦；写代码简单<br>多线程(Java、C)   成本低(快)；不安全(线程要死一块死)；线程间通信容易；写代码复杂</p>
+<p>进程间通信的几种方式<br>管道<br>共享内存<br>socket</p>
+<blockquote>
+<h4 id="Crypto——签名"><a href="#Crypto——签名" class="headerlink" title="Crypto——签名"></a>Crypto——签名</h4></blockquote>
+<p>MD5是单向散列生成hash值，不可逆破解</p>
+<p>md5.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> crypto=<span class="built_in">require</span>(<span class="string">'crypto'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj=crypto.createHash(<span class="string">'md5'</span>);</span><br><span class="line"></span><br><span class="line">obj.update(<span class="string">'123456'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// obj.update('123');</span></span><br><span class="line"><span class="comment">// obj.update('4');</span></span><br><span class="line"><span class="comment">// obj.update('56');</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.digest(<span class="string">'hex'</span>));</span><br></pre></td></tr></table></figure>
+
+<p>双重加密</p>
+<p>md5_2.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> crypto=<span class="built_in">require</span>(<span class="string">'crypto'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">md5</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> obj=crypto.createHash(<span class="string">'md5'</span>);</span><br><span class="line">  obj.update(str);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> obj.digest(<span class="string">'hex'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(md5(md5(<span class="string">'123456'</span>)+<span class="string">'se32ssdfsd43'</span>));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h4></blockquote>
+<p>获取系统信息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> os=<span class="built_in">require</span>(<span class="string">'os'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(os.cpus());</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h4></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path=<span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str=<span class="string">'/var/local/www/aaa/1.png'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//dirname</span></span><br><span class="line"><span class="comment">//basename</span></span><br><span class="line"><span class="comment">//extname</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(path.extname(str));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="Events事件队列"><a href="#Events事件队列" class="headerlink" title="Events事件队列"></a>Events事件队列</h4></blockquote>
+<p>和普通js函数的定义调用区别：解耦</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Event=<span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ev=<span class="keyword">new</span> Event();</span><br><span class="line"></span><br><span class="line"><span class="comment">//1.监听(接收)</span></span><br><span class="line">ev.on(<span class="string">'msg'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'收到了msg事件：'</span>, a, b, c);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.派发(发送)</span></span><br><span class="line">ev.emit(<span class="string">'msg'</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">88</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*function msg(a, b, c)&#123;</span></span><br><span class="line"><span class="comment">  console.log('收到了msg事件：', a, b, c);</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">msg(12, 5, 88);*/</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="Query-Strings、URL"><a href="#Query-Strings、URL" class="headerlink" title="Query Strings、URL"></a>Query Strings、URL</h4></blockquote>
+<p>地址解析</p>
+<p>querystring.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> querystring=<span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj=querystring.parse(<span class="string">'ie=utf-8&amp;f=8&amp;rsv_bp=0&amp;rsv_idx=1&amp;tn=baidu&amp;wd=aa&amp;rsv_pq=f80d982000063ffb&amp;rsv_t=6498LAZdRZjq9v4v0hs88kZItnCjDpT6UNBKr%2FF83%2F%2Bg4eiPURW2eQl9Iwc&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_sug2=0&amp;inputT=10&amp;rsv_sug4=10'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></table></figure>
+
+<p>url.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url=<span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj=url.parse(<span class="string">'https://www.baidu.com:8080/s?ie=utf-8&amp;f=8&amp;rsv_bp=0&amp;rsv_idx=1&amp;tn=baidu&amp;wd=aa&amp;rsv_pq=f80d982000063ffb&amp;rsv_t=6498LAZdRZjq9v4v0hs88kZItnCjDpT6UNBKr%2FF83%2F%2Bg4eiPURW2eQl9Iwc&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_sug2=0&amp;inputT=10&amp;rsv_sug4=10'</span>,<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h4></blockquote>
+<p>DNS、Domain</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dns=<span class="built_in">require</span>(<span class="string">'dns'</span>);</span><br><span class="line"></span><br><span class="line">dns.resolve(<span class="string">'www.goole.com'</span>, (err, res)=&gt;&#123;</span><br><span class="line">  <span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'解析失败'</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="流操作——Stream"><a href="#流操作——Stream" class="headerlink" title="流操作——Stream"></a>流操作——Stream</h4></blockquote>
+<p>连续数据都是流——视频流、网络流、文件流、语音流</p>
+<blockquote>
+<h4 id="TLS-SSL"><a href="#TLS-SSL" class="headerlink" title="TLS/SSL"></a>TLS/SSL</h4></blockquote>
+<p>加密、安全</p>
+<blockquote>
+<h4 id="ZLIB——gz"><a href="#ZLIB——gz" class="headerlink" title="ZLIB——gz"></a>ZLIB——gz</h4></blockquote>
+<p>压缩</p>
+<blockquote>
+<h2 id="NodeJS数据交互"><a href="#NodeJS数据交互" class="headerlink" title="NodeJS数据交互"></a>NodeJS数据交互</h2></blockquote>
+<blockquote>
+<h3 id="设置响应头"><a href="#设置响应头" class="headerlink" title="设置响应头"></a>设置响应头</h3></blockquote>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E8%AE%BE%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4.png" alt=""></p>
+<blockquote>
+<h3 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h3></blockquote>
+<p>数据放在url地址上，存放的数量小(32k)</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/get%E8%AF%B7%E6%B1%82.png" alt=""></p>
+<blockquote>
+<h3 id="post请求"><a href="#post请求" class="headerlink" title="post请求"></a>post请求</h3></blockquote>
+<p>在body里面,存放的数据量大(1G),一个大数据包切成一堆小包传输,容错性强</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/post%E8%AF%B7%E6%B1%82.png" alt=""></p>
+<blockquote>
+<h3 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h3></blockquote>
+<p>一切来自前台的数据都不可信<br>前后台都得进行数据校验<br>  前台校验：提高用户体验<br>  后台校验：提高安全性</p>
+<blockquote>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3></blockquote>
+<blockquote>
+<h4 id="关系型数据库——MySQL、Oracle"><a href="#关系型数据库——MySQL、Oracle" class="headerlink" title="关系型数据库——MySQL、Oracle"></a>关系型数据库——MySQL、Oracle</h4></blockquote>
+<blockquote>
+<h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5></blockquote>
+<p>最常见、最常用,数据之间是有关系的<br>MySQL使用占比80%，免费，绝大多数普通应用，性能很高、安全性很高，容灾略差<br>Oracle收费，应用在金融、医疗，容灾特别强</p>
+<blockquote>
+<h5 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h5></blockquote>
+<blockquote>
+<h6 id="增"><a href="#增" class="headerlink" title="增"></a>增</h6></blockquote>
+<p>INSERT INTO 表 (字段列表) VALUES(值列表)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> user_table (<span class="keyword">ID</span>, <span class="keyword">name</span>, gender, chinese, math, english) <span class="keyword">VALUES</span>(<span class="number">0</span>, <span class="string">'blue'</span>, <span class="string">'男'</span>, <span class="number">35</span>, <span class="number">18</span>, <span class="number">29</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h6 id="删"><a href="#删" class="headerlink" title="删"></a>删</h6></blockquote>
+<p>DELETE FROM 表 WHERE 条件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> user_table <span class="keyword">WHERE</span> <span class="keyword">ID</span>=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h6 id="改"><a href="#改" class="headerlink" title="改"></a>改</h6></blockquote>
+<p>UPDATE 表 SET 字段=值, 字段2=值2, … WHERE 条件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> user_table <span class="keyword">SET</span> chinese=<span class="number">100</span> <span class="keyword">WHERE</span> <span class="keyword">ID</span>=<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h6 id="查"><a href="#查" class="headerlink" title="查"></a>查</h6></blockquote>
+<p>SELECT 字段列表 FROM 表 WHERE 条件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, gender <span class="keyword">FROM</span> user_table <span class="keyword">WHERE</span> <span class="keyword">ID</span>=<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="文件型数据库——sqlite"><a href="#文件型数据库——sqlite" class="headerlink" title="文件型数据库——sqlite"></a>文件型数据库——sqlite</h4></blockquote>
+<p>使用简单、存储数据量小</p>
+<blockquote>
+<h4 id="文档型数据库——MongoDB"><a href="#文档型数据库——MongoDB" class="headerlink" title="文档型数据库——MongoDB"></a>文档型数据库——MongoDB</h4></blockquote>
+<p>直接存储异构数据，使用方便</p>
+<blockquote>
+<h4 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h4></blockquote>
+<p>没有复杂的关系、对性能有极高的要求常见的有redis、memcached、hypertable、bigtable</p>
+<blockquote>
+<h2 id="NodeJS进阶上"><a href="#NodeJS进阶上" class="headerlink" title="NodeJS进阶上"></a>NodeJS进阶上</h2></blockquote>
+<blockquote>
+<h3 id="文件数据解析"><a href="#文件数据解析" class="headerlink" title="文件数据解析"></a>文件数据解析</h3></blockquote>
+<blockquote>
+<h4 id="表单的三种POST"><a href="#表单的三种POST" class="headerlink" title="表单的三种POST"></a>表单的三种POST</h4></blockquote>
+<p><code>text/plain</code>,用的很少，纯文字<br><code>application/x-www-form-urlencoded</code>,默认,以url编码方式,<code>xxx=xxx&amp;xxx=xx...</code><br><code>multipart/form-data</code>上传文件内容</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E8%A1%A8%E5%8D%95post%E8%AF%B7%E6%B1%823%E7%A7%8D%E6%96%B9%E5%BC%8F.png" alt=""></p>
+<p>file上传，是post请求方式</p>
+<blockquote>
+<h4 id="普通纯文本表单文件上传"><a href="#普通纯文本表单文件上传" class="headerlink" title="普通纯文本表单文件上传"></a>普通纯文本表单文件上传</h4></blockquote>
+<p>普通纯文本文件上传可以用字符串拼接接收，有弊端，如果是图片文件上传，用字符串接收会出现数据错乱</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%99%AE%E9%80%9A%E7%BA%AF%E6%96%87%E6%9C%AC%E8%A1%A8%E5%8D%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0.png" alt=""></p>
+<p>描述：可以看到纯文本文件上传请求了2个资源</p>
+<p>浏览器<br><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%99%AE%E9%80%9A%E7%BA%AF%E6%96%87%E6%9C%AC%E8%A1%A8%E5%8D%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A02.png" alt=""></p>
+<p>后台结果输出</p>
+<p>包含了前台表单用户名、密码和纯文本文件的描述和内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/upload</span><br><span class="line">------WebKitFormBoundaryNIoabcKEXajTUMAI</span><br><span class="line">Content-Disposition: form-data; name=&quot;user&quot;</span><br><span class="line"></span><br><span class="line">shenlibing</span><br><span class="line">------WebKitFormBoundaryNIoabcKEXajTUMAI</span><br><span class="line">Content-Disposition: form-data; name=&quot;pass&quot;</span><br><span class="line"></span><br><span class="line">000000</span><br><span class="line">------WebKitFormBoundaryNIoabcKEXajTUMAI</span><br><span class="line">Content-Disposition: form-data; name=&quot;f1&quot;; filename=&quot;1.txt&quot;</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">abc</span><br><span class="line">------WebKitFormBoundaryNIoabcKEXajTUMAI--</span><br><span class="line"></span><br><span class="line">/favicon.ico</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="Buffer接收文件上传的原始二进制数据"><a href="#Buffer接收文件上传的原始二进制数据" class="headerlink" title="Buffer接收文件上传的原始二进制数据"></a><code>Buffer</code>接收文件上传的原始二进制数据</h4></blockquote>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0post%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/upload</span><br><span class="line">&lt;Buffer 2d 2d 2d 2d 2d 2d 57 65 62 4b 69 74 46 6f 72 6d 42 6f 75 6e 64 61 72 79 75 42 6d 6b 78 4a 65 51 6d 35 6b 4a 4f 68 59 65 0d 0a 43 6f 6e 74 65 6e 74 2d ... &gt;</span><br><span class="line">/favicon.ico</span><br><span class="line">&lt;Buffer &gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="Buffer数据进行查找、截取、切分"><a href="#Buffer数据进行查找、截取、切分" class="headerlink" title="Buffer数据进行查找、截取、切分"></a>Buffer数据进行查找、截取、切分</h4></blockquote>
+<p>如果是非纯文本文件上传，用字符串接收会破坏数据的完整性，需要用<code>Buffer</code>接收二进制数据</p>
+<blockquote>
+<h5 id="Buffer数据查找"><a href="#Buffer数据查找" class="headerlink" title="Buffer数据查找"></a><code>Buffer</code>数据查找</h5></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b=<span class="keyword">new</span> Buffer(<span class="string">'abccc-=-dddder-=-qwerqwer'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b.indexOf(<span class="string">'-=-'</span>));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h5 id="Buffer数据截取"><a href="#Buffer数据截取" class="headerlink" title="Buffer数据截取"></a><code>Buffer</code>数据截取</h5></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b=<span class="keyword">new</span> Buffer(<span class="string">'abccc-=-dddder-=-qwerqwer'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b.slice(<span class="number">17</span>).toString());</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h5 id="Buffer数据切分"><a href="#Buffer数据切分" class="headerlink" title="Buffer数据切分"></a><code>Buffer</code>数据切分</h5></blockquote>
+<p><code>Buffer</code>本身不具有<code>split</code>方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b=<span class="keyword">new</span> Buffer(<span class="string">'abccc-=-dddder-=-qwerqwer'</span>);</span><br><span class="line"></span><br><span class="line">Buffer.prototype.split=Buffer.prototype.split||<span class="function"><span class="keyword">function</span> (<span class="params">b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr=[];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> cur=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> n=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>((n=<span class="keyword">this</span>.indexOf(b, cur))!=<span class="number">-1</span>)&#123;</span><br><span class="line">    arr.push(<span class="keyword">this</span>.slice(cur, n));</span><br><span class="line">    cur=n+b.length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  arr.push(<span class="keyword">this</span>.slice(cur));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr=b.split(<span class="string">'-=-'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.map(<span class="function"><span class="params">buffer</span>=&gt;</span>buffer.toString()));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="解析数据"><a href="#解析数据" class="headerlink" title="解析数据"></a>解析数据</h4></blockquote>
+<blockquote>
+<h5 id="数据化简"><a href="#数据化简" class="headerlink" title="数据化简"></a>数据化简</h5></blockquote>
+<p>先对纯文本文件上传用字符串拼接的结果进行分析<br>化简版本一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">分隔符</span><br><span class="line">Content-Disposition: form-data; name=&quot;user&quot;</span><br><span class="line"></span><br><span class="line">shenlibing</span><br><span class="line">分隔符</span><br><span class="line">Content-Disposition: form-data; name=&quot;pass&quot;</span><br><span class="line"></span><br><span class="line">000000</span><br><span class="line">分隔符</span><br><span class="line">Content-Disposition: form-data; name=&quot;f1&quot;; filename=&quot;1.txt&quot;</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">abc</span><br><span class="line">分隔符--</span><br></pre></td></tr></table></figure>
+
+<p>化简版本二：每一行末尾会自动加上<code>\r\n</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">分隔符\r\n</span><br><span class="line">Content-Disposition: form-data; name=&quot;user&quot;\r\n</span><br><span class="line">\r\n</span><br><span class="line">shenlibing\r\n</span><br><span class="line">分隔符\r\n</span><br><span class="line">Content-Disposition: form-data; name=&quot;pass&quot;\r\n</span><br><span class="line">\r\n</span><br><span class="line">000000\r\n</span><br><span class="line">分隔符\r\n</span><br><span class="line">Content-Disposition: form-data; name=&quot;f1&quot;; filename=&quot;1.txt&quot;\r\n</span><br><span class="line">Content-Type: text/plain\r\n</span><br><span class="line">\r\n</span><br><span class="line">abc\r\n</span><br><span class="line">分隔符--\r\n</span><br></pre></td></tr></table></figure>
+
+<p>化简版本三</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">分隔符\r\n数据描述\r\n\r\n数据值\r\n</span><br><span class="line">分隔符\r\n数据描述\r\n\r\n数据值\r\n</span><br><span class="line">分隔符\r\n数据描述1\r\n数据描述2\r\n\r\n文件内容\r\n</span><br><span class="line">分隔符--\r\n</span><br></pre></td></tr></table></figure>
+
+<p>化简到版本三的时候，就可以开始解析数据了</p>
+<blockquote>
+<h5 id="用分隔符切开数据"><a href="#用分隔符切开数据" class="headerlink" title="用分隔符切开数据"></a>用分隔符切开数据</h5></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  空,</span><br><span class="line">  \r\n数据描述\r\n\r\n数据值\r\n,</span><br><span class="line">  \r\n数据描述\r\n\r\n数据值\r\n,</span><br><span class="line">  \r\n数据描述1\r\n数据描述2\r\n\r\n&lt;文件内容&gt;\r\n,</span><br><span class="line">  --\r\n</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h5 id="丢弃头尾元素"><a href="#丢弃头尾元素" class="headerlink" title="丢弃头尾元素"></a>丢弃头尾元素</h5></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  \r\n数据描述\r\n\r\n数据值\r\n,</span><br><span class="line">  \r\n数据描述\r\n\r\n数据值\r\n,</span><br><span class="line">  \r\n数据描述1\r\n数据描述2\r\n\r\n&lt;文件内容&gt;\r\n,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h5 id="丢弃每一项的头尾-r-n"><a href="#丢弃每一项的头尾-r-n" class="headerlink" title="丢弃每一项的头尾\r\n"></a>丢弃每一项的头尾<code>\r\n</code></h5></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  数据描述\r\n\r\n数据值,</span><br><span class="line">  数据描述\r\n\r\n数据值,</span><br><span class="line">  数据描述1\r\n数据描述2\r\n\r\n&lt;文件内容&gt;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h5 id="用第一次出现的-r-n-r-n切分"><a href="#用第一次出现的-r-n-r-n切分" class="headerlink" title="用第一次出现的\r\n\r\n切分"></a>用第一次出现的<code>\r\n\r\n</code>切分</h5></blockquote>
+<p> 普通数据：[数据描述, 数据值]<br> 文件数据：[数据描述1\r\n数据描述2, &lt;文件内容&gt;]</p>
+<blockquote>
+<h5 id="判断描述的里面有没有-r-n"><a href="#判断描述的里面有没有-r-n" class="headerlink" title="判断描述的里面有没有\r\n"></a>判断描述的里面有没有<code>\r\n</code></h5></blockquote>
+<p>有的话就是文件数据：[数据描述1\r\n数据描述2, &lt;文件内容&gt;]<br>没有的话就是普通数据：[数据描述, 数据值]</p>
+<blockquote>
+<h5 id="分析数据描述"><a href="#分析数据描述" class="headerlink" title="分析数据描述"></a>分析数据描述</h5></blockquote>
+<blockquote>
+<h4 id="文件上传代码实现"><a href="#文件上传代码实现" class="headerlink" title="文件上传代码实现"></a>文件上传代码实现</h4></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> common=<span class="built_in">require</span>(<span class="string">'./libs/common'</span>);</span><br><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> uuid=<span class="built_in">require</span>(<span class="string">'uuid/v4'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server=http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr=[];</span><br><span class="line"></span><br><span class="line">  req.on(<span class="string">'data'</span>, data=&gt;&#123;</span><br><span class="line">    arr.push(data);</span><br><span class="line">  &#125;);</span><br><span class="line">  req.on(<span class="string">'end'</span>, ()=&gt;&#123;</span><br><span class="line">    <span class="keyword">let</span> data=Buffer.concat(arr);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//data</span></span><br><span class="line">    <span class="comment">//解析二进制文件上传数据</span></span><br><span class="line">    <span class="keyword">let</span> post=&#123;&#125;;</span><br><span class="line">    <span class="keyword">let</span> files=&#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(req.headers[<span class="string">'content-type'</span>])&#123;</span><br><span class="line">      <span class="keyword">let</span> str=req.headers[<span class="string">'content-type'</span>].split(<span class="string">'; '</span>)[<span class="number">1</span>];</span><br><span class="line">      <span class="keyword">if</span>(str)&#123;</span><br><span class="line">        <span class="keyword">let</span> boundary=<span class="string">'--'</span>+str.split(<span class="string">'='</span>)[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1.用"分隔符切分整个数据"</span></span><br><span class="line">        <span class="keyword">let</span> arr=data.split(boundary);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2.丢弃头尾两个数据</span></span><br><span class="line">        arr.shift();</span><br><span class="line">        arr.pop();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3.丢弃掉每个数据头尾的"\r\n"</span></span><br><span class="line">        arr=arr.map(<span class="function"><span class="params">buffer</span>=&gt;</span>buffer.slice(<span class="number">2</span>,buffer.length<span class="number">-2</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4.每个数据在第一个"\r\n\r\n"处切成两半</span></span><br><span class="line">        arr.forEach(<span class="function"><span class="params">buffer</span>=&gt;</span>&#123;</span><br><span class="line">          <span class="keyword">let</span> n=buffer.indexOf(<span class="string">'\r\n\r\n'</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">let</span> disposition=buffer.slice(<span class="number">0</span>, n);</span><br><span class="line">          <span class="keyword">let</span> content=buffer.slice(n+<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">          disposition=disposition.toString();</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span>(disposition.indexOf(<span class="string">'\r\n'</span>)==<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="comment">//普通数据</span></span><br><span class="line">            <span class="comment">//Content-Disposition: form-data; name="user"</span></span><br><span class="line">            content=content.toString();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">let</span> name=disposition.split(<span class="string">'; '</span>)[<span class="number">1</span>].split(<span class="string">'='</span>)[<span class="number">1</span>];</span><br><span class="line">            name=name.substring(<span class="number">1</span>, name.length<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">            post[name]=content;</span><br><span class="line">          &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//文件数据</span></span><br><span class="line">            <span class="comment">/*Content-Disposition: form-data; name="f1"; filename="a.txt"\r\n</span></span><br><span class="line"><span class="comment">            Content-Type: text/plain*/</span></span><br><span class="line">            <span class="keyword">let</span> [line1, line2]=disposition.split(<span class="string">'\r\n'</span>);</span><br><span class="line">            <span class="keyword">let</span> [,name,filename]=line1.split(<span class="string">'; '</span>);</span><br><span class="line">            <span class="keyword">let</span> type=line2.split(<span class="string">': '</span>)[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">            name=name.split(<span class="string">'='</span>)[<span class="number">1</span>];</span><br><span class="line">            name=name.substring(<span class="number">1</span>,name.length<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">            filename=filename.split(<span class="string">'='</span>)[<span class="number">1</span>];</span><br><span class="line">            filename=filename.substring(<span class="number">1</span>,filename.length<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">let</span> path=<span class="string">`upload/<span class="subst">$&#123;uuid().replace(<span class="regexp">/\-/g</span>, <span class="string">''</span>)&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line">            fs.writeFile(path, content, err=&gt;&#123;</span><br><span class="line">              <span class="keyword">if</span>(err)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'文件写入失败'</span>, err);</span><br><span class="line">              &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                files[name]=&#123;filename, path, type&#125;;</span><br><span class="line">                <span class="built_in">console</span>.log(files);</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//5.完成</span></span><br><span class="line">        <span class="built_in">console</span>.log(post);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res.end();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="流操作"><a href="#流操作" class="headerlink" title="流操作"></a>流操作</h3></blockquote>
+<blockquote>
+<h4 id="fs-readFile和fs-writeFile的弊端"><a href="#fs-readFile和fs-writeFile的弊端" class="headerlink" title="fs.readFile和fs.writeFile的弊端"></a><code>fs.readFile</code>和<code>fs.writeFile</code>的弊端</h4></blockquote>
+<p>描述：以上文件上传的一个瑕疵就是会等到所有数据都到达了才开始处理，然后通过<code>fs.writeFile</code>上传文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">  fs.readFile(<span class="string">`www<span class="subst">$&#123;req.url&#125;</span>`</span>, (err, data)=&gt;&#123;</span><br><span class="line">    res.write(data);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>fs.readFile</code>先把所有数据全读到内存中，然后回调,这种方式极其占用内存且资源利用极其不充分，读取文件的过程中网络传输一直空闲，等到文件IO读取完毕，IO一直空闲，网络传输变得繁忙</p>
+<p>解决：收到一部分就解析一部分，极大节约内存,使用流读取文件，读一点、发一点</p>
+<blockquote>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4></blockquote>
+<p>读取流<code>fs.createReadStream</code><br>写入流<code>fs.createWriteStream</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server=http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> rs=fs.createReadStream(<span class="string">`www<span class="subst">$&#123;req.url&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">  rs.pipe(res);</span><br><span class="line"></span><br><span class="line">  rs.on(<span class="string">'error'</span>, err=&gt;&#123;</span><br><span class="line">    res.writeHeader(<span class="number">404</span>);</span><br><span class="line">    res.write(<span class="string">'Not Found'</span>);</span><br><span class="line"></span><br><span class="line">    res.end();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="gz压缩"><a href="#gz压缩" class="headerlink" title="gz压缩"></a>gz压缩</h3></blockquote>
+<blockquote>
+<h4 id="无gz压缩传输"><a href="#无gz压缩传输" class="headerlink" title="无gz压缩传输"></a>无gz压缩传输</h4></blockquote>
+<p>没有通过<code>gz</code>压缩传输,请求资源<code>1.html</code>文件大小<code>321B</code>，<code>jquery.js</code>文件大小<code>262KB</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> zlib=<span class="built_in">require</span>(<span class="string">'zlib'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server=http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> rs=fs.createReadStream(<span class="string">`www<span class="subst">$&#123;req.url&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">  rs.pipe(res);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*res.setHeader('content-encoding', 'gzip');</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  let gz=zlib.createGzip();</span></span><br><span class="line"><span class="comment">  rs.pipe(gz).pipe(res);*/</span></span><br><span class="line"></span><br><span class="line">  rs.on(<span class="string">'error'</span>, err=&gt;&#123;</span><br><span class="line">    res.writeHeader(<span class="number">404</span>);</span><br><span class="line">    res.write(<span class="string">'Not Found'</span>);</span><br><span class="line"></span><br><span class="line">    res.end();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%B2%A1%E6%9C%89%E9%80%9A%E8%BF%87gz%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%93.png" alt=""></p>
+<blockquote>
+<h4 id="gz压缩传输"><a href="#gz压缩传输" class="headerlink" title="gz压缩传输"></a>gz压缩传输</h4></blockquote>
+<p>读写流,通过<code>gz</code>压缩传输,请求资源<code>1.html</code>文件大小<code>292B</code>，<code>jquery.js</code>文件大小<code>77.8KB</code></p>
+<p>创建读取流读取<code>www${req.url}</code>文件，通过<code>gz</code>压缩、加密该文件然后返回给浏览器，需要设置响应头<code>res.setHeader(&#39;content-encoding&#39;, &#39;gzip&#39;)</code>,让浏览器识别该资源是通过<code>gz</code>压缩的文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> zlib=<span class="built_in">require</span>(<span class="string">'zlib'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server=http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> rs=fs.createReadStream(<span class="string">`www<span class="subst">$&#123;req.url&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//rs.pipe(res);</span></span><br><span class="line"></span><br><span class="line">  res.setHeader(<span class="string">'content-encoding'</span>, <span class="string">'gzip'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> gz=zlib.createGzip();</span><br><span class="line">  rs.pipe(gz).pipe(res);</span><br><span class="line"></span><br><span class="line">  rs.on(<span class="string">'error'</span>, err=&gt;&#123;</span><br><span class="line">    res.writeHeader(<span class="number">404</span>);</span><br><span class="line">    res.write(<span class="string">'Not Found'</span>);</span><br><span class="line"></span><br><span class="line">    res.end();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E9%80%9A%E8%BF%87gz%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%93.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E9%80%9A%E8%BF%87gz%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%932.png" alt=""></p>
+<blockquote>
+<h2 id="NodeJS进阶下"><a href="#NodeJS进阶下" class="headerlink" title="NodeJS进阶下"></a>NodeJS进阶下</h2></blockquote>
+<blockquote>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3></blockquote>
+<blockquote>
+<h4 id="标记文件修改时间实现缓存"><a href="#标记文件修改时间实现缓存" class="headerlink" title="标记文件修改时间实现缓存"></a>标记文件修改时间实现缓存</h4></blockquote>
+<blockquote>
+<h5 id="获得文件修改时间"><a href="#获得文件修改时间" class="headerlink" title="获得文件修改时间"></a>获得文件修改时间</h5></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">fs.stat(<span class="string">'./www/1.html'</span>, (err, stat)=&gt;&#123;</span><br><span class="line">  <span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'获取文件信息失败'</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(stat.mtime.toGMTString());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h5 id="服务器设置响应头Last-Modified"><a href="#服务器设置响应头Last-Modified" class="headerlink" title="服务器设置响应头Last-Modified"></a>服务器设置响应头<code>Last-Modified</code></h5></blockquote>
+<p>标记文件最后一次修改时间</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4.png" alt=""></p>
+<blockquote>
+<h5 id="缓存实现过程"><a href="#缓存实现过程" class="headerlink" title="缓存实现过程"></a>缓存实现过程</h5></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> url=<span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> &#123;pathname&#125;=url.parse(req.url);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//获取文件日期</span></span><br><span class="line">  fs.stat(<span class="string">`www<span class="subst">$&#123;pathname&#125;</span>`</span>, (err, stat)=&gt;&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">      res.writeHeader(<span class="number">404</span>);</span><br><span class="line">      res.write(<span class="string">'Not Found'</span>);</span><br><span class="line">      res.end();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="comment">// console.log(req)</span></span><br><span class="line">      <span class="keyword">if</span>(req.headers[<span class="string">'if-modified-since'</span>])&#123;</span><br><span class="line">        <span class="keyword">let</span> oDate=<span class="keyword">new</span> <span class="built_in">Date</span>(req.headers[<span class="string">'if-modified-since'</span>]);</span><br><span class="line">        <span class="keyword">let</span> time_client=<span class="built_in">Math</span>.floor(oDate.getTime()/<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> time_server=<span class="built_in">Math</span>.floor(stat.mtime.getTime()/<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(time_server&gt;time_client)&#123;      <span class="comment">//服务器的文件时间&gt;客户端手里的版本</span></span><br><span class="line">          sendFileToClient();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          res.writeHeader(<span class="number">304</span>);</span><br><span class="line">          res.write(<span class="string">'Not Modified'</span>);</span><br><span class="line">          res.end();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        sendFileToClient();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">sendFileToClient</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//发送</span></span><br><span class="line">        <span class="keyword">let</span> rs=fs.createReadStream(<span class="string">`www<span class="subst">$&#123;pathname&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">        res.setHeader(<span class="string">'Last-Modified'</span>, stat.mtime.toGMTString());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">        rs.pipe(res);</span><br><span class="line"></span><br><span class="line">        rs.on(<span class="string">'error'</span>, err=&gt;&#123;</span><br><span class="line">          res.writeHeader(<span class="number">404</span>);</span><br><span class="line">          res.write(<span class="string">'Not Found'</span>);</span><br><span class="line">          res.end();</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;).listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
+
+<p>第一次请求,响应状态码200,浏览器没有缓存</p>
+<p>服务器响应头带了<code>Last-Modified</code>标记该资源文件最后一次修改时间</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt=""><br><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A82.png" alt=""></p>
+<p>第二次请求,响应状态码304，浏览器有缓存</p>
+<p>请求头带了<code>if-modified-since</code>标记该资源文件的最后一次修改时间,通过该标记去告诉服务器我本地有这个文件及这个文件最后一次修改时间，服务器收到请求通过<code>if-modified-since</code>标记的时间和服务器上该文件的时间进行比较，如果服务器的文件等于<code>if-modified-since</code>的时间，说明该资源文件没有被修改过，浏览器决定从不从缓存中取出</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A83.png" alt=""></p>
+<blockquote>
+<h4 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h4></blockquote>
+<p>服务器设置响应头<code>cache-control</code>和<code>expires</code></p>
+<blockquote>
+<h3 id="多进程-1"><a href="#多进程-1" class="headerlink" title="多进程"></a>多进程</h3></blockquote>
+<p>主进程负责派生子进程，子进程负责干活</p>
+<blockquote>
+<h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h4></blockquote>
+<p>普通程序不能“创建”进程，只有系统进程才能创建进程；只有主进程能分裂<br>进程是分裂出来<br>分裂出来的两个进程执行的是同一套代码<br>父子进程之间可以共享”句柄”(如：8080端口)</p>
+<blockquote>
+<h4 id="进程分裂实现"><a href="#进程分裂实现" class="headerlink" title="进程分裂实现"></a>进程分裂实现</h4></blockquote>
+<p>通过<code>cluster.isMaster</code>判断是否是主进程，如果是主进程则<code>cluster.fork()</code>分裂子进程</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> cluster=<span class="built_in">require</span>(<span class="string">'cluster'</span>);</span><br><span class="line"><span class="keyword">const</span> os=<span class="built_in">require</span>(<span class="string">'os'</span>);</span><br><span class="line"><span class="keyword">const</span> process=<span class="built_in">require</span>(<span class="string">'process'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(cluster.isMaster)&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;os.cpus().length;i++)&#123;</span><br><span class="line">    cluster.fork();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'主进程'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'子进程'</span>);</span><br><span class="line">  <span class="keyword">let</span> server=http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">//进程id</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'子进程id'</span>,process.pid);</span><br><span class="line"></span><br><span class="line">    res.write(<span class="string">'aaaa'</span>);</span><br><span class="line">    res.end();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  server.listen(<span class="number">8080</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'服务器开好了，在8080上'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">主进程</span><br><span class="line">子进程</span><br><span class="line">服务器开好了，在8080上</span><br><span class="line">子进程</span><br><span class="line">服务器开好了，在8080上</span><br><span class="line">子进程</span><br><span class="line">服务器开好了，在8080上</span><br><span class="line">子进程</span><br><span class="line">服务器开好了，在8080上</span><br><span class="line">子进程</span><br><span class="line">服务器开好了，在8080上</span><br><span class="line">子进程</span><br><span class="line">服务器开好了，在8080上</span><br><span class="line">子进程</span><br><span class="line">服务器开好了，在8080上</span><br><span class="line">子进程</span><br><span class="line">服务器开好了，在8080上</span><br><span class="line">子进程 26956</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h5 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h5></blockquote>
+<p>主进程通过系统的CPU核数分裂了8个子进程，浏览器发起请求的时候只有一个<code>子进程 26956</code>干活</p>
+<p>多个进程同时存在时，进程的调度原则是第一个进程满了才开启第二个进程，前面两个进程满了才开启第三个进程，这样做的原因是因为进程调度即进程切换是需要花费开销的</p>
+<blockquote>
+<h5 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h5></blockquote>
+<blockquote>
+<h6 id="主进程能否分裂100个进程，有必要么"><a href="#主进程能否分裂100个进程，有必要么" class="headerlink" title="主进程能否分裂100个进程，有必要么"></a>主进程能否分裂100个进程，有必要么</h6></blockquote>
+<p>可以分裂100个进程，但是没有必要，进程调度需要花费开销，况且进程的实际工作计算能力需要根据计算机本身硬件的限制</p>
+<blockquote>
+<h2 id="NodeJS使用MySQL"><a href="#NodeJS使用MySQL" class="headerlink" title="NodeJS使用MySQL"></a>NodeJS使用MySQL</h2></blockquote>
+<blockquote>
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3></blockquote>
+<blockquote>
+<h4 id="一条连接"><a href="#一条连接" class="headerlink" title="一条连接"></a>一条连接</h4></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> db=mysql.createConnection(&#123;<span class="attr">host</span>: <span class="string">'localhost'</span>, <span class="attr">user</span>: <span class="string">'root'</span>, <span class="attr">password</span>: <span class="string">''</span>, <span class="attr">port</span>: <span class="number">3309</span>, <span class="attr">database</span>: <span class="string">'20180127'</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="连接池获取连接"><a href="#连接池获取连接" class="headerlink" title="连接池获取连接"></a>连接池获取连接</h4></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//连接池</span></span><br><span class="line"><span class="keyword">let</span> db=mysql.createPool(&#123;<span class="attr">host</span>: <span class="string">'localhost'</span>, <span class="attr">user</span>: <span class="string">'root'</span>, <span class="attr">password</span>: <span class="string">''</span>, <span class="attr">port</span>: <span class="number">3309</span>, <span class="attr">database</span>: <span class="string">'20180127'</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3></blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mysql=<span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> db=mysql.createConnection(&#123;<span class="attr">host</span>: <span class="string">'localhost'</span>, <span class="attr">user</span>: <span class="string">'root'</span>, <span class="attr">password</span>: <span class="string">''</span>, <span class="attr">port</span>: <span class="number">3309</span>, <span class="attr">database</span>: <span class="string">'20180127'</span>&#125;);</span><br><span class="line"></span><br><span class="line">db.query(<span class="string">`INSERT INTO user_table (ID, name, gender, chinese, math, english) VALUES(0, '小明', '男', 98, 5, 3);`</span>, (err, data)=&gt;&#123;</span><br><span class="line">  <span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'错了'</span>, err);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="用户登录注册"><a href="#用户登录注册" class="headerlink" title="用户登录注册"></a>用户登录注册</h3></blockquote>
+<blockquote>
+<h4 id="数据库结构-数据字典"><a href="#数据库结构-数据字典" class="headerlink" title="数据库结构(数据字典)"></a>数据库结构(数据字典)</h4></blockquote>
+<blockquote>
+<h4 id="接口格式-接口文档"><a href="#接口格式-接口文档" class="headerlink" title="接口格式(接口文档)"></a>接口格式(接口文档)</h4></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注册：</span><br><span class="line">  /reg?user=xxx&amp;pass=xxx</span><br><span class="line">  =&gt;&#123;err: 0, msg: &apos;原因&apos;&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">登陆：</span><br><span class="line">  /login?user=xxx&amp;pass=xxx</span><br><span class="line">  =&gt;&#123;err: 0, msg: &apos;原因&apos;&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4></blockquote>
+<p>前台</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jquery.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">//注册</span></span></span><br><span class="line"><span class="javascript">      $(<span class="string">'#btn_reg'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        $.ajax(&#123;</span></span><br><span class="line"><span class="javascript">          url: <span class="string">'/reg'</span>,</span></span><br><span class="line"><span class="javascript">          data: &#123;<span class="attr">user</span>: $(<span class="string">'#user'</span>).val(),<span class="attr">pass</span>: $(<span class="string">'#pass'</span>).val()&#125;,</span></span><br><span class="line"><span class="javascript">          dataType: <span class="string">'json'</span>,</span></span><br><span class="line"><span class="undefined">          success(json)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(json.err)&#123;</span></span><br><span class="line"><span class="javascript">              alert(<span class="string">'注册失败'</span>+json.msg);</span></span><br><span class="line"><span class="javascript">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">              alert(<span class="string">'注册成功'</span>);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">          &#125;,</span></span><br><span class="line"><span class="undefined">          error(err)&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'失败'</span>);</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="comment">//登陆</span></span></span><br><span class="line"><span class="javascript">      $(<span class="string">'#btn_login'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        $.ajax(&#123;</span></span><br><span class="line"><span class="javascript">          url: <span class="string">'/login'</span>,</span></span><br><span class="line"><span class="javascript">          data: &#123;<span class="attr">user</span>: $(<span class="string">'#user'</span>).val(),<span class="attr">pass</span>: $(<span class="string">'#pass'</span>).val()&#125;,</span></span><br><span class="line"><span class="javascript">          dataType: <span class="string">'json'</span>,</span></span><br><span class="line"><span class="undefined">          success(json)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(json.err)&#123;</span></span><br><span class="line"><span class="javascript">              alert(<span class="string">'登陆失败'</span>+json.msg);</span></span><br><span class="line"><span class="javascript">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">              alert(<span class="string">'登陆成功'</span>);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">          &#125;,</span></span><br><span class="line"><span class="undefined">          error(err)&#123;</span></span><br><span class="line"><span class="javascript">            alert(<span class="string">'失败'</span>);</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    用户：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"user"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"pass"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"注册"</span> <span class="attr">id</span>=<span class="string">"btn_reg"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"登陆"</span> <span class="attr">id</span>=<span class="string">"btn_login"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>后台</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http=<span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> mysql=<span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> url=<span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="keyword">const</span> zlib=<span class="built_in">require</span>(<span class="string">'zlib'</span>);</span><br><span class="line"><span class="keyword">const</span> crypto=<span class="built_in">require</span>(<span class="string">'crypto'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//盐值</span></span><br><span class="line"><span class="keyword">const</span> _key=<span class="string">'sadfslekrtuew5iutoselgdtjiypoydse4ufhs.edtyo;s8te4arfeliawkfhtsie5tlfia;sefdshroiupeoutwyeli5gurse;ihf'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//MD5加密</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">md5</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> obj=crypto.createHash(<span class="string">'md5'</span>);</span><br><span class="line"></span><br><span class="line">  obj.update(str);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> obj.digest(<span class="string">'hex'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//MD5盐值加密</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">md5_2</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> md5(md5(str)+_key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//从连接池获取连接</span></span><br><span class="line"><span class="keyword">let</span> db=mysql.createPool(&#123;<span class="attr">host</span>: <span class="string">'localhost'</span>, <span class="attr">port</span>: <span class="number">3306</span>, <span class="attr">user</span>: <span class="string">'root'</span>, <span class="attr">password</span>: <span class="string">'000000'</span>, <span class="attr">database</span>: <span class="string">'mytest'</span>&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server=http.createServer(<span class="function">(<span class="params">req, res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> &#123;pathname, query&#125;=url.parse(req.url, <span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">let</span> &#123;user, pass&#125;=query;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span>(pathname)&#123;</span><br><span class="line">    <span class="comment">//接口</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">'/reg'</span>:</span><br><span class="line">      <span class="comment">//校验</span></span><br><span class="line">      <span class="keyword">if</span>(!user)&#123;</span><br><span class="line">        res.write(<span class="string">'&#123;"err": 1, "msg": "username can\'t be null"&#125;'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!pass)&#123;</span><br><span class="line">        res.write(<span class="string">'&#123;"err": 1, "msg": "password can\'t be null"&#125;'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!<span class="regexp">/^\w&#123;4,16&#125;$/</span>.test(user))&#123;</span><br><span class="line">        res.write(<span class="string">'&#123;"err": 1, "msg": "username is invaild"&#125;'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="regexp">/['|"]/</span>.test(pass))&#123;</span><br><span class="line">        res.write(<span class="string">'&#123;"err": 1, "msg": "password is invaild"&#125;'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        db.query(<span class="string">`SELECT * FROM user_table WHERE username='<span class="subst">$&#123;user&#125;</span>'`</span>, (err, data)=&gt;&#123;</span><br><span class="line">          <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            res.write(<span class="string">'&#123;"err": 1, "msg": "database error"&#125;'</span>);</span><br><span class="line">            res.end();</span><br><span class="line">          &#125;<span class="keyword">else</span> <span class="keyword">if</span>(data.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            res.write(<span class="string">'&#123;"err": 1, "msg": "this username exsits"&#125;'</span>);</span><br><span class="line">            res.end();</span><br><span class="line">          &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            db.query(<span class="string">`INSERT INTO user_table (ID,username,password) VALUES(0,'<span class="subst">$&#123;user&#125;</span>','<span class="subst">$&#123;md5_2(pass)&#125;</span>')`</span>, (err, data)=&gt;&#123;</span><br><span class="line">              <span class="keyword">if</span>(err)&#123;</span><br><span class="line">                res.write(<span class="string">'&#123;"err": 1, "msg": "database error"&#125;'</span>);</span><br><span class="line">                res.end();</span><br><span class="line">              &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                res.write(<span class="string">'&#123;"err": 0, "msg": "success"&#125;'</span>);</span><br><span class="line">                res.end();</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'/login'</span>:</span><br><span class="line">      <span class="comment">//校验</span></span><br><span class="line">      <span class="keyword">if</span>(!user)&#123;</span><br><span class="line">        res.write(<span class="string">'&#123;"err": 1, "msg": "username can\'t be null"&#125;'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!pass)&#123;</span><br><span class="line">        res.write(<span class="string">'&#123;"err": 1, "msg": "password can\'t be null"&#125;'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!<span class="regexp">/^\w&#123;4,16&#125;$/</span>.test(user))&#123;</span><br><span class="line">        res.write(<span class="string">'&#123;"err": 1, "msg": "username is invaild"&#125;'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="regexp">/['|"]/</span>.test(pass))&#123;</span><br><span class="line">        res.write(<span class="string">'&#123;"err": 1, "msg": "password is invaild"&#125;'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        db.query(<span class="string">`SELECT * FROM user_table WHERE username='<span class="subst">$&#123;user&#125;</span>'`</span>, (err, data)=&gt;&#123;</span><br><span class="line">          <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            res.write(<span class="string">'&#123;"err": 1, "msg": "database error"&#125;'</span>);</span><br><span class="line">            res.end();</span><br><span class="line">          &#125;<span class="keyword">else</span> <span class="keyword">if</span>(data.length==<span class="number">0</span>)&#123;</span><br><span class="line">            res.write(<span class="string">'&#123;"err": 1, "msg": "no this user"&#125;'</span>);</span><br><span class="line">            res.end();</span><br><span class="line">          &#125;<span class="keyword">else</span> <span class="keyword">if</span>(data[<span class="number">0</span>].password!=md5_2(pass))&#123;</span><br><span class="line">            res.write(<span class="string">'&#123;"err": 1, "msg": "username or password is incorrect"&#125;'</span>);</span><br><span class="line">            res.end();</span><br><span class="line">          &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            res.write(<span class="string">'&#123;"err": 0, "msg": "success"&#125;'</span>);</span><br><span class="line">            res.end();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="comment">//缓存      TODO</span></span><br><span class="line">      <span class="comment">//静态文件</span></span><br><span class="line">      <span class="keyword">let</span> rs=fs.createReadStream(<span class="string">`www<span class="subst">$&#123;pathname&#125;</span>`</span>);</span><br><span class="line">      <span class="keyword">let</span> gz=zlib.createGzip();</span><br><span class="line"></span><br><span class="line">      res.setHeader(<span class="string">'content-encoding'</span>, <span class="string">'gzip'</span>);</span><br><span class="line">      rs.pipe(gz).pipe(res);</span><br><span class="line"></span><br><span class="line">      rs.on(<span class="string">'error'</span>, err=&gt;&#123;</span><br><span class="line">        res.writeHeader(<span class="number">404</span>);</span><br><span class="line">        res.write(<span class="string">'Not Found'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/myhexo/images/wechat.jpg" alt="shenlibing 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/myhexo/images/alipay.jpg" alt="shenlibing 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/myhexo/tags/NodeJS/" rel="tag"># NodeJS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/myhexo/2019/03/13/从0开始独立完成企业级Java电商网站开发（服务端）/" rel="next" title="从0开始独立完成企业级Java电商网站开发（服务端）">
+                <i class="fa fa-chevron-left"></i> 从0开始独立完成企业级Java电商网站开发（服务端）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/myhexo/2019/03/25/Java企业级电商项目架构演进之路Tomcat集群与Redis分布式/" rel="prev" title="Tomcat集群与Redis分布式">
+                Tomcat集群与Redis分布式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
+            
+              <p class="site-author-name" itemprop="name">shenlibing</p>
+              <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/myhexo/archives/">
+                
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/myhexo/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/myhexo/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">47</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeJS入门"><span class="nav-number">1.</span> <span class="nav-text">NodeJS入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NodeJS模块"><span class="nav-number">1.1.</span> <span class="nav-text">NodeJS模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#http模块"><span class="nav-number">1.1.1.</span> <span class="nav-text">http模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#断言——assert"><span class="nav-number">1.1.2.</span> <span class="nav-text">断言——assert</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#File-System"><span class="nav-number">1.1.3.</span> <span class="nav-text">File System</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多进程"><span class="nav-number">1.1.4.</span> <span class="nav-text">多进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Crypto——签名"><span class="nav-number">1.1.5.</span> <span class="nav-text">Crypto——签名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OS"><span class="nav-number">1.1.6.</span> <span class="nav-text">OS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Path"><span class="nav-number">1.1.7.</span> <span class="nav-text">Path</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Events事件队列"><span class="nav-number">1.1.8.</span> <span class="nav-text">Events事件队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Query-Strings、URL"><span class="nav-number">1.1.9.</span> <span class="nav-text">Query Strings、URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域名解析"><span class="nav-number">1.1.10.</span> <span class="nav-text">域名解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流操作——Stream"><span class="nav-number">1.1.11.</span> <span class="nav-text">流操作——Stream</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TLS-SSL"><span class="nav-number">1.1.12.</span> <span class="nav-text">TLS/SSL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZLIB——gz"><span class="nav-number">1.1.13.</span> <span class="nav-text">ZLIB——gz</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeJS数据交互"><span class="nav-number">2.</span> <span class="nav-text">NodeJS数据交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置响应头"><span class="nav-number">2.1.</span> <span class="nav-text">设置响应头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get请求"><span class="nav-number">2.2.</span> <span class="nav-text">get请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post请求"><span class="nav-number">2.3.</span> <span class="nav-text">post请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全性"><span class="nav-number">2.4.</span> <span class="nav-text">安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">2.5.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关系型数据库——MySQL、Oracle"><span class="nav-number">2.5.1.</span> <span class="nav-text">关系型数据库——MySQL、Oracle</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#特点"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SQL"><span class="nav-number">2.5.1.2.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#增"><span class="nav-number">2.5.1.2.1.</span> <span class="nav-text">增</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#删"><span class="nav-number">2.5.1.2.2.</span> <span class="nav-text">删</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#改"><span class="nav-number">2.5.1.2.3.</span> <span class="nav-text">改</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查"><span class="nav-number">2.5.1.2.4.</span> <span class="nav-text">查</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件型数据库——sqlite"><span class="nav-number">2.5.2.</span> <span class="nav-text">文件型数据库——sqlite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档型数据库——MongoDB"><span class="nav-number">2.5.3.</span> <span class="nav-text">文档型数据库——MongoDB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NoSQL"><span class="nav-number">2.5.4.</span> <span class="nav-text">NoSQL</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeJS进阶上"><span class="nav-number">3.</span> <span class="nav-text">NodeJS进阶上</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件数据解析"><span class="nav-number">3.1.</span> <span class="nav-text">文件数据解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表单的三种POST"><span class="nav-number">3.1.1.</span> <span class="nav-text">表单的三种POST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#普通纯文本表单文件上传"><span class="nav-number">3.1.2.</span> <span class="nav-text">普通纯文本表单文件上传</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Buffer接收文件上传的原始二进制数据"><span class="nav-number">3.1.3.</span> <span class="nav-text">Buffer接收文件上传的原始二进制数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Buffer数据进行查找、截取、切分"><span class="nav-number">3.1.4.</span> <span class="nav-text">Buffer数据进行查找、截取、切分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Buffer数据查找"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">Buffer数据查找</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Buffer数据截取"><span class="nav-number">3.1.4.2.</span> <span class="nav-text">Buffer数据截取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Buffer数据切分"><span class="nav-number">3.1.4.3.</span> <span class="nav-text">Buffer数据切分</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解析数据"><span class="nav-number">3.1.5.</span> <span class="nav-text">解析数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据化简"><span class="nav-number">3.1.5.1.</span> <span class="nav-text">数据化简</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用分隔符切开数据"><span class="nav-number">3.1.5.2.</span> <span class="nav-text">用分隔符切开数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#丢弃头尾元素"><span class="nav-number">3.1.5.3.</span> <span class="nav-text">丢弃头尾元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#丢弃每一项的头尾-r-n"><span class="nav-number">3.1.5.4.</span> <span class="nav-text">丢弃每一项的头尾\r\n</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用第一次出现的-r-n-r-n切分"><span class="nav-number">3.1.5.5.</span> <span class="nav-text">用第一次出现的\r\n\r\n切分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断描述的里面有没有-r-n"><span class="nav-number">3.1.5.6.</span> <span class="nav-text">判断描述的里面有没有\r\n</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分析数据描述"><span class="nav-number">3.1.5.7.</span> <span class="nav-text">分析数据描述</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件上传代码实现"><span class="nav-number">3.1.6.</span> <span class="nav-text">文件上传代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流操作"><span class="nav-number">3.2.</span> <span class="nav-text">流操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#fs-readFile和fs-writeFile的弊端"><span class="nav-number">3.2.1.</span> <span class="nav-text">fs.readFile和fs.writeFile的弊端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类"><span class="nav-number">3.2.2.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gz压缩"><span class="nav-number">3.3.</span> <span class="nav-text">gz压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无gz压缩传输"><span class="nav-number">3.3.1.</span> <span class="nav-text">无gz压缩传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gz压缩传输"><span class="nav-number">3.3.2.</span> <span class="nav-text">gz压缩传输</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeJS进阶下"><span class="nav-number">4.</span> <span class="nav-text">NodeJS进阶下</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">4.1.</span> <span class="nav-text">缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标记文件修改时间实现缓存"><span class="nav-number">4.1.1.</span> <span class="nav-text">标记文件修改时间实现缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获得文件修改时间"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">获得文件修改时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#服务器设置响应头Last-Modified"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">服务器设置响应头Last-Modified</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缓存实现过程"><span class="nav-number">4.1.1.3.</span> <span class="nav-text">缓存实现过程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存策略"><span class="nav-number">4.1.2.</span> <span class="nav-text">缓存策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多进程-1"><span class="nav-number">4.2.</span> <span class="nav-text">多进程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程分裂实现"><span class="nav-number">4.2.2.</span> <span class="nav-text">进程分裂实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进程调度"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">进程调度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坑"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">坑</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#主进程能否分裂100个进程，有必要么"><span class="nav-number">4.2.2.2.1.</span> <span class="nav-text">主进程能否分裂100个进程，有必要么</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeJS使用MySQL"><span class="nav-number">5.</span> <span class="nav-text">NodeJS使用MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接"><span class="nav-number">5.1.</span> <span class="nav-text">连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一条连接"><span class="nav-number">5.1.1.</span> <span class="nav-text">一条连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接池获取连接"><span class="nav-number">5.1.2.</span> <span class="nav-text">连接池获取连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询"><span class="nav-number">5.2.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户登录注册"><span class="nav-number">5.3.</span> <span class="nav-text">用户登录注册</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库结构-数据字典"><span class="nav-number">5.3.1.</span> <span class="nav-text">数据库结构(数据字典)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口格式-接口文档"><span class="nav-number">5.3.2.</span> <span class="nav-text">接口格式(接口文档)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">5.3.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenlibing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">876k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">13:16</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+
+ <div>友情链接：
+  <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.kawabangga.com/"> 卡瓦邦噶 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.linuxprobe.com/chapter-00.html/"> Linux就该这么学 </a><span>&nbsp;&nbsp;</span>
+ </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '59b70bc1329657f547b7',
+    clientSecret: 'b7888515eb99f7410b2f640b68568d67dc14836d',
+    repo: 'myhexo',
+    owner: 'shenlibing',
+    admin: ['shenlibing'],
+    id: md5(location.pathname),
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/myhexo/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz',
+                'X-LC-Key': 'EEaRfb6dCMaS38laDCkSYhM9',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/myhexo/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="参考： https://tylermcginnis.com/javascript-inheritance-and-the-prototype-chain/ ##JavaScript Inheritance and the Prototype Chain Post This post is designed to be read after you read JavaScript Private a">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Inheritance and the Prototype Chain">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/01/02/JavaScript Inheritance and the Prototype Chain/index.html">
+<meta property="og:site_name" content="小兵兵">
+<meta property="og:description" content="参考： https://tylermcginnis.com/javascript-inheritance-and-the-prototype-chain/ ##JavaScript Inheritance and the Prototype Chain Post This post is designed to be read after you read JavaScript Private a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-11T00:40:03.848Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Inheritance and the Prototype Chain">
+<meta name="twitter:description" content="参考： https://tylermcginnis.com/javascript-inheritance-and-the-prototype-chain/ ##JavaScript Inheritance and the Prototype Chain Post This post is designed to be read after you read JavaScript Private a">
+
+
+
+
+
+
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/01/02/JavaScript Inheritance and the Prototype Chain/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JavaScript Inheritance and the Prototype Chain | 小兵兵</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+        <a href="https://github.com/shenlibing/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/myhexo/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵兵</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/01/02/JavaScript Inheritance and the Prototype Chain/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="言宜慢,心宜善">
+      <meta itemprop="image" content="/myhexo/images/myimg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript Inheritance and the Prototype Chain
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-02 12:58:55" itemprop="dateCreated datePublished" datetime="2019-01-02T12:58:55+08:00">2019-01-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-11 08:40:03" itemprop="dateModified" datetime="2019-08-11T08:40:03+08:00">2019-08-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/myhexo/2019/01/02/JavaScript Inheritance and the Prototype Chain/" class="leancloud_visitors" data-flag-title="JavaScript Inheritance and the Prototype Chain">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">21k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">19 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>参考：</p>
+<p><a href="https://tylermcginnis.com/javascript-inheritance-and-the-prototype-chain/" target="_blank" rel="noopener">https://tylermcginnis.com/javascript-inheritance-and-the-prototype-chain/</a></p>
+<p>##JavaScript Inheritance and the Prototype Chain</p>
+<p><strong>Post</strong></p>
+<p>This post is designed to be read after you read JavaScript Private and Public Class Fields.</p>
+<p>Previously we learned how to create an <strong>Animal</strong> class both in <strong>ES5</strong> as well as in <strong>ES6</strong>. We also learned how to share methods across those classes using JavaScript’s prototype. To review, here’s the code we saw in an earlier post.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Animal (name, energy) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.energy = energy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.eat = function (amount) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">  this.energy += amount</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.sleep = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">  this.energy += length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.play = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">  this.energy -= length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const leo = new Animal(&apos;Leo&apos;, 7)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line">  constructor(name, energy) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.energy = energy</span><br><span class="line">  &#125;</span><br><span class="line">  eat(amount) &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">    this.energy += amount</span><br><span class="line">  &#125;</span><br><span class="line">  sleep() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">    this.energy += length</span><br><span class="line">  &#125;</span><br><span class="line">  play() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">    this.energy -= length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const leo = new Animal(&apos;Leo&apos;, 7)</span><br></pre></td></tr></table></figure>
+
+<p>Now let’s say we wanted to start making individual classes for specific animals. For example, what if we wanted to start making a bunch of dog instances. What properties and methods will these dogs have? Well, similar to our <strong>Animal</strong> class, we could give each dog a <strong>name</strong>, an <strong>energy</strong> level, and the ability to <strong>eat</strong>, <strong>sleep</strong>, and <strong>play</strong>. Unique to our Dog class, we could also give them a <strong>breed</strong> property as well as the ability to <strong>bark</strong>. In ES5, our <strong>Dog</strong> class could look something like this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Dog (name, energy, breed) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.energy = energy</span><br><span class="line">  this.breed = breed</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.eat = function (amount) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">  this.energy += amount</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.sleep = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">  this.energy += length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.play = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">  this.energy -= length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype.bark = function () &#123;</span><br><span class="line">  console.log(&apos;Woof-Woof!&apos;)</span><br><span class="line">  this.energy -= .1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>Alright, well… we just recreated the <strong>Animal</strong> class and added a few new properties to it. If we wanted to create another animal, say a <strong>Cat</strong>, at this point we’d again have to create a <strong>Cat</strong> class, duplicate all the common logic located in the <strong>Animal</strong> class to it, then add on <strong>Cat</strong> specific properties just like we did with the <strong>Dog</strong> class. In fact, we’d have to do this for each different type of animal we created.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Dog (name, energy, breed) &#123;&#125;</span><br><span class="line"></span><br><span class="line">function Cat (name, energy, declawed) &#123;&#125;</span><br><span class="line"></span><br><span class="line">function Giraffe (name, energy, height) &#123;&#125;</span><br><span class="line"></span><br><span class="line">function Monkey (name, energy, domesticated) &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This work, but it seems wasteful. The <strong>Animal</strong> class is the perfect base class. What that means is that it has all the properties that each one of our animals has in common. Whether we’re creating a dog, cat, giraffe, or monkey, all of them will have a <strong>name</strong>, <strong>energy</strong> level, and the ability to <strong>eat</strong>, <strong>sleep</strong>, and <strong>play</strong>. With that said, is there a way we can utilize the <strong>Animal</strong> class whenever we create the individual classes for each different animal? Let’s try it out. I’ll paste the <strong>Animal</strong> class again below for easy reference.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function Animal (name, energy) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.energy = energy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.eat = function (amount) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">  this.energy += amount</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.sleep = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">  this.energy += length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.play = function (length) &#123;</span><br><span class="line">  console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">  this.energy -= length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Dog (name, energy, breed) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>What are some things we know about the <strong>Dog</strong> constructor function above?</p>
+<p>First, we know it takes 3 arguments, <strong>name</strong>, <strong>energy</strong>, and <strong>breed</strong>.</p>
+<p>Second, we know it’s going to be called with the <strong>new</strong> keyword so we’ll have a <strong>this</strong> object.</p>
+<p>And third, we know we need to utilize the <strong>Animal</strong> function so that any instance of dog will have a <strong>name</strong>, <strong>energy</strong> level, and be able to <strong>eat</strong>, <strong>sleep</strong>, and <strong>play</strong>.</p>
+<p>It’s the third one that’s the tricky one. The way you “utilize” a function is by calling it. So we know that inside of <strong>Dog</strong>, we want to call <strong>Animal</strong>. What we need to figure out though is how we can invoke <strong>Animal</strong> in the context of <strong>Dog</strong>. What that means it that we want to call <strong>Animal</strong> with the <strong>this</strong> keyword from Dog. If we do that correctly, then <strong>this</strong> inside of the <strong>Dog</strong> function will have all the properties of <strong>Animal</strong> (name, energy). If you remember from a previous section, every function in JavaScript has a <strong>.call</strong> method on it.</p>
+<blockquote>
+<p>.call() is a method on every function that allows you to invoke the function specifying in what context the function will be invoked.</p>
+</blockquote>
+<p>This sounds like exactly what we need. We want to invoke <strong>Animal</strong> in the context of <strong>Dog</strong>.</p>
+<pre><code>   function Dog (name, energy, breed) {
+  Animal.call(this, name, energy)
+
+  this.breed = breed
+}
+
+const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)
+
+charlie.name // Charlie
+charlie.energy // 10
+charlie.breed // Goldendoodle</code></pre><p>Solid, we’re half-way there. You’ll notice in the code above that because of this line <strong>Animal.call(this, name, energy)</strong>, every instance of <strong>Dog</strong> will now have a <strong>name</strong> and <strong>energy</strong> property. Again, the reason for that is because it’s as if we ran the <strong>Animal</strong> function with the <strong>this</strong> keyword generated from <strong>Dog</strong>. Then after we added a <strong>name</strong> and <strong>energy</strong> property to <strong>this</strong>, we also added a <strong>breed</strong> property just as we normally would.</p>
+<p>Remember the goal here is to have each instance of <strong>Dog</strong> have not only all the properties of <strong>Animal</strong>, but also all the methods as well. If you run the code above, you’ll notice that if you try to run <strong>charlie.eat(10)</strong> you’ll get an error. Currently every instance of <strong>Dog</strong> will have the properties of <strong>Animal</strong> (<strong>name</strong> and <strong>energy</strong>), but we haven’t done anything to make sure that they also have the methods (<strong>play, eat, sleep)</strong>.</p>
+<p>Let’s think about how we can solve this. We know that all the <strong>Animal</strong>’s methods are located on <strong>Animal.prototype</strong>. What that means is we somehow want to make sure that all instances of <strong>Dog</strong> will have access to the methods on <strong>Animal.prototype</strong>. What if we used our good friend <strong>Object.create</strong> here? If you’ll remember, <strong>Object.create</strong> allows you to create an object which will delegate to another object on failed lookups. So in our case, the object we want to create is going to be <strong>Dog</strong>’s prototype and the object we want to delegate to on failed lookups is <strong>Animal.prototype</strong>.</p>
+<pre><code>function Dog (name, energy, breed) {
+  Animal.call(this, name, energy)
+
+  this.breed = breed
+}
+
+Dog.prototype = Object.create(Animal.prototype)</code></pre><p>Now, whenever there’s a failed lookup on an instance of <strong>Dog</strong>, JavaScript will delegate that lookup to <strong>Animal.prototype</strong>. If this is still a little fuzzy, re-read A Beginner’s Guide to JavaScript’s Prototype where we talk all about <strong>Object.create</strong> and JavaScript’s prototype.</p>
+<p>Let’s look at the full code together then we’ll walk through what happens.</p>
+<pre><code>function Animal (name, energy) {
+  this.name = name
+  this.energy = energy
+}
+
+Animal.prototype.eat = function (amount) {
+  console.log(`${this.name} is eating.`)
+  this.energy += amount
+}
+
+Animal.prototype.sleep = function (length) {
+  console.log(`${this.name} is sleeping.`)
+  this.energy += length
+}
+
+Animal.prototype.play = function (length) {
+  console.log(`${this.name} is playing.`)
+  this.energy -= length
+}
+
+function Dog (name, energy, breed) {
+  Animal.call(this, name, energy)
+
+  this.breed = breed
+}
+
+Dog.prototype = Object.create(Animal.prototype)</code></pre><p>Now we’ve created our base class (<strong>Animal</strong>) as well as our subclass (<strong>Dog</strong>), let’s see what it looks like under the hood when we create an instance of <strong>Dog</strong>.</p>
+<pre><code>const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)
+
+charlie.name // Charlie
+charlie.energy // 10
+charlie.breed // Goldendoodle</code></pre><p>Nothing fancy so far, but let’s look at what happens when we invoke a method located on <strong>Animal</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   charlie.eat(10)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">1) JavaScript checks if charlie has an eat property - it doesn&apos;t.</span><br><span class="line">2) JavaScript then checks if Dog.prototype has an eat property</span><br><span class="line">    - it doesn&apos;t.</span><br><span class="line">3) JavaScript then checks if Animal.prototype has an eat property</span><br><span class="line">    - it does so it calls it.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<p>The reason <strong>Dog.prototype</strong> gets checked is because when we created a new instance of <strong>Dog</strong>, we used the <strong>new</strong> keyword. Under the hood, the <strong>this</strong> object that was created for us delegates to <strong>Dog.prototype</strong> (seen in comments below).</p>
+<pre><code>function Dog (name, energy, breed) {
+  // this = Object.create(Dog.prototype)
+  Animal.call(this, name, energy)
+
+  this.breed = breed
+  // return this
+}</code></pre><p>The reason <strong>Animal.prototype</strong> gets checked is because we overwrote <strong>Dog.prototype</strong> to delegate to <strong>Animal.prototype</strong> on failed lookups with this line</p>
+<pre><code>Dog.prototype = Object.create(Animal.prototype)</code></pre><p>Now one thing we haven’t talked about is what if <strong>Dog</strong> has its own methods? Well, that’s a simple solution. Just like with <strong>Animal</strong>, if we want to share a method across all instances of that class, we add it to the function’s prototype.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">function Dog (name, energy, breed) &#123;</span><br><span class="line">  Animal.call(this, name, energy)</span><br><span class="line"></span><br><span class="line">  this.breed = breed</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype = Object.create(Animal.prototype)</span><br><span class="line"></span><br><span class="line">Dog.prototype.bark = function () &#123;</span><br><span class="line">  console.log(&apos;Woof Woof!&apos;)</span><br><span class="line">  this.energy -= .1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>very nice. There’s just one small addition we need to make. If you remember back to the Beginner’s Guide to JavaScript’s Prototype post, we were able to get access to the instances’ constructor function by using <strong>instance.constructor</strong>.</p>
+<pre><code>function Animal (name, energy) {
+  this.name = name
+  this.energy = energy
+}
+
+const leo = new Animal(&apos;Leo&apos;, 7)
+console.log(leo.constructor) // Logs the constructor function</code></pre><p>As explained in the previous post, “the reason this works is because any instances of <strong>Animal</strong> are going to delegate to <strong>Animal.prototype</strong> on failed lookups. So when you try to access <strong>leo.prototype</strong>, <strong>leo</strong> doesn’t have a <strong>prototype</strong> property so it will delegate that lookup to <strong>Animal.prototype</strong> which indeed does have a <strong>constructor</strong> property.”</p>
+<p>The reason I bring this up is because in our implementation, we overwrote <strong>Dog.prototype</strong> with an object that delegates to <strong>Animal.prototype</strong>.</p>
+<pre><code>function Dog (name, energy, breed) {
+  Animal.call(this, name, energy)
+
+  this.breed = breed
+}
+
+Dog.prototype = Object.create(Animal.prototype)
+
+Dog.prototype.bark = function () {
+  console.log(&apos;Woof Woof!&apos;)
+  this.energy -= .1
+}</code></pre><p>What that means is that now, any instances of <strong>Dog</strong> which log <strong>instance.constructor</strong> are going to get the <strong>Animal</strong> constructor rather than the <strong>Dog</strong> constructor. You can see for yourself by running this code -</p>
+<pre><code>function Animal (name, energy) {
+  this.name = name
+  this.energy = energy
+}
+
+Animal.prototype.eat = function (amount) {
+  console.log(`${this.name} is eating.`)
+  this.energy += amount
+}
+
+Animal.prototype.sleep = function (length) {
+  console.log(`${this.name} is sleeping.`)
+  this.energy += length
+}
+
+Animal.prototype.play = function (length) {
+  console.log(`${this.name} is playing.`)
+  this.energy -= length
+}
+
+function Dog (name, energy, breed) {
+  Animal.call(this, name, energy)
+
+  this.breed = breed
+}
+
+Dog.prototype = Object.create(Animal.prototype)
+
+Dog.prototype.bark = function () {
+  console.log(&apos;Woof Woof!&apos;)
+  this.energy -= .1
+}
+
+const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)
+console.log(charlie.constructor)</code></pre><p>Notice it gives you the <strong>Animal</strong> constructor even though <strong>charlie</strong> is a direct instance of <strong>Dog</strong>. Again, we can walk through what’s happening here just like we did above.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const charlie = new Dog(&apos;Charlie&apos;, 10, &apos;Goldendoodle&apos;)</span><br><span class="line">console.log(charlie.constructor)</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">1) JavaScript checks if charlie has a constructor property - it doesn&apos;t.</span><br><span class="line">2) JavaScript then checks if Dog.prototype has a constructor property</span><br><span class="line">    - it doesn&apos;t because it was deleted when we overwrote Dog.prototype.</span><br><span class="line">3) JavaScript then checks if Animal.prototype has a constructor property</span><br><span class="line">    - it does so it logs that.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<p>How can we fix this? Well, it’s pretty simple. We can just add the correct <strong>constructor</strong> property to <strong>Dog.prototype</strong> once we overwrite it.</p>
+<pre><code>function Dog (name, energy, breed) {
+  Animal.call(this, name, energy)
+
+  this.breed = breed
+}
+
+Dog.prototype = Object.create(Animal.prototype)
+
+Dog.prototype.bark = function () {
+  console.log(&apos;Woof Woof!&apos;)
+  this.energy -= .1
+}
+
+Dog.prototype.constructor = Dog</code></pre><p>At this point if we wanted to make another subclass, say <strong>Cat</strong>, we’d follow the same pattern.</p>
+<pre><code>function Cat (name, energy, declawed) {
+  Animal.call(this, name, energy)
+
+  this.declawed = declawed
+}
+
+Cat.prototype = Object.create(Animal.prototype)
+Cat.prototype.constructor = Cat
+
+Cat.prototype.meow = function () {
+  console.log(&apos;Meow!&apos;)
+  this.energy -= .1
+}</code></pre><p>This concept of having a base class with subclasses that delegate to it is called inheritance and it’s a staple of Object Oriented Programming (OOP). If you’re coming from a different programming language, odds are you’re already familiar with OOP and inheritance. Before ES6 classes, in JavaScript, inheritance was quite the task as you can see above. You need to understand now only when to use inheritance, but also a nice mix of <strong>.call</strong>, <strong>Object.create</strong>, <strong>this</strong>, and <strong>FN.prototype</strong> - all pretty advanced JS topics. Let’s see how we’d accomplish the same thing using ES6 classes though.</p>
+<p>First, let’s review what it looks like to go from an ES5 “class” to an ES6 class using our <strong>Animal</strong> class.</p>
+<pre><code>function Animal (name, energy) {
+  this.name = name
+  this.energy = energy
+}
+
+Animal.prototype.eat = function (amount) {
+  console.log(`${this.name} is eating.`)
+  this.energy += amount
+}
+
+Animal.prototype.sleep = function (length) {
+  console.log(`${this.name} is sleeping.`)
+  this.energy += length
+}
+
+Animal.prototype.play = function (length) {
+  console.log(`${this.name} is playing.`)
+  this.energy -= length
+}
+
+const leo = new Animal(&apos;Leo&apos;, 7)</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line">  constructor(name, energy) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.energy = energy</span><br><span class="line">  &#125;</span><br><span class="line">  eat(amount) &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">    this.energy += amount</span><br><span class="line">  &#125;</span><br><span class="line">  sleep() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">    this.energy += length</span><br><span class="line">  &#125;</span><br><span class="line">  play() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">    this.energy -= length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const leo = new Animal(&apos;Leo&apos;, 7)</span><br></pre></td></tr></table></figure>
+
+<p>Now that we’ve refactored our <strong>Animal</strong> constructor function into an ES6 class, the next thing we need to do is figure out how to refactor our base class (<strong>Dog</strong>). The good news is it’s much more intuitive. For reference, in ES5, here’s what we had.</p>
+<pre><code>function Dog (name, energy, breed) {
+  Animal.call(this, name, energy)
+
+  this.breed = breed
+}
+
+Dog.prototype = Object.create(Animal.prototype)
+
+Dog.prototype.bark = function () {
+  console.log(&apos;Woof Woof!&apos;)
+  this.energy -= .1
+}
+
+Dog.prototype.constructor = Dog</code></pre><p>Before we get into inheritance, let’s refactor <strong>Dog</strong> to use an ES6 class as we learned in a previous post.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Dog &#123;</span><br><span class="line">  constructor(name, energy, breed) &#123;</span><br><span class="line">    this.breed = breed</span><br><span class="line">  &#125;</span><br><span class="line">  bark() &#123;</span><br><span class="line">    console.log(&apos;Woof Woof!&apos;)</span><br><span class="line">    this.energy -= .1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Looks great. Now, let’s figure out how to make sure that <strong>Dog</strong> inherits from <strong>Animal</strong>. The first step we need to make is a pretty straight forward one. With ES6 classes, you can <strong>extend</strong> a base class with this syntax</p>
+<pre><code>class Subclass extends Baseclass {}</code></pre><p>Translated into our example, that would make our <strong>Dog</strong> class look like this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line">  constructor(name, energy) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.energy = energy</span><br><span class="line">  &#125;</span><br><span class="line">  eat(amount) &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">    this.energy += amount</span><br><span class="line">  &#125;</span><br><span class="line">  sleep() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">    this.energy += length</span><br><span class="line">  &#125;</span><br><span class="line">  play() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">    this.energy -= length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">  constructor(name, energy, breed) &#123;</span><br><span class="line">    this.breed = breed</span><br><span class="line">  &#125;</span><br><span class="line">  bark() &#123;</span><br><span class="line">    console.log(&apos;Woof Woof!&apos;)</span><br><span class="line">    this.energy -= .1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In ES5 in order to make sure that every instance of <strong>Dog</strong> had a <strong>name</strong> and an <strong>energy</strong> property, we used <strong>.call</strong> in order to invoke the <strong>Animal</strong> constructor function in the context of the <strong>Dog</strong> instance. Luckily for us, in ES6 it’s much more straight forward. Whenever you are extending a baseclass and you need to invoke that baseclass’ constructor function, you invoke <strong>super</strong> passing it any arguments it needs. So in our example, our <strong>Dog</strong> constructor gets refactored to look like this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Animal &#123;</span><br><span class="line">  constructor(name, energy) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">    this.energy = energy</span><br><span class="line">  &#125;</span><br><span class="line">  eat(amount) &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is eating.`)</span><br><span class="line">    this.energy += amount</span><br><span class="line">  &#125;</span><br><span class="line">  sleep() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is sleeping.`)</span><br><span class="line">    this.energy += length</span><br><span class="line">  &#125;</span><br><span class="line">  play() &#123;</span><br><span class="line">    console.log(`$&#123;this.name&#125; is playing.`)</span><br><span class="line">    this.energy -= length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">  constructor(name, energy, breed) &#123;</span><br><span class="line">    super(name, energy) // calls Animal&apos;s constructor</span><br><span class="line"></span><br><span class="line">    this.breed = breed</span><br><span class="line">  &#125;</span><br><span class="line">  bark() &#123;</span><br><span class="line">    console.log(&apos;Woof Woof!&apos;)</span><br><span class="line">    this.energy -= .1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>And that’s it. No using <strong>.call</strong>, no using <strong>Object.create</strong>, no worrying about resetting <strong>constructor</strong> on the prototype - just <strong>extends</strong> the baseclass and make sure to call <strong>super</strong>.</p>
+<p>What’s interesting about JavaScript is the same patterns you’ve learned these last few posts are directly caked into the language itself. Previously you learned that the reason all instances of Array have access to the array methods like <strong>pop</strong>, <strong>slice</strong>, <strong>filter</strong>, etc are because all of those methods live on <strong>Array.prototype</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">console.log(Array.prototype)</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">  concat: ƒn concat()</span><br><span class="line">  constructor: ƒn Array()</span><br><span class="line">  copyWithin: ƒn copyWithin()</span><br><span class="line">  entries: ƒn entries()</span><br><span class="line">  every: ƒn every()</span><br><span class="line">  fill: ƒn fill()</span><br><span class="line">  filter: ƒn filter()</span><br><span class="line">  find: ƒn find()</span><br><span class="line">  findIndex: ƒn findIndex()</span><br><span class="line">  forEach: ƒn forEach()</span><br><span class="line">  includes: ƒn includes()</span><br><span class="line">  indexOf: ƒn indexOf()</span><br><span class="line">  join: ƒn join()</span><br><span class="line">  keys: ƒn keys()</span><br><span class="line">  lastIndexOf: ƒn lastIndexOf()</span><br><span class="line">  length: 0n</span><br><span class="line">  map: ƒn map()</span><br><span class="line">  pop: ƒn pop()</span><br><span class="line">  push: ƒn push()</span><br><span class="line">  reduce: ƒn reduce()</span><br><span class="line">  reduceRight: ƒn reduceRight()</span><br><span class="line">  reverse: ƒn reverse()</span><br><span class="line">  shift: ƒn shift()</span><br><span class="line">  slice: ƒn slice()</span><br><span class="line">  some: ƒn some()</span><br><span class="line">  sort: ƒn sort()</span><br><span class="line">  splice: ƒn splice()</span><br><span class="line">  toLocaleString: ƒn toLocaleString()</span><br><span class="line">  toString: ƒn toString()</span><br><span class="line">  unshift: ƒn unshift()</span><br><span class="line">  values: ƒn values()</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<p>You also learned that the reason all instances of <strong>Object</strong> have access to methods like <strong>hasOwnProperty</strong> and <strong>toString</strong> is because those methods live on <strong>Object.prototype</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">console.log(Object.prototype)</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">  constructor: ƒn Object()</span><br><span class="line">  hasOwnProperty: ƒn hasOwnProperty()</span><br><span class="line">  isPrototypeOf: ƒn isPrototypeOf()</span><br><span class="line">  propertyIsEnumerable: ƒn propertyIsEnumerable()</span><br><span class="line">  toLocaleString: ƒn toLocaleString()</span><br><span class="line">  toString: ƒn toString()</span><br><span class="line">  valueOf: ƒn valueOf()</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<p>Here’s a challenge for you. With the list of Array methods and Object methods above, why does this code below work?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const friends = [&apos;Mikenzi&apos;, &apos;Jake&apos;, &apos;Ean&apos;]</span><br><span class="line"></span><br><span class="line">friends.hasOwnProperty(&apos;push&apos;) // false</span><br></pre></td></tr></table></figure>
+
+<p>If you look at <strong>Array.prototype</strong>, there isn’t a <strong>hasOwnProperty</strong> method. Well if there isn’t a <strong>hasOwnProperty</strong> method located on <strong>Array.prototype</strong>, how does the <strong>friends</strong> array in the example above have access to <strong>hasOwnProperty</strong>? The reason for that is because the <strong>Array</strong> class extends the <strong>Object</strong> class. So in our example above, when JavaScript sees that <strong>friends</strong> doesn’t have a <strong>hasOwnProperty</strong> property, it checks if <strong>Array.prototype</strong> does. When <strong>Array.prototype</strong> doesn’t, it checks if <strong>Object.prototype</strong> does, then it invokes it. It’s the same process we’ve seen throughout this blog post.</p>
+<p>JavaScript has two types - Primitive types and Reference types.</p>
+<p>Primitive types are <strong>boolean</strong>, <strong>number</strong>, <strong>string</strong>, <strong>null</strong>, and <strong>undefined</strong> and are immutable. Everything else is a reference type and they all extend <strong>Object.prototype</strong>. That’s why you can add properties to functions and arrays and that’s why both functions and arrays have access to the methods located on <strong>Object.prototype</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function speak()&#123;&#125;</span><br><span class="line">speak.woahFunctionsAreLikeObjects = true</span><br><span class="line">console.log(speak.woahFunctionsAreLikeObjects) // true</span><br><span class="line"></span><br><span class="line">const friends = [&apos;Mikenzi&apos;, &apos;Jake&apos;, &apos;Ean&apos;]</span><br><span class="line">friends.woahArraysAreLikeObjectsToo = true</span><br><span class="line">console.log(friends.woahArraysAreLikeObjectsToo) // true</span><br></pre></td></tr></table></figure>
+
+<p>–未完待续</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/myhexo/images/wechat.jpg" alt="shenlibing 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/myhexo/images/alipay.jpg" alt="shenlibing 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/myhexo/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/myhexo/2019/01/01/babel入门/" rel="next" title="babel入门">
+                <i class="fa fa-chevron-left"></i> babel入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/myhexo/2019/01/03/js开发者经常忽略的基础知识点/" rel="prev" title="js开发者经常忽略的基础知识点">
+                js开发者经常忽略的基础知识点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
+            
+              <p class="site-author-name" itemprop="name">shenlibing</p>
+              <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/myhexo/archives/">
+                
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/myhexo/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/myhexo/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">47</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenlibing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">876k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">13:16</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+
+ <div>友情链接：
+  <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.kawabangga.com/"> 卡瓦邦噶 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.linuxprobe.com/chapter-00.html/"> Linux就该这么学 </a><span>&nbsp;&nbsp;</span>
+ </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '59b70bc1329657f547b7',
+    clientSecret: 'b7888515eb99f7410b2f640b68568d67dc14836d',
+    repo: 'myhexo',
+    owner: 'shenlibing',
+    admin: ['shenlibing'],
+    id: md5(location.pathname),
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/myhexo/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz',
+                'X-LC-Key': 'EEaRfb6dCMaS38laDCkSYhM9',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>

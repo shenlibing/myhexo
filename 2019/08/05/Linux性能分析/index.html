@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/myhexo/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="生产环境服务器变慢，诊断思路和性能评估整机：top代码 1234567public class JavaDemo2 &amp;#123;    public static void main(String[] args) &amp;#123;        while (true)&amp;#123;            System.out.println(new java.util.Random().nextInt">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux性能分析">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/08/05/Linux性能分析/index.html">
+<meta property="og:site_name" content="小兵兵">
+<meta property="og:description" content="生产环境服务器变慢，诊断思路和性能评估整机：top代码 1234567public class JavaDemo2 &amp;#123;    public static void main(String[] args) &amp;#123;        while (true)&amp;#123;            System.out.println(new java.util.Random().nextInt">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source//1564975934086.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564976316953.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564976920565.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564977136597.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564985628042.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564985817582.png">
+<meta property="og:updated_time" content="2019-08-10T13:14:21.809Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux性能分析">
+<meta name="twitter:description" content="生产环境服务器变慢，诊断思路和性能评估整机：top代码 1234567public class JavaDemo2 &amp;#123;    public static void main(String[] args) &amp;#123;        while (true)&amp;#123;            System.out.println(new java.util.Random().nextInt">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source//1564975934086.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/08/05/Linux性能分析/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux性能分析 | 小兵兵</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+        <a href="https://github.com/shenlibing/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/myhexo/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵兵</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/08/05/Linux性能分析/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="言宜慢,心宜善">
+      <meta itemprop="image" content="/myhexo/images/myimg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux性能分析
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-05 11:06:27" itemprop="dateCreated datePublished" datetime="2019-08-05T11:06:27+08:00">2019-08-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-10 21:14:21" itemprop="dateModified" datetime="2019-08-10T21:14:21+08:00">2019-08-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/日常记录/" itemprop="url" rel="index"><span itemprop="name">日常记录</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/myhexo/2019/08/05/Linux性能分析/" class="leancloud_visitors" data-flag-title="Linux性能分析">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">12k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">11 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="生产环境服务器变慢，诊断思路和性能评估"><a href="#生产环境服务器变慢，诊断思路和性能评估" class="headerlink" title="生产环境服务器变慢，诊断思路和性能评估"></a>生产环境服务器变慢，诊断思路和性能评估</h1><h2 id="整机：top"><a href="#整机：top" class="headerlink" title="整机：top"></a>整机：top</h2><p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> java.util.Random().nextInt(<span class="number">77778888</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source//1564975934086.png" alt=""></p>
+<p>top命令查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# top</span><br><span class="line">top - 11:28:50 up 7 min,  2 users,  load average: 0.73, 0.39, 0.18</span><br><span class="line">Tasks: 230 total,   1 running, 229 sleeping,   0 stopped,   0 zombie</span><br><span class="line">Cpu(s):  1.0%us,  2.3%sy,  0.0%ni, 96.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st</span><br><span class="line">Mem:   1906280k total,   649948k used,  1256332k free,    21164k buffers</span><br><span class="line">Swap:  2097148k total,        0k used,  2097148k free,   203820k cached</span><br><span class="line"></span><br><span class="line">   PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                              </span><br><span class="line">  3672 root      20   0 3158m  94m  11m S 15.6  5.1   0:13.67 java                                                                                 </span><br><span class="line">  3397 root      20   0  100m 5388 3396 S  9.3  0.3   0:09.00 sshd                                                                                 </span><br><span class="line">    39 root      20   0     0    0    0 S  1.7  0.0   0:00.25 events/4                                                                             </span><br><span class="line">    37 root      20   0     0    0    0 S  1.0  0.0   0:00.39 events/2                                                                             </span><br><span class="line">    35 root      20   0     0    0    0 S  0.3  0.0   0:01.27 events/0                                                                             </span><br><span class="line">    36 root      20   0     0    0    0 S  0.3  0.0   0:00.34 events/1                                                                             </span><br><span class="line">    41 root      20   0     0    0    0 S  0.3  0.0   0:00.24 events/6   </span><br><span class="line">[root@192 ~]# uptime</span><br><span class="line">11:29:09 up 7 min,  2 users,  load average: 0.52, 0.36, 0.18</span><br></pre></td></tr></table></figure>
+
+<h2 id="CPU：vmstat"><a href="#CPU：vmstat" class="headerlink" title="CPU：vmstat"></a>CPU：vmstat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# vmstat -n 2  3</span><br><span class="line">procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----</span><br><span class="line"> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st</span><br><span class="line"> 0  0      0 1313028  21228 203868    0    0    54     3  112 1620  0  1 98  0  0       </span><br><span class="line"> 0  0      0 1312732  21228 203896    0    0     0     0 2579 25940  1  3 96  0  0      </span><br><span class="line"> 0  0      0 1312856  21228 203896    0    0     0     0 2677 24290  1  3 97  0  0</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564976316953.png" alt="1564976316953"></p>
+<p>id:处于空闲的CPU百分比</p>
+<p>wa:系统等待IO的CPU时间百分比</p>
+<p>st:来自于一个虚拟机偷取的CPU时间百分比</p>
+<p>查看额外的CPU信息</p>
+<p>所有CPU核信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# mpstat -P  ALL 2</span><br><span class="line">Linux 2.6.32-642.el6.x86_64 (192.168.1.101)     08/05/2019      _x86_64_        (8 CPU)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">11:42:40 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle</span><br><span class="line">11:42:42 AM  all    1.07    0.00    2.89    0.00    0.00    0.00    0.00    0.00   96.04</span><br><span class="line">11:42:42 AM    0    0.00    0.00    1.52    0.00    0.00    0.00    0.00    0.00   98.48</span><br><span class="line">11:42:42 AM    1    6.09    0.00    9.14    0.00    0.00    0.00    0.00    0.00   84.77</span><br><span class="line">11:42:42 AM    2    0.50    0.00    4.02    0.00    0.00    0.00    0.00    0.00   95.48</span><br><span class="line">11:42:42 AM    3    1.00    0.00    2.00    0.00    0.00    0.00    0.00    0.00   97.00</span><br></pre></td></tr></table></figure>
+
+<p>每个进程使用CPU的用量分解信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# pidstat -u 1 -p 3790</span><br><span class="line">Linux 2.6.32-642.el6.x86_64 (192.168.1.101)     08/05/2019      _x86_64_        (8 CPU)</span><br><span class="line"></span><br><span class="line">11:45:00 AM       PID    %usr %system  %guest    %CPU   CPU  Command</span><br><span class="line">11:45:01 AM      3790    6.00   10.00    0.00   16.00     7  java</span><br><span class="line">11:45:02 AM      3790    4.00   11.00    0.00   15.00     7  java</span><br><span class="line">11:45:03 AM      3790    9.00   15.00    0.00   24.00     7  java</span><br><span class="line">11:45:04 AM      3790    7.00   14.00    0.00   21.00     7  java</span><br></pre></td></tr></table></figure>
+
+<h2 id="内存：free"><a href="#内存：free" class="headerlink" title="内存：free"></a>内存：free</h2><p>应用程序可用内存数</p>
+<p>推荐使用<code>free -m</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# free -g</span><br><span class="line">             total       used       free     shared    buffers     cached</span><br><span class="line">Mem:             1          0          1          0          0          0</span><br><span class="line">-/+ buffers/cache:          0          1</span><br><span class="line">Swap:            1          0          1</span><br><span class="line">[root@192 ~]# free -m</span><br><span class="line">             total       used       free     shared    buffers     cached</span><br><span class="line">Mem:          1861        553       1308          1         20        199</span><br><span class="line">-/+ buffers/cache:        333       1528</span><br><span class="line">Swap:         2047          0       2047</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564976920565.png" alt="1564976920565"></p>
+<p>查看额外</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# pidstat -p 3823 -r 2</span><br><span class="line">Linux 2.6.32-642.el6.x86_64 (192.168.1.101)     08/05/2019      _x86_64_        (8 CPU)</span><br><span class="line"></span><br><span class="line">11:51:16 AM       PID  minflt/s  majflt/s     VSZ    RSS   %MEM  Command</span><br><span class="line">11:51:18 AM      3823      1.00      0.00 3234728  47068   2.47  java</span><br><span class="line">11:51:20 AM      3823      2.50      0.00 3234728  47068   2.47  java</span><br><span class="line">11:51:22 AM      3823      0.50      0.00 3234728  47068   2.47  java</span><br><span class="line">11:51:24 AM      3823      2.50      0.00 3234728  47068   2.47  java</span><br><span class="line">11:51:26 AM      3823      0.50      0.00 3234728  47068   2.47  java</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564977136597.png" alt="1564977136597"></p>
+<h2 id="硬盘：df"><a href="#硬盘：df" class="headerlink" title="硬盘：df"></a>硬盘：df</h2><p>查看磁盘剩余空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# df -h</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/sda2        15G  5.6G  8.4G  41% /</span><br><span class="line">tmpfs           931M   72K  931M   1% /dev/shm</span><br><span class="line">/dev/sda1       190M   39M  142M  22% /boot</span><br></pre></td></tr></table></figure>
+
+<h2 id="磁盘IO：iostat"><a href="#磁盘IO：iostat" class="headerlink" title="磁盘IO：iostat"></a>磁盘IO：iostat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# iostat -xdk 2 3</span><br><span class="line">Linux 2.6.32-642.el6.x86_64 (192.168.1.101)     08/05/2019      _x86_64_        (8 CPU)</span><br><span class="line"></span><br><span class="line">Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util</span><br><span class="line">scd0              0.00     0.00    0.38    0.00     1.50     0.00     8.00     0.00    0.67    0.67    0.00   0.67   0.03</span><br><span class="line">sda              34.33     4.94   47.36    3.18  1631.23    32.44    65.84     0.07    1.38    1.22    3.72   0.88   4.43</span><br><span class="line"></span><br><span class="line">Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util</span><br><span class="line">scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00</span><br><span class="line">sda               0.00     0.00    0.50    0.00     4.00     0.00    16.00     0.00    1.00    1.00    0.00   1.00   0.05</span><br><span class="line"></span><br><span class="line">Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util</span><br><span class="line">scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00</span><br><span class="line">sda               0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564985628042.png" alt="1564985628042"></p>
+<p>查看额外</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ~]# pidstat -d 2 -p 3485</span><br><span class="line">Linux 2.6.32-642.el6.x86_64 (192.168.1.101)     08/05/2019      _x86_64_        (8 CPU)</span><br><span class="line"></span><br><span class="line">02:16:10 PM       PID   kB_rd/s   kB_wr/s kB_ccwr/s  Command</span><br><span class="line">02:16:12 PM      3485      0.00      0.00      0.00  java</span><br><span class="line">02:16:14 PM      3485      0.00      0.00      0.00  java</span><br><span class="line">02:16:16 PM      3485      0.00      0.00      0.00  java</span><br><span class="line">02:16:18 PM      3485      0.00      0.00      0.00  java</span><br><span class="line">02:16:20 PM      3485      0.00      0.00      0.00  java</span><br><span class="line">02:16:22 PM      3485      0.00      0.00      0.00  java</span><br><span class="line">02:16:24 PM      3485      0.00      0.00      0.00  java</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1564985817582.png" alt="1564985817582"></p>
+<h2 id="网络IO：ifstat"><a href="#网络IO：ifstat" class="headerlink" title="网络IO：ifstat"></a>网络IO：ifstat</h2><p>默认本地没有，需要下载ifstat</p>
+<p>安装ifstat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ifstat-1.1]# yum install flex byacc  libpcap ncurses ncurses-devel libpcap-devel gcc-c++</span><br><span class="line">wget http://gael.roualland.free.fr/ifstat/ifstat-1.1.tar.gz</span><br><span class="line">tar xzvf ifstat-1.1.tar.gz</span><br><span class="line">cd ifstat-1.1</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ifstat-1.1]# ifstat 1</span><br><span class="line">       eth0       </span><br><span class="line"> KB/s in  KB/s out</span><br><span class="line">    0.06      0.13</span><br><span class="line">    0.06      0.12</span><br><span class="line">    0.06      0.12</span><br><span class="line">    0.06      0.12</span><br><span class="line">    0.06      0.12</span><br><span class="line">    0.06      0.12</span><br><span class="line">    0.12      0.17</span><br><span class="line">    0.06      0.12</span><br></pre></td></tr></table></figure>
+
+<h1 id="生产环境出现CPU占用过高，分析思路和定位"><a href="#生产环境出现CPU占用过高，分析思路和定位" class="headerlink" title="生产环境出现CPU占用过高，分析思路和定位"></a>生产环境出现CPU占用过高，分析思路和定位</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> java.util.Random().nextInt(<span class="number">77778888</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="先用top命令找出CPU占比最高的"><a href="#先用top命令找出CPU占比最高的" class="headerlink" title="先用top命令找出CPU占比最高的"></a>先用top命令找出CPU占比最高的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                              </span><br><span class="line">4294 root      20   0 3158m  37m  11m S 16.6  2.0   0:03.28 java                                                                                 </span><br><span class="line">3428 root      20   0  100m 5444 3396 S 14.3  0.3   0:22.85 sshd                                                                                 </span><br><span class="line">  35 root      20   0     0    0    0 S  1.0  0.0   0:03.18 events/0                                                                             </span><br><span class="line">  41 root      20   0     0    0    0 S  0.3  0.0   0:00.52 events/6                                                                             </span><br><span class="line">2012 root      20   0  199m 5192 4288 S  0.3  0.3   0:00.32 ManagementAgent                                                                      </span><br><span class="line">   1 root      20   0 19344 1544 1228 S  0.0  0.1   0:01.83 init                                                                                 </span><br><span class="line">   2 root      20   0     0    0    0 S  0.0  0.0   0:00.02 kthreadd</span><br></pre></td></tr></table></figure>
+
+<h2 id="ps-ef或者jps进一步定位"><a href="#ps-ef或者jps进一步定位" class="headerlink" title="ps -ef或者jps进一步定位"></a>ps -ef或者jps进一步定位</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ifstat-1.1]# jps</span><br><span class="line">4320 Jps</span><br><span class="line">4294 JavaDemo2</span><br></pre></td></tr></table></figure>
+
+<h2 id="定位到具体线程或者代码"><a href="#定位到具体线程或者代码" class="headerlink" title="定位到具体线程或者代码"></a>定位到具体线程或者代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ifstat-1.1]# ps -mp 4294 -o THREAD,tid,time</span><br><span class="line">USER     %CPU PRI SCNT WCHAN  USER SYSTEM    TID     TIME</span><br><span class="line">root     18.6   -    - -         -      -      - 00:00:15</span><br><span class="line">root      0.0  19    - futex_    -      -   4294 00:00:00</span><br><span class="line">root     15.6  19    - n_tty_    -      -   4295 00:00:13</span><br><span class="line">root      0.2  19    - futex_    -      -   4296 00:00:00</span><br><span class="line">root      0.2  19    - futex_    -      -   4297 00:00:00</span><br><span class="line">root      0.3  19    - futex_    -      -   4298 00:00:00</span><br><span class="line">root      0.2  19    - futex_    -      -   4299 00:00:00</span><br><span class="line">root      0.3  19    - futex_    -      -   4300 00:00:00</span><br><span class="line">root      0.3  19    - futex_    -      -   4301 00:00:00</span><br><span class="line">root      0.3  19    - futex_    -      -   4302 00:00:00</span><br><span class="line">root      0.2  19    - futex_    -      -   4303 00:00:00</span><br><span class="line">root      0.0  19    - futex_    -      -   4304 00:00:00</span><br><span class="line">root      0.0  19    - futex_    -      -   4305 00:00:00</span><br><span class="line">root      0.0  19    - futex_    -      -   4306 00:00:00</span><br><span class="line">root      0.0  19    - futex_    -      -   4307 00:00:00</span><br><span class="line">root      0.0  19    - futex_    -      -   4308 00:00:00</span><br><span class="line">root      0.1  19    - futex_    -      -   4309 00:00:00</span><br><span class="line">root      0.0  19    - futex_    -      -   4310 00:00:00</span><br><span class="line">root      0.0  19    - futex_    -      -   4311 00:00:00</span><br><span class="line">root      0.0  19    - futex_    -      -   4312 00:00:00</span><br><span class="line">root      0.0  19    - futex_    -      -   4313 00:00:00</span><br></pre></td></tr></table></figure>
+
+<p>-m:显示所有的线程</p>
+<p>-p: pid进程使用CPU的时间</p>
+<p>-o:该参数后是用户自定义格式</p>
+<h2 id="线程ID转换为16进制格式（英文小写格式）"><a href="#线程ID转换为16进制格式（英文小写格式）" class="headerlink" title="线程ID转换为16进制格式（英文小写格式）"></a>线程ID转换为16进制格式（英文小写格式）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ifstat-1.1]# printf &quot;%x\n&quot; 4295</span><br><span class="line">10c7</span><br></pre></td></tr></table></figure>
+
+<h2 id="jstack-进程ID-grep-tid-16进制线程ID小写英文-A60"><a href="#jstack-进程ID-grep-tid-16进制线程ID小写英文-A60" class="headerlink" title="jstack 进程ID|grep tid(16进制线程ID小写英文) -A60"></a>jstack 进程ID|grep tid(16进制线程ID小写英文) -A60</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">[root@192 ifstat-1.1]# jstack 4294 | grep 10c7 -A60</span><br><span class="line">&quot;main&quot; #1 prio=5 os_prio=0 tid=0x00007f7f68009000 nid=0x10c7 runnable [0x00007f7f6f117000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line">        at java.io.FileOutputStream.writeBytes(Native Method)</span><br><span class="line">        at java.io.FileOutputStream.write(FileOutputStream.java:326)</span><br><span class="line">        at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)</span><br><span class="line">        at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)</span><br><span class="line">        - locked &lt;0x00000000e2e0e6e0&gt; (a java.io.BufferedOutputStream)</span><br><span class="line">        at java.io.PrintStream.write(PrintStream.java:482)</span><br><span class="line">        - locked &lt;0x00000000e2e0bbd8&gt; (a java.io.PrintStream)</span><br><span class="line">        at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:221)</span><br><span class="line">        at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:291)</span><br><span class="line">        at sun.nio.cs.StreamEncoder.flushBuffer(StreamEncoder.java:104)</span><br><span class="line">        - locked &lt;0x00000000e2e0e800&gt; (a java.io.OutputStreamWriter)</span><br><span class="line">        at java.io.OutputStreamWriter.flushBuffer(OutputStreamWriter.java:185)</span><br><span class="line">        at java.io.PrintStream.newLine(PrintStream.java:546)</span><br><span class="line">        - eliminated &lt;0x00000000e2e0bbd8&gt; (a java.io.PrintStream)</span><br><span class="line">        at java.io.PrintStream.println(PrintStream.java:737)</span><br><span class="line">        - locked &lt;0x00000000e2e0bbd8&gt; (a java.io.PrintStream)</span><br><span class="line">        at JavaDemo2.main(JavaDemo2.java:4)</span><br><span class="line"></span><br><span class="line">&quot;VM Thread&quot; os_prio=0 tid=0x00007f7f68080000 nid=0x10d0 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#0 (ParallelGC)&quot; os_prio=0 tid=0x00007f7f6801e800 nid=0x10c8 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#1 (ParallelGC)&quot; os_prio=0 tid=0x00007f7f68020000 nid=0x10c9 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#2 (ParallelGC)&quot; os_prio=0 tid=0x00007f7f68022000 nid=0x10ca runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#3 (ParallelGC)&quot; os_prio=0 tid=0x00007f7f68024000 nid=0x10cb runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#4 (ParallelGC)&quot; os_prio=0 tid=0x00007f7f68025800 nid=0x10cc runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#5 (ParallelGC)&quot; os_prio=0 tid=0x00007f7f68027800 nid=0x10cd runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#6 (ParallelGC)&quot; os_prio=0 tid=0x00007f7f68029800 nid=0x10ce runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#7 (ParallelGC)&quot; os_prio=0 tid=0x00007f7f6802b000 nid=0x10cf runnable </span><br><span class="line"></span><br><span class="line">&quot;VM Periodic Task Thread&quot; os_prio=0 tid=0x00007f7f680e8000 nid=0x10d9 waiting on condition </span><br><span class="line"></span><br><span class="line">JNI global references: 5</span><br></pre></td></tr></table></figure>
+
+<p>参考</p>
+<p><a href="https://scau-fly.iteye.com/blog/1884606" target="_blank" rel="noopener">找到最耗CPU的java线程 - - ITeye博客</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/myhexo/images/wechat.jpg" alt="shenlibing 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/myhexo/images/alipay.jpg" alt="shenlibing 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/myhexo/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/myhexo/2019/07/31/单例模式/" rel="next" title="单例模式">
+                <i class="fa fa-chevron-left"></i> 单例模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/myhexo/2019/08/06/面试题/" rel="prev" title="面试题">
+                面试题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
+            
+              <p class="site-author-name" itemprop="name">shenlibing</p>
+              <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/myhexo/archives/">
+                
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/myhexo/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/myhexo/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">47</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#生产环境服务器变慢，诊断思路和性能评估"><span class="nav-number">1.</span> <span class="nav-text">生产环境服务器变慢，诊断思路和性能评估</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整机：top"><span class="nav-number">1.1.</span> <span class="nav-text">整机：top</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU：vmstat"><span class="nav-number">1.2.</span> <span class="nav-text">CPU：vmstat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存：free"><span class="nav-number">1.3.</span> <span class="nav-text">内存：free</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬盘：df"><span class="nav-number">1.4.</span> <span class="nav-text">硬盘：df</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘IO：iostat"><span class="nav-number">1.5.</span> <span class="nav-text">磁盘IO：iostat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络IO：ifstat"><span class="nav-number">1.6.</span> <span class="nav-text">网络IO：ifstat</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生产环境出现CPU占用过高，分析思路和定位"><span class="nav-number">2.</span> <span class="nav-text">生产环境出现CPU占用过高，分析思路和定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先用top命令找出CPU占比最高的"><span class="nav-number">2.1.</span> <span class="nav-text">先用top命令找出CPU占比最高的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps-ef或者jps进一步定位"><span class="nav-number">2.2.</span> <span class="nav-text">ps -ef或者jps进一步定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位到具体线程或者代码"><span class="nav-number">2.3.</span> <span class="nav-text">定位到具体线程或者代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程ID转换为16进制格式（英文小写格式）"><span class="nav-number">2.4.</span> <span class="nav-text">线程ID转换为16进制格式（英文小写格式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jstack-进程ID-grep-tid-16进制线程ID小写英文-A60"><span class="nav-number">2.5.</span> <span class="nav-text">jstack 进程ID|grep tid(16进制线程ID小写英文) -A60</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenlibing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">876k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">13:16</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+
+ <div>友情链接：
+  <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.kawabangga.com/"> 卡瓦邦噶 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.linuxprobe.com/chapter-00.html/"> Linux就该这么学 </a><span>&nbsp;&nbsp;</span>
+ </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '59b70bc1329657f547b7',
+    clientSecret: 'b7888515eb99f7410b2f640b68568d67dc14836d',
+    repo: 'myhexo',
+    owner: 'shenlibing',
+    admin: ['shenlibing'],
+    id: md5(location.pathname),
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/myhexo/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz',
+                'X-LC-Key': 'EEaRfb6dCMaS38laDCkSYhM9',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
