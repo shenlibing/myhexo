@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myhexo/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/myhexo/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/myhexo/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/myhexo/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/myhexo/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/myhexo/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/myhexo/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="微服务架构介绍单体架构单体架构也称之为单体系统或者是单体应用。就是一种把系统中所有的功能、模块耦合在一个应用中的架构方式。 单体架构特点  打包成一个独立的单元( 导成一个唯一的jar 包或者是war 包) 会一个进程的方式来运行  单体架构的优点、缺点优点项目易于管理 部署简单 缺点测试成本高可伸缩性差可靠性差迭代困难跨语言程度差团队协作难 微服务架构什么是微服务微服务是一种架构风格。一个大型的">
+<meta name="keywords" content="springcloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringCloud">
+<meta property="og:url" content="https://shenlibing.github.io/myhexo/2019/08/24/SpringCloud/index.html">
+<meta property="og:site_name" content="小兵兵">
+<meta property="og:description" content="微服务架构介绍单体架构单体架构也称之为单体系统或者是单体应用。就是一种把系统中所有的功能、模块耦合在一个应用中的架构方式。 单体架构特点  打包成一个独立的单元( 导成一个唯一的jar 包或者是war 包) 会一个进程的方式来运行  单体架构的优点、缺点优点项目易于管理 部署简单 缺点测试成本高可伸缩性差可靠性差迭代困难跨语言程度差团队协作难 微服务架构什么是微服务微服务是一种架构风格。一个大型的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566618553352.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622195513.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622249618.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622272918.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622344528.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622446572.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622527299.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622572866.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622612348.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622690284.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566722329397.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566723847064.png">
+<meta property="og:updated_time" content="2019-08-25T09:06:00.530Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringCloud">
+<meta name="twitter:description" content="微服务架构介绍单体架构单体架构也称之为单体系统或者是单体应用。就是一种把系统中所有的功能、模块耦合在一个应用中的架构方式。 单体架构特点  打包成一个独立的单元( 导成一个唯一的jar 包或者是war 包) 会一个进程的方式来运行  单体架构的优点、缺点优点项目易于管理 部署简单 缺点测试成本高可伸缩性差可靠性差迭代困难跨语言程度差团队协作难 微服务架构什么是微服务微服务是一种架构风格。一个大型的">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566618553352.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://shenlibing.github.io/myhexo/2019/08/24/SpringCloud/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SpringCloud | 小兵兵</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+        <a href="https://github.com/shenlibing/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/myhexo/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵兵</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/myhexo/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shenlibing.github.io/myhexo/myhexo/2019/08/24/SpringCloud/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shenlibing">
+      <meta itemprop="description" content="言宜慢,心宜善">
+      <meta itemprop="image" content="/myhexo/images/myimg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵兵">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SpringCloud
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-24 11:45:16" itemprop="dateCreated datePublished" datetime="2019-08-24T11:45:16+08:00">2019-08-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-25 17:06:00" itemprop="dateModified" datetime="2019-08-25T17:06:00+08:00">2019-08-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/myhexo/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/myhexo/2019/08/24/SpringCloud/" class="leancloud_visitors" data-flag-title="SpringCloud">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">6.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">6 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="微服务架构介绍"><a href="#微服务架构介绍" class="headerlink" title="微服务架构介绍"></a>微服务架构介绍</h1><h2 id="单体架构"><a href="#单体架构" class="headerlink" title="单体架构"></a>单体架构</h2><p>单体架构也称之为单体系统或者是单体应用。就是一种把系统中所有的功能、模块耦合<br>在一个应用中的架构方式。</p>
+<h3 id="单体架构特点"><a href="#单体架构特点" class="headerlink" title="单体架构特点"></a>单体架构特点</h3><p>  打包成一个独立的单元( 导成一个唯一的jar 包或者是war 包)</p>
+<p>会一个进程的方式来运行</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566618553352.png" alt="1566618553352"></p>
+<h3 id="单体架构的优点、缺点"><a href="#单体架构的优点、缺点" class="headerlink" title="单体架构的优点、缺点"></a>单体架构的优点、缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>项目易于管理</p>
+<p>部署简单</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>测试成本高<br>可伸缩性差<br>可靠性差<br>迭代困难<br>跨语言程度差<br>团队协作难</p>
+<h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><h3 id="什么是微服务"><a href="#什么是微服务" class="headerlink" title="什么是微服务"></a>什么是微服务</h3><p>微服务是一种架构风格。一个大型的复杂软件应用，由一个或多个微服务组成。系统中<br>的各个微服务可被独立部署，各个微服务之间是松耦合的。每个微服务仅关注于完成一件任<br>务并很好的完成该任务。</p>
+<h3 id="架构风格"><a href="#架构风格" class="headerlink" title="架构风格"></a>架构风格</h3><p>项目的一种设计模式。</p>
+<h4 id="常见的架构风格"><a href="#常见的架构风格" class="headerlink" title="常见的架构风格"></a>常见的架构风格</h4><p>客户端与服务端的</p>
+<p>基于组件模型的架构（EJB)</p>
+<p>分层架构（MVC）</p>
+<p>面向服务架构（SOA）</p>
+<h3 id="微服务特点"><a href="#微服务特点" class="headerlink" title="微服务特点"></a>微服务特点</h3><p>系统是由多个服务构成</p>
+<p>每个服务可以单独独立部署</p>
+<p>每个服务之间是松耦合的。服务内部是高内聚的，外部是低耦合的。高内聚就是每个服务只关注完成一个功能。</p>
+<h3 id="微服务的优点、缺点"><a href="#微服务的优点、缺点" class="headerlink" title="微服务的优点、缺点"></a>微服务的优点、缺点</h3><h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><p>测试容易<br>可伸缩性强<br>可靠性强<br>跨语言程度会更加灵活<br>团队协作容易<br>系统迭代容易</p>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><p> 运维成本过高，部署数量较多<br>接口兼容多版本<br>分布式系统的复杂性<br>分布式事务</p>
+<h2 id="MVC-、RPC-、SOA-、微服务架构之间的区别"><a href="#MVC-、RPC-、SOA-、微服务架构之间的区别" class="headerlink" title="MVC 、RPC 、SOA 、微服务架构之间的区别"></a>MVC 、RPC 、SOA 、微服务架构之间的区别</h2><h3 id="MVC-架构"><a href="#MVC-架构" class="headerlink" title="MVC  架构"></a>MVC  架构</h3><p>其实 MVC 架构就是一个单体架构。<br>代表技术：Struts2、SpringMVC、Spring、Mybatis 等等。</p>
+<h3 id="RPC-架构"><a href="#RPC-架构" class="headerlink" title="RPC  架构"></a>RPC  架构</h3><p>RPC(Remote Procedure Call)：远程过程调用。他一种通过网络从远程计算机程序上请求<br>服务，而不需要了解底层网络技术的协议。<br>代表技术：Thrift、Hessian 等等</p>
+<h3 id="SOA-架构"><a href="#SOA-架构" class="headerlink" title="SOA  架构"></a>SOA  架构</h3><p>SOA(Service oriented Architecture):面向服务架构<br>ESB(Enterparise Servce Bus):企业服务总线，服务中介。主要是提供了一个服务于服务<br>之间的交互。<br>ESB 包含的功能如：负载均衡，流量控制，加密处理，服务的监控，异常处理，监控<br>告急等等。<br>代表技术：Mule、WSO2</p>
+<h3 id="微服务架构-1"><a href="#微服务架构-1" class="headerlink" title="微服务架构"></a>微服务架构</h3><p>微服务就是一个轻量级的服务治理方案。<br>代表技术：SpringCloud、dubbo 等等</p>
+<h2 id="如何设计微服务以及设计原则"><a href="#如何设计微服务以及设计原则" class="headerlink" title="如何设计微服务以及设计原则"></a>如何设计微服务以及设计原则</h2><h3 id="AKF-拆分原则"><a href="#AKF-拆分原则" class="headerlink" title="AKF 拆分原则"></a>AKF 拆分原则</h3><p>业界对于可扩展的系统架构设计有一个朴素的理念,就是：通过加机器就可以解决容量和可用性问题 。( 如果一台不行那就两台) 。我是个段子：（ 世界上没有什么事是一顿烧烤不能解决的。如果有，那就两顿 。）这一理念在“云计算”概念疯狂流行的今天，得到了广泛的认可！</p>
+<p>对于一个规模迅速增长的系统而言，容量和性能问题当然是首当其冲的。但是随着时间的向前，系统规模的增长，除了面对性能与容量的问题外，还需要面对功能与模块数量上的增长带来的系统复杂性问题以及业务的变化带来的提供差异化服务问题。而许多系统，在架构设计时并未充分考虑到这些问题，导致系统的重构成为常态，从而影响业务交付能力，还浪费人力财力！对此，《可扩展的艺术》一书提出了一个更加系统的可扩展模型—— AKF  可扩展立方 （Scalability Cube）。这个立方体中沿着三个坐标轴设置分别为：X、Y、Z。</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622195513.png" alt="1566622195513"></p>
+<p>Y 轴(功能) —— 关注应用中功能划分，基于不同的业务拆分<br>X 轴(水平扩展) —— 关注水平扩展，也就是”加机器解决问题”<br>Z 轴(数据分区) —— 关注服务和数据的优先级划分，如按地域划分</p>
+<h4 id="Y-轴-功能"><a href="#Y-轴-功能" class="headerlink" title="Y 轴( 功能)"></a>Y 轴( 功能)</h4><p>Y 轴扩展会将庞大的整体应用拆分为多个服务。每个服务实现一组相关的功能，如订单管理、客户管理等。在工程上常见的方案是  服务化架构(SOA) 。比如对于一个电子商务平台，我们可以拆分成不同的服务，组成下面这样的架构：</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622249618.png" alt="1566622249618"></p>
+<p>但通过观察上图容易发现，当服务数量增多时，服务调用关系变得复杂。为系统添加一个新功能，要调用的服务数也变得不可控，由此引发了服务管理上的混乱。所以，一般情况下，需要采用服务注册的机制形成服务网关来进行服务治理。系统的架构将变成下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622272918.png" alt="1566622272918"></p>
+<h4 id="X轴-水平扩展"><a href="#X轴-水平扩展" class="headerlink" title="X轴( 水平扩展)"></a>X轴( 水平扩展)</h4><p>X 轴扩展与我们前面朴素理念是一致的，通过绝对平等地复制服务与数据，以解决容量和可用性的问题。其实就是将微服务运行多个实例，做集群加负载均衡的模式。为了提升单个服务的可用性和容量，  对每一个服务进行X 轴扩展划分 。</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622344528.png" alt="1566622344528"></p>
+<h4 id="Z轴-数据分区"><a href="#Z轴-数据分区" class="headerlink" title="Z轴( 数据分区)"></a>Z轴( 数据分区)</h4><p>Z 轴扩展通常是指基于请求者或用户独特的需求，进行系统划分，并使得划分出来的子系统是相互隔离但又是完整的。以生产汽车的工厂来举例：福特公司为了发展在中国的业务，或者利用中国的廉价劳动力，在中国建立一个完整的子工厂，与美国工厂一样，负责完整的汽车生产。这就是一种 Z 轴扩展。</p>
+<h5 id="工程领域常见的Z-轴扩展有以下两种方案："><a href="#工程领域常见的Z-轴扩展有以下两种方案：" class="headerlink" title="工程领域常见的Z 轴扩展有以下两种方案："></a>工程领域常见的Z 轴扩展有以下两种方案：</h5><h6 id="单元化架构"><a href="#单元化架构" class="headerlink" title="单元化架构"></a>单元化架构</h6><p>在分布式服务设计领域，一个单元（Cell）就是满足某个分区所有业务操作的自包含闭环。如上面我们说到的 Y 轴扩展的 SOA 架构，客户端对服务端节点的选择一般是随机的，但是，如果在此加上 Z 轴扩展，那服务节点的选择将不再是随机的了，而是每个单元自成一体。如下图：</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622446572.png" alt="1566622446572"></p>
+<h6 id="数据分区"><a href="#数据分区" class="headerlink" title="数据分区"></a>数据分区</h6><p>为了性能数据安全上的考虑，我们将一个完整的数据集按一定的维度划分出不同的子集。 一个分区（Shard），就是是整体数据集的一个子集。比如用尾号来划分用户，那同样尾号的那部分用户就可以认为是一个分区。数据分区为一般包括以下几种数据划分的方式：</p>
+<ul>
+<li>数据类型（如：业务类型）</li>
+<li>数据范围（如：时间段，用户 ID）</li>
+<li>数据热度（如：用户活跃度，商品热度）</li>
+<li>按读写分（如：商品描述，商品库存）</li>
+</ul>
+<h3 id="前后端分离原则"><a href="#前后端分离原则" class="headerlink" title="前后端分离原则"></a>前后端分离原则</h3><p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622527299.png" alt="1566622527299"></p>
+<p>何为前后端分离？前后端本来不就分离么？这要从尴尬的 jsp 讲起。分工精细化从来都是蛋糕做大的原则，多个领域工程师最好在不需要接触其他领域知识的情况下合作，才可能使效率越来越高，维护也会变得简单。jsp 的模板技术融合了 html 和 java 代码，使得传统MVC 开发中的前后端在这里如胶似漆，前端做好页面，后端转成模板，发现问题再找前端，前端又看不懂 java 代码……前后端分离的目的就是将这尴尬局面打破。</p>
+<p>前后端分离原则，简单来讲就是前端和后端的代码分离，我们推荐的模式是最好采用物理分离的方式部署，进一步促使更彻底的分离。如果继续直接使用服务端模板技术，如：jsp，把 java、js、html、css 都堆到一个页面里，稍微复杂一点的页面就无法维护了。</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622572866.png" alt="1566622572866"></p>
+<p>这种分离方式有几个好处：</p>
+<ul>
+<li>前后端技术分离，可以由各自的专家来对各自的领域进行优化，这样前段的用户体<br>验优化效果更好。</li>
+<li>分离模式下，前后端交互界面更清晰，就剩下了接口模型，后端的接口简洁明了，<br>更容易维护。</li>
+<li>前端多渠道集成场景更容易实现，后端服务无需变更，采用统一的数据和模型，可<br>以支持多个前端：例如：微信 h5 前端、PC 前端、安卓前端、IOS 前端。</li>
+</ul>
+<h3 id="无状态服务"><a href="#无状态服务" class="headerlink" title="无状态服务"></a>无状态服务</h3><p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622612348.png" alt="1566622612348"></p>
+<p>对于无状态服务，首先说一下什么是状态：如果一个数据需要被多个服务共享，才能完成一笔交易，那么这个数据被称为状态。进而依赖这个“状态”数据的服务被称为有状态服务，反之称为无状态服务。那么这个无状态服务原则并不是说在微服务架构里就不允许存在状态，表达的真实意思是要把有状态的业务服务改变为无状态的计算类服务，那么状态数据也就相应的迁移到对应的“有状态数据服务”中。</p>
+<p>场景说明：例如我们以前在本地内存中建立的数据缓存、Session 缓存，到现在的微服务架构中就应该把这些数据迁移到分布式缓存中存储，让业务服务变成一个无状态的计算节点。迁移后，就可以做到按需动态伸缩，微服务应用在运行时动态增删节点，就不再需要考虑缓存数据如何同步的问题。</p>
+<h3 id="RestFul-的通信风格"><a href="#RestFul-的通信风格" class="headerlink" title="RestFul 的通信风格"></a>RestFul 的通信风格</h3><p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566622690284.png" alt="1566622690284"></p>
+<p>作为一个原则来讲本来应该是个“无状态通信原则”，在这里我们直接推荐一个实践优选的 Restful 通信风格 ，因为他有很多好处：</p>
+<ul>
+<li>无状态协议 HTTP，具备先天优势，扩展能力很强。例如需要安全加密，有<br>现成的成熟方案 HTTPS 即可。</li>
+<li>JSON 报文序列化，轻量简单，人与机器均可读，学习成本低，搜索引擎友<br>好。</li>
+<li>语言无关，各大热门语言都提供成熟的 Restful API 框架，相对其他的一些<br>RPC 框架生态更完善。</li>
+</ul>
+<h1 id="Spring-Cloud入门"><a href="#Spring-Cloud入门" class="headerlink" title="Spring Cloud入门"></a>Spring Cloud入门</h1><h2 id="Spring-Cloud简介"><a href="#Spring-Cloud简介" class="headerlink" title="Spring Cloud简介"></a>Spring Cloud简介</h2><h3 id="什么是Spring-Cloud"><a href="#什么是Spring-Cloud" class="headerlink" title="什么是Spring Cloud"></a>什么是Spring Cloud</h3><p>什么是 SpringCloud：是一个服务治理平台，提供了一些服务框架。包含了：服务注册与发现、配置中心、消息中心 、负载均衡、数据监控等等。</p>
+<h4 id="概念定义"><a href="#概念定义" class="headerlink" title="概念定义"></a>概念定义</h4><p>Spring Cloud 是一个微服务框架，相比 Dubbo 等 RPC 框架, Spring Cloud  提供的全套的分布式系统解决方案。<br>Spring Cloud 对微服务基础框架 Netflix 的多个开源组件进行了封装，同时又实现了和云端平台以及和 Spring Boot 开发框架的集成。</p>
+<p>Spring Cloud 为微服务架构开发涉及的 配置管理，服务治理，熔断机制，智能路由，性微代理，控制总线，一次性 token ，全局一致性锁，leader  选举，分布式 session ，集群状态管理等操作提供了一种简单的开发方式。</p>
+<p>Spring Cloud 为开发者提供了快速构建 分布式系统的工具，开发者可以快速的启动<br>服务或构建应用、同时能够快速和云平台资源进行对接。</p>
+<h4 id="Spring-Cloud-的项目的位置"><a href="#Spring-Cloud-的项目的位置" class="headerlink" title="Spring Cloud  的项目的位置"></a>Spring Cloud  的项目的位置</h4><p>Sping Cloud 是 Spring 的一个顶级项目与 Spring Boot、Spring Data 位于同一位置。</p>
+<h4 id="Spring-Cloud-的子项目"><a href="#Spring-Cloud-的子项目" class="headerlink" title="Spring Cloud 的子项目"></a>Spring Cloud 的子项目</h4><p>Spring Cloud 包含了很多子项目，如：</p>
+<p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566722329397.png" alt="1566722329397"></p>
+<h5 id="Spring-Cloud-Config"><a href="#Spring-Cloud-Config" class="headerlink" title="Spring Cloud Config"></a>Spring Cloud Config</h5><p>配置管理工具，支持使用 Git  存储配置内容，支持应用配置的外部化存储，支持客户端配置信息刷新、加解密配置内容等</p>
+<h5 id="Spring-Cloud-Bus"><a href="#Spring-Cloud-Bus" class="headerlink" title="Spring Cloud Bus"></a>Spring Cloud Bus</h5><p>事件、消息总线，用于在集群（例如，配置变化事件）中 ：事件、消息总线，用于在集群（例如，配置变化事件）中与 传播状态变化，可与 Spring Cloud Config  联合实现热部署。</p>
+<h5 id="Spring-Cloud-Netflix"><a href="#Spring-Cloud-Netflix" class="headerlink" title="Spring Cloud Netflix"></a>Spring Cloud Netflix</h5><p>针对多种 种 Netflix  组件提供的开发工具包，其中包括Eureka 、Hystrix 、Zuul 、Archaius  等。</p>
+<h6 id="Netflix-Eureka"><a href="#Netflix-Eureka" class="headerlink" title="Netflix Eureka"></a>Netflix Eureka</h6><p>一个基于 rest  服务的服务治理组件，包括服务注册中心、服务注册与服务发现机制的实现，实现了云端负载均衡和中间层服务器的故障转移。</p>
+<h6 id="Netflix-Hystrix"><a href="#Netflix-Hystrix" class="headerlink" title="Netflix Hystrix"></a>Netflix Hystrix</h6><p>容错管理工具，实现断路器模式，通过控制服务的节点,<br>从而对延迟和故障提供更强大的容错能力。</p>
+<h6 id="Netflix-Ribbon"><a href="#Netflix-Ribbon" class="headerlink" title="Netflix Ribbon"></a>Netflix Ribbon</h6><p>客户端负载均衡的服务调用组件。</p>
+<h6 id="Netflix-Feign"><a href="#Netflix-Feign" class="headerlink" title="Netflix Feign"></a>Netflix Feign</h6><p>基于 Ribbon 和 和 Hystrix  的声明式服务调用组件。</p>
+<h6 id="Netflix-Zuul"><a href="#Netflix-Zuul" class="headerlink" title="Netflix Zuul"></a>Netflix Zuul</h6><p>微服务网关，提供动态路由，访问过滤等服务。</p>
+<h6 id="Netflix-Archaius"><a href="#Netflix-Archaius" class="headerlink" title="Netflix Archaius"></a>Netflix Archaius</h6><p>配置管理 API ，包含一系列配置管理 API ，提供动态类型化属性、线程安全配置操作、轮询框架、回调机制等功能。</p>
+<h5 id="Spring-Cloud-for-Cloud-Foundry"><a href="#Spring-Cloud-for-Cloud-Foundry" class="headerlink" title="Spring Cloud for Cloud Foundry"></a>Spring Cloud for Cloud Foundry</h5><p>通过 Oauth2  协议绑定服务到CloudFoundry ，CloudFoundry 是 是 VMware  推出的开源 PaaS  云平台。</p>
+<h5 id="Spring-Cloud-Sleuth"><a href="#Spring-Cloud-Sleuth" class="headerlink" title="Spring Cloud Sleuth"></a>Spring Cloud Sleuth</h5><p>日志收集工具包，封装了 Dapper,Zipkin 和 和 HTrace操作。</p>
+<h5 id="Spring-Cloud-Data-Flow"><a href="#Spring-Cloud-Data-Flow" class="headerlink" title="Spring Cloud Data Flow"></a>Spring Cloud Data Flow</h5><p>大数据操作工具，通过命令行方式操作数据流。</p>
+<h5 id="Spring-Cloud-Security"><a href="#Spring-Cloud-Security" class="headerlink" title="Spring Cloud Security"></a>Spring Cloud Security</h5><p>安全工具包，为你的应用程序添加安全控制，主要指 是指 OAuth2 。</p>
+<h5 id="Spring-Cloud-Consul"><a href="#Spring-Cloud-Consul" class="headerlink" title="Spring Cloud Consul"></a>Spring Cloud Consul</h5><p>封装了 Consul  操作，consul  是一个服务发现与配与 置工具，与 Docker 容器可以无缝集成。</p>
+<h5 id="Spring-Cloud-Zookeeper"><a href="#Spring-Cloud-Zookeeper" class="headerlink" title="Spring Cloud Zookeeper"></a>Spring Cloud Zookeeper</h5><p>操作 Zookeeper  的工具包，用于使用zookeeper 方式的服务注册和发现。</p>
+<h5 id="Spring-Cloud-Stream"><a href="#Spring-Cloud-Stream" class="headerlink" title="Spring Cloud Stream"></a>Spring Cloud Stream</h5><p>数据流操作开发包，封装了与 Redis,Rabbit 、Kafka  等发送接收消息。</p>
+<h5 id="Spring-Cloud-CLI"><a href="#Spring-Cloud-CLI" class="headerlink" title="Spring Cloud CLI"></a>Spring Cloud CLI</h5><p>基于 Spring Boot CLI ，可以让你以命令行方式快速建立云组件。</p>
+<h3 id="Spring-Cloud与Dubbo区别"><a href="#Spring-Cloud与Dubbo区别" class="headerlink" title="Spring Cloud与Dubbo区别"></a>Spring Cloud与Dubbo区别</h3><table>
+<thead>
+<tr>
+<th>对比项</th>
+<th></th>
+<th>dubbo</th>
+<th>springcloud</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>出身背景</td>
+<td></td>
+<td>阿里系核心框架是服务化治理</td>
+<td>Spring社区核心框架是Netflix开源微服务架构群体</td>
+</tr>
+<tr>
+<td></td>
+<td>社区活跃度</td>
+<td>相差不多，但是springcloud相对更活跃一些</td>
+<td></td>
+</tr>
+<tr>
+<td>活跃度</td>
+<td>百度指数</td>
+<td>2570</td>
+<td>999</td>
+</tr>
+<tr>
+<td></td>
+<td>招聘岗位</td>
+<td>636</td>
+<td>160</td>
+</tr>
+<tr>
+<td>文档质量</td>
+<td></td>
+<td>集中，健全</td>
+<td>较多，内容大部分是英文版本</td>
+</tr>
+<tr>
+<td>性能</td>
+<td><a href="https://mp.weixin.qq.com/s?__biz=MzA5MzQ2NTY0OA==&mid=2650796496&idx=1&sn=a544b76660484b9914b65f038cc39e6d&chksm=88562c8fbf21a5995909ffa9f172f31651b1ebd04897917e43caef3491954e24ed0d0477a5a1&mpshare=1&scene=23&srcid=01245faqrBlQETYK9c7zVmd3#rd" target="_blank" rel="noopener">孰优孰劣？Dubbo VS Spring Cloud性能测试大对决！</a></td>
+<td>1:3，dubbo的性能优于springcloud</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>服务注册中心</td>
+<td>zookeeper</td>
+<td>Spring Cloud Netflix Eureka</td>
+</tr>
+<tr>
+<td></td>
+<td>服务调用方式</td>
+<td>PRC</td>
+<td>REST API</td>
+</tr>
+<tr>
+<td></td>
+<td>服务网关</td>
+<td>无</td>
+<td>Spring Cloud Netflix Zuul</td>
+</tr>
+<tr>
+<td></td>
+<td>断路由</td>
+<td>集群容错</td>
+<td>Spring Cloud Netflix Hystrix</td>
+</tr>
+<tr>
+<td>功能</td>
+<td>分布式配置</td>
+<td>无</td>
+<td>Spring Cloud Config</td>
+</tr>
+<tr>
+<td></td>
+<td>服务跟踪</td>
+<td>无</td>
+<td>Spring Cloud Sleuth</td>
+</tr>
+<tr>
+<td></td>
+<td>消息总线</td>
+<td>无</td>
+<td>Spring Cloud Bus</td>
+</tr>
+<tr>
+<td></td>
+<td>数据流</td>
+<td>无</td>
+<td>Spring Cloud Stream</td>
+</tr>
+<tr>
+<td></td>
+<td>批量任务</td>
+<td>无</td>
+<td>Spring Cloud Task</td>
+</tr>
+</tbody></table>
+<h2 id="Spring-Cloud版本"><a href="#Spring-Cloud版本" class="headerlink" title="Spring Cloud版本"></a>Spring Cloud版本</h2><h3 id="常见版本号介绍"><a href="#常见版本号介绍" class="headerlink" title="常见版本号介绍"></a>常见版本号介绍</h3><p>软件版本号：2.0.2.RELEASE<br>2：主版本号。当功能模块有较大更新或者整体架构发生变化时，主版本号会更新<br>0：次版本号。次版本表示只是局部的一些变动。<br>2：修改版本号。一般是 bug 的修复或者是小的变动<br>RELEASE:<strong>希腊字母版本号</strong>。次版本号用户标注当前版本的软件处于哪个开发阶段</p>
+<h4 id="希腊字母版本号"><a href="#希腊字母版本号" class="headerlink" title="希腊字母版本号"></a>希腊字母版本号</h4><p>Base：设计阶段。只有相应的设计没有具体的功能实现。<br>Alpha：软件的初级版本。存在较多的 bug<br>Bate：表示相对 alpha 有了很大的进步，消除了严重的 bug，还存在一些潜在的 bug。<br>Release：该版本表示最终版。</p>
+<h3 id="Spring-Cloud-版本号说明"><a href="#Spring-Cloud-版本号说明" class="headerlink" title="Spring Cloud   版本号说明"></a>Spring Cloud   版本号说明</h3><h4 id="为什么-Spring-Cloud-版本用的是单词而不是数字？"><a href="#为什么-Spring-Cloud-版本用的是单词而不是数字？" class="headerlink" title="为什么 Spring Cloud 版本用的是单词而不是数字？"></a>为什么 Spring Cloud 版本用的是单词而不是数字？</h4><p>设计的目的是为了更好的管理每个 Spring Cloud 的子项目的清单。避免子的版本号与子项目的版本号混淆。</p>
+<h4 id="版本号单词的定义规则"><a href="#版本号单词的定义规则" class="headerlink" title="版本号单词的定义规则"></a>版本号单词的定义规则</h4><p>采用伦敦的地铁站名称来作为版本号的命名，根据首字母排序，字母顺序靠后的版本号越大。</p>
+<h4 id="版本发布计划说明"><a href="#版本发布计划说明" class="headerlink" title="版本发布计划说明"></a>版本发布计划说明</h4><table>
+<thead>
+<tr>
+<th>版本号</th>
+<th>版本</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BUILD-XXX</td>
+<td>开发版</td>
+<td>一般是开发团队内部使用</td>
+</tr>
+<tr>
+<td>GA</td>
+<td>稳定版</td>
+<td>内部开发到一定阶段了，各个模块集成后，经过全面测试发现没有问题，可对外发行了。这个时候叫GA(General Availability)。基本上可以使用了。</td>
+</tr>
+<tr>
+<td>PRE（M1 M2）</td>
+<td>里程碑版</td>
+<td>由于GA还不属于公开发行版，里面还有些功能不完善或者bug，于是就有了milestone（里程碑版）。milestone版主要修复了一些bug调整。一个GA后，一般会有多个里程本版。例如 M1 M2 M3……</td>
+</tr>
+<tr>
+<td>RC</td>
+<td>候选发布版</td>
+<td>从BUILD后到GA在到M基本上系统就算定型了，这个时候系统就进入ReleaseCandidate（候选发布版）。该阶段的软件类似于最终发行前的一个观察期，该期间只对一些发现的等级高的bug进行修复。发布RC1 RC2等版本</td>
+</tr>
+<tr>
+<td>SR</td>
+<td>正式发布版</td>
+<td>公开正式发布。正式发布版一般也有多个发布，例如 SR1 SR2 SR3等等，一般是用</td>
+</tr>
+</tbody></table>
+<h3 id="Spring-Cloud与子项目版本兼容说明"><a href="#Spring-Cloud与子项目版本兼容说明" class="headerlink" title="Spring Cloud与子项目版本兼容说明"></a>Spring Cloud与子项目版本兼容说明</h3><p><img src="https://raw.githubusercontent.com/shenlibing/blogphoto/master/source/1566723847064.png" alt="1566723847064"></p>
+<h1 id="Spring-Boot实战"><a href="#Spring-Boot实战" class="headerlink" title="Spring Boot实战"></a>Spring Boot实战</h1><h1 id="RabbitMQ实战"><a href="#RabbitMQ实战" class="headerlink" title="RabbitMQ实战"></a>RabbitMQ实战</h1><h1 id="Eureka注册中心"><a href="#Eureka注册中心" class="headerlink" title="Eureka注册中心"></a>Eureka注册中心</h1>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/myhexo/images/wechat.jpg" alt="shenlibing 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/myhexo/images/alipay.jpg" alt="shenlibing 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/myhexo/tags/springcloud/" rel="tag"># springcloud</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/myhexo/2019/08/23/vscode主题安装/" rel="next" title="vscode主题安装">
+                <i class="fa fa-chevron-left"></i> vscode主题安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/myhexo/2019/08/26/github骚操作/" rel="prev" title="github骚操作">
+                github骚操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/myhexo/images/myimg.jpg" alt="shenlibing">
+            
+              <p class="site-author-name" itemprop="name">shenlibing</p>
+              <p class="site-description motion-element" itemprop="description">言宜慢,心宜善</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/myhexo/archives/">
+                
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/myhexo/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/myhexo/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://tech.meituan.com/" title="https://tech.meituan.com/" rel="noopener" target="_blank">美团技术团队</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://75team.com/" title="https://75team.com/" rel="noopener" target="_blank">奇舞团</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://fex.baidu.com/" title="http://fex.baidu.com/" rel="noopener" target="_blank">百度FEX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taobaofed.org/" title="http://taobaofed.org/" rel="noopener" target="_blank">淘宝FED</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cdc.tencent.com/" title="https://cdc.tencent.com/" rel="noopener" target="_blank">腾讯CDC</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weekly.75team.com/" title="https://weekly.75team.com/" rel="noopener" target="_blank">奇舞周刊</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#微服务架构介绍"><span class="nav-number">1.</span> <span class="nav-text">微服务架构介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单体架构"><span class="nav-number">1.1.</span> <span class="nav-text">单体架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单体架构特点"><span class="nav-number">1.1.1.</span> <span class="nav-text">单体架构特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单体架构的优点、缺点"><span class="nav-number">1.1.2.</span> <span class="nav-text">单体架构的优点、缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务架构"><span class="nav-number">1.2.</span> <span class="nav-text">微服务架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微服务"><span class="nav-number">1.2.1.</span> <span class="nav-text">什么是微服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#架构风格"><span class="nav-number">1.2.2.</span> <span class="nav-text">架构风格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的架构风格"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">常见的架构风格</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务特点"><span class="nav-number">1.2.3.</span> <span class="nav-text">微服务特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务的优点、缺点"><span class="nav-number">1.2.4.</span> <span class="nav-text">微服务的优点、缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC-、RPC-、SOA-、微服务架构之间的区别"><span class="nav-number">1.3.</span> <span class="nav-text">MVC 、RPC 、SOA 、微服务架构之间的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC-架构"><span class="nav-number">1.3.1.</span> <span class="nav-text">MVC  架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RPC-架构"><span class="nav-number">1.3.2.</span> <span class="nav-text">RPC  架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SOA-架构"><span class="nav-number">1.3.3.</span> <span class="nav-text">SOA  架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务架构-1"><span class="nav-number">1.3.4.</span> <span class="nav-text">微服务架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何设计微服务以及设计原则"><span class="nav-number">1.4.</span> <span class="nav-text">如何设计微服务以及设计原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AKF-拆分原则"><span class="nav-number">1.4.1.</span> <span class="nav-text">AKF 拆分原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Y-轴-功能"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">Y 轴( 功能)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X轴-水平扩展"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">X轴( 水平扩展)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Z轴-数据分区"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">Z轴( 数据分区)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#工程领域常见的Z-轴扩展有以下两种方案："><span class="nav-number">1.4.1.3.1.</span> <span class="nav-text">工程领域常见的Z 轴扩展有以下两种方案：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#单元化架构"><span class="nav-number">1.4.1.3.1.1.</span> <span class="nav-text">单元化架构</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#数据分区"><span class="nav-number">1.4.1.3.1.2.</span> <span class="nav-text">数据分区</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前后端分离原则"><span class="nav-number">1.4.2.</span> <span class="nav-text">前后端分离原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无状态服务"><span class="nav-number">1.4.3.</span> <span class="nav-text">无状态服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RestFul-的通信风格"><span class="nav-number">1.4.4.</span> <span class="nav-text">RestFul 的通信风格</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cloud入门"><span class="nav-number">2.</span> <span class="nav-text">Spring Cloud入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cloud简介"><span class="nav-number">2.1.</span> <span class="nav-text">Spring Cloud简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Spring-Cloud"><span class="nav-number">2.1.1.</span> <span class="nav-text">什么是Spring Cloud</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念定义"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">概念定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-Cloud-的项目的位置"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Spring Cloud  的项目的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-Cloud-的子项目"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">Spring Cloud 的子项目</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-Config"><span class="nav-number">2.1.1.3.1.</span> <span class="nav-text">Spring Cloud Config</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-Bus"><span class="nav-number">2.1.1.3.2.</span> <span class="nav-text">Spring Cloud Bus</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-Netflix"><span class="nav-number">2.1.1.3.3.</span> <span class="nav-text">Spring Cloud Netflix</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Netflix-Eureka"><span class="nav-number">2.1.1.3.3.1.</span> <span class="nav-text">Netflix Eureka</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Netflix-Hystrix"><span class="nav-number">2.1.1.3.3.2.</span> <span class="nav-text">Netflix Hystrix</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Netflix-Ribbon"><span class="nav-number">2.1.1.3.3.3.</span> <span class="nav-text">Netflix Ribbon</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Netflix-Feign"><span class="nav-number">2.1.1.3.3.4.</span> <span class="nav-text">Netflix Feign</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Netflix-Zuul"><span class="nav-number">2.1.1.3.3.5.</span> <span class="nav-text">Netflix Zuul</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Netflix-Archaius"><span class="nav-number">2.1.1.3.3.6.</span> <span class="nav-text">Netflix Archaius</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-for-Cloud-Foundry"><span class="nav-number">2.1.1.3.4.</span> <span class="nav-text">Spring Cloud for Cloud Foundry</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-Sleuth"><span class="nav-number">2.1.1.3.5.</span> <span class="nav-text">Spring Cloud Sleuth</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-Data-Flow"><span class="nav-number">2.1.1.3.6.</span> <span class="nav-text">Spring Cloud Data Flow</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-Security"><span class="nav-number">2.1.1.3.7.</span> <span class="nav-text">Spring Cloud Security</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-Consul"><span class="nav-number">2.1.1.3.8.</span> <span class="nav-text">Spring Cloud Consul</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-Zookeeper"><span class="nav-number">2.1.1.3.9.</span> <span class="nav-text">Spring Cloud Zookeeper</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-Stream"><span class="nav-number">2.1.1.3.10.</span> <span class="nav-text">Spring Cloud Stream</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Cloud-CLI"><span class="nav-number">2.1.1.3.11.</span> <span class="nav-text">Spring Cloud CLI</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud与Dubbo区别"><span class="nav-number">2.1.2.</span> <span class="nav-text">Spring Cloud与Dubbo区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Cloud版本"><span class="nav-number">2.2.</span> <span class="nav-text">Spring Cloud版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见版本号介绍"><span class="nav-number">2.2.1.</span> <span class="nav-text">常见版本号介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#希腊字母版本号"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">希腊字母版本号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud-版本号说明"><span class="nav-number">2.2.2.</span> <span class="nav-text">Spring Cloud   版本号说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么-Spring-Cloud-版本用的是单词而不是数字？"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">为什么 Spring Cloud 版本用的是单词而不是数字？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本号单词的定义规则"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">版本号单词的定义规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本发布计划说明"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">版本发布计划说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud与子项目版本兼容说明"><span class="nav-number">2.2.3.</span> <span class="nav-text">Spring Cloud与子项目版本兼容说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot实战"><span class="nav-number">3.</span> <span class="nav-text">Spring Boot实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RabbitMQ实战"><span class="nav-number">4.</span> <span class="nav-text">RabbitMQ实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eureka注册中心"><span class="nav-number">5.</span> <span class="nav-text">Eureka注册中心</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenlibing</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">924k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">14:01</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v6.7.0</div>
+
+
+
+
+
+ <div>友情链接：
+  <a class="theme-link" href="http://collect.w3ctrain.com/"> 前端收藏夹 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.alloyteam.com/nav/"> Web前端导航 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="http://www.runoob.com/"> 菜鸟教程 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://mccxj.github.io/"> 小毛的胡思乱想 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.kawabangga.com/"> 卡瓦邦噶 </a><span>&nbsp;&nbsp;</span>
+  <a class="theme-link" href="https://www.linuxprobe.com/chapter-00.html/"> Linux就该这么学 </a><span>&nbsp;&nbsp;</span>
+ </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/myhexo/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/myhexo/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/myhexo/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/myhexo/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/myhexo/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/myhexo/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/myhexo/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/myhexo/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/myhexo/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '59b70bc1329657f547b7',
+    clientSecret: 'b7888515eb99f7410b2f640b68568d67dc14836d',
+    repo: 'myhexo',
+    owner: 'shenlibing',
+    admin: ['shenlibing'],
+    id: md5(location.pathname),
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/myhexo/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log(`Failed to save Visitor num, with error message: ${responseJSON.error}`);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log(`LeanCloud Counter Error: ${responseJSON.code} ${responseJSON.error}`);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'BedsOkBLOBR4nM4W52xTcBhb-gzGzoHsz',
+                'X-LC-Key': 'EEaRfb6dCMaS38laDCkSYhM9',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+</html>
